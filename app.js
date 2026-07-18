@@ -1958,6 +1958,28 @@ document.addEventListener('DOMContentLoaded', () => {
             ambientToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(ambientMenu); });
         }
 
+        // Generic dropdowns for the poem-detail toolbar (data-dd="panelId").
+        // Mutually exclusive; closes on outside-click or after an action item.
+        function closeAllMdPanels() {
+            document.querySelectorAll('.md-dd-panel').forEach(p => { p.hidden = true; });
+            document.querySelectorAll('[data-dd]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        }
+        document.addEventListener('click', (e) => {
+            const ddToggle = e.target.closest('[data-dd]');
+            if (ddToggle) {
+                const panel = document.getElementById(ddToggle.dataset.dd);
+                if (!panel) return;
+                const willOpen = panel.hidden;
+                closeAllMdPanels();
+                panel.hidden = !willOpen;
+                ddToggle.setAttribute('aria-expanded', String(willOpen));
+                return;
+            }
+            const ddItem = e.target.closest('.md-dd-panel .hdr-menu-item');
+            if (ddItem) { closeAllMdPanels(); return; } // action chosen; its own handler still runs
+            if (!e.target.closest('.md-dd-panel')) closeAllMdPanels(); // click outside
+        });
+
         if (ambientStopBtn) {
             ambientStopBtn.addEventListener('click', () => {
                 stopAmbientSound();
@@ -3502,6 +3524,246 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
             }
         }
+        // ------------------------------------------------------------------
+        // VIETNAM HOLIDAYS & AUTHOR BIRTHDAY (17/06) CELEBRATION ENGINE
+        // ------------------------------------------------------------------
+        function initVietnamHolidaysAndAuthorBirthday() {
+            const flagCanvas = document.getElementById('vietnamFlagCanvas');
+            const confettiCanvas = document.getElementById('confettiCanvas');
+            const greetingModal = document.getElementById('holidayGreetingModal');
+            const closeHolidayModalBtn = document.getElementById('closeHolidayModalBtn');
+            const holidayEmoji = document.getElementById('holidayEmoji');
+            const holidayTitle = document.getElementById('holidayTitle');
+            const holidayMessage = document.getElementById('holidayMessage');
+
+            if (!flagCanvas || !confettiCanvas) return;
+
+            let flagAnimId = null;
+            let confettiAnimId = null;
+            let flagTime = 0;
+
+            // Resize canvas to full viewport
+            function resizeHolidayCanvases() {
+                flagCanvas.width = window.innerWidth;
+                flagCanvas.height = window.innerHeight;
+                confettiCanvas.width = window.innerWidth;
+                confettiCanvas.height = window.innerHeight;
+            }
+            resizeHolidayCanvases();
+            window.addEventListener('resize', resizeHolidayCanvases);
+
+            // Helper to draw a 5-pointed golden star
+            function drawGoldenStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+                let rot = (Math.PI / 2) * 3;
+                let x = cx;
+                let y = cy;
+                let step = Math.PI / spikes;
+
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - outerRadius);
+                for (let i = 0; i < spikes; i++) {
+                    x = cx + Math.cos(rot) * outerRadius;
+                    y = cy + Math.sin(rot) * outerRadius;
+                    ctx.lineTo(x, y);
+                    rot += step;
+
+                    x = cx + Math.cos(rot) * innerRadius;
+                    y = cy + Math.sin(rot) * innerRadius;
+                    ctx.lineTo(x, y);
+                    rot += step;
+                }
+                ctx.lineTo(cx, cy - outerRadius);
+                ctx.closePath();
+                ctx.fillStyle = '#ffde00';
+                ctx.fill();
+            }
+
+            // Render Waving Vietnam Flag Animation
+            function startWavingVietnamFlag() {
+                flagCanvas.hidden = false;
+                const ctx = flagCanvas.getContext('2d');
+                let flags = [
+                    { x: window.innerWidth * 0.82, y: 120, width: 220, height: 146, waveOffset: 0 },
+                    { x: 40, y: window.innerHeight - 200, width: 180, height: 120, waveOffset: 2 }
+                ];
+
+                function renderFlagFrame() {
+                    ctx.clearRect(0, 0, flagCanvas.width, flagCanvas.height);
+                    flagTime += 0.06;
+
+                    flags.forEach(f => {
+                        ctx.save();
+                        ctx.translate(f.x, f.y);
+
+                        // Draw flagpole
+                        ctx.fillStyle = '#94a3b8';
+                        ctx.fillRect(-6, -10, 8, f.height + 60);
+
+                        // Draw flag body with sine wave ripple
+                        const cols = 24;
+                        const colWidth = f.width / cols;
+
+                        for (let c = 0; c < cols; c++) {
+                            const wave = Math.sin(c * 0.25 + flagTime + f.waveOffset) * 8;
+                            const nextWave = Math.sin((c + 1) * 0.25 + flagTime + f.waveOffset) * 8;
+
+                            ctx.fillStyle = '#da251d';
+                            ctx.beginPath();
+                            ctx.moveTo(c * colWidth, wave);
+                            ctx.lineTo((c + 1) * colWidth, nextWave);
+                            ctx.lineTo((c + 1) * colWidth, f.height + nextWave);
+                            ctx.lineTo(c * colWidth, f.height + wave);
+                            ctx.closePath();
+                            ctx.fill();
+
+                            // Shading overlay
+                            const shade = Math.cos(c * 0.25 + flagTime + f.waveOffset) * 0.15;
+                            ctx.fillStyle = shade > 0 ? `rgba(255,255,255,${shade})` : `rgba(0,0,0,${-shade})`;
+                            ctx.fill();
+                        }
+
+                        // Draw golden star at center of flag
+                        const starWave = Math.sin((cols / 2) * 0.25 + flagTime + f.waveOffset) * 8;
+                        drawGoldenStar(ctx, f.width / 2, f.height / 2 + starWave, 5, f.height * 0.24, f.height * 0.1);
+
+                        ctx.restore();
+                    });
+
+                    flagAnimId = requestAnimationFrame(renderFlagFrame);
+                }
+
+                if (flagAnimId) cancelAnimationFrame(flagAnimId);
+                renderFlagFrame();
+            }
+
+            // Render Birthday Balloons & Confetti Fireworks
+            function startBirthdayConfetti() {
+                confettiCanvas.hidden = false;
+                const ctx = confettiCanvas.getContext('2d');
+                let particles = [];
+                const colors = ['#f43f5e', '#a855f7', '#3b82f6', '#10b981', '#f59e0b', '#ec4899'];
+
+                for (let i = 0; i < 120; i++) {
+                    particles.push({
+                        x: Math.random() * confettiCanvas.width,
+                        y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+                        size: Math.random() * 8 + 4,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        vy: Math.random() * 3 + 2,
+                        vx: Math.random() * 2 - 1,
+                        rotation: Math.random() * 360,
+                        vRot: Math.random() * 6 - 3
+                    });
+                }
+
+                function renderConfettiFrame() {
+                    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+                    particles.forEach(p => {
+                        p.y += p.vy;
+                        p.x += p.vx;
+                        p.rotation += p.vRot;
+
+                        if (p.y > confettiCanvas.height) {
+                            p.y = -20;
+                            p.x = Math.random() * confettiCanvas.width;
+                        }
+
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate((p.rotation * Math.PI) / 180);
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                        ctx.restore();
+                    });
+
+                    confettiAnimId = requestAnimationFrame(renderConfettiFrame);
+                }
+
+                if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
+                renderConfettiFrame();
+            }
+
+            // Check current date
+            const now = new Date();
+            const month = now.getMonth() + 1; // 1 - 12
+            const date = now.getDate(); // 1 - 31
+
+            // 1. Author Birthday: 17/06 (June 17)
+            if (month === 6 && date === 17) {
+                if (holidayEmoji) holidayEmoji.textContent = '🎂';
+                if (holidayTitle) holidayTitle.textContent = '🎉 CHÚC MỪNG SINH NHẬT TÁC GIẢ VÕ HOÀNG THẮNG!';
+                if (holidayMessage) holidayMessage.textContent = 'Kính chúc tác giả Võ Hoàng Thắng (17/06) một ngày sinh nhật ngập tràn niềm vui, sức khỏe dồi dào và luôn tràn đầy cảm hứng thi phúng để sáng tác thêm muôn vàn tác phẩm bất hủ!';
+                startBirthdayConfetti();
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            }
+            // 2. Vietnam National Day: 02/09 (September 2)
+            else if (month === 9 && date === 2) {
+                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
+                if (holidayTitle) holidayTitle.textContent = '🇻🇳 QUỐC KHÁNH NƯỚC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM (2/9)!';
+                if (holidayMessage) holidayMessage.textContent = 'Nhiệt liệt chào mừng Kỷ niệm Ngày Quốc Khánh 2/9! Tự hào lá cờ đỏ sao vàng tung bay phất phới trên khắp mọi miền Tổ Quốc!';
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            }
+            // 3. Reunification Day: 30/04 (April 30)
+            else if (month === 4 && date === 30) {
+                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
+                if (holidayTitle) holidayTitle.textContent = '🇻🇳 CHÚC MỪNG NGÀY GIẢI PHÓNG MIỀN NAM THỐNG NHẤT ĐẤT NƯỚC (30/4)!';
+                if (holidayMessage) holidayMessage.textContent = 'Chào mừng kỷ niệm ngày 30/4 - Ngày Miền Nam hoàn toàn giải phóng, đất nước trọn niềm vui!';
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            }
+            // 4. International Workers' Day: 01/05 (May 1)
+            else if (month === 5 && date === 1) {
+                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
+                if (holidayTitle) holidayTitle.textContent = '🇻🇳 CHÚC MỪNG NGÀY QUỐC TẾ LAO ĐỘNG (1/5)!';
+                if (holidayMessage) holidayMessage.textContent = 'Tôn vinh những đóng góp cao quý của giai cấp công nhân và người lao động trên toàn cõi Việt Nam!';
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            }
+            // 5. New Year: 01/01 (January 1)
+            else if (month === 1 && date === 1) {
+                if (holidayEmoji) holidayEmoji.textContent = '🎆';
+                if (holidayTitle) holidayTitle.textContent = '🎉 CHÚC MỪNG NĂM MỚI (TẾT DƯƠNG LỊCH)!';
+                if (holidayMessage) holidayMessage.textContent = 'Kính chúc quý độc giả thi ca một năm mới An Khang Thịnh Vượng - Vạn Sự Như Ý - Tràn Đầy Hạnh Phúc!';
+                startBirthdayConfetti();
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            }
+            // 6. People's Army Day: 22/12 (December 22)
+            else if (month === 12 && date === 22) {
+                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
+                if (holidayTitle) holidayTitle.textContent = '🇻🇳 CHÚC MỪNG NGÀY THÀNH LẬP QUÂN ĐỘI NHÂN DÂN VIỆT NAM (22/12)!';
+                if (holidayMessage) holidayMessage.textContent = 'Nhiệt liệt tôn vinh và tri ân các cán bộ, chiến sĩ Quân Đội Nhân Dân Việt Nam anh hùng!';
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            }
+
+            if (closeHolidayModalBtn && greetingModal) {
+                closeHolidayModalBtn.onclick = () => greetingModal.close();
+            }
+
+            // Public simulation test functions for manual preview
+            window.testVietnamFlag = function () {
+                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
+                if (holidayTitle) holidayTitle.textContent = '🇻🇳 HIỆU ỨNG CỜ VIỆT NAM TUNG BAY PHẤT PHỚI';
+                if (holidayMessage) holidayMessage.textContent = 'Tự hào lá cờ đỏ sao vàng tung bay trên nền trời Việt Nam!';
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            };
+
+            window.testAuthorBirthday = function () {
+                if (holidayEmoji) holidayEmoji.textContent = '🎂';
+                if (holidayTitle) holidayTitle.textContent = '🎉 CHÚC MỪNG SINH NHẬT TÁC GIẢ VÕ HOÀNG THẮNG (17/06)!';
+                if (holidayMessage) holidayMessage.textContent = 'Chúc mừng sinh nhật tác giả Võ Hoàng Thắng! Kính chúc tác giả dồi dào sức khỏe, tràn ngập niềm vui và sáng tác thêm nhiều bài thơ hay!';
+                startBirthdayConfetti();
+                startWavingVietnamFlag();
+                if (greetingModal) greetingModal.showModal();
+            };
+        }
+        initVietnamHolidaysAndAuthorBirthday();
+
         initSystemSettings();
 
     // Run

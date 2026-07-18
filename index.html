@@ -346,6 +346,9 @@
 
                     <!-- Header Top Buttons Group -->
                     <div class="modal-top-btns">
+                        <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="❤️ Yêu Thích: Lưu bài thơ vào bộ sưu tập yêu thích">
+                            <i class="ri-heart-line"></i>
+                        </button>
                         <button id="toggleModalActionsBtn" class="modal-actions-toggle-btn" title="Hiện/Ẩn công cụ">
                             <i class="ri-equalizer-line"></i>
                         </button>
@@ -355,117 +358,100 @@
                     </div>
                 </div>
 
-                <!-- Quick Action Buttons Row -->
-                <div class="action-toolbar-group quick-actions-group">
-                <!-- Categorized Action Toolbar Groups for Poem Detail Modal -->
+                <!-- Grouped labeled dropdown menus for the poem detail toolbar -->
                 <div class="modal-header-actions">
-                    <!-- Group 1: Voice & Audio Player (TTS) -->
-                    <div class="action-toolbar-group tts-toolbar-group" title="Nhóm Đọc Thơ Giọng Nói AI">
-                        <button id="ttsPlayBtn" class="tool-btn icon-badge-btn tts-btn" title="🔊 Đọc Thơ bằng Giọng Nói AI: Nhấn để Kích Hoạt / Tạm Dừng phát đọc bài thơ bằng giọng AI và cuộn nổi bật câu thơ Karaoke">
-                            <i class="ri-volume-up-line"></i>
+                    <!-- Đọc thơ (TTS voice) -->
+                    <div class="hdr-dd md-dd tts-toolbar-group">
+                        <button class="btn btn-outline hdr-dd-btn md-dd-btn" data-dd="ddTts" aria-expanded="false" title="Giọng đọc AI">
+                            <i class="ri-volume-up-line"></i> <span class="hdr-dd-label">Đọc thơ</span> <i class="ri-arrow-down-s-line dd-caret"></i>
                         </button>
-
-                        <select id="ttsVoiceSelect" class="custom-styled-select tts-voice-select" title="Chọn giọng đọc AI">
-                            <option value="auto">Giọng AI Mặc Định</option>
-                        </select>
-
-                        <select id="ttsSpeedSelect" class="custom-styled-select tts-speed-select" title="Tốc độ đọc">
-                            <option value="0.8">0.8x</option>
-                            <option value="1.0" selected>1.0x</option>
-                            <option value="1.2">1.2x</option>
-                        </select>
-
-                        <select id="ttsStyleSelect" class="custom-styled-select tts-style-select" title="Phong cách đọc AI">
-                            <option value="standard" selected>✨ Tiêu Chuẩn</option>
-                            <option value="whisper">🌙 Thì Thầm Đêm</option>
-                            <option value="poetic">📜 Ngâm Trầm Ấm</option>
-                        </select>
-
-                        <label class="autoplay-toggle" title="Tự động đọc bài tiếp theo">
-                            <input type="checkbox" id="ttsAutoplayCheck">
-                            <span>Auto</span>
-                        </label>
-                    </div>
-
-                    <!-- Group 2: Reading Modes & Ambiance -->
-                    <div class="action-toolbar-group modes-toolbar-group" title="Nhóm Chế Độ Đọc & Âm Nền">
-                        <button id="glossaryToggleBtn" class="tool-btn icon-badge-btn" title="📜 Chú Giải Từ Vựng: Tra cứu nghĩa từ ngữ cổ và điển tích trong bài thơ">
-                            <i class="ri-book-read-line"></i>
-                        </button>
-                        <button id="theaterModeBtn" class="tool-btn icon-badge-btn" title="🎭 Rạp Chiếu Thơ: Mở không gian đọc thơ toàn màn hình tràn khung cảnh">
-                            <i class="ri-film-line"></i>
-                        </button>
-                        <button id="zenModeBtn" class="tool-btn icon-badge-btn" title="🎯 Zen Mode: Chế độ tập trung tối đa ẩn hết mọi chi tiết thừa">
-                            <i class="ri-focus-3-line"></i>
-                        </button>
-                        <button id="parchmentToggleBtn" class="tool-btn icon-badge-btn" title="📜 Giấy Da Dê: Bật/Tắt hiệu ứng chất liệu giấy da cổ kính">
-                            <i class="ri-file-paper-2-line"></i>
-                        </button>
-                        <button id="toggleAmberFilterBtn" class="tool-btn icon-badge-btn" title="🕯️ Đèn Đêm Amber: Bật/Tắt lớp lọc màu hổ phách dịu mắt">
-                            <i class="ri-contrast-2-line"></i>
-                        </button>
-                        <button id="togglePoetryRadioBtn" class="tool-btn icon-badge-btn" title="🎙️ Chill Radio: Bật/Tắt đài phát thanh nhạc nền du dương">
-                            <i class="ri-radio-2-line"></i>
-                        </button>
-                    </div>
-
-                    <!-- Group 3: Reading & Typography Customizer -->
-                    <div class="action-toolbar-group reading-toolbar-group" title="Nhóm Tùy Biến Chữ & Phông Nền">
-                        <!-- Font Family Selector -->
-                        <select id="fontFamilySelect" class="custom-styled-select font-family-select" title="Chọn Font chữ bài thơ">
-                            <option value="'Lora', serif">🖋️ Lora (Cổ Điển)</option>
-                            <option value="'Playfair Display', serif">✨ Playfair (Sang Trọng)</option>
-                            <option value="'Cormorant Garamond', serif">📜 Cormorant (Thanh Lịch)</option>
-                            <option value="'Dancing Script', cursive">✍️ Dancing (Bay Bổng)</option>
-                            <option value="'Merriweather', serif">📖 Merriweather (Văn Học)</option>
-                        </select>
-
-                        <!-- Font Size Adjuster -->
-                        <div class="font-size-group">
-                            <button id="fontDecBtn" class="tool-btn icon-only-btn" title="Giảm cỡ chữ"><i class="ri-subtract-line"></i></button>
-                            <span id="fontSizeDisplay" class="font-size-val">100%</span>
-                            <button id="fontIncBtn" class="tool-btn icon-only-btn" title="Tăng cỡ chữ"><i class="ri-add-line"></i></button>
+                        <div id="ddTts" class="hdr-menu md-dd-panel" hidden>
+                            <div class="md-dd-row">
+                                <button id="ttsPlayBtn" class="tool-btn tts-btn" title="Đọc / Tạm dừng đọc thơ bằng giọng AI">
+                                    <i class="ri-volume-up-line"></i> <span id="ttsBtnText">Đọc Thơ</span>
+                                </button>
+                                <label class="autoplay-toggle" title="Tự động đọc bài tiếp theo">
+                                    <input type="checkbox" id="ttsAutoplayCheck"> <span>Auto</span>
+                                </label>
+                            </div>
+                            <select id="ttsVoiceSelect" class="custom-styled-select tts-voice-select" title="Chọn giọng đọc AI">
+                                <option value="auto">Giọng AI Mặc Định</option>
+                            </select>
+                            <select id="ttsSpeedSelect" class="custom-styled-select tts-speed-select" title="Tốc độ đọc">
+                                <option value="0.8">0.8x</option>
+                                <option value="1.0" selected>1.0x</option>
+                                <option value="1.2">1.2x</option>
+                            </select>
+                            <select id="ttsStyleSelect" class="custom-styled-select tts-style-select" title="Phong cách đọc AI">
+                                <option value="standard" selected>✨ Tiêu Chuẩn</option>
+                                <option value="whisper">🌙 Thì Thầm Đêm</option>
+                                <option value="poetic">📜 Ngâm Trầm Ấm</option>
+                            </select>
                         </div>
-
-                        <!-- Alignment -->
-                        <div class="align-group">
-                            <button data-align="center" class="tool-btn align-btn active" title="Căn giữa dòng thơ"><i class="ri-align-center"></i></button>
-                            <button data-align="left" class="tool-btn align-btn" title="Căn trái dòng thơ"><i class="ri-align-left"></i></button>
-                        </div>
-
-                        <!-- Auto-Scroll Button -->
-                        <button id="btnAutoScroll" class="tool-btn icon-badge-btn auto-scroll-btn" title="📜 Tự Cuộn Trang: Bật/Tắt chế độ tự động cuộn đọc thơ từ từ">
-                            <i class="ri-scroll-to-bottom-line"></i>
-                        </button>
-
-                        <!-- Backdrop Preset Selector -->
-                        <select id="backdropPresetSelect" class="custom-styled-select backdrop-preset-select" title="Chọn phông nền nghệ thuật">
-                            <option value="default">🏞️ Phông Nền Mặc Định</option>
-                            <option value="fog">🌲 Sương Mù Rừng Thông</option>
-                            <option value="autumn">🍂 Chiều Thu Lá Vàng</option>
-                            <option value="rain">🌧️ Mưa Đêm Phố Cũ</option>
-                            <option value="custom">🖼️ Tải Ảnh Cá Nhân...</option>
-                        </select>
-                        <input type="file" id="customBackdropInput" accept="image/*" style="display:none;">
                     </div>
 
-                    <!-- Group 4: Utilities, Sharing & Export -->
-                    <div class="action-toolbar-group utils-toolbar-group" title="Nhóm Lưu Trữ, Chia Sẻ & In Thơ">
-                        <button id="quoteCardBtn" class="tool-btn icon-badge-btn" title="🖼️ Tạo Thiệp Thơ: Xuất thiệp ảnh câu thơ tâm đắc để chia sẻ">
-                            <i class="ri-image-edit-line"></i>
+                    <!-- Chế độ (Reading modes & ambiance) -->
+                    <div class="hdr-dd md-dd modes-toolbar-group">
+                        <button class="btn btn-outline hdr-dd-btn md-dd-btn" data-dd="ddModes" aria-expanded="false" title="Chế độ đọc & âm nền">
+                            <i class="ri-magic-line"></i> <span class="hdr-dd-label">Chế độ</span> <i class="ri-arrow-down-s-line dd-caret"></i>
                         </button>
-                        <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="❤️ Yêu Thích: Lưu bài thơ vào bộ sưu tập yêu thích">
-                            <i class="ri-heart-line"></i>
+                        <div id="ddModes" class="hdr-menu md-dd-panel" hidden>
+                            <button id="glossaryToggleBtn" class="hdr-menu-item"><i class="ri-book-read-line"></i> Chú giải từ vựng</button>
+                            <button id="theaterModeBtn" class="hdr-menu-item"><i class="ri-film-line"></i> Rạp chiếu thơ</button>
+                            <button id="zenModeBtn" class="hdr-menu-item"><i class="ri-focus-3-line"></i> Zen Mode tập trung</button>
+                            <button id="parchmentToggleBtn" class="hdr-menu-item"><i class="ri-file-paper-2-line"></i> Giấy da cổ</button>
+                            <button id="toggleAmberFilterBtn" class="hdr-menu-item"><i class="ri-contrast-2-line"></i> Đèn đêm Amber</button>
+                            <button id="togglePoetryRadioBtn" class="hdr-menu-item"><i class="ri-radio-2-line"></i> Chill Radio nền</button>
+                        </div>
+                    </div>
+
+                    <!-- Chữ & Nền (Typography) -->
+                    <div class="hdr-dd md-dd reading-toolbar-group">
+                        <button class="btn btn-outline hdr-dd-btn md-dd-btn" data-dd="ddType" aria-expanded="false" title="Tùy biến chữ & phông nền">
+                            <i class="ri-font-size-2"></i> <span class="hdr-dd-label">Chữ &amp; Nền</span> <i class="ri-arrow-down-s-line dd-caret"></i>
                         </button>
-                        <button id="modalCopyBtn" class="tool-btn icon-badge-btn" title="📋 Sao Chép: Coppy toàn bộ nội dung bài thơ vào bộ nhớ tạm">
-                            <i class="ri-file-copy-line"></i>
+                        <div id="ddType" class="hdr-menu md-dd-panel" hidden>
+                            <select id="fontFamilySelect" class="custom-styled-select font-family-select" title="Chọn Font chữ bài thơ">
+                                <option value="'Lora', serif">🖋️ Lora (Cổ Điển)</option>
+                                <option value="'Playfair Display', serif">✨ Playfair (Sang Trọng)</option>
+                                <option value="'Cormorant Garamond', serif">📜 Cormorant (Thanh Lịch)</option>
+                                <option value="'Dancing Script', cursive">✍️ Dancing (Bay Bổng)</option>
+                                <option value="'Merriweather', serif">📖 Merriweather (Văn Học)</option>
+                            </select>
+                            <div class="md-dd-row md-dd-row-split">
+                                <div class="font-size-group">
+                                    <button id="fontDecBtn" class="tool-btn icon-only-btn" title="Giảm cỡ chữ"><i class="ri-subtract-line"></i></button>
+                                    <span id="fontSizeDisplay" class="font-size-val">100%</span>
+                                    <button id="fontIncBtn" class="tool-btn icon-only-btn" title="Tăng cỡ chữ"><i class="ri-add-line"></i></button>
+                                </div>
+                                <div class="align-group">
+                                    <button data-align="center" class="tool-btn align-btn active" title="Căn giữa dòng thơ"><i class="ri-align-center"></i></button>
+                                    <button data-align="left" class="tool-btn align-btn" title="Căn trái dòng thơ"><i class="ri-align-left"></i></button>
+                                </div>
+                            </div>
+                            <button id="btnAutoScroll" class="hdr-menu-item auto-scroll-btn" title="Bật/Tắt tự động cuộn"><i class="ri-scroll-to-bottom-line"></i> Tự cuộn trang</button>
+                            <select id="backdropPresetSelect" class="custom-styled-select backdrop-preset-select" title="Chọn phông nền nghệ thuật">
+                                <option value="default">🏞️ Phông Nền Mặc Định</option>
+                                <option value="fog">🌲 Sương Mù Rừng Thông</option>
+                                <option value="autumn">🍂 Chiều Thu Lá Vàng</option>
+                                <option value="rain">🌧️ Mưa Đêm Phố Cũ</option>
+                                <option value="custom">🖼️ Tải Ảnh Cá Nhân...</option>
+                            </select>
+                            <input type="file" id="customBackdropInput" accept="image/*" style="display:none;">
+                        </div>
+                    </div>
+
+                    <!-- Tiện ích (Share / export) -->
+                    <div class="hdr-dd md-dd utils-toolbar-group">
+                        <button class="btn btn-outline hdr-dd-btn md-dd-btn" data-dd="ddUtils" aria-expanded="false" title="Lưu trữ, chia sẻ & in thơ">
+                            <i class="ri-more-2-line"></i> <span class="hdr-dd-label">Tiện ích</span> <i class="ri-arrow-down-s-line dd-caret"></i>
                         </button>
-                        <button id="modalShareBtn" class="tool-btn icon-badge-btn" title="🔗 Chia Sẻ: Trích xuất đường dẫn bài thơ">
-                            <i class="ri-share-line"></i>
-                        </button>
-                        <button id="printPoemBtn" class="tool-btn icon-badge-btn" title="🖨️ In Thơ A5: Định dạng trang in khổ A5 làm quà tặng">
-                            <i class="ri-printer-line"></i>
-                        </button>
+                        <div id="ddUtils" class="hdr-menu md-dd-panel" hidden>
+                            <button id="quoteCardBtn" class="hdr-menu-item"><i class="ri-image-edit-line"></i> Tạo thiệp thơ</button>
+                            <button id="modalCopyBtn" class="hdr-menu-item"><i class="ri-file-copy-line"></i> Sao chép thơ</button>
+                            <button id="modalShareBtn" class="hdr-menu-item"><i class="ri-share-line"></i> Chia sẻ liên kết</button>
+                            <button id="printPoemBtn" class="hdr-menu-item"><i class="ri-printer-line"></i> In thơ khổ A5</button>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -1199,6 +1185,15 @@
                         </div>
                     </div>
 
+                    <!-- SECTION 5: VIETNAM HOLIDAYS & AUTHOR BIRTHDAY DEMO -->
+                    <div class="settings-section" style="margin-top: 10px;">
+                        <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; padding: 6px 10px; background: var(--bg-hover); border-radius: 6px; border-left: 3px solid var(--accent-primary);">🇻🇳 Ngày Lễ Việt Nam & Sinh Nhật Tác Giả (17/06)</h4>
+                        <div style="display: flex; gap: 8px; margin-top: 6px;">
+                            <button id="testFlagBtn" onclick="window.testVietnamFlag()" class="btn btn-sm btn-outline" style="flex: 1; font-size: 12px;"><i class="ri-flag-2-line"></i> Demo Cờ Việt Nam</button>
+                            <button id="testBirthdayBtn" onclick="window.testAuthorBirthday()" class="btn btn-sm btn-outline" style="flex: 1; font-size: 12px;"><i class="ri-cake-2-line"></i> Demo Sinh Nhật 17/06</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1221,6 +1216,26 @@
         <i class="toast-icon ri-checkbox-circle-fill"></i>
         <span id="toastMessage">Thông báo</span>
     </div>
+
+    <!-- VIETNAM HOLIDAY & AUTHOR BIRTHDAY CELEBRATION OVERLAYS -->
+    <!-- Waving Vietnam Flag Canvas Overlay -->
+    <canvas id="vietnamFlagCanvas" class="vietnam-flag-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9998;" hidden></canvas>
+    
+    <!-- Birthday & Festive Confetti Canvas -->
+    <canvas id="confettiCanvas" class="confetti-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9997;" hidden></canvas>
+
+    <!-- Festive Holiday & Birthday Greeting Dialog -->
+    <dialog id="holidayGreetingModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 480px; text-align: center; border: 2px solid var(--border-highlight); background: var(--bg-surface-solid);">
+            <div style="font-size: 54px; margin-bottom: 8px;" id="holidayEmoji">🇻🇳</div>
+            <h3 id="holidayTitle" style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">Chúc Mừng Ngày Lễ!</h3>
+            <p id="holidayMessage" style="font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">Lời chúc mừng ngày lễ đặc biệt...</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="closeHolidayModalBtn" class="btn btn-primary" style="padding: 8px 24px;">❤️ Cảm Ơn & Thưởng Thức</button>
+            </div>
+        </div>
+    </dialog>
 
     <!-- Scripts -->
     <script src="poems.js"></script>

@@ -3588,12 +3588,29 @@ body.bg-paused .light-orb { animation-play-state: paused; }
 .hdr-menu-item:hover { background: var(--bg-hover); color: var(--text-primary); transform: translateX(2px); }
 .hdr-menu-item .hdr-kbd { margin-left: auto; }
 
-/* On phones, drop the labels — icon + caret keep the 3 buttons compact. */
+/* On phones, drop the labels — icon + caret keep the buttons compact. */
 @media (max-width: 560px) {
     .hdr-dd-label { display: none; }
     .hdr-dd-btn { padding: 10px 12px; }
     .hdr-menu { min-width: 220px; }
 }
+
+/* Poem-detail toolbar: row of labeled dropdowns instead of 4 expanded pill rows. */
+.modal-header-actions {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.md-dd-btn { padding: 8px 14px; font-size: 13px; }
+.md-dd-panel { min-width: 250px; }
+.md-dd-panel .custom-styled-select { width: 100%; }
+.md-dd-row { display: flex; align-items: center; gap: 8px; }
+.md-dd-row-split { justify-content: space-between; }
+.md-dd-panel .tts-btn { flex: 1; justify-content: center; }
+.md-dd-panel .font-size-group,
+.md-dd-panel .align-group { background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-full); padding: 2px 4px; }
 
 /* ==========================================================================
    Reduced Motion — kill continuous GPU/battery cost (orbs, glow, sound pulse)
