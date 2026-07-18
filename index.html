@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-midnight">
+    <!-- Weather Raindrop FX Canvas -->
+    <canvas id="weatherFxCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99998;" hidden></canvas>
+
     <!-- Top Gradient Reading Progress Bar -->
     <div id="topReadingProgressBar" class="top-gradient-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3.5px; background: linear-gradient(90deg, #a855f7, #f59e0b, #ec4899); z-index: 100000; transition: width 0.1s ease-out; box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);"></div>
 
@@ -200,6 +203,15 @@
                         <button data-set-theme="theme-nordic" class="theme-option">
                             <span class="theme-dot nordic"></span> Sáng Thanh Lịch (Nordic)
                         </button>
+                        <div class="accent-picker-wrapper" style="padding: 8px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 6px;">
+                            <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">🎨 Màu Điểm Nhấn Accent</span>
+                            <div class="accent-dots-grid" style="display: flex; gap: 8px; margin-top: 6px; justify-content: space-around;">
+                                <button class="accent-dot-btn" data-accent="#a855f7" style="background: #a855f7; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Tím Thơ Mộng"></button>
+                                <button class="accent-dot-btn" data-accent="#f59e0b" style="background: #f59e0b; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Vàng Hổ Phách"></button>
+                                <button class="accent-dot-btn" data-accent="#10b981" style="background: #10b981; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Xanh Ngọc Bích"></button>
+                                <button class="accent-dot-btn" data-accent="#ec4899" style="background: #ec4899; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Hồng Anh Đào"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -665,6 +665,14 @@ document.addEventListener('DOMContentLoaded', () => {
         addRecentlyViewed(poem.id);
         updateUrlHash(poem.id);
 
+        const modalCard = poemModal ? poemModal.querySelector('.modal-card') : null;
+        if (modalCard) {
+            modalCard.classList.remove('page-flip-anim');
+            void modalCard.offsetWidth;
+            modalCard.classList.add('page-flip-anim');
+            setTimeout(() => modalCard.classList.remove('page-flip-anim'), 500);
+        }
+
         if (modalTitle) modalTitle.textContent = poem.title;
         const verseCount = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0).length : 0;
         if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ`;
@@ -2881,6 +2889,106 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initTopReadingProgressBar();
+
+        // ------------------------------------------------------------------
+        // Time-of-Day Sky Ambiance
+        // ------------------------------------------------------------------
+        function initTimeOfDayAmbiance() {
+            const hour = new Date().getHours();
+            const orb1 = document.querySelector('.orb-1');
+            const orb2 = document.querySelector('.orb-2');
+
+            if (hour >= 6 && hour < 12) {
+                if (orb1) orb1.style.background = 'radial-gradient(circle, rgba(251, 191, 36, 0.4), transparent 70%)';
+            } else if (hour >= 17 && hour < 20) {
+                if (orb1) orb1.style.background = 'radial-gradient(circle, rgba(244, 63, 94, 0.45), transparent 70%)';
+                if (orb2) orb2.style.background = 'radial-gradient(circle, rgba(217, 70, 239, 0.35), transparent 70%)';
+            } else {
+                if (orb1) orb1.style.background = 'radial-gradient(circle, rgba(168, 85, 247, 0.45), transparent 70%)';
+            }
+        }
+        initTimeOfDayAmbiance();
+
+        // ------------------------------------------------------------------
+        // Window Raindrop Visual FX
+        // ------------------------------------------------------------------
+        function initWeatherFx() {
+            const canvas = document.getElementById('weatherFxCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            const drops = Array.from({ length: 40 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                len: Math.random() * 20 + 10,
+                speed: Math.random() * 8 + 4,
+                opacity: Math.random() * 0.4 + 0.1
+            }));
+
+            function renderRain() {
+                ctx.clearRect(0, 0, width, height);
+                if (activeAmbientSound === 'rain') {
+                    canvas.hidden = false;
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+                    ctx.lineWidth = 1;
+
+                    drops.forEach(d => {
+                        ctx.beginPath();
+                        ctx.moveTo(d.x, d.y);
+                        ctx.lineTo(d.x - 2, d.y + d.len);
+                        ctx.stroke();
+
+                        d.y += d.speed;
+                        d.x -= 0.5;
+
+                        if (d.y > height) {
+                            d.y = -d.len;
+                            d.x = Math.random() * width;
+                        }
+                    });
+                } else {
+                    canvas.hidden = true;
+                }
+                requestAnimationFrame(renderRain);
+            }
+            renderRain();
+        }
+        initWeatherFx();
+
+        // ------------------------------------------------------------------
+        // Custom Accent Color Theme Picker
+        // ------------------------------------------------------------------
+        function initAccentPicker() {
+            const accentBtns = document.querySelectorAll('.accent-dot-btn');
+            const savedAccent = localStorage.getItem('zzcfizz_accent_color');
+
+            if (savedAccent) {
+                document.documentElement.style.setProperty('--accent-primary', savedAccent);
+                document.documentElement.style.setProperty('--accent-gradient', `linear-gradient(135deg, ${savedAccent}, #ec4899)`);
+            }
+
+            accentBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const color = btn.dataset.accent;
+                    document.documentElement.style.setProperty('--accent-primary', color);
+                    document.documentElement.style.setProperty('--accent-gradient', `linear-gradient(135deg, ${color}, #ec4899)`);
+                    localStorage.setItem('zzcfizz_accent_color', color);
+                    showToast('🎨 Đã cập nhật màu điểm nhấn cá nhân!');
+                });
+            });
+        }
+        initAccentPicker();
+
+        // Spacebar shortcut for Hands-Free TTS & Auto-Scroll
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && poemModal && poemModal.open && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+                e.preventDefault();
+                toggleTts();
+                toggleAutoScroll();
+            }
+        });
 
     // Run
     init();

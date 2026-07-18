@@ -3318,7 +3318,28 @@ textarea:focus-visible {
     text-wrap: pretty;
 }
 .poem-counter, #countAll, #countFav, .react-count, .font-size-val, .search-kbd {
-    font-variant-numeric: tabular-nums;   /* numerals line up, don't jitter */
+    font-variant-numeric: tabular-nums;
+}
+
+/* 3D Book Page Flip Animation */
+.page-flip-anim {
+    animation: pageFlip3D 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+}
+
+@keyframes pageFlip3D {
+    0% {
+        transform: rotateY(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateY(-30deg) scale(0.96);
+        opacity: 0.7;
+    }
+    100% {
+        transform: rotateY(0deg) scale(1);
+        opacity: 1;
+    }
 }
 
 /* Stop the blurred ambient orbs repainting when the tab is backgrounded. */
