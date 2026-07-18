@@ -3092,8 +3092,9 @@ body.zen-mode-active #poemModal .poem-body-text {
 #emotionStatsBtn  { --btn-accent: #10b981; }
 #poetryRadioBtn   { --btn-accent: #f59e0b; }
 #amberFilterBtn   { --btn-accent: #fbbf24; }
+#dailyCalendarBtn { --btn-accent: #eab308; }
 
-#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i {
+#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i {
     color: var(--btn-accent);
 }
 

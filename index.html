@@ -65,6 +65,11 @@
                     <i class="ri-shuffle-line"></i>
                 </button>
 
+                <!-- Poetry Daily Calendar Button -->
+                <button id="dailyCalendarBtn" class="btn btn-icon" title="Lịch Thơ 365 Ngày (Poem of the Day)">
+                    <i class="ri-calendar-event-line"></i>
+                </button>
+
                 <!-- Poetry Radio Chill Stream Button -->
                 <button id="poetryRadioBtn" class="btn btn-icon" title="Kênh Đài Thơ Đêm Tự Động (Chill Stream Radio)">
                     <i class="ri-radio-line"></i>
@@ -515,10 +520,17 @@
                     <label class="control-label" style="margin-top:12px;">Khắc Tên / Chữ Ký Tặng:</label>
                     <input type="text" id="quoteSignatureInput" class="form-input" placeholder="VD: Gửi tặng em... / Antigravity" maxlength="35">
 
-                    <div class="checkbox-wrapper" style="margin-top:10px; margin-bottom:16px;">
+                    <div class="checkbox-wrapper" style="margin-top:10px; margin-bottom:6px;">
                         <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13.5px; color:var(--text-secondary);">
                             <input type="checkbox" id="quoteQrCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-primary);">
                             <span><i class="ri-qr-code-line"></i> Đính kèm mã QR Code bài thơ</span>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-wrapper" style="margin-top:4px; margin-bottom:16px;">
+                        <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13.5px; color:var(--text-secondary);">
+                            <input type="checkbox" id="quoteWaxSealCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-primary);">
+                            <span>📜 Đính kèm con dấu đổ nến đỏ (Wax Seal)</span>
                         </label>
                     </div>
 
@@ -721,6 +733,31 @@
                 <div id="statsMoodBarsList" style="display: flex; flex-direction: column; gap: 10px;">
                     <!-- Mood distribution bars rendered here -->
                 </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- DAILY POETRY CALENDAR MODAL -->
+    <dialog id="dailyCalendarModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 480px; text-align: center;">
+            <header class="modal-header">
+                <h3><i class="ri-calendar-event-line"></i> Lịch Thơ Cảm Xúc 365 Ngày</h3>
+                <button id="closeDailyCalendarBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px;">
+                <div class="vintage-calendar-sheet" style="background: #fffdf5; border: 2px solid #d97706; border-radius: 16px; padding: 24px; color: #451a03; box-shadow: 0 10px 25px rgba(0,0,0,0.15); margin-bottom: 20px; position: relative;">
+                    <div class="calendar-month-year" id="calMonthYear" style="font-size: 13px; font-weight: 700; text-transform: uppercase; color: #b45309; letter-spacing: 1px; margin-bottom: 4px;">THÁNG 7 • 2026</div>
+                    <div class="calendar-day-num" id="calDayNum" style="font-size: 56px; font-weight: 800; font-family: var(--font-serif); color: #92400e; line-height: 1;">19</div>
+                    <div class="calendar-weekday" id="calWeekday" style="font-size: 14px; font-weight: 600; color: #78350f; margin-bottom: 16px;">CHỦ NHẬT</div>
+                    <div style="border-top: 1px dashed #f59e0b; margin: 12px 0;"></div>
+                    <div class="calendar-poem-title" id="calPoemTitle" style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: #451a03; margin-bottom: 8px;">Tiêu Đề Bài Thơ</div>
+                    <div class="calendar-poem-snippet" id="calPoemSnippet" style="font-family: var(--font-serif); font-size: 14px; font-style: italic; color: #78350f; line-height: 1.5; margin-bottom: 16px;">"Trích đoạn câu thơ truyền cảm hứng hôm nay..."</div>
+                    <div class="wax-seal-badge" style="display:inline-block; padding: 4px 12px; background: #991b1b; color: #fff; border-radius: 20px; font-size: 11px; font-weight: 600;">📜 Dấu Ấn Thi Sĩ ZzCFIzZ</div>
+                </div>
+                <button id="readDailyPoemBtn" class="btn btn-primary btn-block">
+                    <i class="ri-book-open-line"></i> Đọc Toàn Bài Thơ Hôm Nay
+                </button>
             </div>
         </div>
     </dialog>

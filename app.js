@@ -1492,6 +1492,35 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.textAlign = 'center';
             ctx.fillText(`${poem.date_formatted}  •  zzcfizz.blog`, width / 2, height - 40);
         }
+
+        // Render Red Wax Seal Stamp
+        const quoteWaxSealCheckbox = document.getElementById('quoteWaxSealCheckbox');
+        if (quoteWaxSealCheckbox && quoteWaxSealCheckbox.checked) {
+            const sealRadius = 26;
+            const sealX = width - 50;
+            const sealY = height - 55;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(sealX, sealY, sealRadius, 0, Math.PI * 2);
+            ctx.fillStyle = '#991b1b';
+            ctx.shadowColor = '#450a0a';
+            ctx.shadowBlur = 10;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(sealX, sealY, sealRadius - 4, 0, Math.PI * 2);
+            ctx.strokeStyle = '#b91c1c';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            ctx.fillStyle = '#fef08a';
+            ctx.font = 'bold 16px serif';
+            ctx.textAlign = 'center';
+            ctx.shadowBlur = 0;
+            ctx.fillText('📜', sealX, sealY + 6);
+            ctx.restore();
+        }
     }
 
     function drawQrCodeCanvas(ctx, text, x, y, size, darkColor, lightColor) {
@@ -2707,6 +2736,69 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initBackdropPresets();
+
+        // ------------------------------------------------------------------
+        // Daily Poetry Calendar 365 Days
+        // ------------------------------------------------------------------
+        function initDailyPoetryCalendar() {
+            const dailyCalendarBtn = document.getElementById('dailyCalendarBtn');
+            const dailyCalendarModal = document.getElementById('dailyCalendarModal');
+            const closeDailyCalendarBtn = document.getElementById('closeDailyCalendarBtn');
+            const readDailyPoemBtn = document.getElementById('readDailyPoemBtn');
+
+            const calMonthYear = document.getElementById('calMonthYear');
+            const calDayNum = document.getElementById('calDayNum');
+            const calWeekday = document.getElementById('calWeekday');
+            const calPoemTitle = document.getElementById('calPoemTitle');
+            const calPoemSnippet = document.getElementById('calPoemSnippet');
+
+            if (!dailyCalendarModal) return;
+
+            const now = new Date();
+            const weekdays = ['CHỦ NHẬT', 'THỨ HAI', 'THỨ BA', 'THỨ TƯ', 'THỨ NĂM', 'THỨ SÁU', 'THỨ BẢY'];
+
+            const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            const allPoems = getPoemsData();
+            const dailyPoem = allPoems[dayOfYear % allPoems.length] || allPoems[0];
+
+            function updateCalendarCard() {
+                if (calMonthYear) calMonthYear.textContent = `THÁNG ${now.getMonth() + 1} • ${now.getFullYear()}`;
+                if (calDayNum) calDayNum.textContent = now.getDate();
+                if (calWeekday) calWeekday.textContent = weekdays[now.getDay()];
+
+                if (dailyPoem) {
+                    if (calPoemTitle) calPoemTitle.textContent = dailyPoem.title;
+                    const lines = dailyPoem.content_text ? dailyPoem.content_text.split('\n').filter(l => l.trim()) : [];
+                    const snippet = lines.slice(0, 2).join(' / ');
+                    if (calPoemSnippet) calPoemSnippet.textContent = `"${snippet}..."`;
+                }
+            }
+
+            if (dailyCalendarBtn) {
+                dailyCalendarBtn.addEventListener('click', () => {
+                    updateCalendarCard();
+                    dailyCalendarModal.showModal();
+                });
+            }
+
+            if (closeDailyCalendarBtn) closeDailyCalendarBtn.onclick = () => dailyCalendarModal.close();
+
+            if (readDailyPoemBtn) {
+                readDailyPoemBtn.onclick = () => {
+                    dailyCalendarModal.close();
+                    const idx = filteredPoemsList.findIndex(p => p.id === dailyPoem.id);
+                    if (idx !== -1) {
+                        openReaderModal(idx);
+                    } else {
+                        currentFilter = 'all';
+                        renderPoems();
+                        const newIdx = filteredPoemsList.findIndex(p => p.id === dailyPoem.id);
+                        if (newIdx !== -1) openReaderModal(newIdx);
+                    }
+                };
+            }
+        }
+        initDailyPoetryCalendar();
 
     // Run
     init();
