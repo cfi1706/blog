@@ -82,6 +82,11 @@
                     <i class="ri-calendar-event-line"></i>
                 </button>
 
+                <!-- Poetry Memory Quiz Button -->
+                <button id="poetryQuizBtn" class="btn btn-icon" title="Game Thách Trí Nhớ Thơ (Poetry Memory Quiz)">
+                    <i class="ri-gamepad-line"></i>
+                </button>
+
                 <!-- Poetry Radio Chill Stream Button -->
                 <button id="poetryRadioBtn" class="btn btn-icon" title="Kênh Đài Thơ Đêm Tự Động (Chill Stream Radio)">
                     <i class="ri-radio-line"></i>
@@ -147,6 +152,9 @@
                             </button>
                             <button data-sound="piano" class="ambient-option">
                                 <i class="ri-music-fill"></i> Đàn Piano Trầm Lắng
+                            </button>
+                            <button data-sound="guzheng" class="ambient-option">
+                                <i class="ri-music-2-fill"></i> Tiếng Đàn Tranh
                             </button>
                         </div>
                         <div class="ambient-vol-control">
@@ -555,6 +563,7 @@
                         <button class="card-aspect-opt" data-aspect="square">📷 Post (1:1)</button>
                         <button class="card-aspect-opt" data-aspect="classic">🖼️ Banner (4:5)</button>
                         <button class="card-aspect-opt" data-aspect="desktop">🖥️ Desktop (16:9)</button>
+                        <button class="card-aspect-opt" data-aspect="bookmark">🔖 Bookmark (1:3)</button>
                     </div>
 
                     <label class="control-label">Chọn Mẫu Giao Diện:</label>
@@ -814,6 +823,31 @@
                 <button id="readDailyPoemBtn" class="btn btn-primary btn-block">
                     <i class="ri-book-open-line"></i> Đọc Toàn Bài Thơ Hôm Nay
                 </button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- POETRY MEMORY QUIZ MODAL -->
+    <dialog id="poetryQuizModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 500px; text-align: center;">
+            <header class="modal-header">
+                <h3><i class="ri-gamepad-line"></i> Game Đố Thơ & Thách Trí Nhớ</h3>
+                <button id="closeQuizBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px;">
+                <div id="quizContainer">
+                    <div id="quizQuestion" style="font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">Câu hỏi đố thơ...</div>
+                    <div id="quizOptionsGrid" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                        <!-- Quiz option buttons -->
+                    </div>
+                </div>
+                <div id="quizResult" hidden>
+                    <div style="font-size: 48px; margin-bottom: 8px;">🎉</div>
+                    <h3 style="font-size: 22px; color: var(--accent-primary); margin-bottom: 8px;" id="quizScoreText">Đạt 5/5 Điểm Thi Sĩ!</h3>
+                    <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 16px;">Bạn thực sự có một tâm hồn yêu thơ thâm thúy!</p>
+                    <button id="restartQuizBtn" class="btn btn-primary btn-block"><i class="ri-refresh-line"></i> Chơi Lại Lần Nữa</button>
+                </div>
             </div>
         </div>
     </dialog>

@@ -1054,6 +1054,30 @@ document.addEventListener('DOMContentLoaded', () => {
             pianoFilter.connect(destNode);
             ambientNodes.push(pianoFilter);
             showToast('🎼 Đã bật giai điệu Đàn Piano Trầm Lắng' + (isSpatial ? ' (8D Spatial)' : ''));
+        } else if (type === 'guzheng') {
+            const guzhengNotes = [293.66, 329.63, 392.00, 440.00, 493.88];
+            const guzhengFilter = audioCtx.createBiquadFilter();
+            guzhengFilter.type = 'bandpass';
+            guzhengFilter.frequency.setValueAtTime(1200, audioCtx.currentTime);
+
+            guzhengNotes.forEach((f, idx) => {
+                const osc = audioCtx.createOscillator();
+                const noteGain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+
+                noteGain.gain.setValueAtTime(0.12, audioCtx.currentTime + idx * 0.3);
+                noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5 + idx * 0.3);
+
+                osc.connect(noteGain);
+                noteGain.connect(guzhengFilter);
+                osc.start();
+                ambientNodes.push(osc, noteGain);
+            });
+
+            guzhengFilter.connect(destNode);
+            ambientNodes.push(guzhengFilter);
+            showToast('🪕 Đã bật tiếng Đàn Tranh Hoài Cổ' + (isSpatial ? ' (8D Spatial)' : ''));
         }
     }
 
@@ -1409,6 +1433,9 @@ document.addEventListener('DOMContentLoaded', () => {
             height = 600;
         } else if (currentCardAspect === 'desktop') {
             width = 1920;
+            height = 1080;
+        } else if (currentCardAspect === 'bookmark') {
+            width = 360;
             height = 1080;
         } else {
             width = 600;
@@ -3174,6 +3201,108 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initPoetryGlossary();
+
+        // ------------------------------------------------------------------
+        // Poetry Memory Quiz Game
+        // ------------------------------------------------------------------
+        function initPoetryQuiz() {
+            const poetryQuizBtn = document.getElementById('poetryQuizBtn');
+            const poetryQuizModal = document.getElementById('poetryQuizModal');
+            const closeQuizBtn = document.getElementById('closeQuizBtn');
+            const quizContainer = document.getElementById('quizContainer');
+            const quizResult = document.getElementById('quizResult');
+            const quizQuestion = document.getElementById('quizQuestion');
+            const quizOptionsGrid = document.getElementById('quizOptionsGrid');
+            const quizScoreText = document.getElementById('quizScoreText');
+            const restartQuizBtn = document.getElementById('restartQuizBtn');
+
+            if (!poetryQuizModal || !quizQuestion || !quizOptionsGrid) return;
+
+            const questions = [
+                {
+                    q: 'Điền từ còn thiếu: "Trầm tư nghe tiếng... qua thềm"',
+                    options: ['Mưa rơi', 'Lá bay', 'Gió lùa', 'Nắng hạ'],
+                    ans: 0
+                },
+                {
+                    q: 'Cảm xúc chính trong các bài thơ chủ đề hoài niệm là gì?',
+                    options: ['Sôi nổi', 'Sâu lắng, nhớ thương', 'Vui tươi', 'Hào hùng'],
+                    ans: 1
+                },
+                {
+                    q: 'Bài thơ "Trống Trắng Hư Không" gửi gắm tâm sự gì?',
+                    options: ['Sự tấp nập phố thị', 'Sự buông bỏ tĩnh lặng', 'Sự vội vã thời gian', 'Cảnh hoang sơ'],
+                    ans: 1
+                },
+                {
+                    q: 'Khổ thơ "Ta đi qua những mùa vàng..." gợi nhắc đến mùa nào?',
+                    options: ['Mùa Xuân', 'Mùa Hè', 'Mùa Thu', 'Mùa Đông'],
+                    ans: 2
+                },
+                {
+                    q: 'Điền câu tiếp theo: "Lặng lẽ đêm dài câu thơ hát..."',
+                    options: ['Gió thổi miên man nhẹ tiếng đàn', 'Mưa giăng mờ lối bước lang thang', 'Trả lại bình yên góc dịu dàng', 'Sóng vỗ bờ xa ánh sao tan'],
+                    ans: 2
+                }
+            ];
+
+            let currentQIndex = 0;
+            let score = 0;
+
+            function renderQuestion() {
+                if (currentQIndex >= questions.length) {
+                    quizContainer.hidden = true;
+                    quizResult.hidden = false;
+                    quizScoreText.textContent = `Bạn đạt ${score}/${questions.length} Điểm Thi Sĩ!`;
+                    return;
+                }
+
+                quizContainer.hidden = false;
+                quizResult.hidden = true;
+
+                const item = questions[currentQIndex];
+                quizQuestion.textContent = `Câu ${currentQIndex + 1}/${questions.length}: ${item.q}`;
+                quizOptionsGrid.innerHTML = '';
+
+                item.options.forEach((opt, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'btn btn-outline';
+                    btn.style.textAlign = 'left';
+                    btn.textContent = `${idx + 1}. ${opt}`;
+                    btn.onclick = () => {
+                        if (idx === item.ans) {
+                            score++;
+                            showToast('✨ Chính xác! +1 Điểm Thi Sĩ');
+                        } else {
+                            showToast('❌ Chưa đúng rồi! Hãy thử lại câu sau nhé.');
+                        }
+                        currentQIndex++;
+                        renderQuestion();
+                    };
+                    quizOptionsGrid.appendChild(btn);
+                });
+            }
+
+            if (poetryQuizBtn) {
+                poetryQuizBtn.addEventListener('click', () => {
+                    currentQIndex = 0;
+                    score = 0;
+                    renderQuestion();
+                    poetryQuizModal.showModal();
+                });
+            }
+
+            if (closeQuizBtn) closeQuizBtn.onclick = () => poetryQuizModal.close();
+
+            if (restartQuizBtn) {
+                restartQuizBtn.onclick = () => {
+                    currentQIndex = 0;
+                    score = 0;
+                    renderQuestion();
+                };
+            }
+        }
+        initPoetryQuiz();
 
     // Run
     init();
