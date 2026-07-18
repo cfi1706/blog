@@ -1237,6 +1237,31 @@
         </div>
     </dialog>
 
+    <!-- Amber Night Filter overlay (JS referenced it but the markup was missing) -->
+    <div id="amberOverlay" class="amber-overlay" aria-hidden="true" hidden></div>
+
+    <!-- Poetry Memory Quiz Modal (JS referenced it but the markup was missing) -->
+    <dialog id="poetryQuizModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 520px;">
+            <header class="modal-header">
+                <h3><i class="ri-gamepad-line"></i> Game Thách Trí Nhớ Thơ</h3>
+                <button id="closeQuizBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 22px;">
+                <div id="quizContainer">
+                    <h4 id="quizQuestion" style="font-size: 16px; color: var(--text-primary); margin-bottom: 18px; line-height: 1.55;">Câu hỏi...</h4>
+                    <div id="quizOptionsGrid" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                </div>
+                <div id="quizResult" hidden style="text-align: center; padding: 24px 0;">
+                    <div style="font-size: 52px; margin-bottom: 10px;">🏆</div>
+                    <p id="quizScoreText" style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">Kết quả...</p>
+                    <button id="restartQuizBtn" class="btn btn-primary"><i class="ri-restart-line"></i> Chơi Lại</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
     <!-- Scripts -->
     <script src="poems.js"></script>
     <script src="app.js"></script>

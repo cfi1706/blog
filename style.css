@@ -3604,13 +3604,52 @@ body.bg-paused .light-orb { animation-play-state: paused; }
     gap: 8px;
 }
 .md-dd-btn { padding: 8px 14px; font-size: 13px; }
-.md-dd-panel { min-width: 250px; }
+
+/* Panels open centered (fixed) so edge toggles never clip against the modal
+   card — the list always lands in the middle, fully visible. */
+.md-dd-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    min-width: min(320px, 90vw);
+    max-width: 92vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 3000;
+    animation: mdPanelIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes mdPanelIn {
+    from { opacity: 0; transform: translate(-50%, -46%) scale(0.96); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+/* Dim the page behind an open panel for focus. */
+.md-dd-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 2999;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
 .md-dd-panel .custom-styled-select { width: 100%; }
 .md-dd-row { display: flex; align-items: center; gap: 8px; }
 .md-dd-row-split { justify-content: space-between; }
 .md-dd-panel .tts-btn { flex: 1; justify-content: center; }
 .md-dd-panel .font-size-group,
 .md-dd-panel .align-group { background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: var(--radius-full); padding: 2px 4px; }
+
+/* Amber night filter — warm multiply overlay to cut blue light. */
+.amber-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    background: rgba(255, 147, 41, 0.22);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
 
 /* ==========================================================================
    Reduced Motion — kill continuous GPU/battery cost (orbs, glow, sound pulse)

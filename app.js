@@ -1963,6 +1963,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function closeAllMdPanels() {
             document.querySelectorAll('.md-dd-panel').forEach(p => { p.hidden = true; });
             document.querySelectorAll('[data-dd]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+            document.querySelectorAll('.md-dd-scrim').forEach(s => s.remove());
         }
         document.addEventListener('click', (e) => {
             const ddToggle = e.target.closest('[data-dd]');
@@ -1971,13 +1972,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!panel) return;
                 const willOpen = panel.hidden;
                 closeAllMdPanels();
-                panel.hidden = !willOpen;
+                if (willOpen) {
+                    // Center the panel: move it (+ a scrim) to the dialog root so it
+                    // can't be clipped by an edge toggle's container or a transform.
+                    const host = ddToggle.closest('dialog') || document.body;
+                    const scrim = document.createElement('div');
+                    scrim.className = 'md-dd-scrim';
+                    host.appendChild(scrim);
+                    host.appendChild(panel);
+                    panel.hidden = false;
+                }
                 ddToggle.setAttribute('aria-expanded', String(willOpen));
                 return;
             }
             const ddItem = e.target.closest('.md-dd-panel .hdr-menu-item');
             if (ddItem) { closeAllMdPanels(); return; } // action chosen; its own handler still runs
-            if (!e.target.closest('.md-dd-panel')) closeAllMdPanels(); // click outside
+            if (!e.target.closest('.md-dd-panel')) closeAllMdPanels(); // click scrim / outside
         });
 
         if (ambientStopBtn) {
