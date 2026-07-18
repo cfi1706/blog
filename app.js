@@ -921,6 +921,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const optBtn = document.querySelector(`.ambient-option[data-sound="${type}"]`);
         if (optBtn) optBtn.classList.add('active');
 
+        // Check 8D Spatial Audio mode
+        const isSpatial = document.getElementById('spatial8dCheck')?.checked;
+        let destNode = ambientGainNode;
+
+        if (isSpatial && ('createStereoPanner' in audioCtx)) {
+            const panner = audioCtx.createStereoPanner();
+            const lfo = audioCtx.createOscillator();
+            const lfoGain = audioCtx.createGain();
+
+            lfo.frequency.setValueAtTime(0.08, audioCtx.currentTime); // 8D swirl
+            lfoGain.gain.setValueAtTime(0.85, audioCtx.currentTime);
+
+            lfo.connect(lfoGain);
+            lfoGain.connect(panner.pan);
+
+            panner.connect(ambientGainNode);
+            lfo.start();
+            ambientNodes.push(lfo, lfoGain, panner);
+            destNode = panner;
+        }
+
         const bufferSize = audioCtx.sampleRate * 2;
         const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
         const output = noiseBuffer.getChannelData(0);
@@ -938,10 +959,10 @@ document.addEventListener('DOMContentLoaded', () => {
             filter.frequency.setValueAtTime(1000, audioCtx.currentTime);
 
             whiteNoise.connect(filter);
-            filter.connect(ambientGainNode);
+            filter.connect(destNode);
             whiteNoise.start();
             ambientNodes.push(whiteNoise, filter);
-            showToast('🌧️ Đã bật âm thanh tiếng mưa rơi');
+            showToast('🌧️ Đã bật âm thanh tiếng mưa rơi' + (isSpatial ? ' (8D Spatial)' : ''));
         } else if (type === 'waves') {
             const filter = audioCtx.createBiquadFilter();
             filter.type = 'lowpass';
@@ -956,11 +977,11 @@ document.addEventListener('DOMContentLoaded', () => {
             lfoGain.connect(filter.frequency);
 
             whiteNoise.connect(filter);
-            filter.connect(ambientGainNode);
+            filter.connect(destNode);
             whiteNoise.start();
             lfo.start();
             ambientNodes.push(whiteNoise, filter, lfo, lfoGain);
-            showToast('🌊 Đã bật âm thanh sóng biển vỗ');
+            showToast('🌊 Đã bật âm thanh sóng biển vỗ' + (isSpatial ? ' (8D Spatial)' : ''));
         } else if (type === 'pad') {
             const osc1 = audioCtx.createOscillator();
             const osc2 = audioCtx.createOscillator();
@@ -977,12 +998,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             osc1.connect(padFilter);
             osc2.connect(padFilter);
-            padFilter.connect(ambientGainNode);
+            padFilter.connect(destNode);
 
             osc1.start();
             osc2.start();
             ambientNodes.push(osc1, osc2, padFilter);
-            showToast('🍃 Đã bật âm thanh gió trầm lắng');
+            showToast('🍃 Đã bật âm thanh gió trầm lắng' + (isSpatial ? ' (8D Spatial)' : ''));
         }
     }
 
@@ -1172,7 +1193,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getSelectedTtsSpeed() {
-        return parseFloat(ttsSpeedSelect ? ttsSpeedSelect.value : '1.0');
+        const speedVal = parseFloat(ttsSpeedSelect ? ttsSpeedSelect.value : '1.0');
+        const ttsStyleSelect = document.getElementById('ttsStyleSelect');
+        const ttsStyle = ttsStyleSelect ? ttsStyleSelect.value : 'standard';
+
+        let pitch = 1.0;
+        let rate = speedVal;
+
+        if (ttsStyle === 'whisper') {
+            pitch = 0.75;
+            rate = 0.8 * speedVal;
+        } else if (ttsStyle === 'poetic') {
+            pitch = 0.95;
+            rate = 0.85 * speedVal;
+        }
+
+        utterance.rate = rate;
+        utterance.pitch = pitch;
     }
 
     function handleTtsFinished() {
@@ -1318,6 +1355,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (currentCardAspect === 'square') {
             width = 600;
             height = 600;
+        } else if (currentCardAspect === 'desktop') {
+            width = 1920;
+            height = 1080;
         } else {
             width = 600;
             height = 750;
@@ -2165,6 +2205,142 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+        // ------------------------------------------------------------------
+        // E-Book PDF Exporter & Time Capsule Logic
+        // ------------------------------------------------------------------
+        const exportPdfBtn = document.getElementById('exportPdfBtn');
+        if (exportPdfBtn) {
+            exportPdfBtn.addEventListener('click', exportPoetryEBookPdf);
+        }
+
+        initTimeCapsule();
+
+        function exportPoetryEBookPdf() {
+            const allPoems = getPoemsData();
+            const exportList = favorites.length > 0
+                ? allPoems.filter(p => favorites.includes(p.id))
+                : allPoems.slice(0, 30);
+
+            if (exportList.length === 0) {
+                showToast('⚠️ Chưa có bài thơ nào trong danh sách!');
+                return;
+            }
+
+            const printWin = window.open('', '_blank');
+            if (!printWin) {
+                showToast('⚠️ Vui lòng cho phép mở cửa sổ mới để xuất PDF!');
+                return;
+            }
+
+            const dateStr = new Date().toLocaleDateString('vi-VN');
+            let htmlContent = `
+            <!DOCTYPE html>
+            <html lang="vi">
+            <head>
+                <meta charset="UTF-8">
+                <title>Tuyển Tập Thơ ZzCFIzZ - E-Book</title>
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+                    body { font-family: 'Lora', serif; color: #1a1a1a; margin: 0; padding: 0; background: #ffffff; }
+                    .cover-page { height: 95vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; page-break-after: always; border: 3px double #b05010; margin: 20px; padding: 40px; box-sizing: border-box; }
+                    .cover-title { font-family: 'Cormorant Garamond', serif; font-size: 46px; color: #b05010; margin-bottom: 10px; }
+                    .cover-subtitle { font-size: 16px; color: #666; margin-bottom: 30px; font-style: italic; }
+                    .poem-page { padding: 40px 50px; page-break-after: always; box-sizing: border-box; min-height: 85vh; }
+                    .poem-header { text-align: center; margin-bottom: 25px; border-bottom: 1px solid #ddd; padding-bottom: 12px; }
+                    .poem-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; color: #111; margin: 0 0 6px 0; }
+                    .poem-date { font-size: 12px; color: #777; }
+                    .poem-content { font-size: 17px; line-height: 1.6; white-space: pre-wrap; text-align: center; color: #222; }
+                    @media print { .no-print { display: none; } }
+                </style>
+            </head>
+            <body>
+                <div class="no-print" style="position:fixed; top:15px; right:15px; z-index:999;">
+                    <button onclick="window.print()" style="padding:10px 22px; background:#b05010; color:#fff; border:none; border-radius:20px; font-size:14px; cursor:pointer; font-weight:600; box-shadow:0 4px 12px rgba(0,0,0,0.2);">🖨️ In / Xuất File PDF</button>
+                </div>
+                <div class="cover-page">
+                    <div class="cover-title">TUYỂN TẬP THƠ HAY</div>
+                    <div class="cover-subtitle">ZzCFIzZ Poetry Collection • ${dateStr}</div>
+                    <p style="margin-top:40px; font-size:14px; color:#888;">Gồm ${exportList.length} tác phẩm chọn lọc</p>
+                </div>
+            `;
+
+            exportList.forEach((poem, idx) => {
+                htmlContent += `
+                    <div class="poem-page">
+                        <div class="poem-header">
+                            <h2 class="poem-title">${idx + 1}. ${poem.title}</h2>
+                            <div class="poem-date">${poem.date_formatted || ''}</div>
+                        </div>
+                        <div class="poem-content">${poem.content_text}</div>
+                    </div>
+                `;
+            });
+
+            htmlContent += `
+                <script>
+                    window.onload = function() {
+                        setTimeout(function() { window.print(); }, 800);
+                    }
+                </script>
+            </body>
+            </html>
+            `;
+
+            printWin.document.write(htmlContent);
+            printWin.document.close();
+        }
+
+        function initTimeCapsule() {
+            const timeCapsuleBtn = document.getElementById('timeCapsuleBtn');
+            const timeCapsuleModal = document.getElementById('timeCapsuleModal');
+            const closeTimeCapsuleBtn = document.getElementById('closeTimeCapsuleBtn');
+            const saveCapsuleBtn = document.getElementById('saveCapsuleBtn');
+            const capsulePoemSelect = document.getElementById('capsulePoemSelect');
+            const capsuleNoteInput = document.getElementById('capsuleNoteInput');
+            const capsuleDurationSelect = document.getElementById('capsuleDurationSelect');
+
+            if (!timeCapsuleModal) return;
+
+            if (timeCapsuleBtn) {
+                timeCapsuleBtn.addEventListener('click', () => {
+                    const allPoems = getPoemsData();
+                    if (capsulePoemSelect) {
+                        capsulePoemSelect.innerHTML = allPoems.map(p => `<option value="${p.id}">${p.title}</option>`).join('');
+                    }
+                    if (timeCapsuleModal && !timeCapsuleModal.open) timeCapsuleModal.showModal();
+                });
+            }
+
+            if (closeTimeCapsuleBtn) {
+                closeTimeCapsuleBtn.addEventListener('click', () => timeCapsuleModal.close());
+            }
+
+            if (saveCapsuleBtn) {
+                saveCapsuleBtn.addEventListener('click', () => {
+                    const poemId = capsulePoemSelect.value;
+                    const note = capsuleNoteInput.value.trim();
+                    const months = parseInt(capsuleDurationSelect.value, 10) || 6;
+                    const targetDate = Date.now() + (months * 30 * 24 * 3600 * 1000);
+
+                    const capsules = JSON.parse(localStorage.getItem('zzcfizz_time_capsules') || '[]');
+                    capsules.push({ poemId, note, targetDate, createdAt: Date.now() });
+                    localStorage.setItem('zzcfizz_time_capsules', JSON.stringify(capsules));
+
+                    timeCapsuleModal.close();
+                    showToast(`💌 Hộp thư tương lai đã được niêm phong! Hẹn gặp lại bạn sau ${months} tháng.`);
+                });
+            }
+
+            // Check matured time capsules
+            const capsules = JSON.parse(localStorage.getItem('zzcfizz_time_capsules') || '[]');
+            const matured = capsules.filter(c => Date.now() >= c.targetDate && !c.opened);
+            if (matured.length > 0) {
+                setTimeout(() => {
+                    showToast(`💌 Bạn có ${matured.length} Hộp Thư Tương Lai đã đến thời gian mở!`);
+                }, 2000);
+            }
+        }
 
     // Run
     init();

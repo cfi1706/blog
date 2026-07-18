@@ -65,6 +65,16 @@
                     <i class="ri-shuffle-line"></i>
                 </button>
 
+                <!-- Export E-Book PDF Button -->
+                <button id="exportPdfBtn" class="btn btn-icon" title="Xuất Tập Thơ PDF / E-Book">
+                    <i class="ri-file-pdf-2-line"></i>
+                </button>
+
+                <!-- Time Capsule Button -->
+                <button id="timeCapsuleBtn" class="btn btn-icon" title="Hộp Thư Gửi Thơ Tới Tương Lai">
+                    <i class="ri-time-line"></i>
+                </button>
+
                 <!-- Recently Viewed Button -->
                 <button id="recentPoemsBtn" class="btn btn-icon" title="Bài thơ vừa đọc gần đây">
                     <i class="ri-history-line"></i>
@@ -110,6 +120,12 @@
                                 <option value="30">30 phút</option>
                                 <option value="45">45 phút</option>
                             </select>
+                        </div>
+                        <div class="spatial-8d-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);" title="Âm thanh xoay tròn 360° qua tai nghe">
+                                <input type="checkbox" id="spatial8dCheck" style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
+                                <span>🎧 Âm Thanh 8D Không Gian</span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -319,6 +335,12 @@
                             <option value="1.2">1.2x</option>
                         </select>
 
+                        <select id="ttsStyleSelect" class="custom-styled-select tts-style-select" title="Phong cách đọc AI">
+                            <option value="standard" selected>✨ Tiêu Chuẩn</option>
+                            <option value="whisper">🌙 Thì Thầm Đêm</option>
+                            <option value="poetic">📜 Ngâm Trầm Ấm</option>
+                        </select>
+
                         <label class="autoplay-toggle" title="Tự động đọc bài tiếp theo">
                             <input type="checkbox" id="ttsAutoplayCheck">
                             <span>Auto</span>
@@ -428,6 +450,7 @@
                         <button class="card-aspect-opt active" data-aspect="portrait">📱 Story (9:16)</button>
                         <button class="card-aspect-opt" data-aspect="square">📷 Post (1:1)</button>
                         <button class="card-aspect-opt" data-aspect="classic">🖼️ Banner (4:5)</button>
+                        <button class="card-aspect-opt" data-aspect="desktop">🖥️ Desktop (16:9)</button>
                     </div>
 
                     <label class="control-label">Chọn Mẫu Giao Diện:</label>
@@ -474,6 +497,39 @@
             </header>
             <div class="recent-list-body" id="recentListBody">
                 <!-- Recent poem list items rendered here -->
+            </div>
+        </div>
+    </dialog>
+
+    <!-- POETRY TIME CAPSULE MODAL -->
+    <dialog id="timeCapsuleModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog">
+            <header class="modal-header">
+                <h3><i class="ri-time-line"></i> Hộp Thư Gửi Thơ Tới Tương Lai</h3>
+                <button id="closeTimeCapsuleBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px;">
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 14px;">
+                    Gửi gắm cảm xúc và bài thơ tâm đắc tới chính mình (hoặc người thương) vào một ngày trong tương lai.
+                </p>
+                <label class="control-label">Chọn Bài Thơ Gửi Đi:</label>
+                <select id="capsulePoemSelect" class="form-select" style="margin-bottom: 12px;"></select>
+
+                <label class="control-label">Lời Nhắn Tới Tương Lai:</label>
+                <textarea id="capsuleNoteInput" class="form-input" style="height: 80px; width: 100%; margin-bottom: 12px; font-family: var(--font-sans);" placeholder="Viết cho tôi của ngày mai..."></textarea>
+
+                <label class="control-label">Thời Gian Mở Hộp Thư:</label>
+                <select id="capsuleDurationSelect" class="form-select" style="margin-bottom: 18px;">
+                    <option value="1">1 Tháng Sau</option>
+                    <option value="3">3 Tháng Sau</option>
+                    <option value="6" selected>6 Tháng Sau</option>
+                    <option value="12">1 Năm Sau (365 Ngày)</option>
+                </select>
+
+                <button id="saveCapsuleBtn" class="btn btn-primary btn-block">
+                    <i class="ri-send-plane-2-line"></i> Niêm Phong Hộp Thư Tương Lai
+                </button>
             </div>
         </div>
     </dialog>
