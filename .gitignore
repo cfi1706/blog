@@ -1,0 +1,8 @@
+# SSH host config — private, does not belong in a public web repo
+config
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+node_modules/

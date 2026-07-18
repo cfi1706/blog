@@ -1,0 +1,2228 @@
+// Auto-generated poem database
+window.POEMS_DATA = [
+  {
+    "id": 2007,
+    "slug": "lung-lo-giua-the-gian-nay",
+    "title": "Lững Lờ Giữa Thế Gian Này",
+    "date": "2026-07-18T20:52:30",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Lững lờ giữa thế gian này<br>Gửi trao kỷ niệm bên hàng dương liễu<br>Tiếng chim oanh vang đượm điệu<br>Giấc mơ vàng úa, nắng phai mịt mờ<br><br>Ai đây rải nhớ thương nhẹ<br>Sợi nhớ vương vấn, thông reo bên trời<br>Trăng treo, gió bấc se lời<br>Nửa lòng vấn vương, tơ đời rối bời<br><br>Người ơi, có nhớ chăng không?<br>Dòng sông ánh hồng, chia đôi mộng mơ<br>Thương nhớ theo dòng nước trôi<br>Bóng hồng liễu đào, tình si mênh mông</p>",
+    "content_text": "Lững lờ giữa thế gian này\nGửi trao kỷ niệm bên hàng dương liễu\nTiếng chim oanh vang đượm điệu\nGiấc mơ vàng úa, nắng phai mịt mờ\n\nAi đây rải nhớ thương nhẹ\nSợi nhớ vương vấn, thông reo bên trời\nTrăng treo, gió bấc se lời\nNửa lòng vấn vương, tơ đời rối bời\n\nNgười ơi, có nhớ chăng không?\nDòng sông ánh hồng, chia đôi mộng mơ\nThương nhớ theo dòng nước trôi\nBóng hồng liễu đào, tình si mênh mông",
+    "featured_image": "images/poem_2007_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2007_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2007_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2006,
+    "slug": "gio-dong-heo-hat-ben-them",
+    "title": "Gió Đông Heo Hắt Bên Thềm",
+    "date": "2026-07-18T20:52:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Gió đông heo hắt bên thềm<br>Rêu phong cảnh cũ, sau thềm lá rơi<br>Phong sương tuyết phủ ngập trời<br>Bếp nhỏ hiu hắt đưa người về đâu<br>Giọt sương pha với giọt sầu<br>Áo nâu xếp lại, bạc màu nắng mưa<br>Vườn xưa vắng bóng người xưa<br>Hàng cau đứng lặng như vừa ngóng ai<br>Khói trầm lãng đãng sương mai<br>Hương quen phảng phất, trang đài bỏ không.</p>",
+    "content_text": "Gió đông heo hắt bên thềm\nRêu phong cảnh cũ, sau thềm lá rơi\nPhong sương tuyết phủ ngập trời\nBếp nhỏ hiu hắt đưa người về đâu\nGiọt sương pha với giọt sầu\nÁo nâu xếp lại, bạc màu nắng mưa\nVườn xưa vắng bóng người xưa\nHàng cau đứng lặng như vừa ngóng ai\nKhói trầm lãng đãng sương mai\nHương quen phảng phất, trang đài bỏ không.",
+    "featured_image": "images/poem_2006_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2006_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2006_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2005,
+    "slug": "bep-nha-lua-van-nhom-moi-dem",
+    "title": "Bếp Nhà Lửa Vẫn Nhóm Mỗi Đêm",
+    "date": "2026-07-18T20:49:30",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Bếp nhà lửa vẫn nhóm mỗi đêm<br>Củi hồng vẫn cháy, tro tàn vẫn rơi<br>Người ngồi hong lại khoảng đời<br>Mà tim lạnh giá như thời lập đông.<br><br>Bình hoa nằm ở góc phòng<br>Vẹn nguyên không vết rạn ngoài<br>Nhưng nguồn nước bên trong đành chịu lỗi<br>Chẳng thể nuôi nổi một nhành hoa phai<br><br>Hai chiếc lá như chung một cội<br>Nương vào nhau qua giông gió cuộc đời<br>Nhưng nhựa sống bên trong đã mỏi<br>Chẳng buồn xanh, cũng chẳng muốn rơi.</p>",
+    "content_text": "Bếp nhà lửa vẫn nhóm mỗi đêm\nCủi hồng vẫn cháy, tro tàn vẫn rơi\nNgười ngồi hong lại khoảng đời\nMà tim lạnh giá như thời lập đông.\n\nBình hoa nằm ở góc phòng\nVẹn nguyên không vết rạn ngoài\nNhưng nguồn nước bên trong đành chịu lỗi\nChẳng thể nuôi nổi một nhành hoa phai\n\nHai chiếc lá như chung một cội\nNương vào nhau qua giông gió cuộc đời\nNhưng nhựa sống bên trong đã mỏi\nChẳng buồn xanh, cũng chẳng muốn rơi.",
+    "featured_image": "images/poem_2005_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2005_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2005_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2004,
+    "slug": "mot-doi-nho-nho-thuong-thuong",
+    "title": "Một Đời Nhớ Nhớ Thương Thương",
+    "date": "2026-07-18T20:49:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Một đời nhớ nhớ thương thương<br>Cười vui thì ít mà nhớ thương thì nhiều<br>Hoàng hôn bớt rán bóng chiều<br>Tương tư trải cạnh một chiều yêu đương</p>",
+    "content_text": "Một đời nhớ nhớ thương thương\nCười vui thì ít mà nhớ thương thì nhiều\nHoàng hôn bớt rán bóng chiều\nTương tư trải cạnh một chiều yêu đương",
+    "featured_image": "images/poem_2004_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2004_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2004_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2003,
+    "slug": "dau-buoc-gan-sao-van-xa-tron-kiep",
+    "title": "Dẫu Bước Gần... Sao Vẫn Xa Trọn Kiếp",
+    "date": "2026-07-18T20:47:40",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Em hỡi em, ta còn gì cho nhau?<br>Là nhung nhớ hay những điều vụn vỡ?<br>Là chút bình yên sau tro tàn còn sót,<br>Hay muộn phiền quẩn quanh miền ký ức?<br><br>Ta thấy lòng như lửa đốt, rã rời,<br>Giữa đêm lạnh chẳng vòng tay ấm áp.<br>Những giấc mơ trôi dạt tận phương nào,<br>Tuổi thanh xuân – một lần từng ảo vọng.<br><br>Ám ảnh theo ta đến tận chiều tàn,<br>Khóe mắt cay, lòng chẳng còn bình lặng.<br>Chỉ muốn say, để mãi mãi ngủ quên,<br>Dẫu bước gần, sao vẫn xa trọn kiếp…</p>",
+    "content_text": "Em hỡi em, ta còn gì cho nhau?\nLà nhung nhớ hay những điều vụn vỡ?\nLà chút bình yên sau tro tàn còn sót,\nHay muộn phiền quẩn quanh miền ký ức?\n\nTa thấy lòng như lửa đốt, rã rời,\nGiữa đêm lạnh chẳng vòng tay ấm áp.\nNhững giấc mơ trôi dạt tận phương nào,\nTuổi thanh xuân – một lần từng ảo vọng.\n\nÁm ảnh theo ta đến tận chiều tàn,\nKhóe mắt cay, lòng chẳng còn bình lặng.\nChỉ muốn say, để mãi mãi ngủ quên,\nDẫu bước gần, sao vẫn xa trọn kiếp…",
+    "featured_image": "images/poem_2003_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2003_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2003_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2002,
+    "slug": "co-gang-tram-lan-van-mat-nhau",
+    "title": "Cố Gắng Trăm Lần... Vẫn Mất Nhau",
+    "date": "2026-07-18T20:47:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Cố gắng chăm vườn, vườn vẫn sâu,<br>Cố gắng không sầu, sầu vẫn vương.<br>Cố gắng không khóc, lệ vẫn tuôn,<br>Cố gắng quên người, dạ vẫn thương.<br><br>Cố gắng gượng cười, môi héo hắt,<br>Cố gắng thản nhiên, lòng vẫn đau.<br>Cố gắng tìm quên, sầu lại thắt,<br>Cố gắng trăm lần, vẫn mất nhau.</p>",
+    "content_text": "Cố gắng chăm vườn, vườn vẫn sâu,\nCố gắng không sầu, sầu vẫn vương.\nCố gắng không khóc, lệ vẫn tuôn,\nCố gắng quên người, dạ vẫn thương.\n\nCố gắng gượng cười, môi héo hắt,\nCố gắng thản nhiên, lòng vẫn đau.\nCố gắng tìm quên, sầu lại thắt,\nCố gắng trăm lần, vẫn mất nhau.",
+    "featured_image": "images/poem_2002_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2002_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2002_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2001,
+    "slug": "chon-vao-hu-khong",
+    "title": "Chôn Vào Hư Không",
+    "date": "2026-07-18T20:46:30",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Ngày ấy,<br>Tre vẫn xanh, gió vẫn reo<br>Nhưng bình yên đã không còn nữa<br>Chim vẫn hót, mây vẫn bay<br>Tay đã không còn nắm<br><br>Và rồi,<br>Người mỉm cười, chân vẫn bước<br>Gió cũng im, lá đã ngừng<br>Sóng ngoài xa đã thôi rì rào<br>Lòng ta đã chôn vào hư không!</p>",
+    "content_text": "Ngày ấy,\nTre vẫn xanh, gió vẫn reo\nNhưng bình yên đã không còn nữa\nChim vẫn hót, mây vẫn bay\nTay đã không còn nắm\n\nVà rồi,\nNgười mỉm cười, chân vẫn bước\nGió cũng im, lá đã ngừng\nSóng ngoài xa đã thôi rì rào\nLòng ta đã chôn vào hư không!",
+    "featured_image": "images/poem_2001_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2001_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2001_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2000,
+    "slug": "gan-gang-tac-cach-trung-khoi",
+    "title": "Gần Gang Tấc... Cách Trùng Khơi",
+    "date": "2026-07-18T20:46:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Tôi đã dốc thanh xuân qua trăm ngả,<br>Nhìn hoa tàn lặng phủ lối xưa,<br>Nhìn nắng sớm vừa chạm bên trời,<br>Mà chẳng thể sưởi tan hồ băng giá.<br><br>Cứ ngỡ chung thuyền, cùng vượt sóng,<br>Nào hay lạc giữa cõi dửng dưng.<br>Lửa nơi vách lòng ta âm thầm đỏ rực,<br>Người lặng im, mặc kệ hóa tro than.<br><br>Gần gang tấc... mà cách trùng khơi.</p>",
+    "content_text": "Tôi đã dốc thanh xuân qua trăm ngả,\nNhìn hoa tàn lặng phủ lối xưa,\nNhìn nắng sớm vừa chạm bên trời,\nMà chẳng thể sưởi tan hồ băng giá.\n\nCứ ngỡ chung thuyền, cùng vượt sóng,\nNào hay lạc giữa cõi dửng dưng.\nLửa nơi vách lòng ta âm thầm đỏ rực,\nNgười lặng im, mặc kệ hóa tro than.\n\nGần gang tấc... mà cách trùng khơi.",
+    "featured_image": "images/poem_2000_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2000_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2000_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1353,
+    "slug": "vo-de-121",
+    "title": "Người mơ về chốn xa xôi",
+    "date": "2025-09-05T14:01:48",
+    "date_formatted": "5 tháng 9, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">​Người mơ về chốn xa xôi<br>Ta chỉ thèm một mái nhà bình yên<br>Người vui với những muộn phiền<br>Ta gom nhặt chút an nhiên cho mình!<br>​Người nhìn bằng ánh bình minh<br>Thấy danh vọng, thấy cuộc tình hơn thua<br>Ta nhìn đời lúc đổ mưa<br>Thấy vai gầy gánh nắng trưa mệt nhoài.<br>​Câu chuyện cứ mỗi ngày dài<br>Mà tâm hồn lại cách hai phương trời<br>Người buông những tiếng buông lơi<br>Ta nghe chỉ thấy một đời lặng câm.<br>​Nhiều khi cay đắng âm thầm<br>Muốn buông tay để lạc lầm một phen<br>Chẳng chung một giấc mơ hồng<br>Chẳng chung lối bước, giấc nồng đêm say.</p>\n",
+    "content_text": "​Người mơ về chốn xa xôi\nTa chỉ thèm một mái nhà bình yên\nNgười vui với những muộn phiền\nTa gom nhặt chút an nhiên cho mình!\n​Người nhìn bằng ánh bình minh\nThấy danh vọng, thấy cuộc tình hơn thua\nTa nhìn đời lúc đổ mưa\nThấy vai gầy gánh nắng trưa mệt nhoài.\n​Câu chuyện cứ mỗi ngày dài\nMà tâm hồn lại cách hai phương trời\nNgười buông những tiếng buông lơi\nTa nghe chỉ thấy một đời lặng câm.\n​Nhiều khi cay đắng âm thầm\nMuốn buông tay để lạc lầm một phen\nChẳng chung một giấc mơ hồng\nChẳng chung lối bước, giấc nồng đêm say.",
+    "featured_image": "images/poem_1353_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_1353_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_1353_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1338,
+    "slug": "vo-de-120",
+    "title": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đ...",
+    "date": "2025-08-28T09:10:28",
+    "date_formatted": "28 tháng 8, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.<br>Cô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.<br>Nỗi buồn là hạt cát, lấp đầy cả đại dương.<br>Muốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.</p>\n",
+    "content_text": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.\nCô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.\nNỗi buồn là hạt cát, lấp đầy cả đại dương.\nMuốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.",
+    "featured_image": "images/poem_1338_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_1338_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_1338_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1335,
+    "slug": "vo-de-119",
+    "title": "Em thấy gì trong buổi chiều lạc lõng",
+    "date": "2025-08-28T09:07:49",
+    "date_formatted": "28 tháng 8, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Em thấy gì trong buổi chiều lạc lõng!<br>Đôi vai gầy không cõng hết cô đơn.<br>Bóng hoàng hôn in dấu chân lạc mất,<br>Cõi cô đơn dài đến cạn ưu phiền.</p>\n",
+    "content_text": "Em thấy gì trong buổi chiều lạc lõng!\nĐôi vai gầy không cõng hết cô đơn.\nBóng hoàng hôn in dấu chân lạc mất,\nCõi cô đơn dài đến cạn ưu phiền.",
+    "featured_image": "images/poem_1335_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_1335_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_1335_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1332,
+    "slug": "vo-de-118",
+    "title": "Có những nơi gọi là nhà",
+    "date": "2025-08-28T09:03:33",
+    "date_formatted": "28 tháng 8, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Có những nơi gọi là nhà<br>Có những phút giây gọi là hạnh phúc<br>Không thiên đường cũng chẳng là địa ngục<br>Nơi chôn vùi những hạnh phúc từng qua…</p>\n",
+    "content_text": "Có những nơi gọi là nhà\nCó những phút giây gọi là hạnh phúc\nKhông thiên đường cũng chẳng là địa ngục\nNơi chôn vùi những hạnh phúc từng qua…",
+    "featured_image": "images/poem_1332_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_1332_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_1332_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1329,
+    "slug": "vo-de-117",
+    "title": "Nắng rớt bên thềm nhà",
+    "date": "2025-08-28T08:58:51",
+    "date_formatted": "28 tháng 8, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Nắng rớt bên thềm nhà<br>Một cánh hoa tàn phai<br>Gió reo trên ngọn cỏ<br>Hoàng hôn của ngày mai!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chiều xuống nhẹ như kéo<br>Sau những tháng ngày dài<br>Đầy sương và sỏi đá<br>Ướt đẫm cả tương lai</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sau cùng chỉ còn có<br>Đêm và bóng hình ai<br>In dài trên cát trắng<br>Một nốt trầm ngân dài</p>\n",
+    "content_text": "Nắng rớt bên thềm nhà\nMột cánh hoa tàn phai\nGió reo trên ngọn cỏ\nHoàng hôn của ngày mai!\n\n\n\n\n\nChiều xuống nhẹ như kéo\nSau những tháng ngày dài\nĐầy sương và sỏi đá\nƯớt đẫm cả tương lai\n\n\n\n\n\nSau cùng chỉ còn có\nĐêm và bóng hình ai\nIn dài trên cát trắng\nMột nốt trầm ngân dài",
+    "featured_image": "images/poem_1329_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_1329_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_1329_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1308,
+    "slug": "vo-de-116",
+    "title": "Anh từng sống giữa hạ vàng nắng gắt",
+    "date": "2025-04-16T12:01:28",
+    "date_formatted": "16 tháng 4, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Anh từng sống giữa hạ vàng nắng gắt,<br>Lòng cô đơn như phố vắng chiều tà.<br>Bao năm tháng, tim khô cằn sỏi đá,<br>Chờ một người – như nắng đợi mưa sa!</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Rồi em đến, nhẹ nhàng như mây trắng,<br>Mắt em cười – anh thấy hạ dịu êm.<br>Cơn mưa rào đổ qua tim thầm lặng,<br>Tình yêu về, xanh mát cả trời đêm.</p>\n",
+    "content_text": "Anh từng sống giữa hạ vàng nắng gắt,\nLòng cô đơn như phố vắng chiều tà.\nBao năm tháng, tim khô cằn sỏi đá,\nChờ một người – như nắng đợi mưa sa!\n\n\n\n\n\n\nRồi em đến, nhẹ nhàng như mây trắng,\nMắt em cười – anh thấy hạ dịu êm.\nCơn mưa rào đổ qua tim thầm lặng,\nTình yêu về, xanh mát cả trời đêm.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/images.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/images.webp"
+    ],
+    "local_images": [
+      "images/poem_1308_img_0.webp"
+    ]
+  },
+  {
+    "id": 1302,
+    "slug": "vo-de-114",
+    "title": "Ra chợ tìm mua một chút yên",
+    "date": "2025-04-16T11:36:24",
+    "date_formatted": "16 tháng 4, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Ra chợ tìm mua một chút yên,<br>Tiện tay buông bán thúng muộn phiền.<br>Gánh gồng lảo đảo chân xiêu vẹo,<br>Đổi chút an nhiên – chẳng bạc tiền!<br><br>Phố chợ đông người, toàn bán lo,<br>Ai ai cũng chất muộn phiền to.<br>Bình yên đỏ mắt hoài không thấy,<br>Thúng buồn nằm đó vẫn mớ to.<br><br>Ra chợ tìm mua thưởu dại khờ,<br>Tuổi thơ ngây ngốc lắm mộng mơ.<br>Tìm hoài chẳng thấy – lòng tiếc nuối,<br>Đành bước trọn đời mãi đợi chờ.<br><br>Có hay ai bán giữa trần ai,<br>Vài cân hạnh phúc, chút mê say?<br>Người mua xếp hàng dài chen lấn,<br>Hạnh phúc lang thang, chẳng đến tay.<br><br>Sao thế? Phố chợ rộn ràng vui,<br>Tỷ điều lợi lộc, vạn sầu nguôi.<br>Cho đi toàn những điều không nhận,<br>Mong mãi điều cần chẳng ai vui.</p>\n",
+    "content_text": "Ra chợ tìm mua một chút yên,\nTiện tay buông bán thúng muộn phiền.\nGánh gồng lảo đảo chân xiêu vẹo,\nĐổi chút an nhiên – chẳng bạc tiền!\n\nPhố chợ đông người, toàn bán lo,\nAi ai cũng chất muộn phiền to.\nBình yên đỏ mắt hoài không thấy,\nThúng buồn nằm đó vẫn mớ to.\n\nRa chợ tìm mua thưởu dại khờ,\nTuổi thơ ngây ngốc lắm mộng mơ.\nTìm hoài chẳng thấy – lòng tiếc nuối,\nĐành bước trọn đời mãi đợi chờ.\n\nCó hay ai bán giữa trần ai,\nVài cân hạnh phúc, chút mê say?\nNgười mua xếp hàng dài chen lấn,\nHạnh phúc lang thang, chẳng đến tay.\n\nSao thế? Phố chợ rộn ràng vui,\nTỷ điều lợi lộc, vạn sầu nguôi.\nCho đi toàn những điều không nhận,\nMong mãi điều cần chẳng ai vui.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/491930715_10236996321913986_442629663944996613_n.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/491930715_10236996321913986_442629663944996613_n.webp"
+    ],
+    "local_images": [
+      "images/poem_1302_img_0.webp"
+    ]
+  },
+  {
+    "id": 1298,
+    "slug": "vo-de-113",
+    "title": "Thôi đừng trách mùa thu không còn lá",
+    "date": "2025-04-04T14:39:32",
+    "date_formatted": "4 tháng 4, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Thôi đừng trách mùa thu không còn lá,<br>Nắng bớt vàng hay… đã nhạt phai!<br>Nắng đã đến, đã đi và đã tắt<br>Sóng vỗ bờ, thuyền mãi còn khơi xa!<br>Hoa đã nở đã tàn nào ai biết<br>Hay chỉ loài ong bướm mới hay<br>Sớm mai này không hoàng hôn nắng cháy<br>Chỉ còn mình loài hoa dại bên đường</p>\n",
+    "content_text": "Thôi đừng trách mùa thu không còn lá,\nNắng bớt vàng hay… đã nhạt phai!\nNắng đã đến, đã đi và đã tắt\nSóng vỗ bờ, thuyền mãi còn khơi xa!\nHoa đã nở đã tàn nào ai biết\nHay chỉ loài ong bướm mới hay\nSớm mai này không hoàng hôn nắng cháy\nChỉ còn mình loài hoa dại bên đường",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/1743751616664.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/1743751616664.webp"
+    ],
+    "local_images": [
+      "images/poem_1298_img_0.webp"
+    ]
+  },
+  {
+    "id": 1294,
+    "slug": "vo-de-112",
+    "title": "Bản ngã giăng lối trong tim",
+    "date": "2025-04-04T14:36:38",
+    "date_formatted": "4 tháng 4, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Bản ngã giăng lối trong tim,<br>Mê cung ảo ảnh, lời tự ngã vang vọng,<br>Phản chiếu những con đường riêng biệt,<br>Ẩn chứa muôn màu của đắng cay và ngọt bùi!</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Nhưng đâu đó, bên dưới lớp vỏ ảo,<br>Chân ngã – linh hồn nguyên sơ chưa phai,<br>Như mảnh đất êm ả chờ đón ánh sáng,<br>Hòa vào giai điệu chân lý của vũ trụ.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Giữa những va chạm của tư duy và cảm xúc,<br>Ta học cách buông bỏ những ràng buộc xa xăm,<br>Để lắng nghe tiếng thở của sự tự do,<br>Và tìm thấy chính mình trong nhịp đập vĩnh hằng.</p>\n",
+    "content_text": "Bản ngã giăng lối trong tim,\nMê cung ảo ảnh, lời tự ngã vang vọng,\nPhản chiếu những con đường riêng biệt,\nẨn chứa muôn màu của đắng cay và ngọt bùi!\n\n\n\n\n\n\nNhưng đâu đó, bên dưới lớp vỏ ảo,\nChân ngã – linh hồn nguyên sơ chưa phai,\nNhư mảnh đất êm ả chờ đón ánh sáng,\nHòa vào giai điệu chân lý của vũ trụ.\n\n\n\n\n\n\nGiữa những va chạm của tư duy và cảm xúc,\nTa học cách buông bỏ những ràng buộc xa xăm,\nĐể lắng nghe tiếng thở của sự tự do,\nVà tìm thấy chính mình trong nhịp đập vĩnh hằng.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/Untitled.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/Untitled.webp"
+    ],
+    "local_images": [
+      "images/poem_1294_img_0.webp"
+    ]
+  },
+  {
+    "id": 1291,
+    "slug": "vo-de-111",
+    "title": "Tôi tìm ai giữa bầu trời chen nắng",
+    "date": "2025-04-04T14:31:18",
+    "date_formatted": "4 tháng 4, 2025",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Tôi tìm ai giữa bầu trời chen nắng,<br>Ai tìm tôi giữa phố vắng đang mưa?<br>Gió lặng lẽ gọi tên trong thoáng nhớ,<br>Lá rơi đầy lòng có ngỡ như xưa!<br>Chiều lặng lẽ nghiêng mình bên dốc cũ,<br>Ngõ hoang buồn mưa phủ lối tôi đi.<br>Bước chân nhỏ lạc vào miền ký ức,<br>Tay hững hờ níu bóng dáng xuân thì.<br>Người còn đó hay đã thành sương khói?<br>Tôi mải tìm mà chẳng thấy dấu yêu.<br>Giữa nhân thế muôn ngàn dòng mắt vội,<br>Ai đứng chờ trong hoang vắng cô liêu?</p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n",
+    "content_text": "Tôi tìm ai giữa bầu trời chen nắng,\nAi tìm tôi giữa phố vắng đang mưa?\nGió lặng lẽ gọi tên trong thoáng nhớ,\nLá rơi đầy lòng có ngỡ như xưa!\nChiều lặng lẽ nghiêng mình bên dốc cũ,\nNgõ hoang buồn mưa phủ lối tôi đi.\nBước chân nhỏ lạc vào miền ký ức,\nTay hững hờ níu bóng dáng xuân thì.\nNgười còn đó hay đã thành sương khói?\nTôi mải tìm mà chẳng thấy dấu yêu.\nGiữa nhân thế muôn ngàn dòng mắt vội,\nAi đứng chờ trong hoang vắng cô liêu?",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/1743751616680.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/1743751616680.webp"
+    ],
+    "local_images": [
+      "images/poem_1291_img_0.webp"
+    ]
+  },
+  {
+    "id": 1248,
+    "slug": "vo-de-110",
+    "title": "Nhớ em, mưa hạ vội vã trôi",
+    "date": "2024-04-09T15:43:36",
+    "date_formatted": "9 tháng 4, 2024",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Nhớ em, mưa hạ vội vã trôi<br>Nắng lên, hoa nở chào ngày mới<br>Sớm mai tươi, hồng hoa đưa lối<br>Mong manh áo vải gió nhạt phai!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Yêu thương qua, say đắm rồi tỉnh giấc<br>Chìm trong mơ, rồi lại thả tay lơi<br>Rượu nồng cay, lệ đượm buồn vui<br>Mộng mị say, hay tỉnh thực giữa đời?</p>\n",
+    "content_text": "Nhớ em, mưa hạ vội vã trôi\nNắng lên, hoa nở chào ngày mới\nSớm mai tươi, hồng hoa đưa lối\nMong manh áo vải gió nhạt phai!\n\n\n\n\n\nYêu thương qua, say đắm rồi tỉnh giấc\nChìm trong mơ, rồi lại thả tay lơi\nRượu nồng cay, lệ đượm buồn vui\nMộng mị say, hay tỉnh thực giữa đời?",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2024/04/vo-de-110-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2024/04/vo-de-110-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1248_img_0.webp"
+    ]
+  },
+  {
+    "id": 1245,
+    "slug": "vo-de-109",
+    "title": "Ta nhớ em, cơn mưa rào trưa hè",
+    "date": "2024-04-09T15:40:46",
+    "date_formatted": "9 tháng 4, 2024",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Ta nhớ em, cơn mưa rào trưa hè<br>Nắng chợt đến và hoa chớm nở<br>Ban mai xanh bên cánh hồng hoa<br>Áo ta ướt nhạt nhòa trong gió!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Ta đã yêu, đã say và đã tỉnh<br>Đã đắm chìm và cũng đã buông tay<br>Men rượu cay, mắt lệ ngắn dài<br>Say trong say hay tỉnh dài trong mộng!</p>\n",
+    "content_text": "Ta nhớ em, cơn mưa rào trưa hè\nNắng chợt đến và hoa chớm nở\nBan mai xanh bên cánh hồng hoa\nÁo ta ướt nhạt nhòa trong gió!\n\n\n\n\n\nTa đã yêu, đã say và đã tỉnh\nĐã đắm chìm và cũng đã buông tay\nMen rượu cay, mắt lệ ngắn dài\nSay trong say hay tỉnh dài trong mộng!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2024/04/vo-de-109-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2024/04/vo-de-109-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1245_img_0.webp"
+    ]
+  },
+  {
+    "id": 1241,
+    "slug": "vo-de-108",
+    "title": "Thôi, ta hẹn nhau kiếp khác",
+    "date": "2023-12-20T12:00:54",
+    "date_formatted": "20 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Thôi, ta hẹn nhau kiếp khác<br>Duyên với tình nay lỡ lạc mất rồi<br>Mây cứ trôi và nước cứ chảy<br>Hòn đá buồn, cây cũng vẫn cô đơn!<br>Dòng suối nhỏ chỉ đưa thuyền ra biển lớn<br>Mặc sóng, mặc gió, mặc tất cả<br>Đoạn đường giờ hai ngã chia đôi<br>Bước cũng vội, lạc mất khúc tình si</p>\n",
+    "content_text": "Thôi, ta hẹn nhau kiếp khác\nDuyên với tình nay lỡ lạc mất rồi\nMây cứ trôi và nước cứ chảy\nHòn đá buồn, cây cũng vẫn cô đơn!\nDòng suối nhỏ chỉ đưa thuyền ra biển lớn\nMặc sóng, mặc gió, mặc tất cả\nĐoạn đường giờ hai ngã chia đôi\nBước cũng vội, lạc mất khúc tình si",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/vo-de-108-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/vo-de-108-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1241_img_0.webp"
+    ]
+  },
+  {
+    "id": 1231,
+    "slug": "vo-de-107",
+    "title": "Hỏi rằng tôi đã quên chưa",
+    "date": "2023-12-15T15:38:09",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Hỏi rằng tôi đã quên chưa?<br>Tôi còn nhớ lắm, và thưa: rất buồn!<br>Rèm thưa buông nhẹ hững hờ<br>Kiêu sa ánh mắt chẳng là của tôi!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Kỷ niệm còn chút phôi phai?<br>Tôi còn trong mộng với ai hỡi người!<br>Bốn phương gió lộng tứ bề<br>Một thân cô độc hẹn thề với ai!</p>\n",
+    "content_text": "Hỏi rằng tôi đã quên chưa?\nTôi còn nhớ lắm, và thưa: rất buồn!\nRèm thưa buông nhẹ hững hờ\nKiêu sa ánh mắt chẳng là của tôi!\n\n\n\n\n\nKỷ niệm còn chút phôi phai?\nTôi còn trong mộng với ai hỡi người!\nBốn phương gió lộng tứ bề\nMột thân cô độc hẹn thề với ai!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/heart11-4502-1390289308-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/heart11-4502-1390289308-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1231_img_0.webp"
+    ]
+  },
+  {
+    "id": 1228,
+    "slug": "vo-de-106",
+    "title": "Em ơi em có nghe",
+    "date": "2023-12-15T15:34:54",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Em ơi em có nghe<br>Nắng rớt bên hiên nhà<br>Đàn trẻ con ngân nga<br>Những bài ca đón Tết!<br>Mùa xuân vừa mới dệt<br>Tấm áo mới mọi nơi<br>Vẽ nên những nụ cười<br>Trên đôi môi hớn hở<br>Lộc treo đầy khắp phố<br>Hạnh phúc tràn vào nhà<br>Chúc sức khỏe ông bà<br>Gia đình luôn êm ấm<br>Trẻ em luôn vui tươi<br>Học hành càng phấn khởi<br>Cha mẹ luôn yêu đời<br>Công danh càng tấn tới<br>Ông bà luôn phơi phới<br>Bạc đầu tới trăm tuổi<br>Hạnh phúc tới mọi nơi<br>Cùng đón mừng năm mới</p>\n",
+    "content_text": "Em ơi em có nghe\nNắng rớt bên hiên nhà\nĐàn trẻ con ngân nga\nNhững bài ca đón Tết!\nMùa xuân vừa mới dệt\nTấm áo mới mọi nơi\nVẽ nên những nụ cười\nTrên đôi môi hớn hở\nLộc treo đầy khắp phố\nHạnh phúc tràn vào nhà\nChúc sức khỏe ông bà\nGia đình luôn êm ấm\nTrẻ em luôn vui tươi\nHọc hành càng phấn khởi\nCha mẹ luôn yêu đời\nCông danh càng tấn tới\nÔng bà luôn phơi phới\nBạc đầu tới trăm tuổi\nHạnh phúc tới mọi nơi\nCùng đón mừng năm mới",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/meo-nhu-chuot-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/meo-nhu-chuot-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1228_img_0.webp"
+    ]
+  },
+  {
+    "id": 1225,
+    "slug": "vo-de-105",
+    "title": "Người ta học cách nhớ thương",
+    "date": "2023-12-15T15:30:49",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Người ta học cách nhớ thương<br>Tôi đây học cách để quên một người<br>Quên trong ánh mắt nụ cười<br>Trong làn môi ấm, trong lời yêu thương!<br>Từng giây trong những đêm trường<br>Uyên ương mộng đẹp khắp vườn hồng hoa<br>Tương tư từ lúc xế tà<br>Canh ba đã điểm tiếng gà cũng say<br>Say trong cõi mộng một ngày<br>Thế gian say cả vạn ngày mộng mơ<br>Làm sao quên đã tôn thờ<br>Làm sao vứt bỏ từng giờ yêu thương<br>Làm sao quên những con đường<br>Làm sao để trả yêu thương trở về<br>Làm sao để xóa não nề<br>Làm sao thoát khỏi u mê mộng tình</p>\n",
+    "content_text": "Người ta học cách nhớ thương\nTôi đây học cách để quên một người\nQuên trong ánh mắt nụ cười\nTrong làn môi ấm, trong lời yêu thương!\nTừng giây trong những đêm trường\nUyên ương mộng đẹp khắp vườn hồng hoa\nTương tư từ lúc xế tà\nCanh ba đã điểm tiếng gà cũng say\nSay trong cõi mộng một ngày\nThế gian say cả vạn ngày mộng mơ\nLàm sao quên đã tôn thờ\nLàm sao vứt bỏ từng giờ yêu thương\nLàm sao quên những con đường\nLàm sao để trả yêu thương trở về\nLàm sao để xóa não nề\nLàm sao thoát khỏi u mê mộng tình",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hien-tuong-deja-reve-1-1-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hien-tuong-deja-reve-1-1-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1225_img_0.webp"
+    ]
+  },
+  {
+    "id": 1222,
+    "slug": "vo-de-104",
+    "title": "Chim ơi chim đừng bay",
+    "date": "2023-12-15T15:27:47",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Chim ơi chim đừng bay<br>Đậu bên cạnh hoa này<br>Chờ trái chín đầy cành<br>Mang khắp miền yêu thương!<br>Gieo tương tư khắp chốn<br>Lạc rớt hiên nhà nàng<br>Hạt cây si vừa nở<br>Gieo trong niềm nhớ thương<br>Đợi chờ lớn từng ngày<br>Trong từng giây còn nhớ<br>Bóng hình của nàng thơ<br>Mơ trong mơ cũng nhớ<br>Say trong say còn tỉnh<br>Chợt vô tình gọi tên</p>\n",
+    "content_text": "Chim ơi chim đừng bay\nĐậu bên cạnh hoa này\nChờ trái chín đầy cành\nMang khắp miền yêu thương!\nGieo tương tư khắp chốn\nLạc rớt hiên nhà nàng\nHạt cây si vừa nở\nGieo trong niềm nhớ thương\nĐợi chờ lớn từng ngày\nTrong từng giây còn nhớ\nBóng hình của nàng thơ\nMơ trong mơ cũng nhớ\nSay trong say còn tỉnh\nChợt vô tình gọi tên",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/Cuoc-doi-chac-chan-no-hoa-tien-tieu-khong-het-neu-co-giac-mo-nay-giac-mo-1536909119-534-width660height409-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/Cuoc-doi-chac-chan-no-hoa-tien-tieu-khong-het-neu-co-giac-mo-nay-giac-mo-1536909119-534-width660height409-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1222_img_0.webp"
+    ]
+  },
+  {
+    "id": 1219,
+    "slug": "vo-de-103",
+    "title": "Chú chim nho nhỏ, chưa tỏ yêu thương",
+    "date": "2023-12-15T15:21:21",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Chú chim nho nhỏ, chưa tỏ yêu thương<br>Đậu trên cành hường, chờ tương tư đến<br>Cánh hồng cũng mến, tỏa chút hương thơm<br>Chim nhỏ vô tình, rớt trong tình nhỏ!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chim có cánh to nhưng chẳng bay nhảy<br>Cứ cạnh hồng nhỏ chờ gió thật to<br>Chim giang cánh nhỏ cho gió đừng vào<br>Thổi cánh hoa nào vội tàn đi mất</p>\n\n\n\n<p class=\"wp-block-paragraph\">Trông trời trông đất, trông tháng trông ngày<br>Nhưng chẳng được may, hoa tàn phút chốc<br>Chim nhỏ bỗng chốc, gốc hoa cạnh nằm<br>Chờ xuân hoa đến, nảy mầm yêu đương</p>\n",
+    "content_text": "Chú chim nho nhỏ, chưa tỏ yêu thương\nĐậu trên cành hường, chờ tương tư đến\nCánh hồng cũng mến, tỏa chút hương thơm\nChim nhỏ vô tình, rớt trong tình nhỏ!\n\n\n\n\n\nChim có cánh to nhưng chẳng bay nhảy\nCứ cạnh hồng nhỏ chờ gió thật to\nChim giang cánh nhỏ cho gió đừng vào\nThổi cánh hoa nào vội tàn đi mất\n\n\n\n\n\nTrông trời trông đất, trông tháng trông ngày\nNhưng chẳng được may, hoa tàn phút chốc\nChim nhỏ bỗng chốc, gốc hoa cạnh nằm\nChờ xuân hoa đến, nảy mầm yêu đương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/1920x1080-The-Angry-Birds-Movie-2-HD-Wallpaper-43391-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/1920x1080-The-Angry-Birds-Movie-2-HD-Wallpaper-43391-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1219_img_0.webp"
+    ]
+  },
+  {
+    "id": 1216,
+    "slug": "vo-de-102",
+    "title": "Yêu em cho đến khi con tim ngừng đập",
+    "date": "2023-12-15T15:17:46",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Yêu em cho đến khi con tim ngừng đập<br>Nước mắt kia ngừng rơi, lời yêu chẳng rõ thành lời<br>Lòng anh se thắt lại cho nỗi nhớ đừng tan<br>Yêu em trong muộn màng, vội vàng trong sầu lắng!<br>Anh say trong màu nắng em rải trên cát vàng<br>Gục lên tàn cánh phượng, em vô tình đánh rơi<br>Biển xa khơi nhớ bờ<br>Nhớ nhớ em trong mơ</p>\n",
+    "content_text": "Yêu em cho đến khi con tim ngừng đập\nNước mắt kia ngừng rơi, lời yêu chẳng rõ thành lời\nLòng anh se thắt lại cho nỗi nhớ đừng tan\nYêu em trong muộn màng, vội vàng trong sầu lắng!\nAnh say trong màu nắng em rải trên cát vàng\nGục lên tàn cánh phượng, em vô tình đánh rơi\nBiển xa khơi nhớ bờ\nNhớ nhớ em trong mơ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hoa-phuong-tieng-anh-la-gi-1.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hoa-phuong-tieng-anh-la-gi-1.png"
+    ],
+    "local_images": [
+      "images/poem_1216_img_0.png"
+    ]
+  },
+  {
+    "id": 1213,
+    "slug": "vo-de-101",
+    "title": "Tuyết nguyệt phong sương giăng ngập lối",
+    "date": "2023-12-15T15:02:32",
+    "date_formatted": "15 tháng 12, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Tuyết nguyệt phong sương giăng ngập lối<br>Sương mờ nhân ảnh khó phôi phai<br>Ảo mộng hồng trần sầu muôn kiếp<br>Duyên nợ hồng trần dễ phai phôi</p>\n",
+    "content_text": "Tuyết nguyệt phong sương giăng ngập lối\nSương mờ nhân ảnh khó phôi phai\nẢo mộng hồng trần sầu muôn kiếp\nDuyên nợ hồng trần dễ phai phôi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hinh-anh-bong-tuyet-roi-1-jpg.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hinh-anh-bong-tuyet-roi-1-jpg.webp"
+    ],
+    "local_images": [
+      "images/poem_1213_img_0.webp"
+    ]
+  },
+  {
+    "id": 1194,
+    "slug": "vo-de-100",
+    "title": "Tương tư nét vẻ thơ ngây",
+    "date": "2023-07-21T18:08:06",
+    "date_formatted": "21 tháng 7, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Tương tư nét vẻ thơ ngây<br>Ân cần đặt nhẹ lên môi má nàng<br>Mang thêm dáng vẻ ngang tàng<br>Đặt vào ánh mắt muôn vàng yêu thương!<br>An yên chẳng chút muộn phiền<br>Nhân sinh chẳng biết vô tình hữu duyên</p>\n\n\n\n<p class=\"wp-block-paragraph\">Hồng trần đâu dễ phai phôi<br>Oanh vàng cất tiếng rầm rì thế gian<br>À ơi một kiếp xuân thì<br>In trong cõi mộng mơ gì thế gian<br>An yên chẳng chút muộn phiền<br>Nhân sinh chẳng biết vô tình hữu duyên</p>\n",
+    "content_text": "Tương tư nét vẻ thơ ngây\nÂn cần đặt nhẹ lên môi má nàng\nMang thêm dáng vẻ ngang tàng\nĐặt vào ánh mắt muôn vàng yêu thương!\nAn yên chẳng chút muộn phiền\nNhân sinh chẳng biết vô tình hữu duyên\n\n\n\n\n\nHồng trần đâu dễ phai phôi\nOanh vàng cất tiếng rầm rì thế gian\nÀ ơi một kiếp xuân thì\nIn trong cõi mộng mơ gì thế gian\nAn yên chẳng chút muộn phiền\nNhân sinh chẳng biết vô tình hữu duyên",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/anh-mo-ta.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/anh-mo-ta.webp"
+    ],
+    "local_images": [
+      "images/poem_1194_img_0.webp"
+    ]
+  },
+  {
+    "id": 1191,
+    "slug": "vo-de-99",
+    "title": "Một ngôi nhà nhỏ giữa thảo nguyên",
+    "date": "2023-07-21T18:02:41",
+    "date_formatted": "21 tháng 7, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Một ngôi nhà nhỏ giữa thảo nguyên<br>Không mong danh lợi, chẳng muộn phiền<br>Đất xanh gieo chút mầm cây nhỏ<br>Ao cạn thả trôi mấy bọt bèo!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Nắng trải trên vai xuống góc nhà<br>Mưa phùn đượm ướt lá với hoa<br>Sương trà đương tỏa trong nắng mới<br>An yên chờ đợi cạnh hiên nhà</p>\n",
+    "content_text": "Một ngôi nhà nhỏ giữa thảo nguyên\nKhông mong danh lợi, chẳng muộn phiền\nĐất xanh gieo chút mầm cây nhỏ\nAo cạn thả trôi mấy bọt bèo!\n\n\n\n\n\nNắng trải trên vai xuống góc nhà\nMưa phùn đượm ướt lá với hoa\nSương trà đương tỏa trong nắng mới\nAn yên chờ đợi cạnh hiên nhà",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/99.webp",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/99.webp"
+    ],
+    "local_images": [
+      "images/poem_1191_img_0.webp"
+    ]
+  },
+  {
+    "id": 1188,
+    "slug": "vo-de-98",
+    "title": "Ngàn năm chỉ đợi một người",
+    "date": "2023-07-21T17:58:55",
+    "date_formatted": "21 tháng 7, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Ngàn năm chỉ đợi một người<br>Trăm năm chuyển kiếp có quên bao giờ<br>Hỏi rằng nàng có thờ ơ<br>Hay duyên đã rớt cõi mơ mộng nào!</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Đời ta như lá với hoa<br>Lá theo gió cuốn, hoa tàn có hay<br>Thế gian duyên số hợp tan<br>Vội đi rồi để vội vàng bước qua</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Đời người như cát với mây<br>Cát theo gió lộng, mây bay không ngừng<br>Phù du duyên nợ tràn đầy<br>Mê cung số phận nào đây vô hình</p>\n",
+    "content_text": "Ngàn năm chỉ đợi một người\nTrăm năm chuyển kiếp có quên bao giờ\nHỏi rằng nàng có thờ ơ\nHay duyên đã rớt cõi mơ mộng nào!\n\n\n\n\n\n\nĐời ta như lá với hoa\nLá theo gió cuốn, hoa tàn có hay\nThế gian duyên số hợp tan\nVội đi rồi để vội vàng bước qua\n\n\n\n\n\n\nĐời người như cát với mây\nCát theo gió lộng, mây bay không ngừng\nPhù du duyên nợ tràn đầy\nMê cung số phận nào đây vô hình",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/98.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/98.jpeg"
+    ],
+    "local_images": [
+      "images/poem_1188_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 1184,
+    "slug": "vo-de-97",
+    "title": "Kiếp nhân sinh buồn vui thoáng chốc",
+    "date": "2023-07-21T17:55:46",
+    "date_formatted": "21 tháng 7, 2023",
+    "content_html": "\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<p class=\"wp-block-paragraph\">Kiếp nhân sinh buồn vui thoáng chốc<br />Đời vô thường sầu muộn ưu tư<br />Có chăng? E phù du trần thế<br />Bụi muộn phiền phủ khắp thế gian!<br />Chân ta bước vội vàng trên cát<br />In dấu hằn mất mát thời gian<br />Tia nắng hồng soi khắp thế gian<br />Rải muộn phiền sau hàng lá nhỏ</p>\n</div></div>\n</div></div>\n</div></div>\n</div></div>\n\n\n\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<p class=\"wp-block-paragraph\"></p>\n</div></div>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n",
+    "content_text": "Kiếp nhân sinh buồn vui thoáng chốc\nĐời vô thường sầu muộn ưu tư\nCó chăng? E phù du trần thế\nBụi muộn phiền phủ khắp thế gian!\nChân ta bước vội vàng trên cát\nIn dấu hằn mất mát thời gian\nTia nắng hồng soi khắp thế gian\nRải muộn phiền sau hàng lá nhỏ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/97.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/97.jpg"
+    ],
+    "local_images": [
+      "images/poem_1184_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1177,
+    "slug": "vo-de-96",
+    "title": "Tôi lạc ở đây góc xế chiều",
+    "date": "2023-04-20T13:32:07",
+    "date_formatted": "20 tháng 4, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Tôi lạc ở đây góc xế chiều<br>Hàng cây chen đá, lá liêu xiêu<br>Gót hồng mơ mộng nhiều đêm trắng<br>Đìu hiu bến nhỏ, rán bóng chiều!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Thiên thu muôn kiếp sầu vô hận<br>Khoảnh khắc tơ lòng chốc vụt tan<br>Cảnh cũ đò xưa còn đón khách<br>Trăng xưa chẳng khuất mối tơ lòng</p>\n",
+    "content_text": "Tôi lạc ở đây góc xế chiều\nHàng cây chen đá, lá liêu xiêu\nGót hồng mơ mộng nhiều đêm trắng\nĐìu hiu bến nhỏ, rán bóng chiều!\n\n\n\n\n\nThiên thu muôn kiếp sầu vô hận\nKhoảnh khắc tơ lòng chốc vụt tan\nCảnh cũ đò xưa còn đón khách\nTrăng xưa chẳng khuất mối tơ lòng",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/04/96.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/04/96.jpg"
+    ],
+    "local_images": [
+      "images/poem_1177_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1174,
+    "slug": "vo-de-95",
+    "title": "Thưa cha con đi lấy chồng",
+    "date": "2023-03-01T15:37:42",
+    "date_formatted": "1 tháng 3, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Thưa cha con đi lấy chồng<br>Ở bên người ấy có bằng lòng không?<br>Ngày thơ, xưa bé lông bông<br>Trên tay cha đã bế bồng sớm hôm!<br>Khúc khích khẽ khóc rồi cười<br>Gian nan vất vả để ngoài hiên phơi<br>Giờ đây sương gió trắng trời<br>Thấu trong tim có mở lời cùng ai<br>Dịu dàng đôi mắt hiền nai<br>Sầu lên khóe mắt biết ai tìm về!</p>\n",
+    "content_text": "Thưa cha con đi lấy chồng\nỞ bên người ấy có bằng lòng không?\nNgày thơ, xưa bé lông bông\nTrên tay cha đã bế bồng sớm hôm!\nKhúc khích khẽ khóc rồi cười\nGian nan vất vả để ngoài hiên phơi\nGiờ đây sương gió trắng trời\nThấu trong tim có mở lời cùng ai\nDịu dàng đôi mắt hiền nai\nSầu lên khóe mắt biết ai tìm về!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/03/95.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/03/95.jpg"
+    ],
+    "local_images": [
+      "images/poem_1174_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1171,
+    "slug": "vo-de-94",
+    "title": "Đêm quá ngắn với những tâm sự buồn",
+    "date": "2023-03-01T15:33:03",
+    "date_formatted": "1 tháng 3, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Đêm quá ngắn với những tâm sự buồn<br>Ngày quá dài với những suy tư<br>Tháng năm trôi muộn phiền ở lại<br>Chông chênh đời ngắm cõi hư vô!<br>Kiếp nhân sinh là sầu hay khổ<br>Cõi thế gian sao đượm ưu hoài<br>Ta lạc lối giữa dòng vô tận<br>Trầm luân hồi ai óan suy tư&#8230;</p>\n",
+    "content_text": "Đêm quá ngắn với những tâm sự buồn\nNgày quá dài với những suy tư\nTháng năm trôi muộn phiền ở lại\nChông chênh đời ngắm cõi hư vô!\nKiếp nhân sinh là sầu hay khổ\nCõi thế gian sao đượm ưu hoài\nTa lạc lối giữa dòng vô tận\nTrầm luân hồi ai óan suy tư&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/03/94.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/03/94.jpg"
+    ],
+    "local_images": [
+      "images/poem_1171_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1168,
+    "slug": "vo-de-93",
+    "title": "Có một thứ khiến đời ta cô quạnh",
+    "date": "2023-02-23T14:23:17",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Có một thứ khiến đời ta cô quạnh<br>Ngắm trăng tàn và lạnh tay người thương<br>Trời còn sáng và tối, nhưng ta chỉ lạc lối<br>Tìm đường về mà vô lối người thương</p>\n",
+    "content_text": "Có một thứ khiến đời ta cô quạnh\nNgắm trăng tàn và lạnh tay người thương\nTrời còn sáng và tối, nhưng ta chỉ lạc lối\nTìm đường về mà vô lối người thương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/93.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/93.jpg"
+    ],
+    "local_images": [
+      "images/poem_1168_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1165,
+    "slug": "vo-de-92",
+    "title": "Nhân sinh trong một kiếp người",
+    "date": "2023-02-23T14:20:55",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Nhân sinh trong một kiếp người<br>Gió đưa mây thoảng như lời hư không<br>Phong sương phủ kín bụi trần<br>Nhân duyên như rót muôn phần cô đơn</p>\n",
+    "content_text": "Nhân sinh trong một kiếp người\nGió đưa mây thoảng như lời hư không\nPhong sương phủ kín bụi trần\nNhân duyên như rót muôn phần cô đơn",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/92.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/92.png"
+    ],
+    "local_images": [
+      "images/poem_1165_img_0.png"
+    ]
+  },
+  {
+    "id": 1162,
+    "slug": "vo-de-91",
+    "title": "Trường giang sóng cuộn về xuôi",
+    "date": "2023-02-23T14:18:24",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Trường giang sóng cuộn về xuôi<br>Mắt ai ướt lệ ngậm ngùi vì ai<br>Hai dòng lệ nhỏ tuôn rơi<br>Sông sâu mất đáy nhớ thương ngậm ngùi</p>\n",
+    "content_text": "Trường giang sóng cuộn về xuôi\nMắt ai ướt lệ ngậm ngùi vì ai\nHai dòng lệ nhỏ tuôn rơi\nSông sâu mất đáy nhớ thương ngậm ngùi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/91.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/91.jpg"
+    ],
+    "local_images": [
+      "images/poem_1162_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1159,
+    "slug": "vo-de-90",
+    "title": "Nhìn kìa em con chúng ta đó",
+    "date": "2023-02-23T14:13:28",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Nhìn kìa em con chúng ta đó<br>Mắt bé nhỏ nhưng xoe tròn nũng nịu<br>Tóc lưa thưa như chứa cả mùa xuân<br>Đường chân trời kề bên vầng trán nhỏ!<br>Sóng mũi dài như dáng đứng quê hương<br>Mỉm miệng cười giữ niềm thương ở lại<br>Má bềnh bồng giống em, hay dỗi hờn</p>\n",
+    "content_text": "Nhìn kìa em con chúng ta đó\nMắt bé nhỏ nhưng xoe tròn nũng nịu\nTóc lưa thưa như chứa cả mùa xuân\nĐường chân trời kề bên vầng trán nhỏ!\nSóng mũi dài như dáng đứng quê hương\nMỉm miệng cười giữ niềm thương ở lại\nMá bềnh bồng giống em, hay dỗi hờn",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/90.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/90.jpeg"
+    ],
+    "local_images": [
+      "images/poem_1159_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 1156,
+    "slug": "vo-de-89",
+    "title": "Trời đổ lửa cho mắt vàng hoe",
+    "date": "2023-02-23T14:00:58",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Trời đổ lửa cho mắt vàng hoe<br>Em lặng thầm khẽ khóc vai anh<br>Màn sương trắng mỏng như tấm lụa<br>Muôn sợi tơ ngăn cách mối tơ lòng!<br>Đêm đã qua, trời đừng vội sáng<br>Phút gẫn gũi để xa cách ngàn ngày<br>Gió heo may từng cơn lạnh lẽo<br>Nắng dần tàn héo hắt lòng ta<br>Cười một chút, đời là bể khổ<br>Buồn hai hàng lệ đổ ướt mi<br>Buông theo gió còn có lại gì<br>Sỏi khô cằn, đá hóa tâm hồn!</p>\n",
+    "content_text": "Trời đổ lửa cho mắt vàng hoe\nEm lặng thầm khẽ khóc vai anh\nMàn sương trắng mỏng như tấm lụa\nMuôn sợi tơ ngăn cách mối tơ lòng!\nĐêm đã qua, trời đừng vội sáng\nPhút gẫn gũi để xa cách ngàn ngày\nGió heo may từng cơn lạnh lẽo\nNắng dần tàn héo hắt lòng ta\nCười một chút, đời là bể khổ\nBuồn hai hàng lệ đổ ướt mi\nBuông theo gió còn có lại gì\nSỏi khô cằn, đá hóa tâm hồn!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/89.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/89.jpg"
+    ],
+    "local_images": [
+      "images/poem_1156_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1154,
+    "slug": "vo-de-88",
+    "title": "Trên cành quyên liễu có đôi",
+    "date": "2023-02-23T13:49:59",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Trên cành quyên liễu có đôi<br>Thế tôi có thể nên đôi với nàng<br>Trời chiều len chút nắng vàng<br>Dịu dàng ai đặt cho nàng cạnh tôi!<br>Ánh trăng kia biêt dối lừa<br>Khuyết chăng một nửa cho vừa dáng nàng<br>Con đò lỡ bước sang ngang<br>Cho tôi một chút vội vàng ngẫn ngơ<br>Nàng thơ ơi hỡi nàng thơ<br>Tên chi có thể giả vờ buông lơi<br>Cho tôi gửi chút đôi lời<br>Có duyên gặp lại ngỏ lời nên duyên</p>\n",
+    "content_text": "Trên cành quyên liễu có đôi\nThế tôi có thể nên đôi với nàng\nTrời chiều len chút nắng vàng\nDịu dàng ai đặt cho nàng cạnh tôi!\nÁnh trăng kia biêt dối lừa\nKhuyết chăng một nửa cho vừa dáng nàng\nCon đò lỡ bước sang ngang\nCho tôi một chút vội vàng ngẫn ngơ\nNàng thơ ơi hỡi nàng thơ\nTên chi có thể giả vờ buông lơi\nCho tôi gửi chút đôi lời\nCó duyên gặp lại ngỏ lời nên duyên",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/88.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/88.jpg"
+    ],
+    "local_images": [
+      "images/poem_1154_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1150,
+    "slug": "vo-de-87",
+    "title": "Hẹn người ở tuổi đôi mươi",
+    "date": "2023-02-23T13:48:51",
+    "date_formatted": "23 tháng 2, 2023",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Hẹn người ở tuổi đôi mươi<br>Tóc xanh đã trải, mắt môi má hồng<br>Lỡ dòng khẽ bước sang ngang<br>Nhạt màu nắng rớt hai hàng lệ rơi!<br>Xuân xanh thời cũng có thời<br>Hoa xuân đâu chỉ một đời hoa xuân<br>Đành lòng nhẹ bước bâng khuân<br>Tuổi xuân gửi lại bên nhành hoa xuân</p>\n",
+    "content_text": "Hẹn người ở tuổi đôi mươi\nTóc xanh đã trải, mắt môi má hồng\nLỡ dòng khẽ bước sang ngang\nNhạt màu nắng rớt hai hàng lệ rơi!\nXuân xanh thời cũng có thời\nHoa xuân đâu chỉ một đời hoa xuân\nĐành lòng nhẹ bước bâng khuân\nTuổi xuân gửi lại bên nhành hoa xuân",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/87.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/87.jpg"
+    ],
+    "local_images": [
+      "images/poem_1150_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1140,
+    "slug": "vo-de-86",
+    "title": "Tiễn con đi khi đầu hai thứ tóc",
+    "date": "2022-12-12T17:54:39",
+    "date_formatted": "12 tháng 12, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Tiễn con đi khi đầu hai thứ tóc<br>Đón con về tóc mẹ bạc phai<br>Sinh con ra với hình hài nhỏ bé<br>Đón con về khi đất đá lẫn xương khô!<br>Chén cơm bạc, xới vội nửa lưng<br>Cơm chưa tròn con lại đi cho kịp<br>Tiếng Tổ Quốc hòa nhịp con tim<br>Những tiếng nấc muộn phiền gói lại<br>Hành trang con đi phải mãi vững lòng<br>Đã qua rồi năm ròng tháng rã<br>Chén cơm vội, con đã ăn đâu<br>Lần gặp gỡ biết đâu là lần cuối<br>Bóng lưng con khuất núi sau hè<br>Khi gặp lại đã không còn giặc nữa<br>Con trở về bên chái bếp sau hè<br>Nghe mẹ ru như những ngày thơ bé<br>Chỉ chạnh lòng không được ấp ôm mẹ</p>\n",
+    "content_text": "Tiễn con đi khi đầu hai thứ tóc\nĐón con về tóc mẹ bạc phai\nSinh con ra với hình hài nhỏ bé\nĐón con về khi đất đá lẫn xương khô!\nChén cơm bạc, xới vội nửa lưng\nCơm chưa tròn con lại đi cho kịp\nTiếng Tổ Quốc hòa nhịp con tim\nNhững tiếng nấc muộn phiền gói lại\nHành trang con đi phải mãi vững lòng\nĐã qua rồi năm ròng tháng rã\nChén cơm vội, con đã ăn đâu\nLần gặp gỡ biết đâu là lần cuối\nBóng lưng con khuất núi sau hè\nKhi gặp lại đã không còn giặc nữa\nCon trở về bên chái bếp sau hè\nNghe mẹ ru như những ngày thơ bé\nChỉ chạnh lòng không được ấp ôm mẹ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/86.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/86.jpg"
+    ],
+    "local_images": [
+      "images/poem_1140_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1137,
+    "slug": "vo-de-85",
+    "title": "Mẹ trăm tuổi bạc đầu sương muối",
+    "date": "2022-12-12T17:52:32",
+    "date_formatted": "12 tháng 12, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Mẹ trăm tuổi bạc đầu sương muối<br>Đón con về bên núi non thơ<br>Ngày thuở bé chỉ mơ và mộng<br>Mái nhà tranh gió lộng tứ bề!<br>Lúc thơ bé được bế bồng chiều chuộng<br>Lưng mẹ gầy con ngủ suốt thâu đêm<br>Lớn lên trên đất cằn khô sỏi<br>Ước mơ nhỏ qua cơn đói từng ngày<br>Giặc lại đến đốt cháy giấc mơ nhỏ<br>Kiếp nô lệ có còn thấy tự do<br>Con đã đi theo màu cờ đỏ<br>Máu nhuộm bùn, đỏ khắp Việt Nam<br>Nước đã sang trang nhưng ngàn người ở lại<br>Dưới đất sâu mãi với thời gian<br>Đủ gian khổ, hình hài về với mẹ<br>Mắt đã mờ ghi mãi bóng hình con<br>Mâm cơm nhạt bớt đi nhiều nước mắt<br>Chút khói hương mẹ ấm một chút lòng<br>Hình đất nước in bóng hình con đó<br>Tựa lưng vào thân gầy gò mẹ hiền<br>Bóng của cha đã từng chinh chiến<br>Cho hôm nay đất nước mãi vững bền!</p>\n",
+    "content_text": "Mẹ trăm tuổi bạc đầu sương muối\nĐón con về bên núi non thơ\nNgày thuở bé chỉ mơ và mộng\nMái nhà tranh gió lộng tứ bề!\nLúc thơ bé được bế bồng chiều chuộng\nLưng mẹ gầy con ngủ suốt thâu đêm\nLớn lên trên đất cằn khô sỏi\nƯớc mơ nhỏ qua cơn đói từng ngày\nGiặc lại đến đốt cháy giấc mơ nhỏ\nKiếp nô lệ có còn thấy tự do\nCon đã đi theo màu cờ đỏ\nMáu nhuộm bùn, đỏ khắp Việt Nam\nNước đã sang trang nhưng ngàn người ở lại\nDưới đất sâu mãi với thời gian\nĐủ gian khổ, hình hài về với mẹ\nMắt đã mờ ghi mãi bóng hình con\nMâm cơm nhạt bớt đi nhiều nước mắt\nChút khói hương mẹ ấm một chút lòng\nHình đất nước in bóng hình con đó\nTựa lưng vào thân gầy gò mẹ hiền\nBóng của cha đã từng chinh chiến\nCho hôm nay đất nước mãi vững bền!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/85.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/85.jpg"
+    ],
+    "local_images": [
+      "images/poem_1137_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1132,
+    "slug": "vo-de-84",
+    "title": "Tôi nhớ Sapa mùa tuyết lạnh",
+    "date": "2022-12-08T08:42:57",
+    "date_formatted": "8 tháng 12, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Tôi nhớ Sapa mùa tuyết lạnh<br>Sương mờ phủ trắng mặt người qua<br>Lữ khách phương xa vờ chẳng thấy<br>Sương lạnh bờ môi ướt lệ nhòa!<br>Ngày ấy khi trời còn nắng đẹp<br>Chồi xanh đương mọc với lá hoa<br>Kiêu sa bước đến cạnh bên ta<br>Mây mù bỗng chốc cũng nhạt nhòa<br>Nắng vừa khẽ lên nắng vội tắt<br>Vô tình? Hữu ý? Băng kết hoa<br>Mỗi phút mỗi giây xa cách xa<br>Mỗi phương mỗi hướng hóa hư không<br>Băng tâm, sương kín mây ngập lối<br>Độc bộ, đơn hành, ta với ta</p>\n",
+    "content_text": "Tôi nhớ Sapa mùa tuyết lạnh\nSương mờ phủ trắng mặt người qua\nLữ khách phương xa vờ chẳng thấy\nSương lạnh bờ môi ướt lệ nhòa!\nNgày ấy khi trời còn nắng đẹp\nChồi xanh đương mọc với lá hoa\nKiêu sa bước đến cạnh bên ta\nMây mù bỗng chốc cũng nhạt nhòa\nNắng vừa khẽ lên nắng vội tắt\nVô tình? Hữu ý? Băng kết hoa\nMỗi phút mỗi giây xa cách xa\nMỗi phương mỗi hướng hóa hư không\nBăng tâm, sương kín mây ngập lối\nĐộc bộ, đơn hành, ta với ta",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/84.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/84.jpg"
+    ],
+    "local_images": [
+      "images/poem_1132_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1121,
+    "slug": "vo-de-83",
+    "title": "Em ơi dáng hình đất nước",
+    "date": "2022-05-12T16:53:37",
+    "date_formatted": "12 tháng 5, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Em ơi dáng hình đất nước<br>Cao như Thái Sơn, sâu tựa lòng mẹ<br>Từng con sóng cứ vỗ về<br>Như lời mẹ hát ru những đêm hè!<br>Gió chảy qua miền sơn cước<br>Phủ lên tóc cha những sợi bạc màu<br>Hình đất nước thật hùng vĩ<br>Như cách ông bà ta đã yêu nhau<br>Núi sông kia phai bạc màu<br>Ao sâu và biển khô cạn đáy<br>Những tâm hồn còn nhỏ bé<br>Xây dựng hình hài của cả núi sông!<br>Lớn lên con xa đất mẹ<br>Ôm trọn hình hài đất nước bên mình<br>Sông dù sâu cũng ra bể<br>Suối dẫu cạn cũng bắt đầu từ nguồn<br>Con dù sống ở bốn phương<br>Quê cha đất mẹ vấn vương không ngừng<br>Mong sao nghe được tin mừng<br>Quê hương đất nước tưng bừng niềm vui!</p>\n",
+    "content_text": "Em ơi dáng hình đất nước\nCao như Thái Sơn, sâu tựa lòng mẹ\nTừng con sóng cứ vỗ về\nNhư lời mẹ hát ru những đêm hè!\nGió chảy qua miền sơn cước\nPhủ lên tóc cha những sợi bạc màu\nHình đất nước thật hùng vĩ\nNhư cách ông bà ta đã yêu nhau\nNúi sông kia phai bạc màu\nAo sâu và biển khô cạn đáy\nNhững tâm hồn còn nhỏ bé\nXây dựng hình hài của cả núi sông!\nLớn lên con xa đất mẹ\nÔm trọn hình hài đất nước bên mình\nSông dù sâu cũng ra bể\nSuối dẫu cạn cũng bắt đầu từ nguồn\nCon dù sống ở bốn phương\nQuê cha đất mẹ vấn vương không ngừng\nMong sao nghe được tin mừng\nQuê hương đất nước tưng bừng niềm vui!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/05/bai-tho-dat-nuoc.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/05/bai-tho-dat-nuoc.jpg"
+    ],
+    "local_images": [
+      "images/poem_1121_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1101,
+    "slug": "vo-de-82",
+    "title": "Em chỉ ước thế gian không quá rộng",
+    "date": "2022-01-16T23:31:29",
+    "date_formatted": "16 tháng 1, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Em chỉ ước thế gian không quá rộng<br>Để yếu lòng, quay lại sẽ gặp anh<br>Dẫu mong manh như muôn lớp lụa<br>Nhưng nhủ lòng như lúa đợi mưa rào!<br>Nhưng tại sao khi ta càng mong đợi<br>Càng vô tình vác thêm nỗi ưu phiền<br>Có hay không nơi đó người vẫn thế<br>Chút mong chờ hay đã hóa hư không</p>\n",
+    "content_text": "Em chỉ ước thế gian không quá rộng\nĐể yếu lòng, quay lại sẽ gặp anh\nDẫu mong manh như muôn lớp lụa\nNhưng nhủ lòng như lúa đợi mưa rào!\nNhưng tại sao khi ta càng mong đợi\nCàng vô tình vác thêm nỗi ưu phiền\nCó hay không nơi đó người vẫn thế\nChút mong chờ hay đã hóa hư không",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/cung-oan-ngam-khuc.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/cung-oan-ngam-khuc.jpg"
+    ],
+    "local_images": [
+      "images/poem_1101_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1088,
+    "slug": "vo-de-81",
+    "title": "Cỏ trắng sương xanh trải sườn đồi",
+    "date": "2022-01-12T23:16:22",
+    "date_formatted": "12 tháng 1, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Cỏ trắng sương xanh trải sườn đồi<br>Hai người một lối chẳng chung đôi<br>Khói xa ám trên màu lá biếc<br>Mây hờn trôi nhẹ biết về đâu!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Nhà anh xanh cây, cỏ chẳng thiếu<br>Nắng chiều xuyên qua chồi lá nhỏ<br>Bước chân vừa đó ngỡ xa nhiều<br>Mây trôi nắng tắt cũng đìu hiu</p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n",
+    "content_text": "Cỏ trắng sương xanh trải sườn đồi\nHai người một lối chẳng chung đôi\nKhói xa ám trên màu lá biếc\nMây hờn trôi nhẹ biết về đâu!\n\n\n\n\n\nNhà anh xanh cây, cỏ chẳng thiếu\nNắng chiều xuyên qua chồi lá nhỏ\nBước chân vừa đó ngỡ xa nhiều\nMây trôi nắng tắt cũng đìu hiu",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/MT2012_Divest_468023426_1200.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/MT2012_Divest_468023426_1200.jpg"
+    ],
+    "local_images": [
+      "images/poem_1088_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1086,
+    "slug": "vo-de-80",
+    "title": "Đã có lúc đời ta như bất biến",
+    "date": "2022-01-12T03:31:10",
+    "date_formatted": "12 tháng 1, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Đã có lúc đời ta như bất biến<br>Phương trình tìm hoài vẫn vô nghiệm<br>Thêm em vào phương trình lại có nghiệm<br>Nhưng âm dương hay vô cực đủ đường!<br>Xích ma tình từ không đến vô cực<br>Chỉ tiệm cận chứ chưa hề giao cắt<br>Trục hoành anh trao, trục tung anh đợi<br>Tiến sát mãi nhưng chẳng bao giờ gặp</p>\n",
+    "content_text": "Đã có lúc đời ta như bất biến\nPhương trình tìm hoài vẫn vô nghiệm\nThêm em vào phương trình lại có nghiệm\nNhưng âm dương hay vô cực đủ đường!\nXích ma tình từ không đến vô cực\nChỉ tiệm cận chứ chưa hề giao cắt\nTrục hoành anh trao, trục tung anh đợi\nTiến sát mãi nhưng chẳng bao giờ gặp",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/0172.jpg_wh860.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/0172.jpg_wh860.jpg"
+    ],
+    "local_images": [
+      "images/poem_1086_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1083,
+    "slug": "vo-de-79",
+    "title": "Cành tre mà có lá đa",
+    "date": "2022-01-12T03:12:24",
+    "date_formatted": "12 tháng 1, 2022",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Cành tre mà có lá đa<br>Như con chim sẻ trong nhà diều hâu<br>Tương tư anh gửi thật sâu<br>Giấu trong giếng cạn dám đâu nói gì!<br>Biển cạn thì có khi đầy<br>Lòng không khô cạn, chẳng vơi nỗi sầu<br>Hỏi rằng em có biết đâu<br>Lòng anh rẽ sóng nhưng trôi ngược dòng</p>\n",
+    "content_text": "Cành tre mà có lá đa\nNhư con chim sẻ trong nhà diều hâu\nTương tư anh gửi thật sâu\nGiấu trong giếng cạn dám đâu nói gì!\nBiển cạn thì có khi đầy\nLòng không khô cạn, chẳng vơi nỗi sầu\nHỏi rằng em có biết đâu\nLòng anh rẽ sóng nhưng trôi ngược dòng",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/bai-tho-song.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/bai-tho-song.jpg"
+    ],
+    "local_images": [
+      "images/poem_1083_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1055,
+    "slug": "vo-de-78",
+    "title": "Sóng tràn mắt biếc, hoa khô lệ",
+    "date": "2021-12-30T20:38:49",
+    "date_formatted": "30 tháng 12, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Sóng tràn mắt biếc, hoa khô lệ<br>Nắng dài trên cát, biển cằn khô<br>Liễu rũ đào phai vàng theo lá<br>Cỏ xanh ủ rạp dưới tàn hoa</p>\n",
+    "content_text": "Sóng tràn mắt biếc, hoa khô lệ\nNắng dài trên cát, biển cằn khô\nLiễu rũ đào phai vàng theo lá\nCỏ xanh ủ rạp dưới tàn hoa",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/12/8a.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/12/8a.jpg"
+    ],
+    "local_images": [
+      "images/poem_1055_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1049,
+    "slug": "vo-de-77",
+    "title": "Màu xanh ba vẽ biển",
+    "date": "2021-12-07T09:01:46",
+    "date_formatted": "7 tháng 12, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Màu xanh ba vẽ biển<br>Màu trắng thì vẽ mây<br>Trong đôi mắt thơ ngây<br>Con vẽ nụ cười hồng!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sắc bông vừa chớm nở<br>Gió trên tóc bồng bềnh<br>Hương thơm bên cỏ lá<br>Hôn lên má dịu dàng</p>\n\n\n\n<p class=\"wp-block-paragraph\">Đôi mắt khẽ mơ màng<br>Bàn tay thon bé xíu<br>Ôm cả trời thương nhớ<br>Bên nụ hồng vấn vương.</p>\n",
+    "content_text": "Màu xanh ba vẽ biển\nMàu trắng thì vẽ mây\nTrong đôi mắt thơ ngây\nCon vẽ nụ cười hồng!\n\n\n\n\n\nSắc bông vừa chớm nở\nGió trên tóc bồng bềnh\nHương thơm bên cỏ lá\nHôn lên má dịu dàng\n\n\n\n\n\nĐôi mắt khẽ mơ màng\nBàn tay thon bé xíu\nÔm cả trời thương nhớ\nBên nụ hồng vấn vương.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/12/28-silhouette-father-child-pohotogprahy.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/12/28-silhouette-father-child-pohotogprahy.jpg"
+    ],
+    "local_images": [
+      "images/poem_1049_img_0.jpg"
+    ]
+  },
+  {
+    "id": 1027,
+    "slug": "vo-de-76",
+    "title": "Con cho ba nụ cười, ngây thơ và mộng mơ",
+    "date": "2021-08-14T21:24:28",
+    "date_formatted": "14 tháng 8, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Con cho ba nụ cười, ngây thơ và mộng mơ<br>Con cho ba mong nhớ, cả một trời yêu thương<br>Vấn vương trên khóe mắt hay môi chúm chím cười<br>Quên đời đầy vất vả, khó nhọc và gian lao!<br>Trời còn cao và xanh, như đôi mắt long lanh<br>Con gieo từng bước nhỏ vào trong hồn ba ba<br>Đời có qua nhiều kiếp, trong muôn vạn cuộc đời<br>Con vẫn mãi bé nhỏ là con gái của ba</p>\n",
+    "content_text": "Con cho ba nụ cười, ngây thơ và mộng mơ\nCon cho ba mong nhớ, cả một trời yêu thương\nVấn vương trên khóe mắt hay môi chúm chím cười\nQuên đời đầy vất vả, khó nhọc và gian lao!\nTrời còn cao và xanh, như đôi mắt long lanh\nCon gieo từng bước nhỏ vào trong hồn ba ba\nĐời có qua nhiều kiếp, trong muôn vạn cuộc đời\nCon vẫn mãi bé nhỏ là con gái của ba",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/08/cha-va-con-gai-5.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/08/cha-va-con-gai-5.png"
+    ],
+    "local_images": [
+      "images/poem_1027_img_0.png"
+    ]
+  },
+  {
+    "id": 887,
+    "slug": "vo-de-75",
+    "title": "Con ngồi con vẽ vầng mây",
+    "date": "2021-02-04T09:50:12",
+    "date_formatted": "4 tháng 2, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Con ngồi con vẽ vầng mây<br>Ba ngồi ba ngắm cả ngày yêu thương<br>Tô thêm một chút màu hường<br>Vẽ nên cả núi yêu thương gia đình!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Long lanh đôi mắt nụ cười<br>Tóc mây ngang mái đánh rơi hững hờ<br>Nét trông có chút ngây thơ<br>Nét trông già dặn nhưng bơ sự đời</p>\n",
+    "content_text": "Con ngồi con vẽ vầng mây\nBa ngồi ba ngắm cả ngày yêu thương\nTô thêm một chút màu hường\nVẽ nên cả núi yêu thương gia đình!\n\n\n\n\n\nLong lanh đôi mắt nụ cười\nTóc mây ngang mái đánh rơi hững hờ\nNét trông có chút ngây thơ\nNét trông già dặn nhưng bơ sự đời",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/48d326ab0636b4902d16f0a216385380.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/48d326ab0636b4902d16f0a216385380.jpg"
+    ],
+    "local_images": [
+      "images/poem_887_img_0.jpg"
+    ]
+  },
+  {
+    "id": 885,
+    "slug": "vo-de-74",
+    "title": "Mong manh giấy trắng vẽ nụ cười",
+    "date": "2021-02-04T09:49:53",
+    "date_formatted": "4 tháng 2, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Mong manh giấy trắng vẽ nụ cười<br>Sắc Xuân tô điểm thêm lời yêu thương<br>Má hồng chưa phủ phong sương<br>Nụ cười chưa chút vấn vương u sầu!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Người đâu gặp gỡ lần đầu<br>Tương tư gieo hết lên đầu yêu thương<br>Thế gian thêm chút cõi hường<br>Yêu thương rồi lại muôn phần yêu thương!</p>\n",
+    "content_text": "Mong manh giấy trắng vẽ nụ cười\nSắc Xuân tô điểm thêm lời yêu thương\nMá hồng chưa phủ phong sương\nNụ cười chưa chút vấn vương u sầu!\n\n\n\n\n\nNgười đâu gặp gỡ lần đầu\nTương tư gieo hết lên đầu yêu thương\nThế gian thêm chút cõi hường\nYêu thương rồi lại muôn phần yêu thương!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/unnamed.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/unnamed.jpg"
+    ],
+    "local_images": [
+      "images/poem_885_img_0.jpg"
+    ]
+  },
+  {
+    "id": 880,
+    "slug": "vo-de-73",
+    "title": "Mong manh như trang giấy",
+    "date": "2021-02-04T09:49:28",
+    "date_formatted": "4 tháng 2, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Mong manh như trang giấy<br>Đôi mắt thơ dịu hiền<br>Con cho ba hỏi nhỏ<br>Con có phải cô tiên!<br>Xua đi hết muộn phiền<br>Gieo mong manh nỗi nhớ<br>Như nàng thơ xứ Huế<br>Chợt vô tình gọi tên!</p>\n",
+    "content_text": "Mong manh như trang giấy\nĐôi mắt thơ dịu hiền\nCon cho ba hỏi nhỏ\nCon có phải cô tiên!\nXua đi hết muộn phiền\nGieo mong manh nỗi nhớ\nNhư nàng thơ xứ Huế\nChợt vô tình gọi tên!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/6086_hue_thanh_pho_cua_nhung_sac_hoa_12015327052019.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/6086_hue_thanh_pho_cua_nhung_sac_hoa_12015327052019.jpg"
+    ],
+    "local_images": [
+      "images/poem_880_img_0.jpg"
+    ]
+  },
+  {
+    "id": 809,
+    "slug": "vo-de-72",
+    "title": "Có những lúc ta thả dòng suy nghĩ",
+    "date": "2021-02-03T16:37:01",
+    "date_formatted": "3 tháng 2, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Có những lúc ta thả dòng suy nghĩ<br>Ngọn cỏ ven đường sao với được mây<br>Nhưng mây kia có chạm được tới cỏ<br>Hay vội tan khi nắng mới vừa lên.<br>Cũng như chút lãng quên dòng ký ức<br>Ta muốn chạm, nhưng dường như xa quá<br>Mỏi mong chờ những thứ đã đi qua&#8230;</p>\n",
+    "content_text": "Có những lúc ta thả dòng suy nghĩ\nNgọn cỏ ven đường sao với được mây\nNhưng mây kia có chạm được tới cỏ\nHay vội tan khi nắng mới vừa lên.\nCũng như chút lãng quên dòng ký ức\nTa muốn chạm, nhưng dường như xa quá\nMỏi mong chờ những thứ đã đi qua&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/trekking-bidoup-9.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/trekking-bidoup-9.jpg"
+    ],
+    "local_images": [
+      "images/poem_809_img_0.jpg"
+    ]
+  },
+  {
+    "id": 783,
+    "slug": "vo-de-71",
+    "title": "Nếu sóng không từ gió",
+    "date": "2021-01-22T15:33:27",
+    "date_formatted": "22 tháng 1, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Nếu sóng không từ gió<br>Biển có chút êm đềm?<br>Nếu nắng không còn ấm<br>Đêm về có dịu êm?<br>Sau lưng những tầng lá<br>Người như hoa như cỏ<br>Nhưng lòng ta bé nhỏ<br>Ngước mắt nhìn trời xa</p>\n",
+    "content_text": "Nếu sóng không từ gió\nBiển có chút êm đềm?\nNếu nắng không còn ấm\nĐêm về có dịu êm?\nSau lưng những tầng lá\nNgười như hoa như cỏ\nNhưng lòng ta bé nhỏ\nNgước mắt nhìn trời xa",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/uMrF2LM.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/uMrF2LM.jpg"
+    ],
+    "local_images": [
+      "images/poem_783_img_0.jpg"
+    ]
+  },
+  {
+    "id": 780,
+    "slug": "vo-de-70",
+    "title": "Ngoài kia vất vả gian lao",
+    "date": "2021-01-22T15:23:16",
+    "date_formatted": "22 tháng 1, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Ngoài kia vất vả gian lao<br>Mẹ già tần tảo sớm hôm một mình<br>Chờ mong mòn mỏi một tin<br>Xuân về Tết đến có con trở về!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Về bên chái bếp hiên nhà<br>Để quên vất vả bên ngoài thế gian<br>Dẫu về phút chốc vội vàng<br>Một lần gặp gỡ hơn ngàn nhớ thương.</p>\n",
+    "content_text": "Ngoài kia vất vả gian lao\nMẹ già tần tảo sớm hôm một mình\nChờ mong mòn mỏi một tin\nXuân về Tết đến có con trở về!\n\n\n\n\n\nVề bên chái bếp hiên nhà\nĐể quên vất vả bên ngoài thế gian\nDẫu về phút chốc vội vàng\nMột lần gặp gỡ hơn ngàn nhớ thương.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/unnamed.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/unnamed.jpg"
+    ],
+    "local_images": [
+      "images/poem_780_img_0.jpg"
+    ]
+  },
+  {
+    "id": 773,
+    "slug": "vo-de-69",
+    "title": "Phong sương gieo gió trong cõi mộng",
+    "date": "2021-01-04T17:43:54",
+    "date_formatted": "4 tháng 1, 2021",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Phong sương gieo gió trong cõi mộng<br>Hồng trần lạc lối với tình ai<br>Trăng nghiêng qua ánh trên mái tóc<br>Liễu phủ đào tơ với mộng huyền!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Óng ánh sóng gieo thuyền âm sắc<br>Giọng hát phôi pha át nỗi lòng<br>Lữ khách vô tình qua phương ấy<br>Đọng chút trong tâm có muộn phiền!</p>\n",
+    "content_text": "Phong sương gieo gió trong cõi mộng\nHồng trần lạc lối với tình ai\nTrăng nghiêng qua ánh trên mái tóc\nLiễu phủ đào tơ với mộng huyền!\n\n\n\n\n\nÓng ánh sóng gieo thuyền âm sắc\nGiọng hát phôi pha át nỗi lòng\nLữ khách vô tình qua phương ấy\nĐọng chút trong tâm có muộn phiền!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/unnamed.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/unnamed.jpeg"
+    ],
+    "local_images": [
+      "images/poem_773_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 765,
+    "slug": "truc-giang-hanh-trinh-15-nam",
+    "title": "Trúc Giang hành trình 15 năm",
+    "date": "2020-09-14T14:04:18",
+    "date_formatted": "14 tháng 9, 2020",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Mười lăm năm cuộc hành trình,<br>Trúc Giang vượt khó vươn mình đi lên!<br>Nhớ ngày thành lập đầu tiên,<br>Gian nan vất vả, khó khăn vô vàn!<br>Tưởng chừng không thể vượt qua,<br>Chặng đường phía trước nào ta có ngờ!<br>Nhân sự, tiền vốn, độ trình,<br>Thị trường kinh nghiệm có bằng ai đâu!<br>Vậy mà dám nghĩ dám làm,<br>Mùng năm tháng chín Trúc Giang ra đời!<br>Mười lăm năm cuộc hành trình,<br>Trúc Giang bước tiếp chặng đường đi lên!<br>Ấm no hạnh phúc đủ đầy,<br>Nhân viên, cán bộ sum vầy anh em!<br>Chúng ta xây dựng Trúc Giang,<br>Sánh vai cùng với anh em bạn bè!<br>Năm năm nữa có là bao!<br>Hẹn nhau gặp mặt Thủ Đô bao đời!<br>Kính dâng lên Bác một lời,<br>&#8220;Chúng con đã trọn lời thề<br>Trúc Giang xây dựng ước mơ ban đầu!&#8221;</p>\n",
+    "content_text": "Mười lăm năm cuộc hành trình,\nTrúc Giang vượt khó vươn mình đi lên!\nNhớ ngày thành lập đầu tiên,\nGian nan vất vả, khó khăn vô vàn!\nTưởng chừng không thể vượt qua,\nChặng đường phía trước nào ta có ngờ!\nNhân sự, tiền vốn, độ trình,\nThị trường kinh nghiệm có bằng ai đâu!\nVậy mà dám nghĩ dám làm,\nMùng năm tháng chín Trúc Giang ra đời!\nMười lăm năm cuộc hành trình,\nTrúc Giang bước tiếp chặng đường đi lên!\nẤm no hạnh phúc đủ đầy,\nNhân viên, cán bộ sum vầy anh em!\nChúng ta xây dựng Trúc Giang,\nSánh vai cùng với anh em bạn bè!\nNăm năm nữa có là bao!\nHẹn nhau gặp mặt Thủ Đô bao đời!\nKính dâng lên Bác một lời,\n&#8220;Chúng con đã trọn lời thề\nTrúc Giang xây dựng ước mơ ban đầu!&#8221;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2020/09/5822457_vieclam24h_1580464823.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2020/09/5822457_vieclam24h_1580464823.png"
+    ],
+    "local_images": [
+      "images/poem_765_img_0.png"
+    ]
+  },
+  {
+    "id": 726,
+    "slug": "vo-de-68",
+    "title": "Đất nước mình đẹp lắm phải không anh",
+    "date": "2020-01-16T10:53:06",
+    "date_formatted": "16 tháng 1, 2020",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Đất nước mình đẹp lắm phải không anh<br>Bao mái nhà tranh chỉ còn dĩ vãng<br>Những cánh đồng bát ngát hóa nhà máy<br>Những máy cày thay trâu trên đồng lúa.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chiếc xe đạp mẹ chở em ngày nào<br>Chỉ còn mãi trong ký ức xa xăm<br>Đôi vai cha vác cày thay trâu<br>Áo bạc màu giờ chẳng đâu tìm thấy</p>\n\n\n\n<p class=\"wp-block-paragraph\">Đời nô lệ mỏng manh như tờ giấy<br>Bỗng chốc tự do xóa gông cùm<br>Ruộng đất bao la trở lại tay ta<br>Từng tất đất đều hóa những tất vàng</p>\n\n\n\n<p class=\"wp-block-paragraph\">Ruộng lúa thênh thang trên từng đồi nhỏ<br>Sóng vỗ về đưa cá mực đầy khoang<br>Ánh mặt trời vàng trên từng bãi cát<br>Những hàng người ca hát trong tự do</p>\n\n\n\n<p class=\"wp-block-paragraph\">Điện đến buôn làng, nước thênh thang<br>Khoảng cách xa như gần sát lại<br>Khỏa lấp dần ở hai đầu nỗi nhớ<br>Kết nối mọi miền hòa với yêu thương</p>\n\n\n\n<p class=\"wp-block-paragraph\">Cho ta gửi những vấn vương về thời gian khó<br>Đất nước thần kỳ vượt trên từng con sóng nhỏ<br>Luôn vươn mình đối mặt với gió to<br>Tìm đích đến của tự do và hạnh phúc</p>\n",
+    "content_text": "Đất nước mình đẹp lắm phải không anh\nBao mái nhà tranh chỉ còn dĩ vãng\nNhững cánh đồng bát ngát hóa nhà máy\nNhững máy cày thay trâu trên đồng lúa.\n\n\n\n\n\nChiếc xe đạp mẹ chở em ngày nào\nChỉ còn mãi trong ký ức xa xăm\nĐôi vai cha vác cày thay trâu\nÁo bạc màu giờ chẳng đâu tìm thấy\n\n\n\n\n\nĐời nô lệ mỏng manh như tờ giấy\nBỗng chốc tự do xóa gông cùm\nRuộng đất bao la trở lại tay ta\nTừng tất đất đều hóa những tất vàng\n\n\n\n\n\nRuộng lúa thênh thang trên từng đồi nhỏ\nSóng vỗ về đưa cá mực đầy khoang\nÁnh mặt trời vàng trên từng bãi cát\nNhững hàng người ca hát trong tự do\n\n\n\n\n\nĐiện đến buôn làng, nước thênh thang\nKhoảng cách xa như gần sát lại\nKhỏa lấp dần ở hai đầu nỗi nhớ\nKết nối mọi miền hòa với yêu thương\n\n\n\n\n\nCho ta gửi những vấn vương về thời gian khó\nĐất nước thần kỳ vượt trên từng con sóng nhỏ\nLuôn vươn mình đối mặt với gió to\nTìm đích đến của tự do và hạnh phúc",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2020/01/kinh-te-viet-nam-khoi-sac-nam-2018-va-trien-vong-nam-2019-4223e8.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2020/01/kinh-te-viet-nam-khoi-sac-nam-2018-va-trien-vong-nam-2019-4223e8.jpg"
+    ],
+    "local_images": [
+      "images/poem_726_img_0.jpg"
+    ]
+  },
+  {
+    "id": 700,
+    "slug": "vo-de-67",
+    "title": "Em ơi em sớm mai vừa thức giấc",
+    "date": "2019-10-15T17:58:53",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Em ơi em sớm mai vừa thức giấc<br />\nCó phải mình vẫn trong giấc chiêm bao<br />\nVẫn nụ hôn còn mãi chút ngọt ngào<br />\nNhư nắng ấm len vào trong cõi mộng</p>\n",
+    "content_text": "Em ơi em sớm mai vừa thức giấc\n\nCó phải mình vẫn trong giấc chiêm bao\n\nVẫn nụ hôn còn mãi chút ngọt ngào\n\nNhư nắng ấm len vào trong cõi mộng",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/2016-07-19_sujWj5Nywc.yeu_.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/2016-07-19_sujWj5Nywc.yeu_.jpg"
+    ],
+    "local_images": [
+      "images/poem_700_img_0.jpg"
+    ]
+  },
+  {
+    "id": 697,
+    "slug": "vo-de-66",
+    "title": "Cà phê đắng ru tình còn mặn",
+    "date": "2019-10-15T17:54:53",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Cà phê đắng ru tình còn mặn<br />\nSầu hững hờ xa vắng mắt ai<br />\nGiọt sương mai vương buồn khóe mắt<br />\nVướng chút tình vị đắng lên môi</p>\n",
+    "content_text": "Cà phê đắng ru tình còn mặn\n\nSầu hững hờ xa vắng mắt ai\n\nGiọt sương mai vương buồn khóe mắt\n\nVướng chút tình vị đắng lên môi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/foody-mobile-33-jpg-329-635621214647515856.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/foody-mobile-33-jpg-329-635621214647515856.jpg"
+    ],
+    "local_images": [
+      "images/poem_697_img_0.jpg"
+    ]
+  },
+  {
+    "id": 694,
+    "slug": "vo-de-65-yen-tu",
+    "title": "Đất Phật bình yên trời một cõi",
+    "date": "2019-10-15T17:53:49",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Đất Phật bình yên trời một cõi<br />\nNon sông gấm vóc vững muôn đời<br />\nBình yên bác ái dang tay rộng<br />\nÔm trọn non sông mãi một nhà!</p>\n",
+    "content_text": "Đất Phật bình yên trời một cõi\n\nNon sông gấm vóc vững muôn đời\n\nBình yên bác ái dang tay rộng\n\nÔm trọn non sông mãi một nhà!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/yentu2.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/yentu2.jpg"
+    ],
+    "local_images": [
+      "images/poem_694_img_0.jpg"
+    ]
+  },
+  {
+    "id": 691,
+    "slug": "vo-de-64",
+    "title": "Bước một bước, ta giữa đời cô độc",
+    "date": "2019-10-15T17:52:35",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Bước một bước, ta giữa đời cô độc,<br />\nChút nỗi lòng rồi biết trải cùng ai!<br />\nĐường dẫu dài nhưng chẳng ngại gian khổ,<br />\nLữ khách đường xa chỉ sợ một mình!</p>\n<p>Hoa tàn hoa héo ai cũng biết,<br />\nTa buồn ta tủi mấy ai hay!<br />\nĐứng giữa dòng vô thường, đời tấp nập,<br />\nChỉ mình ta mình ta với mình ta!</p>\n",
+    "content_text": "Bước một bước, ta giữa đời cô độc,\n\nChút nỗi lòng rồi biết trải cùng ai!\n\nĐường dẫu dài nhưng chẳng ngại gian khổ,\n\nLữ khách đường xa chỉ sợ một mình!\n\n\nHoa tàn hoa héo ai cũng biết,\n\nTa buồn ta tủi mấy ai hay!\n\nĐứng giữa dòng vô thường, đời tấp nập,\n\nChỉ mình ta mình ta với mình ta!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/co-don.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/co-don.jpg"
+    ],
+    "local_images": [
+      "images/poem_691_img_0.jpg"
+    ]
+  },
+  {
+    "id": 688,
+    "slug": "vo-de-63",
+    "title": "Vệt nắng cuối chiều còn hiu hắt",
+    "date": "2019-10-15T17:51:11",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Vệt nắng cuối chiều còn hiu hắt<br />\nCon đường xưa đã vắng tên em<br />\nBuổi chiều êm như làn gió nhỏ<br />\nKhẽ thẫn thờ nhỏ nhắc tên em!<br />\nChim đã về ngàn tìm chốn ngủ<br />\nAnh về chốn cũ không còn em<br />\nTrời đã chen vào trong đôi mắt<br />\nChút sầu chút hận vẫn chút thương</p>\n",
+    "content_text": "Vệt nắng cuối chiều còn hiu hắt\n\nCon đường xưa đã vắng tên em\n\nBuổi chiều êm như làn gió nhỏ\n\nKhẽ thẫn thờ nhỏ nhắc tên em!\n\nChim đã về ngàn tìm chốn ngủ\n\nAnh về chốn cũ không còn em\n\nTrời đã chen vào trong đôi mắt\n\nChút sầu chút hận vẫn chút thương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/hqdefault.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/hqdefault.jpg"
+    ],
+    "local_images": [
+      "images/poem_688_img_0.jpg"
+    ]
+  },
+  {
+    "id": 685,
+    "slug": "vo-de-62",
+    "title": "Anh đâu phải là đá",
+    "date": "2019-10-15T17:48:09",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Anh đâu phải là đá<br />\nCũng chẳng phải cỏ cây<br />\nChỉ như mơ ban ngày<br />\nMà chưa kịp tỉnh giấc!<br />\nTrong giấc mộng có em<br />\nChỉ còn là dĩ vãng<br />\nMàu nắng vàng cuối phố<br />\nNhạt theo màu hoàng hôn<br />\nRộn ràng theo con phố<br />\nBước chân dần nhạt hơn</p>\n",
+    "content_text": "Anh đâu phải là đá\n\nCũng chẳng phải cỏ cây\n\nChỉ như mơ ban ngày\n\nMà chưa kịp tỉnh giấc!\n\nTrong giấc mộng có em\n\nChỉ còn là dĩ vãng\n\nMàu nắng vàng cuối phố\n\nNhạt theo màu hoàng hôn\n\nRộn ràng theo con phố\n\nBước chân dần nhạt hơn",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/Suy-tuong-moi-ngay-nature-barley.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/Suy-tuong-moi-ngay-nature-barley.jpg"
+    ],
+    "local_images": [
+      "images/poem_685_img_0.jpg"
+    ]
+  },
+  {
+    "id": 682,
+    "slug": "vo-de-61",
+    "title": "Tôi không sợ nắng làm phai cuộc tình",
+    "date": "2019-10-15T17:41:19",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Tôi không sợ nắng làm phai cuộc tình<br />\nTôi không sợ gió cuốn hết yêu thương<br />\nTôi chỉ sợ không thể chung đường<br />\nCủa hai kẻ đơn phương hoài chẳng gặp</p>\n",
+    "content_text": "Tôi không sợ nắng làm phai cuộc tình\n\nTôi không sợ gió cuốn hết yêu thương\n\nTôi chỉ sợ không thể chung đường\n\nCủa hai kẻ đơn phương hoài chẳng gặp",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/12.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/12.jpg"
+    ],
+    "local_images": [
+      "images/poem_682_img_0.jpg"
+    ]
+  },
+  {
+    "id": 679,
+    "slug": "vo-de-60",
+    "title": "Mình thương nhau chút có được không",
+    "date": "2019-10-15T17:37:03",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Mình thương nhau chút có được không!<br />\nCho nắng xen thêm chút má hồng<br />\nCho gió len qua từng kẽ lá<br />\nCho nắng hôn lên má môi hồng!</p>\n<p>Mình thương nhau chút có được không!<br />\nCho đường xa vắng hóa hư không<br />\nCho nẻo đường xa gần sát lại<br />\nCho hai đứa mãi gần không xa</p>\n<p>Em ơi cho anh hỏi lần nữa<br />\nMình thương nhau chút có được không!</p>\n",
+    "content_text": "Mình thương nhau chút có được không!\n\nCho nắng xen thêm chút má hồng\n\nCho gió len qua từng kẽ lá\n\nCho nắng hôn lên má môi hồng!\n\n\nMình thương nhau chút có được không!\n\nCho đường xa vắng hóa hư không\n\nCho nẻo đường xa gần sát lại\n\nCho hai đứa mãi gần không xa\n\n\nEm ơi cho anh hỏi lần nữa\n\nMình thương nhau chút có được không!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/636509963792992766_y.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/636509963792992766_y.jpg"
+    ],
+    "local_images": [
+      "images/poem_679_img_0.jpg"
+    ]
+  },
+  {
+    "id": 676,
+    "slug": "vo-de-59",
+    "title": "Đất hỡi đất, nước hỡi nước",
+    "date": "2019-10-15T17:33:56",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Đất hỡi đất, nước hỡi nước<br />\nCó nỗi buồn nào cho ta là vô tận<br />\nCó hạt mưa nào rơi bên cửa<br />\nCho gió lạnh về, nắng chợt tan!</p>\n<p>Cho những cánh tay buông vội rời<br />\nCho cả những con đường xưa lối nhỏ<br />\nBước ta về chỉ còn ta vội vã<br />\nNắng tựa lưng thềm, áo nhạt phai</p>\n<p>Ai đã sai hoàng hôn dài kéo đến<br />\nMây gió về kéo giông tố vội sang<br />\nRồi chợt ướt vai kẻ lang thang<br />\nKẻ vội vàng, bỏ hoang dòng suy nghĩ</p>\n",
+    "content_text": "Đất hỡi đất, nước hỡi nước\n\nCó nỗi buồn nào cho ta là vô tận\n\nCó hạt mưa nào rơi bên cửa\n\nCho gió lạnh về, nắng chợt tan!\n\n\nCho những cánh tay buông vội rời\n\nCho cả những con đường xưa lối nhỏ\n\nBước ta về chỉ còn ta vội vã\n\nNắng tựa lưng thềm, áo nhạt phai\n\n\nAi đã sai hoàng hôn dài kéo đến\n\nMây gió về kéo giông tố vội sang\n\nRồi chợt ướt vai kẻ lang thang\n\nKẻ vội vàng, bỏ hoang dòng suy nghĩ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/binh-giang-doan-dau-bai-tho-voi-vang.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/binh-giang-doan-dau-bai-tho-voi-vang.jpg"
+    ],
+    "local_images": [
+      "images/poem_676_img_0.jpg"
+    ]
+  },
+  {
+    "id": 673,
+    "slug": "vo-de-58-2",
+    "title": "Anh bỏ lỡ tình em",
+    "date": "2019-10-15T17:26:50",
+    "date_formatted": "15 tháng 10, 2019",
+    "content_html": "<p>Anh bỏ lỡ tình em<br />\nGiữa một trời hoa trắng<br />\nNhư mây kia và nắng<br />\nChẳng tiến bước cùng nhau!</p>\n<p>Cánh cò trắng ngày nào<br />\nBay qua đồng êm ả<br />\nSao em không buông thả<br />\nChút thương nhớ về anh</p>\n<p>Trời còn xanh và nắng<br />\nBiển còn sóng và gió<br />\nSao em không còn đó<br />\nNhớ thương và yêu anh</p>\n<p>Gió đi đến phương trời<br />\nNgười ngang qua lối cũ<br />\nNắng và gió cùng nhau<br />\nLại ngược lối yêu thương</p>\n",
+    "content_text": "Anh bỏ lỡ tình em\n\nGiữa một trời hoa trắng\n\nNhư mây kia và nắng\n\nChẳng tiến bước cùng nhau!\n\n\nCánh cò trắng ngày nào\n\nBay qua đồng êm ả\n\nSao em không buông thả\n\nChút thương nhớ về anh\n\n\nTrời còn xanh và nắng\n\nBiển còn sóng và gió\n\nSao em không còn đó\n\nNhớ thương và yêu anh\n\n\nGió đi đến phương trời\n\nNgười ngang qua lối cũ\n\nNắng và gió cùng nhau\n\nLại ngược lối yêu thương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/sóng-gió.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/sóng-gió.jpg"
+    ],
+    "local_images": [
+      "images/poem_673_img_0.jpg"
+    ]
+  },
+  {
+    "id": 513,
+    "slug": "vo-de-57",
+    "title": "Nắng bỏ ta đi, nắng không về nữa",
+    "date": "2018-04-17T05:45:11",
+    "date_formatted": "17 tháng 4, 2018",
+    "content_html": "<p>Nắng bỏ ta đi, nắng không về nữa<br />\nDốc cạn lòng chỉ thấy những cơn mưa<br />\nĐường trăm nẻo, đường về chỉ một<br />\nMưa trăm hướng sao chỉ ướt mình ta!</p>\n<p>Chút hoa, chút trăng, chút gió, chút tình<br />\nCho ta khẽ chút bình minh một mình<br />\nThênh thang vạn nẻo muôn đường xa khuất<br />\nKhói mờ sương ảnh lấp muôn bóng hình</p>\n",
+    "content_text": "Nắng bỏ ta đi, nắng không về nữa\n\nDốc cạn lòng chỉ thấy những cơn mưa\n\nĐường trăm nẻo, đường về chỉ một\n\nMưa trăm hướng sao chỉ ướt mình ta!\n\n\nChút hoa, chút trăng, chút gió, chút tình\n\nCho ta khẽ chút bình minh một mình\n\nThênh thang vạn nẻo muôn đường xa khuất\n\nKhói mờ sương ảnh lấp muôn bóng hình",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2018/04/R10171_image1.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2018/04/R10171_image1.jpeg"
+    ],
+    "local_images": [
+      "images/poem_513_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 505,
+    "slug": "vo-de-56",
+    "title": "Người trao có nửa nụ cười",
+    "date": "2018-04-05T19:42:16",
+    "date_formatted": "5 tháng 4, 2018",
+    "content_html": "<p style=\"text-align: center;\">Người trao có nửa nụ cười<br />\nMà ta mất cả một đời để quên<br />\nQuên cho những tháng những ngày<br />\nNhững giây những phút của thời gian trôi!</p>\n<p style=\"text-align: center;\">Nụ cười một nửa vội vàng<br />\nMang đi thân xác hai hàng ngẩn ngơ<br />\nNgười vui khẽ nụ cười hờ<br />\nCho ta vương vấn ngẩn ngơ suốt ngày</p>\n<p style=\"text-align: center;\">Ta say chút gió chút tình<br />\nVương trên ánh mắt vô tình khẽ qua<br />\nNgười trao chút gió chút hoa<br />\nHồn ta lại ngập đường hoa chốn về</p>\n<p style=\"text-align: center;\">Cho ta một chút mải mê<br />\nTương tư theo bước nàng về sớm hôm<br />\nCho ta hôn khẽ tóc nàng<br />\nCho mây với gió vội vàng mang theo</p>\n",
+    "content_text": "Người trao có nửa nụ cười\n\nMà ta mất cả một đời để quên\n\nQuên cho những tháng những ngày\n\nNhững giây những phút của thời gian trôi!\n\n\nNụ cười một nửa vội vàng\n\nMang đi thân xác hai hàng ngẩn ngơ\n\nNgười vui khẽ nụ cười hờ\n\nCho ta vương vấn ngẩn ngơ suốt ngày\n\n\nTa say chút gió chút tình\n\nVương trên ánh mắt vô tình khẽ qua\n\nNgười trao chút gió chút hoa\n\nHồn ta lại ngập đường hoa chốn về\n\n\nCho ta một chút mải mê\n\nTương tư theo bước nàng về sớm hôm\n\nCho ta hôn khẽ tóc nàng\n\nCho mây với gió vội vàng mang theo",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2018/04/MAY-1.gif",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2018/04/MAY-1.gif"
+    ],
+    "local_images": [
+      "images/poem_505_img_0.gif"
+    ]
+  },
+  {
+    "id": 484,
+    "slug": "vo-de-55",
+    "title": "Sài Gòn mưa gió trở trời",
+    "date": "2017-05-03T15:23:01",
+    "date_formatted": "3 tháng 5, 2017",
+    "content_html": "<p>Sài Gòn mưa gió trở trời<br />\nAnh ngồi anh ngắm một trời bình yên<br />\nBao nhiêu sầu não muộn phiền<br />\nAnh đem bỏ lại sau miền yêu thương!</p>\n<p>Ngày nào rồi cũng bình thường<br />\nPhố phường rồi cũng ngập tràn yêu thuơng<br />\nNơi nào anh cũng thấy em<br />\nNơi nào cũng chỉ yêu thương một người</p>\n",
+    "content_text": "Sài Gòn mưa gió trở trời\n\nAnh ngồi anh ngắm một trời bình yên\n\nBao nhiêu sầu não muộn phiền\n\nAnh đem bỏ lại sau miền yêu thương!\n\n\nNgày nào rồi cũng bình thường\n\nPhố phường rồi cũng ngập tràn yêu thuơng\n\nNơi nào anh cũng thấy em\n\nNơi nào cũng chỉ yêu thương một người",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2017/05/thoi-tiet-hom-nay-14-3-khong-khi-lanh-gay-mua-cho-cac-tinh-mien-bac-dshn.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2017/05/thoi-tiet-hom-nay-14-3-khong-khi-lanh-gay-mua-cho-cac-tinh-mien-bac-dshn.jpg"
+    ],
+    "local_images": [
+      "images/poem_484_img_0.jpg"
+    ]
+  },
+  {
+    "id": 419,
+    "slug": "vo-de-58",
+    "title": "Bài thơ tháng 10",
+    "date": "2016-10-07T16:43:13",
+    "date_formatted": "7 tháng 10, 2016",
+    "content_html": "<p>Tháng năm vội vã trôi qua<br />\nMười nay lại đến, thế là đông sang<br />\nVui trong đông đến rộn ràng<br />\nVẻ trông ấm áp, dịu dàng nắng mai.<br />\nMọi việc rồi sẽ bình an<br />\nChuyện chi cũng sẽ dễ dàng vượt qua<br />\nSuông suông giang cánh đại bàng<br />\nSẻ chia hạnh phúc muôn vàn yêu thương</p>\n",
+    "content_text": "Tháng năm vội vã trôi qua\n\nMười nay lại đến, thế là đông sang\n\nVui trong đông đến rộn ràng\n\nVẻ trông ấm áp, dịu dàng nắng mai.\n\nMọi việc rồi sẽ bình an\n\nChuyện chi cũng sẽ dễ dàng vượt qua\n\nSuông suông giang cánh đại bàng\n\nSẻ chia hạnh phúc muôn vàn yêu thương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/thang_10.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/thang_10.jpg"
+    ],
+    "local_images": [
+      "images/poem_419_img_0.jpg"
+    ]
+  },
+  {
+    "id": 415,
+    "slug": "vo-de-54",
+    "title": "Ngủ đi em, ngoài kia trời rất lạnh",
+    "date": "2016-10-05T16:30:14",
+    "date_formatted": "5 tháng 10, 2016",
+    "content_html": "<p>Ngủ đi em, ngoài kia trời rất lạnh<br />\nMười ngón tay không ôm nổi muộn phiền<br />\nĐêm hoài niệm với những điều đã cũ<br />\nEm đừng buồn, em đáng được bình yên.</p>\n<p>Gió lại về trên khắp nẻo mọi miền<br />\nTấm lưng trần phơi giữa đời giá lạnh<br />\nBuốt căm hờn qua muôn vạn phong sương<br />\nChỉ còn em nơi phố phường hoang vắng.</p>\n",
+    "content_text": "Ngủ đi em, ngoài kia trời rất lạnh\n\nMười ngón tay không ôm nổi muộn phiền\n\nĐêm hoài niệm với những điều đã cũ\n\nEm đừng buồn, em đáng được bình yên.\n\n\nGió lại về trên khắp nẻo mọi miền\n\nTấm lưng trần phơi giữa đời giá lạnh\n\nBuốt căm hờn qua muôn vạn phong sương\n\nChỉ còn em nơi phố phường hoang vắng.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/1347871093-hoang-vang-1.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/1347871093-hoang-vang-1.jpg"
+    ],
+    "local_images": [
+      "images/poem_415_img_0.jpg"
+    ]
+  },
+  {
+    "id": 406,
+    "slug": "vo-de-53",
+    "title": "Có những nỗi lòng chẳng bao giờ nói ra được",
+    "date": "2016-10-05T16:22:07",
+    "date_formatted": "5 tháng 10, 2016",
+    "content_html": "<p>Có những nỗi lòng chẳng bao giờ nói ra được<br />\nSợ là giấc mơ theo cơn gió bay đi<br />\nLửa âm ỉ chẳng bao giờ thành ngọn<br />\nCháy tim ta từng chút dỗi hờn!<br />\nCó lẽ cô đơn với đời ta là tri kỷ<br />\nNỗi lòng ta như vạn tỷ mũi tên<br />\nXuyên qua hết nhưng chẳng bao giờ chạm tới<br />\nĐáy lòng ta vội vã giận hờn!</p>\n",
+    "content_text": "Có những nỗi lòng chẳng bao giờ nói ra được\n\nSợ là giấc mơ theo cơn gió bay đi\n\nLửa âm ỉ chẳng bao giờ thành ngọn\n\nCháy tim ta từng chút dỗi hờn!\n\nCó lẽ cô đơn với đời ta là tri kỷ\n\nNỗi lòng ta như vạn tỷ mũi tên\n\nXuyên qua hết nhưng chẳng bao giờ chạm tới\n\nĐáy lòng ta vội vã giận hờn!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/giả-mã-giấc-mơ.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/giả-mã-giấc-mơ.jpg"
+    ],
+    "local_images": [
+      "images/poem_406_img_0.jpg"
+    ]
+  },
+  {
+    "id": 403,
+    "slug": "vo-de-52",
+    "title": "Như chuông vang mãi tiếng lòng",
+    "date": "2016-10-05T16:16:40",
+    "date_formatted": "5 tháng 10, 2016",
+    "content_html": "<p>Như chuông vang mãi tiếng lòng<br />\nNgân lên trong khúc dịu dàng sắc xuân<br />\nHạnh kia chung sức đi tìm<br />\nPhúc đây vang đến mọi miền yêu thương</p>\n",
+    "content_text": "Như chuông vang mãi tiếng lòng\n\nNgân lên trong khúc dịu dàng sắc xuân\n\nHạnh kia chung sức đi tìm\n\nPhúc đây vang đến mọi miền yêu thương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/images.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/images.jpeg"
+    ],
+    "local_images": [
+      "images/poem_403_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 396,
+    "slug": "vo-de-51",
+    "title": "Đông gõ cửa bên ngoài hiên vắng",
+    "date": "2016-09-08T15:58:04",
+    "date_formatted": "8 tháng 9, 2016",
+    "content_html": "<p>Đông gõ cửa bên ngoài hiên vắng<br />\nĐưa thu và giọt nắng trôi xa<br />\nMây giăng sương trắng nhạt nhòa<br />\nGió đem hơi lạnh ghé qua ngoài thềm!</p>\n<p>Nhớ giây phút bên rèm ngóng đợi<br />\nGiữa đêm khuya vời vợi nhớ thương<br />\nGiọt châu tô ướt má hường<br />\nGiờ người xa cách ở phương trời nào</p>\n<p>Trăng hiu hắt ngó vào song cửa<br />\nNét mi gầy, một nửa xanh xao<br />\nBờ mi níu giấc chiêm bao<br />\nVòng tay ân ái theo vào giấc mơ</p>\n<p>Chợt tỉnh giấc, không giờ rồi đó<br />\nTái tê lòng cơn gió tràn qua<br />\nĐể ai nước mắt nhạt nhòa<br />\nCô đơn gối chiếc&#8230; tình qua lâu rồi.</p>\n",
+    "content_text": "Đông gõ cửa bên ngoài hiên vắng\n\nĐưa thu và giọt nắng trôi xa\n\nMây giăng sương trắng nhạt nhòa\n\nGió đem hơi lạnh ghé qua ngoài thềm!\n\n\nNhớ giây phút bên rèm ngóng đợi\n\nGiữa đêm khuya vời vợi nhớ thương\n\nGiọt châu tô ướt má hường\n\nGiờ người xa cách ở phương trời nào\n\n\nTrăng hiu hắt ngó vào song cửa\n\nNét mi gầy, một nửa xanh xao\n\nBờ mi níu giấc chiêm bao\n\nVòng tay ân ái theo vào giấc mơ\n\n\nChợt tỉnh giấc, không giờ rồi đó\n\nTái tê lòng cơn gió tràn qua\n\nĐể ai nước mắt nhạt nhòa\n\nCô đơn gối chiếc&#8230; tình qua lâu rồi.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/09/maxresdefault-2.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/09/maxresdefault-2.jpg"
+    ],
+    "local_images": [
+      "images/poem_396_img_0.jpg"
+    ]
+  },
+  {
+    "id": 389,
+    "slug": "vo-de-50",
+    "title": "Đừng tưởng em không còn đây nữa",
+    "date": "2016-07-30T08:27:32",
+    "date_formatted": "30 tháng 7, 2016",
+    "content_html": "<p>​Đừng tưởng em không còn đây nữa<br />\nThì anh buồn anh khóc với cô đơn<br />\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh<br />\nVẫn vô tư như khi có còn em!</p>\n<p>Bởi em xa nhưng ta là tri kỷ<br />\nKhông thấy nhau nhưng vẫn tỉ yêu thương<br />\nEm là gió, là khói sương tan biến<br />\nAnh vô tình như nước biển chờ mong</p>\n<p>Sương kia rớt xuống dòng sông<br />\nTrôi ra biển lớn anh mong mỏi chờ<br />\nBơ vơ một chút hững hờ<br />\nMong chờ một chút mong chờ thế thôi</p>\n",
+    "content_text": "​Đừng tưởng em không còn đây nữa\n\nThì anh buồn anh khóc với cô đơn\n\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh\n\nVẫn vô tư như khi có còn em!\n\n\nBởi em xa nhưng ta là tri kỷ\n\nKhông thấy nhau nhưng vẫn tỉ yêu thương\n\nEm là gió, là khói sương tan biến\n\nAnh vô tình như nước biển chờ mong\n\n\nSương kia rớt xuống dòng sông\n\nTrôi ra biển lớn anh mong mỏi chờ\n\nBơ vơ một chút hững hờ\n\nMong chờ một chút mong chờ thế thôi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/hay-chung-minh-chia-xa-1-1024x536.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/hay-chung-minh-chia-xa-1-1024x536.png"
+    ],
+    "local_images": [
+      "images/poem_389_img_0.png"
+    ]
+  },
+  {
+    "id": 385,
+    "slug": "vo-de-49",
+    "title": "Anh là anh của hôm qua",
+    "date": "2016-07-26T16:02:12",
+    "date_formatted": "26 tháng 7, 2016",
+    "content_html": "<p>Anh là anh của hôm qua<br />\nEm là em của xót xa mất rồi<br />\nNhìn trời sao lắm mây trôi<br />\nGặp trong phút chốc để rồi cách xa!</p>\n<p>Chẳng qua cũng mối duyên đầu<br />\nChẳng qua hai đứa quay đầu là xong<br />\nVấn vương chi mãi tơ lòng<br />\nĐường chia hai ngã đừng mong đợi gì</p>\n",
+    "content_text": "Anh là anh của hôm qua\n\nEm là em của xót xa mất rồi\n\nNhìn trời sao lắm mây trôi\n\nGặp trong phút chốc để rồi cách xa!\n\n\nChẳng qua cũng mối duyên đầu\n\nChẳng qua hai đứa quay đầu là xong\n\nVấn vương chi mãi tơ lòng\n\nĐường chia hai ngã đừng mong đợi gì",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/photo-1-1554260091077555526490.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/photo-1-1554260091077555526490.jpg"
+    ],
+    "local_images": [
+      "images/poem_385_img_0.jpg"
+    ]
+  },
+  {
+    "id": 382,
+    "slug": "vo-de-48",
+    "title": "Ta đi qua giữa dòng đời quá vội",
+    "date": "2016-07-26T16:01:25",
+    "date_formatted": "26 tháng 7, 2016",
+    "content_html": "<p>Ta đi qua giữa dòng đời quá vội<br />\nChân lý tìm trôi nổi chốn nhân gian<br />\nVới một cái dang tay ôm sầu hận<br />\nPhận duyên tình có lẫn với sầu bi!<br />\nTa quay bước tìm trong nỗi nhớ<br />\nChỉ còn hình mờ chốn nhân gian<br />\nĐã qua rồi thời gian có lại<br />\nKhoảng xóa nhớ, cách chia xa<br />\nCó là ta hay người xa lạ<br />\nTìm chẳng thấy, hóa kẻ người dưng<br />\nRồi ta dừng, bên đời vô thức<br />\nĐể người tìm thực chất yêu thương</p>\n",
+    "content_text": "Ta đi qua giữa dòng đời quá vội\n\nChân lý tìm trôi nổi chốn nhân gian\n\nVới một cái dang tay ôm sầu hận\n\nPhận duyên tình có lẫn với sầu bi!\n\nTa quay bước tìm trong nỗi nhớ\n\nChỉ còn hình mờ chốn nhân gian\n\nĐã qua rồi thời gian có lại\n\nKhoảng xóa nhớ, cách chia xa\n\nCó là ta hay người xa lạ\n\nTìm chẳng thấy, hóa kẻ người dưng\n\nRồi ta dừng, bên đời vô thức\n\nĐể người tìm thực chất yêu thương",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/quay-lung.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/quay-lung.jpg"
+    ],
+    "local_images": [
+      "images/poem_382_img_0.jpg"
+    ]
+  },
+  {
+    "id": 375,
+    "slug": "loi-cuoi-thang-12",
+    "title": "Lời cuối tháng 12",
+    "date": "2015-12-09T23:18:52",
+    "date_formatted": "9 tháng 12, 2015",
+    "content_html": "<p>Em cứ sống với cuộc sống của em đi<br />\nĐể mình anh với mãi bước tình si<br />\nBước đêm tối với một mình thầm lặng<br />\nBiết nơi đâu có hiểu thấu được chăng?<br />\nCó những lúc mây giăng về kín lối<br />\nMưa bão bùng gió lạnh lại từng cơn<br />\nĐể một mình cô đơn rồi giá lạnh<br />\nKẻ vô tình cũng là kẻ cô đơn<br />\nCó gì đúng, có gì sai hay ngang trái<br />\nHay chúng mình chẳng phải của nhau<br />\nKẻ bước nhanh trên con đường vội vã<br />\nNgười vô tình bước thong thả dỗi hờn<br />\nChẳng ai hơn cũng chẳng ai là kém<br />\nMệt mỏi rồi cũng thèm chút sẻ chia<br />\nNếu cứ thế đời chia lìa hai ngã<br />\nVô tình không hay giá trả cô đơn</p>\n",
+    "content_text": "Em cứ sống với cuộc sống của em đi\n\nĐể mình anh với mãi bước tình si\n\nBước đêm tối với một mình thầm lặng\n\nBiết nơi đâu có hiểu thấu được chăng?\n\nCó những lúc mây giăng về kín lối\n\nMưa bão bùng gió lạnh lại từng cơn\n\nĐể một mình cô đơn rồi giá lạnh\n\nKẻ vô tình cũng là kẻ cô đơn\n\nCó gì đúng, có gì sai hay ngang trái\n\nHay chúng mình chẳng phải của nhau\n\nKẻ bước nhanh trên con đường vội vã\n\nNgười vô tình bước thong thả dỗi hờn\n\nChẳng ai hơn cũng chẳng ai là kém\n\nMệt mỏi rồi cũng thèm chút sẻ chia\n\nNếu cứ thế đời chia lìa hai ngã\n\nVô tình không hay giá trả cô đơn",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/12/5.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/12/5.jpg"
+    ],
+    "local_images": [
+      "images/poem_375_img_0.jpg"
+    ]
+  },
+  {
+    "id": 367,
+    "slug": "vo-de-47",
+    "title": "Buồn vui cùng với nụ cười",
+    "date": "2015-07-13T22:33:04",
+    "date_formatted": "13 tháng 7, 2015",
+    "content_html": "<p>Buồn vui cùng với nụ cười<br />\nTrên môi chút đắng của thời gian trôi<br />\nVẩn vơ như đã ngủ vùi<br />\nTôi xuôi theo nắng buồn vui đôi đường!<br />\nPhố phường cũng chút lặng im<br />\nLim dim một giấc ngủ chìm thế gian<br />\nSương kia có lúc phai tàn<br />\nNgười sao có lúc vội vàng bước đi<br />\nTình xưa còn ý nghĩa gì<br />\nBuông tay là hết, thôi thì chia xa<br />\nĐầu môi còn chút mặn mà<br />\nĐã qua dòng nước mắt xa đôi bờ<br />\nThẫn thờ cùng với nghĩ suy<br />\nYêu sao một chút, hận chi muôn đời</p>\n",
+    "content_text": "Buồn vui cùng với nụ cười\n\nTrên môi chút đắng của thời gian trôi\n\nVẩn vơ như đã ngủ vùi\n\nTôi xuôi theo nắng buồn vui đôi đường!\n\nPhố phường cũng chút lặng im\n\nLim dim một giấc ngủ chìm thế gian\n\nSương kia có lúc phai tàn\n\nNgười sao có lúc vội vàng bước đi\n\nTình xưa còn ý nghĩa gì\n\nBuông tay là hết, thôi thì chia xa\n\nĐầu môi còn chút mặn mà\n\nĐã qua dòng nước mắt xa đôi bờ\n\nThẫn thờ cùng với nghĩ suy\n\nYêu sao một chút, hận chi muôn đời",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/07/hinh-nen-hinh-anh-hoa-bo-cong-anh-dep-nhat-25.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/07/hinh-nen-hinh-anh-hoa-bo-cong-anh-dep-nhat-25.jpg"
+    ],
+    "local_images": [
+      "images/poem_367_img_0.jpg"
+    ]
+  },
+  {
+    "id": 363,
+    "slug": "vo-de-46",
+    "title": "Tình như sương",
+    "date": "2015-06-26T23:35:39",
+    "date_formatted": "26 tháng 6, 2015",
+    "content_html": "<p>Tình như sương<br />\nChơi vơi<br />\nĐời như khói<br />\nRơi rơi!<br />\nNgười cứ thế<br />\nXa xa<br />\nTa cứ thế<br />\nBuồn bã!</p>\n<p>Rồi</p>\n<p>Tình vẫn vậy<br />\nXa xôi<br />\nĐời vẫn thế<br />\nTrôi trôi!<br />\nNgười vẫn vậy<br />\nRời xa<br />\nTa cứ thế<br />\nMình ta</p>\n",
+    "content_text": "Tình như sương\n\nChơi vơi\n\nĐời như khói\n\nRơi rơi!\n\nNgười cứ thế\n\nXa xa\n\nTa cứ thế\n\nBuồn bã!\n\n\nRồi\n\n\nTình vẫn vậy\n\nXa xôi\n\nĐời vẫn thế\n\nTrôi trôi!\n\nNgười vẫn vậy\n\nRời xa\n\nTa cứ thế\n\nMình ta",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/06/Giot-suong-ky-dieu-1.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/06/Giot-suong-ky-dieu-1.jpg"
+    ],
+    "local_images": [
+      "images/poem_363_img_0.jpg"
+    ]
+  },
+  {
+    "id": 346,
+    "slug": "vo-de-45",
+    "title": "Phố không tên đêm về vắng lặng",
+    "date": "2015-03-29T23:07:40",
+    "date_formatted": "29 tháng 3, 2015",
+    "content_html": "<p>Phố không tên đêm về vắng lặng<br />\nTình không tên tình đắng trong tim<br />\nChôn vào sâu trong một nỗi niềm<br />\nThở than đời dám trách vì ai!</p>\n<p>Chẳng ai sai cũng chẳng ai là đúng<br />\nLà duyên tình thao túng cả thế gian<br />\nBước vội vàng khi tình yêu vừa tới<br />\nRồi xa dần khi tình mới vừa sang</p>\n<p>Cả thế gian nhân tình là như thế<br />\nMãi hẹn thề như chẳng thể xa nhau<br />\nRồi vội mau quên đi theo làn gió<br />\nTỉnh mộng rồi, có còn đó yêu đương!</p>\n",
+    "content_text": "Phố không tên đêm về vắng lặng\n\nTình không tên tình đắng trong tim\n\nChôn vào sâu trong một nỗi niềm\n\nThở than đời dám trách vì ai!\n\n\nChẳng ai sai cũng chẳng ai là đúng\n\nLà duyên tình thao túng cả thế gian\n\nBước vội vàng khi tình yêu vừa tới\n\nRồi xa dần khi tình mới vừa sang\n\n\nCả thế gian nhân tình là như thế\n\nMãi hẹn thề như chẳng thể xa nhau\n\nRồi vội mau quên đi theo làn gió\n\nTỉnh mộng rồi, có còn đó yêu đương!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/03/5-300x190.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/03/5-300x190.jpg"
+    ],
+    "local_images": [
+      "images/poem_346_img_0.jpg"
+    ]
+  },
+  {
+    "id": 342,
+    "slug": "vo-de-44",
+    "title": "Ngày xưa mưa gió dặm trường",
+    "date": "2015-03-07T22:30:54",
+    "date_formatted": "7 tháng 3, 2015",
+    "content_html": "<p>Ngày xưa mưa gió dặm trường<br />\nMẹ thường hay bảo con nương vào người<br />\nNgoài trời mưa gió trắng tươi<br />\nTrong vòng tay mẹ con cười con vui!</p>\n<p>Lớn lên sống giữa mọi người<br />\nMưa trời vẫn đổ, nơi đâu tựa vào<br />\nÀo ào như thác tuôn rơi<br />\nNơi này con lạnh, chơi vơi một mình</p>\n<p>Xa xa trong gió lặng thinh<br />\nCó nghe tiếng mẹ tâm tình mỗi đêm<br />\nLời ru xa vẫn êm đềm<br />\nThắm trong con lúc mỗi đêm ùa về</p>\n<p>Giữa đời còn lắm u mê<br />\nTìm đâu để thấy lối về mỗi đêm<br />\nDù xa cách những đêm trường<br />\nTình mẹ vẫn sáng soi đường con đi</p>\n",
+    "content_text": "Ngày xưa mưa gió dặm trường\n\nMẹ thường hay bảo con nương vào người\n\nNgoài trời mưa gió trắng tươi\n\nTrong vòng tay mẹ con cười con vui!\n\n\nLớn lên sống giữa mọi người\n\nMưa trời vẫn đổ, nơi đâu tựa vào\n\nÀo ào như thác tuôn rơi\n\nNơi này con lạnh, chơi vơi một mình\n\n\nXa xa trong gió lặng thinh\n\nCó nghe tiếng mẹ tâm tình mỗi đêm\n\nLời ru xa vẫn êm đềm\n\nThắm trong con lúc mỗi đêm ùa về\n\n\nGiữa đời còn lắm u mê\n\nTìm đâu để thấy lối về mỗi đêm\n\nDù xa cách những đêm trường\n\nTình mẹ vẫn sáng soi đường con đi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/03/04687-namxua.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/03/04687-namxua.jpg"
+    ],
+    "local_images": [
+      "images/poem_342_img_0.jpg"
+    ]
+  },
+  {
+    "id": 337,
+    "slug": "vo-de-43",
+    "title": "Tết đến rồi, xuân có vui gì không",
+    "date": "2015-02-18T14:14:22",
+    "date_formatted": "18 tháng 2, 2015",
+    "content_html": "<p>Tết đến rồi, xuân có vui gì không<br />\nHay niềm vui chỉ là để dối lòng<br />\nMắt thì cười nhưng lòng nhói lệ<br />\nMải mê tìm một thế giới ảo mộng!</p>\n<p>Ở đó lòng tin là tất cả<br />\nRồi phai tàn theo lá mùa thu<br />\nĐời cứ mãi như là phù du<br />\nTrôi theo sóng biết đâu mà tìm</p>\n<p>Thế giới đó tìm nhau có dễ<br />\nCó nhau rồi, dễ mất hay không<br />\nĐời là sống hay là tồn tại<br />\nMãi tìm thứ không thuộc về mình</p>\n",
+    "content_text": "Tết đến rồi, xuân có vui gì không\n\nHay niềm vui chỉ là để dối lòng\n\nMắt thì cười nhưng lòng nhói lệ\n\nMải mê tìm một thế giới ảo mộng!\n\n\nỞ đó lòng tin là tất cả\n\nRồi phai tàn theo lá mùa thu\n\nĐời cứ mãi như là phù du\n\nTrôi theo sóng biết đâu mà tìm\n\n\nThế giới đó tìm nhau có dễ\n\nCó nhau rồi, dễ mất hay không\n\nĐời là sống hay là tồn tại\n\nMãi tìm thứ không thuộc về mình",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/flower-2306239_960_720.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/flower-2306239_960_720.jpg"
+    ],
+    "local_images": [
+      "images/poem_337_img_0.jpg"
+    ]
+  },
+  {
+    "id": 333,
+    "slug": "vo-de-42",
+    "title": "Chẳng còn đâu những giờ phút đôi ta",
+    "date": "2015-02-16T00:16:13",
+    "date_formatted": "16 tháng 2, 2015",
+    "content_html": "<p>Chẳng còn đâu những giờ phút đôi ta<br />\nBước cùng nhau mặc cả thế giới sầu<br />\nGiờ trong đêm chỉ còn ta mò mẫm<br />\nBước đi cùng mà khác tận trong tâm!</p>\n<p>Gánh lỗi lầm chỉ một mình ta chịu<br />\nChỉ mong người đời xiêu chút nỗi lòng<br />\nNghiêng một chút cho đời bớt hối hả<br />\nChút bình yên sao khó quá cuộc đời</p>\n",
+    "content_text": "Chẳng còn đâu những giờ phút đôi ta\n\nBước cùng nhau mặc cả thế giới sầu\n\nGiờ trong đêm chỉ còn ta mò mẫm\n\nBước đi cùng mà khác tận trong tâm!\n\n\nGánh lỗi lầm chỉ một mình ta chịu\n\nChỉ mong người đời xiêu chút nỗi lòng\n\nNghiêng một chút cho đời bớt hối hả\n\nChút bình yên sao khó quá cuộc đời",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/xot-xa-1-320x214.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/xot-xa-1-320x214.jpg"
+    ],
+    "local_images": [
+      "images/poem_333_img_0.jpg"
+    ]
+  },
+  {
+    "id": 331,
+    "slug": "vo-de-41",
+    "title": "Tôi vẫn thế, vẫn một kẻ cô đơn",
+    "date": "2015-02-16T00:15:30",
+    "date_formatted": "16 tháng 2, 2015",
+    "content_html": "<p>Tôi vẫn thế, vẫn một kẻ cô đơn<br />\nBiết dỗi hờn khi đời nhiều ngang trái<br />\nTôi có sai khi dòng đời hai lối<br />\nBước ngược đường thành một lối người dưng!</p>\n<p>Đời cũng từng là cả một bể vui<br />\nNụ cười xinh chẳng thể tắt cuối đường<br />\nNhưng đời là thứ bể khổ vô thường<br />\nHết con đường rồi lại là vực thẳm</p>\n<p>Đã níu kéo, nắm lấy trong vô vọng<br />\nChút niềm tin sao nó quá mong manh<br />\nRồi mọi thứ chỉ còn là mong đợi<br />\nTrong vô vọng của một thứ hư vô&#8230;</p>\n",
+    "content_text": "Tôi vẫn thế, vẫn một kẻ cô đơn\n\nBiết dỗi hờn khi đời nhiều ngang trái\n\nTôi có sai khi dòng đời hai lối\n\nBước ngược đường thành một lối người dưng!\n\n\nĐời cũng từng là cả một bể vui\n\nNụ cười xinh chẳng thể tắt cuối đường\n\nNhưng đời là thứ bể khổ vô thường\n\nHết con đường rồi lại là vực thẳm\n\n\nĐã níu kéo, nắm lấy trong vô vọng\n\nChút niềm tin sao nó quá mong manh\n\nRồi mọi thứ chỉ còn là mong đợi\n\nTrong vô vọng của một thứ hư vô&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/29485.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/29485.png"
+    ],
+    "local_images": [
+      "images/poem_331_img_0.png"
+    ]
+  },
+  {
+    "id": 297,
+    "slug": "vo-de-40-lac-long",
+    "title": "Lệ rơi rơi bên ánh mắt xa xăm",
+    "date": "2015-01-27T23:30:31",
+    "date_formatted": "27 tháng 1, 2015",
+    "content_html": "<p>Lệ rơi rơi bên ánh mắt xa xăm<br />\nTừ sâu thẳm thời gian có đọng lại<br />\nChút vương tình thơ dại của thuở nào<br />\nTrót lỡ trao khi mưa rào chợt đến.<br />\nRồi cuốn đi bao yêu mến nồng nàn<br />\nĐời gian nan khi hai đường chia lối<br />\nBước bên nhau nhưng vội cách xa vời<br />\nKẻ cố gắng đợi người nơi xa ấy<br />\nNgười nơi đây lại chẳng bước chung đường<br />\nHai kẻ quen cứ như dần xa lạ<br />\nCách xa nhau mãi cả một đoạn đường<br />\nChẳng đủ dài như phố phường đông đúc<br />\nNhưng xa cách cả một khúc tâm hồn&#8230;</p>\n",
+    "content_text": "Lệ rơi rơi bên ánh mắt xa xăm\n\nTừ sâu thẳm thời gian có đọng lại\n\nChút vương tình thơ dại của thuở nào\n\nTrót lỡ trao khi mưa rào chợt đến.\n\nRồi cuốn đi bao yêu mến nồng nàn\n\nĐời gian nan khi hai đường chia lối\n\nBước bên nhau nhưng vội cách xa vời\n\nKẻ cố gắng đợi người nơi xa ấy\n\nNgười nơi đây lại chẳng bước chung đường\n\nHai kẻ quen cứ như dần xa lạ\n\nCách xa nhau mãi cả một đoạn đường\n\nChẳng đủ dài như phố phường đông đúc\n\nNhưng xa cách cả một khúc tâm hồn&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/A46W75W7.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/A46W75W7.jpg"
+    ],
+    "local_images": [
+      "images/poem_297_img_0.jpg"
+    ]
+  },
+  {
+    "id": 295,
+    "slug": "vo-de-39-tang-nhi-chi-phuong-bai-tho-con-coc",
+    "title": "Tết này có thêm thành viên nhí",
+    "date": "2015-01-26T00:00:33",
+    "date_formatted": "26 tháng 1, 2015",
+    "content_html": "<p>Tết này có thêm thành viên nhí<br />\nCuộc sống có thêm điều thú vị<br />\nNâng ly ta chúc thành viên nhí<br />\nTrăm ngàn hạnh phúc, triệu tỷ vui!</p>\n<p>Gia đình quây quần bên bếp nhỏ<br />\nChẳng cần phải sợ chẳng cần lo<br />\nMột mái nhà xinh thật nho nhỏ<br />\nDù cho sóng gió chẳng phải lo</p>\n",
+    "content_text": "Tết này có thêm thành viên nhí\n\nCuộc sống có thêm điều thú vị\n\nNâng ly ta chúc thành viên nhí\n\nTrăm ngàn hạnh phúc, triệu tỷ vui!\n\n\nGia đình quây quần bên bếp nhỏ\n\nChẳng cần phải sợ chẳng cần lo\n\nMột mái nhà xinh thật nho nhỏ\n\nDù cho sóng gió chẳng phải lo",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/danh-ngon-cuoc-song-bang-tieng-anh-ve-niem-vui.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/danh-ngon-cuoc-song-bang-tieng-anh-ve-niem-vui.jpg"
+    ],
+    "local_images": [
+      "images/poem_295_img_0.jpg"
+    ]
+  },
+  {
+    "id": 160,
+    "slug": "vo-de-38",
+    "title": "Con mệt lắm rồi thượng đế ơi",
+    "date": "2015-01-17T23:34:59",
+    "date_formatted": "17 tháng 1, 2015",
+    "content_html": "<p>Con mệt lắm rồi thượng đế ơi<br />\nĐôi chân con bước, lệ con rơi<br />\nMắt ướt đẫm đêm dài trắng xóa<br />\nHéo hon tàn như lá mùa thu!</p>\n<p>Giấc mơ xưa như đã ngủ vùi<br />\nVào hư không nhưng lòng vẫn nhói<br />\nMỗi bước đi gánh cả ngàn cân<br />\nĐày ta xuống trần đầy u uất</p>\n",
+    "content_text": "Con mệt lắm rồi thượng đế ơi\n\nĐôi chân con bước, lệ con rơi\n\nMắt ướt đẫm đêm dài trắng xóa\n\nHéo hon tàn như lá mùa thu!\n\n\nGiấc mơ xưa như đã ngủ vùi\n\nVào hư không nhưng lòng vẫn nhói\n\nMỗi bước đi gánh cả ngàn cân\n\nĐày ta xuống trần đầy u uất",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/giac-mo-la-gi-tai-sao-chung-ta-hay-mo.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/giac-mo-la-gi-tai-sao-chung-ta-hay-mo.jpg"
+    ],
+    "local_images": [
+      "images/poem_160_img_0.jpg"
+    ]
+  },
+  {
+    "id": 122,
+    "slug": "vo-de-37",
+    "title": "Mạnh mẽ đến đâu em vẫn là con gái",
+    "date": "2015-01-15T09:44:37",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Mạnh mẽ đến đâu em vẫn là con gái<br />\nMệt mỏi rồi em biết tựa vào ai<br />\nMột bờ vai vẫn hoài mong đợi<br />\nTìm được rồi hay lạc chốn xa xôi!</p>\n<p>Một bước chân dường như còn hụt hẫng<br />\nLạc giữa dòng đầy đấng mày râu<br />\nMạnh mẽ đến đâu em vẫn là con gái<br />\nMệt mỏi rồi, đời ngang trái phải không em</p>\n",
+    "content_text": "Mạnh mẽ đến đâu em vẫn là con gái\n\nMệt mỏi rồi em biết tựa vào ai\n\nMột bờ vai vẫn hoài mong đợi\n\nTìm được rồi hay lạc chốn xa xôi!\n\n\nMột bước chân dường như còn hụt hẫng\n\nLạc giữa dòng đầy đấng mày râu\n\nMạnh mẽ đến đâu em vẫn là con gái\n\nMệt mỏi rồi, đời ngang trái phải không em",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/mm.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/mm.jpg"
+    ],
+    "local_images": [
+      "images/poem_122_img_0.jpg"
+    ]
+  },
+  {
+    "id": 119,
+    "slug": "vo-de-36",
+    "title": "Tôi gởi vào thơ một chút buồn",
+    "date": "2015-01-15T09:43:05",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tôi gởi vào thơ một chút buồn<br />\nĐể cho dòng lệ đắng thôi tuôn<br />\nDòng lệ buồn như sầu nhân thế<br />\nTắm trong tim cả huyết lệ tình!</p>\n<p>Kiếp nhân sinh là mê hay tỉnh<br />\nLạc giữa dòng sầu đắng cô liêu<br />\nMột chữ yêu sao nhiều cay đắng<br />\nNuốt ngược vào đỏ thắm máu tươi</p>\n<p>Từng nhịp thở lười như sông nhỏ<br />\nTrôi theo dòng đời có vui đâu<br />\nSầu đã sầu, sầu càng nhung nhớ<br />\nChờ đã chờ, đợi đến bao giờ&#8230;</p>\n",
+    "content_text": "Tôi gởi vào thơ một chút buồn\n\nĐể cho dòng lệ đắng thôi tuôn\n\nDòng lệ buồn như sầu nhân thế\n\nTắm trong tim cả huyết lệ tình!\n\n\nKiếp nhân sinh là mê hay tỉnh\n\nLạc giữa dòng sầu đắng cô liêu\n\nMột chữ yêu sao nhiều cay đắng\n\nNuốt ngược vào đỏ thắm máu tươi\n\n\nTừng nhịp thở lười như sông nhỏ\n\nTrôi theo dòng đời có vui đâu\n\nSầu đã sầu, sầu càng nhung nhớ\n\nChờ đã chờ, đợi đến bao giờ&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1422680102-cnzvle_dang_1_evtl.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1422680102-cnzvle_dang_1_evtl.jpg"
+    ],
+    "local_images": [
+      "images/poem_119_img_0.jpg"
+    ]
+  },
+  {
+    "id": 116,
+    "slug": "vo-de-35",
+    "title": "Nỗi cô đơn không tên mà vẫn nhớ",
+    "date": "2015-01-15T09:40:45",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Nỗi cô đơn không tên mà vẫn nhớ<br />\nChén rượu sầu không uống mà vẫn say<br />\nĐời cứ quay sao ta hoài vô thức<br />\nBước ngược đường mà mong sẽ thấy nhau!</p>\n<p>Đời bể dâu hay mang sầu nhân thế<br />\nGiọt lệ buồn cứ thế chẳng thể ngưng<br />\nTa mãi vậy bước trên từng phố nhỏ<br />\nVẫn một mình với gió lạnh từng cơn&#8230;</p>\n",
+    "content_text": "Nỗi cô đơn không tên mà vẫn nhớ\n\nChén rượu sầu không uống mà vẫn say\n\nĐời cứ quay sao ta hoài vô thức\n\nBước ngược đường mà mong sẽ thấy nhau!\n\n\nĐời bể dâu hay mang sầu nhân thế\n\nGiọt lệ buồn cứ thế chẳng thể ngưng\n\nTa mãi vậy bước trên từng phố nhỏ\n\nVẫn một mình với gió lạnh từng cơn&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Ruou-sau.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Ruou-sau.jpg"
+    ],
+    "local_images": [
+      "images/poem_116_img_0.jpg"
+    ]
+  },
+  {
+    "id": 113,
+    "slug": "vo-de-34",
+    "title": "Em là ai mà mắt nai nhung nhớ",
+    "date": "2015-01-15T09:38:55",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Em là ai mà mắt nai nhung nhớ<br />\nLặng lẽ buồn gieo nhịp thở trong anh<br />\nTrời trong xanh như muôn ngàn nỗi nhớ<br />\nChút thẫn thờ theo gió gởi về ai!</p>\n<p>Tình có sai khi ta hoài nhung nhớ<br />\nĐã vương tình nhưng vờ chẳng nhớ nhung<br />\nĐời đã chẳng bước chung về một phía<br />\nSao cứ tìm những tia nắng mong manh</p>\n<p>Thắp lên chút hy vọng rồi sẽ tắt<br />\nLụi tàn dần theo nắng lúc hoàng hôn<br />\nChẳng thể ôm người vào trong giấc mộng<br />\nĐành để người mơ mộng chốn nhân gian</p>\n",
+    "content_text": "Em là ai mà mắt nai nhung nhớ\n\nLặng lẽ buồn gieo nhịp thở trong anh\n\nTrời trong xanh như muôn ngàn nỗi nhớ\n\nChút thẫn thờ theo gió gởi về ai!\n\n\nTình có sai khi ta hoài nhung nhớ\n\nĐã vương tình nhưng vờ chẳng nhớ nhung\n\nĐời đã chẳng bước chung về một phía\n\nSao cứ tìm những tia nắng mong manh\n\n\nThắp lên chút hy vọng rồi sẽ tắt\n\nLụi tàn dần theo nắng lúc hoàng hôn\n\nChẳng thể ôm người vào trong giấc mộng\n\nĐành để người mơ mộng chốn nhân gian",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/20180111-050833-i-miss-you.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/20180111-050833-i-miss-you.jpg"
+    ],
+    "local_images": [
+      "images/poem_113_img_0.jpg"
+    ]
+  },
+  {
+    "id": 110,
+    "slug": "vo-de-33",
+    "title": "Ngày xưa má đỏ hây hây",
+    "date": "2015-01-15T09:37:45",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Ngày xưa má đỏ hây hây<br />\nNgày nay tóc phải đỏ vầy mới sang<br />\nNgày xưa má đỏ dịu dàng<br />\nNgày nay tóc đỏ còn sang hơn nhiều!</p>\n<p>Hay là em đã làm liều<br />\nNhuộm ngay tóc đỏ để xiêu lòng anh<br />\nDù cho mưa gió tanh bành<br />\nTóc em vẫn đỏ để dành cho anh</p>\n",
+    "content_text": "Ngày xưa má đỏ hây hây\n\nNgày nay tóc phải đỏ vầy mới sang\n\nNgày xưa má đỏ dịu dàng\n\nNgày nay tóc đỏ còn sang hơn nhiều!\n\n\nHay là em đã làm liều\n\nNhuộm ngay tóc đỏ để xiêu lòng anh\n\nDù cho mưa gió tanh bành\n\nTóc em vẫn đỏ để dành cho anh",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/shutterstock_552102910-796x531.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/shutterstock_552102910-796x531.jpg"
+    ],
+    "local_images": [
+      "images/poem_110_img_0.jpg"
+    ]
+  },
+  {
+    "id": 107,
+    "slug": "vo-de-32",
+    "title": "Mưa nhớ ai mưa giăng sầu nhân thế",
+    "date": "2015-01-15T09:35:42",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Mưa nhớ ai mưa giăng sầu nhân thế<br />\nGiọt lệ buồn đỏ khóe ướt mi cay<br />\nChút cồn cào những đêm nao giá lạnh<br />\nGiờ một mình cứ rét buốt tim ta!<br />\nĐông đã qua nhưng sao ta vẫn lạnh<br />\nMột bước đi như cả thế kỷ sầu<br />\nChờ bóng hình đang dần chút phai phôi<br />\nTheo sương khói nhưng chẳng thể tan biến<br />\nMộng mị dần bên giấc ngủ hằng đêm<br />\nChợt tỉnh giấc giữa một chút êm đềm<br />\nCùng nỗi nhớ sẽ mãi là dĩ vãng</p>\n",
+    "content_text": "Mưa nhớ ai mưa giăng sầu nhân thế\n\nGiọt lệ buồn đỏ khóe ướt mi cay\n\nChút cồn cào những đêm nao giá lạnh\n\nGiờ một mình cứ rét buốt tim ta!\n\nĐông đã qua nhưng sao ta vẫn lạnh\n\nMột bước đi như cả thế kỷ sầu\n\nChờ bóng hình đang dần chút phai phôi\n\nTheo sương khói nhưng chẳng thể tan biến\n\nMộng mị dần bên giấc ngủ hằng đêm\n\nChợt tỉnh giấc giữa một chút êm đềm\n\nCùng nỗi nhớ sẽ mãi là dĩ vãng",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-mua-dep_015458859.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-mua-dep_015458859.jpg"
+    ],
+    "local_images": [
+      "images/poem_107_img_0.jpg"
+    ]
+  },
+  {
+    "id": 104,
+    "slug": "vo-de-31",
+    "title": "Dò sông dò biển dễ dò",
+    "date": "2015-01-15T09:34:00",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Dò sông dò biển dễ dò<br />\nMấy ai lấy thước mà đo lòng người<br />\nLòng người sâu lắm ai ơi<br />\nNhưng sao bằng được miệng đời thế gian!</p>\n<p>Gian nan trong một kiếp đời<br />\nVui đây, sầu đó bởi lời thế gian<br />\nThôi thì cũng chẳng muộn màng<br />\nSống sao để thấy đời càng vui hơn<br />\nSống sao cho đúng với mình<br />\nSống cho đời của người mình quan tâm</p>\n",
+    "content_text": "Dò sông dò biển dễ dò\n\nMấy ai lấy thước mà đo lòng người\n\nLòng người sâu lắm ai ơi\n\nNhưng sao bằng được miệng đời thế gian!\n\n\nGian nan trong một kiếp đời\n\nVui đây, sầu đó bởi lời thế gian\n\nThôi thì cũng chẳng muộn màng\n\nSống sao để thấy đời càng vui hơn\n\nSống sao cho đúng với mình\n\nSống cho đời của người mình quan tâm",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Long-nguoi.png",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Long-nguoi.png"
+    ],
+    "local_images": [
+      "images/poem_104_img_0.png"
+    ]
+  },
+  {
+    "id": 101,
+    "slug": "vo-de-30",
+    "title": "Còn đâu nữa những đêm dài chung lối",
+    "date": "2015-01-15T09:29:31",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Còn đâu nữa những đêm dài chung lối<br />\nBước bên nhau cũng chẳng nói nên lời<br />\nNgười bên ta nhưng xa vào tâm trí<br />\nKhẽ hững hờ buông nhẹ cánh tay ai!</p>\n<p>Hai thế giới của người không cùng hướng<br />\nSẽ xa dần chắc chỉ đợi thời gian<br />\nBước vội vàng qua những cơn sầu khổ<br />\nĐể sau lưng một kiếp số an bài</p>\n",
+    "content_text": "Còn đâu nữa những đêm dài chung lối\n\nBước bên nhau cũng chẳng nói nên lời\n\nNgười bên ta nhưng xa vào tâm trí\n\nKhẽ hững hờ buông nhẹ cánh tay ai!\n\n\nHai thế giới của người không cùng hướng\n\nSẽ xa dần chắc chỉ đợi thời gian\n\nBước vội vàng qua những cơn sầu khổ\n\nĐể sau lưng một kiếp số an bài",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/153b6604a92105.img_.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/153b6604a92105.img_.jpg"
+    ],
+    "local_images": [
+      "images/poem_101_img_0.jpg"
+    ]
+  },
+  {
+    "id": 98,
+    "slug": "vo-de-29",
+    "title": "Ngủ đi em, chẳng còn ai bên cạnh",
+    "date": "2015-01-15T09:24:35",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Ngủ đi em, chẳng còn ai bên cạnh<br />\nĐể vỗ về khi gió lạnh đầu hôm<br />\nHay những buổi, chiều vừa tắt nắng<br />\nCũng chẳng còn kẻ đón người đưa!</p>\n<p>Chẳng còn chi khi mưa vừa chợt đến<br />\nĐể hạt buồn ướt đẫm cánh tay ta<br />\nNgười đã xa, chỉ còn ta ở lại<br />\nÔm mối sầu của một kẻ tình si</p>\n",
+    "content_text": "Ngủ đi em, chẳng còn ai bên cạnh\n\nĐể vỗ về khi gió lạnh đầu hôm\n\nHay những buổi, chiều vừa tắt nắng\n\nCũng chẳng còn kẻ đón người đưa!\n\n\nChẳng còn chi khi mưa vừa chợt đến\n\nĐể hạt buồn ướt đẫm cánh tay ta\n\nNgười đã xa, chỉ còn ta ở lại\n\nÔm mối sầu của một kẻ tình si",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-mua-dong-buon-nhat.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-mua-dong-buon-nhat.jpg"
+    ],
+    "local_images": [
+      "images/poem_98_img_0.jpg"
+    ]
+  },
+  {
+    "id": 95,
+    "slug": "vo-de-28",
+    "title": "Giữa cuộc vui cũng có tôi ngồi đó",
+    "date": "2015-01-15T09:22:39",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Giữa cuộc vui cũng có tôi ngồi đó,<br />\nNhư dòng đời mang theo cơn gió buồn<br />\nNhững tiếng cười mang theo nhiều thanh sắc<br />\nNhưng nỗi sầu nơi mắt lệ xa xăm!</p>\n<p>Đời trăm năm, đời vẫn là bể khổ<br />\nSuối yêu thương là lệ đổ tuôn trào<br />\nGió dạt dào chẳng bao giờ ngừng thổi<br />\nĐể lệ trong tim cứ nối tiếp tuôn trào</p>\n<p>Trời nhiều sao nhưng bao giờ với được<br />\nNgước mắt nhìn, đời cứ bước thênh thang&#8230;&#8230;.</p>\n",
+    "content_text": "Giữa cuộc vui cũng có tôi ngồi đó,\n\nNhư dòng đời mang theo cơn gió buồn\n\nNhững tiếng cười mang theo nhiều thanh sắc\n\nNhưng nỗi sầu nơi mắt lệ xa xăm!\n\n\nĐời trăm năm, đời vẫn là bể khổ\n\nSuối yêu thương là lệ đổ tuôn trào\n\nGió dạt dào chẳng bao giờ ngừng thổi\n\nĐể lệ trong tim cứ nối tiếp tuôn trào\n\n\nTrời nhiều sao nhưng bao giờ với được\n\nNgước mắt nhìn, đời cứ bước thênh thang&#8230;&#8230;.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/31188467774_6a57f2a4c9_b.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/31188467774_6a57f2a4c9_b.jpg"
+    ],
+    "local_images": [
+      "images/poem_95_img_0.jpg"
+    ]
+  },
+  {
+    "id": 92,
+    "slug": "vo-de-27",
+    "title": "Cô đơn lặng lẽ mối tình sầu",
+    "date": "2015-01-15T09:21:00",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Cô đơn lặng lẽ mối tình sầu<br />\nBuồn vương một chút lệ thêm đau<br />\nNắng gió phai tàn theo lá úa<br />\nLệ sầu theo nắng lệ tuôn rơi</p>\n",
+    "content_text": "Cô đơn lặng lẽ mối tình sầu\n\nBuồn vương một chút lệ thêm đau\n\nNắng gió phai tàn theo lá úa\n\nLệ sầu theo nắng lệ tuôn rơi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/degiocuondi3.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/degiocuondi3.jpg"
+    ],
+    "local_images": [
+      "images/poem_92_img_0.jpg"
+    ]
+  },
+  {
+    "id": 89,
+    "slug": "vo-de-26",
+    "title": "Vì ai mẹ phải mưu sinh",
+    "date": "2015-01-15T09:19:17",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Vì ai mẹ phải mưu sinh<br />\nVì ai mẹ phải dầm mình dưới mưa<br />\nVì ai mẹ nhịn cơm trưa<br />\nVì ai mẹ phải cày bừa sớm hôm!</p>\n<p>Một mai thân mẹ gầy còm<br />\nMột mai rồi chẳng sớm hôm vỗ về<br />\nMột mai mắt mẹ não nề<br />\nMột mai lòng mẹ con về đợi mong</p>\n<p>Chờ trông dáng mẹ lưng còng<br />\nChờ trông những lúc gió giông ùa về<br />\nChờ trông sau những cơn mê<br />\nChờ trông con có trở về như xưa</p>\n<p>Rồi đây tóc sẽ bạc màu<br />\nRồi đây da sẽ đậm màu chân chim<br />\nRồi đây khi gió lặng im<br />\nRồi đây tim mẹ lặng tìm tên con</p>\n",
+    "content_text": "Vì ai mẹ phải mưu sinh\n\nVì ai mẹ phải dầm mình dưới mưa\n\nVì ai mẹ nhịn cơm trưa\n\nVì ai mẹ phải cày bừa sớm hôm!\n\n\nMột mai thân mẹ gầy còm\n\nMột mai rồi chẳng sớm hôm vỗ về\n\nMột mai mắt mẹ não nề\n\nMột mai lòng mẹ con về đợi mong\n\n\nChờ trông dáng mẹ lưng còng\n\nChờ trông những lúc gió giông ùa về\n\nChờ trông sau những cơn mê\n\nChờ trông con có trở về như xưa\n\n\nRồi đây tóc sẽ bạc màu\n\nRồi đây da sẽ đậm màu chân chim\n\nRồi đây khi gió lặng im\n\nRồi đây tim mẹ lặng tìm tên con",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/khong-ai-doi-me-bao-gio.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/khong-ai-doi-me-bao-gio.jpg"
+    ],
+    "local_images": [
+      "images/poem_89_img_0.jpg"
+    ]
+  },
+  {
+    "id": 86,
+    "slug": "vo-de-25",
+    "title": "Đâu phải khóc là khổ",
+    "date": "2015-01-15T09:16:54",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Đâu phải khóc là khổ<br />\nĐâu phải cười mới vui<br />\nĐôi lúc cười trên môi<br />\nNhưng lệ đổ trong tim!<br />\nNhững lúc lặng im<br />\nLòng lại đầy tâm sự<br />\nNhững lúc khóe mắt cay<br />\nNhưng đời càng cay đắng<br />\nLệ chỉ chực tuôn trào<br />\nNhưng nuốt ngược vào tim&#8230;</p>\n",
+    "content_text": "Đâu phải khóc là khổ\n\nĐâu phải cười mới vui\n\nĐôi lúc cười trên môi\n\nNhưng lệ đổ trong tim!\n\nNhững lúc lặng im\n\nLòng lại đầy tâm sự\n\nNhững lúc khóe mắt cay\n\nNhưng đời càng cay đắng\n\nLệ chỉ chực tuôn trào\n\nNhưng nuốt ngược vào tim&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/25bc98bd1bd9b1img-1433.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/25bc98bd1bd9b1img-1433.jpg"
+    ],
+    "local_images": [
+      "images/poem_86_img_0.jpg"
+    ]
+  },
+  {
+    "id": 83,
+    "slug": "vo-de-24",
+    "title": "Một kẻ ra đi một kẻ sầu",
+    "date": "2015-01-15T09:15:12",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Một kẻ ra đi một kẻ sầu<br />\nĐường tình chia lối lệ tuôn rơi<br />\nMắt ướt hoen đôi mi bé nhỏ<br />\nLệ trào trong đáy bể cô liêu!<br />\nHồn lạnh hoang tàn sầu thêm khổ<br />\nCô đơn lẻ bóng lệ thêm rơi&#8230;</p>\n",
+    "content_text": "Một kẻ ra đi một kẻ sầu\n\nĐường tình chia lối lệ tuôn rơi\n\nMắt ướt hoen đôi mi bé nhỏ\n\nLệ trào trong đáy bể cô liêu!\n\nHồn lạnh hoang tàn sầu thêm khổ\n\nCô đơn lẻ bóng lệ thêm rơi&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/5cd532e51db395b2234ef00e78aeef48ff9be83e.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/5cd532e51db395b2234ef00e78aeef48ff9be83e.jpg"
+    ],
+    "local_images": [
+      "images/poem_83_img_0.jpg"
+    ]
+  },
+  {
+    "id": 80,
+    "slug": "vo-de-23",
+    "title": "Đông đã đến trên những cành hoa tàn héo úa",
+    "date": "2015-01-15T09:13:01",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Đông đã đến trên những cành hoa tàn héo úa<br />\nSương lại về trên cành lá chơi vơi<br />\nRun run se lạnh bình minh đến<br />\nĐông sang, sẽ qua, nắng xuân về&#8230;</p>\n",
+    "content_text": "Đông đã đến trên những cành hoa tàn héo úa\n\nSương lại về trên cành lá chơi vơi\n\nRun run se lạnh bình minh đến\n\nĐông sang, sẽ qua, nắng xuân về&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/PnH0o7pKCgV1D_1560305558.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/PnH0o7pKCgV1D_1560305558.jpg"
+    ],
+    "local_images": [
+      "images/poem_80_img_0.jpg"
+    ]
+  },
+  {
+    "id": 77,
+    "slug": "vo-de-22",
+    "title": "Một mình thân ốc lang thang",
+    "date": "2015-01-15T09:11:03",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Một mình thân ốc lang thang<br />\nTìm đâu chốn nghỉ thế gian bộn bề<br />\nGiữa đời còn lắm u mê<br />\nTrốn trong thân ốc tỉ tê một mình!</p>\n<p>Người ăn vương chút sự tình<br />\nKhông ăn đừng nỡ đem tình vứt đi<br />\nSầu bi trong một kiếp đời<br />\nGởi trong thân ốc, nhồi nơi nhân tình</p>\n",
+    "content_text": "Một mình thân ốc lang thang\n\nTìm đâu chốn nghỉ thế gian bộn bề\n\nGiữa đời còn lắm u mê\n\nTrốn trong thân ốc tỉ tê một mình!\n\n\nNgười ăn vương chút sự tình\n\nKhông ăn đừng nỡ đem tình vứt đi\n\nSầu bi trong một kiếp đời\n\nGởi trong thân ốc, nhồi nơi nhân tình",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1_ikgz.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1_ikgz.jpg"
+    ],
+    "local_images": [
+      "images/poem_77_img_0.jpg"
+    ]
+  },
+  {
+    "id": 74,
+    "slug": "vo-de-21",
+    "title": "Tình như chiếc lá hững hờ",
+    "date": "2015-01-15T09:06:43",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tình như chiếc lá hững hờ<br />\nBên cây rồi cũng có ngày biệt ly<br />\nSẽ là gì khi cây chẳng còn lá<br />\nLúc đông về nghe buốt giá con tim!</p>\n<p>Gió từ đâu mang đến muộn phiền<br />\nCuốn theo lá ngã nghiêng chốn nào<br />\nCây chỉ muốn ngã nhào về phía lá<br />\nNhưng chẳng thể dẫu là một chút</p>\n",
+    "content_text": "Tình như chiếc lá hững hờ\n\nBên cây rồi cũng có ngày biệt ly\n\nSẽ là gì khi cây chẳng còn lá\n\nLúc đông về nghe buốt giá con tim!\n\n\nGió từ đâu mang đến muộn phiền\n\nCuốn theo lá ngã nghiêng chốn nào\n\nCây chỉ muốn ngã nhào về phía lá\n\nNhưng chẳng thể dẫu là một chút",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/chiec-la-cuoi-cung-van-8.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/chiec-la-cuoi-cung-van-8.jpg"
+    ],
+    "local_images": [
+      "images/poem_74_img_0.jpg"
+    ]
+  },
+  {
+    "id": 71,
+    "slug": "vo-de-20",
+    "title": "Cuộc đời có lắm đắng cay",
+    "date": "2015-01-15T09:04:43",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Cuộc đời có lắm đắng cay<br />\nTình yêu rồi cũng có ngày hợp tan<br />\nMưa reo cùng gió trên ngàn<br />\nTrút cơn mưa xuống muôn vàn nỗi đau!</p>\n<p>Tình kia dẫu có đậm sâu<br />\nMột mai rồi cũng sầu đau một mình<br />\nLặng thinh nghe một chút tình<br />\nVang trong vô vọng đời mình sớm mai</p>\n<p>Đường tình còn lắm chông gai<br />\nChờ trong tiếng gió giọng ai gọi mình<br />\nĐường tình rồi lại đường tình<br />\nNghe trong vô vọng đời mình cô đơn</p>\n<p>Tình kia giờ đã dỗi hờn<br />\nBỏ ta đi mất chẳng mong đợi gì</p>\n",
+    "content_text": "Cuộc đời có lắm đắng cay\n\nTình yêu rồi cũng có ngày hợp tan\n\nMưa reo cùng gió trên ngàn\n\nTrút cơn mưa xuống muôn vàn nỗi đau!\n\n\nTình kia dẫu có đậm sâu\n\nMột mai rồi cũng sầu đau một mình\n\nLặng thinh nghe một chút tình\n\nVang trong vô vọng đời mình sớm mai\n\n\nĐường tình còn lắm chông gai\n\nChờ trong tiếng gió giọng ai gọi mình\n\nĐường tình rồi lại đường tình\n\nNghe trong vô vọng đời mình cô đơn\n\n\nTình kia giờ đã dỗi hờn\n\nBỏ ta đi mất chẳng mong đợi gì",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/71e3549c6fe6ed431295071de3f48f63a83d642c.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/71e3549c6fe6ed431295071de3f48f63a83d642c.jpg"
+    ],
+    "local_images": [
+      "images/poem_71_img_0.jpg"
+    ]
+  },
+  {
+    "id": 68,
+    "slug": "vo-de-19",
+    "title": "Nhậu đi em cho đời hết sầu bi",
+    "date": "2015-01-15T09:01:40",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Nhậu đi em cho đời hết sầu bi<br />\nĐường còn dài làm gì mà cứ khóc<br />\nLệ đã rơi đâu chắc sẽ qua mau<br />\nĐời muôn màu đâu chỉ màu đen mãi!<br />\nQua đêm tối thì mai trời sẽ sáng<br />\nSương sẽ tàn khi ánh nắng chói chang<br />\nĐời còn dài sẽ còn nhiều ngang trái<br />\nTrải lòng ra để ngày mai rồi sẽ khác<br />\nNắng màu vàng sẽ soi cuộc đời ta<br />\nNhững góc khuất rồi chỉ là quá khứ</p>\n",
+    "content_text": "Nhậu đi em cho đời hết sầu bi\n\nĐường còn dài làm gì mà cứ khóc\n\nLệ đã rơi đâu chắc sẽ qua mau\n\nĐời muôn màu đâu chỉ màu đen mãi!\n\nQua đêm tối thì mai trời sẽ sáng\n\nSương sẽ tàn khi ánh nắng chói chang\n\nĐời còn dài sẽ còn nhiều ngang trái\n\nTrải lòng ra để ngày mai rồi sẽ khác\n\nNắng màu vàng sẽ soi cuộc đời ta\n\nNhững góc khuất rồi chỉ là quá khứ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/khi-canh-vat-cung-biet-buon_13.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/khi-canh-vat-cung-biet-buon_13.jpg"
+    ],
+    "local_images": [
+      "images/poem_68_img_0.jpg"
+    ]
+  },
+  {
+    "id": 65,
+    "slug": "vo-de-18",
+    "title": "Em...em là ai mà quay vội bước đi",
+    "date": "2015-01-15T08:57:04",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Em&#8230;em là ai mà quay vội bước đi<br />\nĐể mình anh với vô vàn cảm xúc<br />\nKhi buồn vương có lúc lại sầu bi<br />\nVì đã gặp khi chẳng hề quen biết!<br />\nMà lòng anh cứ luyến tiếc mãi người đi<br />\nTrời có sai khi cho ta gặp mặt<br />\nĐày đọa thân anh với nỗi nhớ vô vàn</p>\n",
+    "content_text": "Em&#8230;em là ai mà quay vội bước đi\n\nĐể mình anh với vô vàn cảm xúc\n\nKhi buồn vương có lúc lại sầu bi\n\nVì đã gặp khi chẳng hề quen biết!\n\nMà lòng anh cứ luyến tiếc mãi người đi\n\nTrời có sai khi cho ta gặp mặt\n\nĐày đọa thân anh với nỗi nhớ vô vàn",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/mua-cua-noi-nho.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/mua-cua-noi-nho.jpg"
+    ],
+    "local_images": [
+      "images/poem_65_img_0.jpg"
+    ]
+  },
+  {
+    "id": 62,
+    "slug": "vo-de-17",
+    "title": "Trung Thu năm đó em có anh",
+    "date": "2015-01-15T08:55:10",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Trung Thu năm đó em có anh<br />\nMà sao nay lại thấy lạnh đôi tay<br />\nBàn tay ai đã từng nắm lấy<br />\nGiờ đã buông vì hờ hững tim ai!</p>\n<p>Em đã sai hay cuộc đời là vậy<br />\nChữ vô tình sao cuốn lấy tim ai<br />\nĐể ngày mai chẳng còn ai đó nữa<br />\nLau nước mắt mỗi khi em buồn khổ</p>\n<p>Hay vô tình nắm lấy tay lạnh giá<br />\nLúc đông về bên từng ngã đường xưa<br />\nNhững ngày nắng hay mưa tầm tã<br />\nMột mình em vội vã bước đi</p>\n<p>Khi ngoảnh lại chẳng thấy anh ở đó<br />\nChỉ còn sương với gió lạnh tim em<br />\nTrời nhá nhem dần buông mọi nẻo<br />\nBóng em buồn in dưới bóng trăng kia</p>\n<p>Một mình em cứ vội vã đi về<br />\nBuông chút buồn chút gió với trăng sao&#8230;</p>\n",
+    "content_text": "Trung Thu năm đó em có anh\n\nMà sao nay lại thấy lạnh đôi tay\n\nBàn tay ai đã từng nắm lấy\n\nGiờ đã buông vì hờ hững tim ai!\n\n\nEm đã sai hay cuộc đời là vậy\n\nChữ vô tình sao cuốn lấy tim ai\n\nĐể ngày mai chẳng còn ai đó nữa\n\nLau nước mắt mỗi khi em buồn khổ\n\n\nHay vô tình nắm lấy tay lạnh giá\n\nLúc đông về bên từng ngã đường xưa\n\nNhững ngày nắng hay mưa tầm tã\n\nMột mình em vội vã bước đi\n\n\nKhi ngoảnh lại chẳng thấy anh ở đó\n\nChỉ còn sương với gió lạnh tim em\n\nTrời nhá nhem dần buông mọi nẻo\n\nBóng em buồn in dưới bóng trăng kia\n\n\nMột mình em cứ vội vã đi về\n\nBuông chút buồn chút gió với trăng sao&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/taylanhJPG1423731135.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/taylanhJPG1423731135.jpg"
+    ],
+    "local_images": [
+      "images/poem_62_img_0.jpg"
+    ]
+  },
+  {
+    "id": 59,
+    "slug": "vo-de-16",
+    "title": "Nhớ chi những lúc đắng cay",
+    "date": "2015-01-15T08:53:12",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Nhớ chi những lúc đắng cay<br />\nYêu chi những kẻ đọa đày con tim<br />\nSao ta cứ mãi kiếm tìm<br />\nCon tim của kẻ chẳng còn có ta!</p>\n<p>Hoàng hôn là lúc chiều tà<br />\nĐắng cay là lúc ta chia đôi đường<br />\nDẫu rằng còn chút vấn vương<br />\nLối kia không thể cùng đường nhau đi</p>\n<p>Tiếc chi một chút tình si<br />\nVương chi một chút lệ bi với sầu<br />\nMai sau có lúc gặp nhau<br />\nNgười như kẻ lạ chẳng đau chẳng buồn</p>\n",
+    "content_text": "Nhớ chi những lúc đắng cay\n\nYêu chi những kẻ đọa đày con tim\n\nSao ta cứ mãi kiếm tìm\n\nCon tim của kẻ chẳng còn có ta!\n\n\nHoàng hôn là lúc chiều tà\n\nĐắng cay là lúc ta chia đôi đường\n\nDẫu rằng còn chút vấn vương\n\nLối kia không thể cùng đường nhau đi\n\n\nTiếc chi một chút tình si\n\nVương chi một chút lệ bi với sầu\n\nMai sau có lúc gặp nhau\n\nNgười như kẻ lạ chẳng đau chẳng buồn",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/sunset10.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/sunset10.jpg"
+    ],
+    "local_images": [
+      "images/poem_59_img_0.jpg"
+    ]
+  },
+  {
+    "id": 56,
+    "slug": "vo-de-15",
+    "title": "Tôi nằm đó nhìn lên ô cửa sổ",
+    "date": "2015-01-15T08:49:56",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tôi nằm đó nhìn lên ô cửa sổ<br />\nNơi ánh đèn lấp ló khẽ chen vào<br />\nNgoài kia gió vẫn cứ mãi rì rào<br />\nMưa từng cơn buốt cả vào tâm can!</p>\n<p>Người thấy lạnh nhưng lòng vẫn ấm áp<br />\nBởi xung quanh đầy áp những bức tường<br />\nNơi gió sương chẳng thể nào chạm đến<br />\nTấm thân gấy gò nhỏ bé mong manh</p>\n<p>Bởi những anh kỹ sư đã thiết kế<br />\nXây dựng nên mái ấm cho mọi người<br />\nMặc nắng mưa vẫn luôn mãi tươi cười<br />\nĐem tấm lòng vào từng trang giấy trắng<br />\nXây đắp nên ngay ngắn một mái nhà<br />\nNơi chúng ta luôn được chở che<br />\nNơi hạnh phúc san sẻ với mọi người<br />\nNơi tiếng cười luôn vang vọng mãi<br />\nVới tháng năm với những người xây dựng</p>\n",
+    "content_text": "Tôi nằm đó nhìn lên ô cửa sổ\n\nNơi ánh đèn lấp ló khẽ chen vào\n\nNgoài kia gió vẫn cứ mãi rì rào\n\nMưa từng cơn buốt cả vào tâm can!\n\n\nNgười thấy lạnh nhưng lòng vẫn ấm áp\n\nBởi xung quanh đầy áp những bức tường\n\nNơi gió sương chẳng thể nào chạm đến\n\nTấm thân gấy gò nhỏ bé mong manh\n\n\nBởi những anh kỹ sư đã thiết kế\n\nXây dựng nên mái ấm cho mọi người\n\nMặc nắng mưa vẫn luôn mãi tươi cười\n\nĐem tấm lòng vào từng trang giấy trắng\n\nXây đắp nên ngay ngắn một mái nhà\n\nNơi chúng ta luôn được chở che\n\nNơi hạnh phúc san sẻ với mọi người\n\nNơi tiếng cười luôn vang vọng mãi\n\nVới tháng năm với những người xây dựng",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Bridge-river-buildings-illumination-lights-city-night_m.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Bridge-river-buildings-illumination-lights-city-night_m.jpg"
+    ],
+    "local_images": [
+      "images/poem_56_img_0.jpg"
+    ]
+  },
+  {
+    "id": 53,
+    "slug": "vo-de-14",
+    "title": "Ai còn mẹ xin đừng làm mẹ khóc",
+    "date": "2015-01-15T08:47:40",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Ai còn mẹ xin đừng làm mẹ khóc<br />\nĐể mẹ buồn hay mắt lệ tuôn rơi<br />\nĐã đi qua bao cay đắng cuộc đời<br />\nVẫn bên con dẫu bể đời giông tố!<br />\nMẹ thương con từ tiếng khóc chào đời<br />\nĐến khi cả cuộc đời mẹ xa khuất<br />\nNhớ những đêm khi gió lạnh ùa về<br />\nVẫn lặng lẽ giữa căn phòng khuya vắng<br />\nThắp lên bao ánh nắng của tình thương<br />\nĐôi vai gầy với sương gió tháng năm<br />\nChở che con qua năm dài tháng ngắn<br />\nDẫu biết rằng mai đây con xa vắng<br />\nLắng tình thương để sau này con bước tiếp<br />\nVào đường đời đầy xô ngã bon chen<br />\nKhi ánh đèn cũ hiu hắt đêm về<br />\nMột mình mẹ chỉ lặng lẽ nơi nào<br />\nChờ tin con mà con nào hay biết<br />\nChỉ những lúc giữa dòng đời nghiệt ngã<br />\nXô con xuống với sa ngã cuộc đời<br />\nChỉ mình con chơi vơi nơi xứ lạ<br />\nVẫn là mẹ, không phải bờ bến lạ<br />\nĐể con tìm về bên mái lá bình yên<br />\nNơi có mẹ, nơi không phải muộn phiền<br />\nSuốt đời con chẳng phải cứ kiếm tìm<br />\nNơi chốn ấy trong tim mẹ có con</p>\n",
+    "content_text": "Ai còn mẹ xin đừng làm mẹ khóc\n\nĐể mẹ buồn hay mắt lệ tuôn rơi\n\nĐã đi qua bao cay đắng cuộc đời\n\nVẫn bên con dẫu bể đời giông tố!\n\nMẹ thương con từ tiếng khóc chào đời\n\nĐến khi cả cuộc đời mẹ xa khuất\n\nNhớ những đêm khi gió lạnh ùa về\n\nVẫn lặng lẽ giữa căn phòng khuya vắng\n\nThắp lên bao ánh nắng của tình thương\n\nĐôi vai gầy với sương gió tháng năm\n\nChở che con qua năm dài tháng ngắn\n\nDẫu biết rằng mai đây con xa vắng\n\nLắng tình thương để sau này con bước tiếp\n\nVào đường đời đầy xô ngã bon chen\n\nKhi ánh đèn cũ hiu hắt đêm về\n\nMột mình mẹ chỉ lặng lẽ nơi nào\n\nChờ tin con mà con nào hay biết\n\nChỉ những lúc giữa dòng đời nghiệt ngã\n\nXô con xuống với sa ngã cuộc đời\n\nChỉ mình con chơi vơi nơi xứ lạ\n\nVẫn là mẹ, không phải bờ bến lạ\n\nĐể con tìm về bên mái lá bình yên\n\nNơi có mẹ, nơi không phải muộn phiền\n\nSuốt đời con chẳng phải cứ kiếm tìm\n\nNơi chốn ấy trong tim mẹ có con",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1111_281626244.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1111_281626244.jpg"
+    ],
+    "local_images": [
+      "images/poem_53_img_0.jpg"
+    ]
+  },
+  {
+    "id": 50,
+    "slug": "vo-de-13",
+    "title": "Con tim là tim của anh",
+    "date": "2015-01-15T08:46:15",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Con tim là tim của anh<br />\nMà sao nó mãi chạy quanh chốn nào<br />\nGặp em thì nó hồng hào<br />\nKhông em như nó rơi vào hư không</p>\n",
+    "content_text": "Con tim là tim của anh\n\nMà sao nó mãi chạy quanh chốn nào\n\nGặp em thì nó hồng hào\n\nKhông em như nó rơi vào hư không",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/0_00Love.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/0_00Love.jpg"
+    ],
+    "local_images": []
+  },
+  {
+    "id": 47,
+    "slug": "vo-de-12",
+    "title": "Giữa đêm mưa gió bão bùng",
+    "date": "2015-01-15T08:45:14",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Giữa đêm mưa gió bão bùng<br />\nChui ra khỏi mùng, đắp mền làm thơ<br />\nNào đâu ai biết chữ ngờ<br />\nMuỗi đâu bay đến văng thơ với tình!<br />\nRồi đâu lại bất thình lình<br />\nChui vô rồi lại một mình làm thơ</p>\n",
+    "content_text": "Giữa đêm mưa gió bão bùng\n\nChui ra khỏi mùng, đắp mền làm thơ\n\nNào đâu ai biết chữ ngờ\n\nMuỗi đâu bay đến văng thơ với tình!\n\nRồi đâu lại bất thình lình\n\nChui vô rồi lại một mình làm thơ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/chi-con-tieng-mua-roi.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/chi-con-tieng-mua-roi.jpg"
+    ],
+    "local_images": [
+      "images/poem_47_img_0.jpg"
+    ]
+  },
+  {
+    "id": 44,
+    "slug": "vo-de-11",
+    "title": "Tôi như một kẻ không nhà",
+    "date": "2015-01-15T08:42:07",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tôi như một kẻ không nhà<br />\nLang thang phố xá, la cà công viên<br />\nLâu lâu lại cũng bị điên<br />\nXách con wave chiến ngó nghiêng phố phường!</p>\n<p>Một hôm lại chẳng bị thương<br />\nMà sao đau nhói nơi đường máu ra<br />\nPhía xa xa sau một mái nhà<br />\nCó cô em gái mắt hoa đang cười</p>\n<p>Dáng người nhỏ bé xinh xinh<br />\nMắt như biết hát môi xinh má hồng<br />\nNhìn em má đỏ hồng hồng<br />\nTim anh cũng thấy nao lòng quá đi</p>\n<p>Tìm quanh chẳng có cây si<br />\nĐể anh đem đến trồng ngay nhà nàng<br />\nNgày ngày sẽ chẳng vội vàng<br />\nNgồi ngay cây ấy tặng nàng bài thơ</p>\n<p>Tim anh đã trót dại khờ<br />\nYêu ngay ánh mắt ngây thơ mơ màng<br />\nƯớc gì anh cưới được nàng<br />\nĐể hai đứa mãi mơ màng làm thơ</p>\n",
+    "content_text": "Tôi như một kẻ không nhà\n\nLang thang phố xá, la cà công viên\n\nLâu lâu lại cũng bị điên\n\nXách con wave chiến ngó nghiêng phố phường!\n\n\nMột hôm lại chẳng bị thương\n\nMà sao đau nhói nơi đường máu ra\n\nPhía xa xa sau một mái nhà\n\nCó cô em gái mắt hoa đang cười\n\n\nDáng người nhỏ bé xinh xinh\n\nMắt như biết hát môi xinh má hồng\n\nNhìn em má đỏ hồng hồng\n\nTim anh cũng thấy nao lòng quá đi\n\n\nTìm quanh chẳng có cây si\n\nĐể anh đem đến trồng ngay nhà nàng\n\nNgày ngày sẽ chẳng vội vàng\n\nNgồi ngay cây ấy tặng nàng bài thơ\n\n\nTim anh đã trót dại khờ\n\nYêu ngay ánh mắt ngây thơ mơ màng\n\nƯớc gì anh cưới được nàng\n\nĐể hai đứa mãi mơ màng làm thơ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/design-sem-nome-31.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/design-sem-nome-31.jpg"
+    ],
+    "local_images": [
+      "images/poem_44_img_0.jpg"
+    ]
+  },
+  {
+    "id": 41,
+    "slug": "vo-de-10",
+    "title": "Có khi nào trên đường đời tấp nập",
+    "date": "2015-01-15T08:38:29",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Có khi nào trên đường đời tấp nập<br />\nTa vô tình khẽ bước qua nhau<br />\nBiết mai sau sẽ không còn nữa<br />\nCái ôm nồng giữa gió mùa đông!</p>\n<p>Lạc mất vòng tay giữa dòng đời vô tận<br />\nNuối tiếc nhìn sầu hận mấy ai hay<br />\nTa cứ say để đời chẳng bao giờ tỉnh<br />\nMen rượu nồng làm bạn với trăng sao</p>\n<p>Trăng trên cao trăng nào hay biết<br />\nKẻ dưới này vẫn lẻ chiếc một mình<br />\nGió từ đâu gió mang sầu đến<br />\nMưa chốn vắng trút sầu đắng xuống ta</p>\n<p>Ánh chiều mang một chút tà<br />\nBiển xa sóng đánh gọi ta một mình<br />\nThuyền kia đã mãi xa bờ<br />\nBến đây sẽ lại bơ vơ một mình</p>\n<p>Cuộc đời sẽ tỉnh hay mê<br />\nĐường về có mãi lê thê một mình<br />\nTrời sinh chi một chữ tình<br />\nĐể ngàn người mãi thất tình trời ơi</p>\n",
+    "content_text": "Có khi nào trên đường đời tấp nập\n\nTa vô tình khẽ bước qua nhau\n\nBiết mai sau sẽ không còn nữa\n\nCái ôm nồng giữa gió mùa đông!\n\n\nLạc mất vòng tay giữa dòng đời vô tận\n\nNuối tiếc nhìn sầu hận mấy ai hay\n\nTa cứ say để đời chẳng bao giờ tỉnh\n\nMen rượu nồng làm bạn với trăng sao\n\n\nTrăng trên cao trăng nào hay biết\n\nKẻ dưới này vẫn lẻ chiếc một mình\n\nGió từ đâu gió mang sầu đến\n\nMưa chốn vắng trút sầu đắng xuống ta\n\n\nÁnh chiều mang một chút tà\n\nBiển xa sóng đánh gọi ta một mình\n\nThuyền kia đã mãi xa bờ\n\nBến đây sẽ lại bơ vơ một mình\n\n\nCuộc đời sẽ tỉnh hay mê\n\nĐường về có mãi lê thê một mình\n\nTrời sinh chi một chữ tình\n\nĐể ngàn người mãi thất tình trời ơi",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/tram-cam-sau-chia-tay-e1535874235961.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/tram-cam-sau-chia-tay-e1535874235961.jpg"
+    ],
+    "local_images": [
+      "images/poem_41_img_0.jpg"
+    ]
+  },
+  {
+    "id": 38,
+    "slug": "vo-de-9",
+    "title": "Anh tìm em giữa đời thanh vắng",
+    "date": "2015-01-15T08:36:04",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Anh tìm em giữa đời thanh vắng<br />\nNhư gắng tìm mây trắng giữa bão giông<br />\nGiữa dòng đời cứ mãi quay cuồng<br />\nNhư kiếm tìm một vòng tay nắm lấy!<br />\nChợt nhận ra, ồ sao khó quá vậy<br />\nNắm được rồi cũng dễ mấy buông tay</p>\n",
+    "content_text": "Anh tìm em giữa đời thanh vắng\n\nNhư gắng tìm mây trắng giữa bão giông\n\nGiữa dòng đời cứ mãi quay cuồng\n\nNhư kiếm tìm một vòng tay nắm lấy!\n\nChợt nhận ra, ồ sao khó quá vậy\n\nNắm được rồi cũng dễ mấy buông tay",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/88c8b077f737c9f25b37389935b1f0d33ade3350.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/88c8b077f737c9f25b37389935b1f0d33ade3350.jpg"
+    ],
+    "local_images": [
+      "images/poem_38_img_0.jpg"
+    ]
+  },
+  {
+    "id": 35,
+    "slug": "vo-de-8",
+    "title": "Tôi đi dưới ánh trăng tà",
+    "date": "2015-01-15T08:34:46",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tôi đi dưới ánh trăng tà<br />\nĐể quên đi chút mặn mà đầu môi<br />\nNgười vội đến rồi vội đi<br />\nĐem theo chút lệ vương mi nghẹn ngào!</p>\n<p>Đêm đêm nghe gió dạt dào<br />\nNỗi sầu cô quạnh nơi nao tìm về<br />\nDưới trăng nơi đã hẹn thề<br />\nSông kia đã cuốn lời thề theo trăng</p>\n<p>Bâng khuâng mang chút nặng lòng<br />\nTrút vào nỗi nhớ chờ mong đợi gì<br />\nTrách chi một phút tình si<br />\nBiết mình rồi sẽ sầu bi một đời</p>\n<p>Gió yên cho trời thêm lặng<br />\nĐêm càng dài càng đè nặng tim ta<br />\nDẫu rằng rất khó phôi pha<br />\nQuên đi từng chút để ta đỡ buồn.</p>\n",
+    "content_text": "Tôi đi dưới ánh trăng tà\n\nĐể quên đi chút mặn mà đầu môi\n\nNgười vội đến rồi vội đi\n\nĐem theo chút lệ vương mi nghẹn ngào!\n\n\nĐêm đêm nghe gió dạt dào\n\nNỗi sầu cô quạnh nơi nao tìm về\n\nDưới trăng nơi đã hẹn thề\n\nSông kia đã cuốn lời thề theo trăng\n\n\nBâng khuâng mang chút nặng lòng\n\nTrút vào nỗi nhớ chờ mong đợi gì\n\nTrách chi một phút tình si\n\nBiết mình rồi sẽ sầu bi một đời\n\n\nGió yên cho trời thêm lặng\n\nĐêm càng dài càng đè nặng tim ta\n\nDẫu rằng rất khó phôi pha\n\nQuên đi từng chút để ta đỡ buồn.",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-baiviet-1579-f930f747-17e5-440c-b03c-95a8de641ef9.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-baiviet-1579-f930f747-17e5-440c-b03c-95a8de641ef9.jpg"
+    ],
+    "local_images": [
+      "images/poem_35_img_0.jpg"
+    ]
+  },
+  {
+    "id": 32,
+    "slug": "vo-de-7",
+    "title": "Giọt lệ sầu lăn trên khóe mi cay",
+    "date": "2015-01-15T08:33:19",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Giọt lệ sầu lăn trên khóe mi cay<br />\nKỷ niệm buồn đeo theo nỗi nhớ thương<br />\nSầu vấn vương trên môi hồng phai nhạt<br />\nHồn lạc bước vào một cõi cô liêu</p>\n",
+    "content_text": "Giọt lệ sầu lăn trên khóe mi cay\n\nKỷ niệm buồn đeo theo nỗi nhớ thương\n\nSầu vấn vương trên môi hồng phai nhạt\n\nHồn lạc bước vào một cõi cô liêu",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/jjUL7.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/jjUL7.jpg"
+    ],
+    "local_images": [
+      "images/poem_32_img_0.jpg"
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "vo-de-6",
+    "title": "Những kỷ niệm chôn vào trong dĩ vãng",
+    "date": "2015-01-15T08:32:15",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Những kỷ niệm chôn vào trong dĩ vãng<br />\nBỗng ùa về khi gió thoảng qua đây<br />\nNgười đã đến phút giây đầu bỡ ngỡ<br />\nRồi lại đi sau những thuở yêu đương!<br />\nMang chút sầu vương trên khoé mắt<br />\nGieo chút tình thắt chặt tim ta</p>\n",
+    "content_text": "Những kỷ niệm chôn vào trong dĩ vãng\n\nBỗng ùa về khi gió thoảng qua đây\n\nNgười đã đến phút giây đầu bỡ ngỡ\n\nRồi lại đi sau những thuở yêu đương!\n\nMang chút sầu vương trên khoé mắt\n\nGieo chút tình thắt chặt tim ta",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/tumblr_nggzxuWSM71riqbu7o1_640.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/tumblr_nggzxuWSM71riqbu7o1_640.jpg"
+    ],
+    "local_images": [
+      "images/poem_29_img_0.jpg"
+    ]
+  },
+  {
+    "id": 26,
+    "slug": "vo-de-5",
+    "title": "Tôi đi tìm lại vần thơ",
+    "date": "2015-01-15T08:30:45",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tôi đi tìm lại vần thơ<br />\nBỏ quên trong mắt mộng mơ thuở nào<br />\nHỏi rằng em có thấy không?<br />\nHay là bão tố mưa giông cuốn rồi&#8230;.</p>\n<p>Đi tìm nửa mảnh tình côi<br />\nNgày xưa anh gởi trên môi má nàng<br />\nThế mà em nỡ sang ngang<br />\nCầu Ô gãy nhịp lỡ làng duyên tơ&#8230;</p>\n<p>Tìm về lúc tuổi mộng mơ<br />\nGặp em sao cứ ngẩn ngơ trong lòng<br />\nGhét lây má thắm tươi hồng<br />\nĐôi môi chúm chím mi cong, liễu gầy&#8230;</p>\n<p>Đâu rồi cô bé thơ ngây<br />\nChiều chiều hai đứa nhảy dây, trốn tìm<br />\nĐưa tay ngắt đóa hoa sim<br />\nCài lên mái tóc để tim lạc hồn&#8230;</p>\n<p>Tính em nũng nịu dỗi hờn<br />\nTình xưa nghĩa cũ vùi chôn hết rồi?<br />\nChỉ cần chút nhớ thương thôi<br />\nVậy mà chẳng có để tôi tìm về&#8230;</p>\n",
+    "content_text": "Tôi đi tìm lại vần thơ\n\nBỏ quên trong mắt mộng mơ thuở nào\n\nHỏi rằng em có thấy không?\n\nHay là bão tố mưa giông cuốn rồi&#8230;.\n\n\nĐi tìm nửa mảnh tình côi\n\nNgày xưa anh gởi trên môi má nàng\n\nThế mà em nỡ sang ngang\n\nCầu Ô gãy nhịp lỡ làng duyên tơ&#8230;\n\n\nTìm về lúc tuổi mộng mơ\n\nGặp em sao cứ ngẩn ngơ trong lòng\n\nGhét lây má thắm tươi hồng\n\nĐôi môi chúm chím mi cong, liễu gầy&#8230;\n\n\nĐâu rồi cô bé thơ ngây\n\nChiều chiều hai đứa nhảy dây, trốn tìm\n\nĐưa tay ngắt đóa hoa sim\n\nCài lên mái tóc để tim lạc hồn&#8230;\n\n\nTính em nũng nịu dỗi hờn\n\nTình xưa nghĩa cũ vùi chôn hết rồi?\n\nChỉ cần chút nhớ thương thôi\n\nVậy mà chẳng có để tôi tìm về&#8230;",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/nhung-tuyet-pham-game-ios-cua-the-gioi-mong-mo-5.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/nhung-tuyet-pham-game-ios-cua-the-gioi-mong-mo-5.jpeg"
+    ],
+    "local_images": [
+      "images/poem_26_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "vo-de-4",
+    "title": "Người đã đi cho lòng ta hiu quạnh",
+    "date": "2015-01-15T08:29:07",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Người đã đi cho lòng ta hiu quạnh<br />\nRồi đêm dài sẽ đón lạnh mình ta<br />\nGió thoảng qua bên người ta đó<br />\nThấy rét lòng do thiếu một vòng tay!</p>\n<p>Ta đã say hay vì đời nghiêng ngã<br />\nĐưa ta vào giữa muôn ngả bể dâu<br />\nSẽ về đâu khi cơn đau là bạn<br />\nChén muộn phiền ta rót cạn từng đêm</p>\n<p>Trăng thêm sáng nhưng lòng ta vẫn tối<br />\nBiết về đâu khi lối cũ không còn<br />\nChút bâng khuâng từ lần đầu gặp gỡ<br />\nNay đã thành vụn vỡ nhói con tim</p>\n<p>Gửi cho kẻ từng đêm là nỗi nhớ<br />\nGiờ chẳng còn một góc nhỏ trong tim<br />\nDù chỉ biết đó là điều chưa thể<br />\nNhưng mặc kệ vẫn đang hoài cố gắng</p>\n",
+    "content_text": "Người đã đi cho lòng ta hiu quạnh\n\nRồi đêm dài sẽ đón lạnh mình ta\n\nGió thoảng qua bên người ta đó\n\nThấy rét lòng do thiếu một vòng tay!\n\n\nTa đã say hay vì đời nghiêng ngã\n\nĐưa ta vào giữa muôn ngả bể dâu\n\nSẽ về đâu khi cơn đau là bạn\n\nChén muộn phiền ta rót cạn từng đêm\n\n\nTrăng thêm sáng nhưng lòng ta vẫn tối\n\nBiết về đâu khi lối cũ không còn\n\nChút bâng khuâng từ lần đầu gặp gỡ\n\nNay đã thành vụn vỡ nhói con tim\n\n\nGửi cho kẻ từng đêm là nỗi nhớ\n\nGiờ chẳng còn một góc nhỏ trong tim\n\nDù chỉ biết đó là điều chưa thể\n\nNhưng mặc kệ vẫn đang hoài cố gắng",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/84709111552014196809.large_.jpeg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/84709111552014196809.large_.jpeg"
+    ],
+    "local_images": [
+      "images/poem_23_img_0.jpeg"
+    ]
+  },
+  {
+    "id": 20,
+    "slug": "vo-de-3",
+    "title": "Gió lại gió, giữa dòng đời êm ả",
+    "date": "2015-01-15T08:26:51",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Gió lại gió, giữa dòng đời êm ả<br />\nNắng lại nắng, giữa phố vắng trưa hè<br />\nMưa lại mưa, giữa đêm hè oi bức<br />\nMây lại mây, giữa đong đầy nỗi nhớ!</p>\n<p>Gió thổi nắng đi cho mây mang mưa lại<br />\nĐời nóng như trưa hè vắng nỗi nhớ thương<br />\nDừng chân, nghiêng mình, trời nghiêng ngả<br />\nNgửa đầu, ngước mắt, gió xôn xao</p>\n<p>Tình như giọt sương rơi trên lá<br />\nGió mát ru tình trôi tựa mây<br />\nMột phút lỡ yêu như trưa hè không gió<br />\nNỗi nhớ xôn xao như gió thoảng đêm hè</p>\n<p>Mặt trăng non như tình yêu con trẻ<br />\nKhúc khích cười khẽ lay động lòng ai<br />\nNgười là ai để mai này lưu luyến<br />\nÔm giấc nồng như hòa quyện trong mơ</p>\n<p>Chợt tỉnh giấc khi tuổi thơ òa về<br />\nGiữ bóng hình để ta mãi mộng mơ</p>\n",
+    "content_text": "Gió lại gió, giữa dòng đời êm ả\n\nNắng lại nắng, giữa phố vắng trưa hè\n\nMưa lại mưa, giữa đêm hè oi bức\n\nMây lại mây, giữa đong đầy nỗi nhớ!\n\n\nGió thổi nắng đi cho mây mang mưa lại\n\nĐời nóng như trưa hè vắng nỗi nhớ thương\n\nDừng chân, nghiêng mình, trời nghiêng ngả\n\nNgửa đầu, ngước mắt, gió xôn xao\n\n\nTình như giọt sương rơi trên lá\n\nGió mát ru tình trôi tựa mây\n\nMột phút lỡ yêu như trưa hè không gió\n\nNỗi nhớ xôn xao như gió thoảng đêm hè\n\n\nMặt trăng non như tình yêu con trẻ\n\nKhúc khích cười khẽ lay động lòng ai\n\nNgười là ai để mai này lưu luyến\n\nÔm giấc nồng như hòa quyện trong mơ\n\n\nChợt tỉnh giấc khi tuổi thơ òa về\n\nGiữ bóng hình để ta mãi mộng mơ",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/stt-gio-lanh-dau-mua-9.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/stt-gio-lanh-dau-mua-9.jpg"
+    ],
+    "local_images": [
+      "images/poem_20_img_0.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "slug": "vo-de-2",
+    "title": "Gửi tới em người con gái tôi yêu",
+    "date": "2015-01-15T08:25:11",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Gửi tới em người con gái tôi yêu<br />\nDù chẳng biết vì sao yêu nhiều thế<br />\nThề với em giữa gió đông se lạnh<br />\nNhớ đến em lòng không còn cô quạnh!<br />\nGom nỗi nhớ thành vô vàn tia nắng<br />\nGửi đến em một trưa nắng yêu thương<br />\nKhông oi ả như nắng trưa thường thấy<br />\nĐủ sưởi ấm lòng vì nơi ấy có anh<br />\nCỏ vẫn xanh khi nắng vàng còn chiếu<br />\nLòng vẫn yêu mặc đời thiếu tình yêu</p>\n",
+    "content_text": "Gửi tới em người con gái tôi yêu\n\nDù chẳng biết vì sao yêu nhiều thế\n\nThề với em giữa gió đông se lạnh\n\nNhớ đến em lòng không còn cô quạnh!\n\nGom nỗi nhớ thành vô vàn tia nắng\n\nGửi đến em một trưa nắng yêu thương\n\nKhông oi ả như nắng trưa thường thấy\n\nĐủ sưởi ấm lòng vì nơi ấy có anh\n\nCỏ vẫn xanh khi nắng vàng còn chiếu\n\nLòng vẫn yêu mặc đời thiếu tình yêu",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/maxresdefault.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/maxresdefault.jpg"
+    ],
+    "local_images": [
+      "images/poem_17_img_0.jpg"
+    ]
+  },
+  {
+    "id": 275,
+    "slug": "vo-de-1",
+    "title": "Tôi vẫn yêu cái loài hoa ban trắng",
+    "date": "2015-01-15T08:20:02",
+    "date_formatted": "15 tháng 1, 2015",
+    "content_html": "<p>Tôi vẫn yêu cái loài hoa ban trắng<br />\nGiữa trưa hè dù nắng vẫn tươi cười<br />\nNhớ đến ai hay nhớ đến nụ cười<br />\nChút xao xuyến cho đời thêm mơ mộng!<br />\nMở cõi lòng cho gió lạnh ùa về<br />\nXóa cõi lòng cho vơi hoài nỗi nhớ<br />\nLưu luyến tình dù chỉ còn mơ mộng<br />\nKhóa cõi lòng để giữ chặt trong tim<br />\nTình đã yên hãy chôn vào giấc ngủ<br />\nVùi thật sâu cho chẳng nói thành lời!</p>\n",
+    "content_text": "Tôi vẫn yêu cái loài hoa ban trắng\n\nGiữa trưa hè dù nắng vẫn tươi cười\n\nNhớ đến ai hay nhớ đến nụ cười\n\nChút xao xuyến cho đời thêm mơ mộng!\n\nMở cõi lòng cho gió lạnh ùa về\n\nXóa cõi lòng cho vơi hoài nỗi nhớ\n\nLưu luyến tình dù chỉ còn mơ mộng\n\nKhóa cõi lòng để giữ chặt trong tim\n\nTình đã yên hãy chôn vào giấc ngủ\n\nVùi thật sâu cho chẳng nói thành lời!",
+    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/hoa-ban.jpg",
+    "inline_images": [],
+    "all_images": [
+      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/hoa-ban.jpg"
+    ],
+    "local_images": [
+      "images/poem_275_img_0.jpg"
+    ]
+  }
+];

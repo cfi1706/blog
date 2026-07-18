@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZzCFIzZ — Tuyển Tập Thơ</title>
+    <meta name="description" content="Không gian thơ ca, nghệ thuật và cảm xúc ZzCFIzZ. Trải nghiệm đọc thơ hiện đại, thanh lịch với các bài thơ tuyển chọn.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- RemixIcon Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-midnight">
+    <script>
+        // Apply saved theme before paint to avoid flash (FOUC).
+        try {
+            var t = localStorage.getItem('zzcfizz_theme');
+            if (t) document.body.className = t;
+        } catch (e) {}
+    </script>
+
+    <!-- Ambient Background Lighting -->
+    <div class="bg-ambient-lights" aria-hidden="true">
+        <div class="light-orb orb-1"></div>
+        <div class="light-orb orb-2"></div>
+        <div class="light-orb orb-3"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="brand-logo" title="ZzCFIzZ Trang Chủ">
+                <span class="logo-icon"><i class="ri-quill-pen-line"></i></span>
+                <div class="logo-text">
+                    <span class="logo-title">ZzCFIzZ</span>
+                    <span class="logo-tagline">Tuyển Tập Thơ</span>
+                </div>
+            </a>
+
+            <!-- Global Search Bar -->
+            <div class="search-box">
+                <i class="ri-search-2-line search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm bài thơ, câu thơ..." autocomplete="off">
+                <button id="clearSearchBtn" class="clear-search-btn" title="Xóa tìm kiếm" hidden>
+                    <i class="ri-close-line"></i>
+                </button>
+                <kbd class="search-kbd">Ctrl K</kbd>
+            </div>
+
+            <!-- Header Right Controls -->
+            <div class="header-actions">
+                <!-- AI Bot Header Button -->
+                <button id="headerBotBtn" class="btn btn-icon" title="Hỏi Trợ Lý Thơ AI (Thi Sĩ AI)">
+                    <i class="ri-robot-2-line"></i>
+                </button>
+
+                <button id="randomPoemBtn" class="btn btn-outline" title="Đọc bài thơ ngẫu nhiên">
+                    <i class="ri-dice-line"></i>
+                    <span>Thơ Ngẫu Nhiên</span>
+                </button>
+
+                <!-- Recently Viewed Button -->
+                <button id="recentPoemsBtn" class="btn btn-icon" title="Bài thơ vừa đọc gần đây">
+                    <i class="ri-history-line"></i>
+                </button>
+
+                <!-- Ambient Sound Dropdown -->
+                <div class="ambient-dropdown-container">
+                    <button id="ambientToggleBtn" class="btn btn-icon" title="Âm thanh thư giãn (Ambient Sounds)">
+                        <i class="ri-sound-module-line"></i>
+                    </button>
+                    <div id="ambientMenu" class="ambient-menu" hidden>
+                        <div class="ambient-menu-header">
+                            <span><i class="ri-headphone-line"></i> Âm Thanh Thư Giãn</span>
+                            <button id="ambientStopBtn" class="btn-sm-text">Tắt</button>
+                        </div>
+                        <div class="ambient-options">
+                            <button data-sound="rain" class="ambient-option">
+                                <i class="ri-rainy-line"></i> Tiếng Mưa Rơi
+                            </button>
+                            <button data-sound="waves" class="ambient-option">
+                                <i class="ri-water-flash-line"></i> Sóng Biển Vỗ
+                            </button>
+                            <button data-sound="pad" class="ambient-option">
+                                <i class="ri-space-ship-line"></i> Gió Trầm Lắng
+                            </button>
+                        </div>
+                        <div class="ambient-vol-control">
+                            <i class="ri-volume-down-line"></i>
+                            <input type="range" id="ambientVolInput" min="0" max="1" step="0.05" value="0.4" title="Âm lượng">
+                            <i class="ri-volume-up-line"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="theme-dropdown-container">
+                    <button id="themeToggleBtn" class="btn btn-icon" title="Đổi giao diện">
+                        <i class="ri-palette-line"></i>
+                    </button>
+                    <div id="themeMenu" class="theme-menu" hidden>
+                        <button data-set-theme="theme-midnight" class="theme-option active">
+                            <span class="theme-dot midnight"></span> Đêm Huyền Diệu (Midnight)
+                        </button>
+                        <button data-set-theme="theme-dark" class="theme-option">
+                            <span class="theme-dot dark"></span> Than Tối (Charcoal)
+                        </button>
+                        <button data-set-theme="theme-paper" class="theme-option">
+                            <span class="theme-dot paper"></span> Giấy Cổ Điển (Warm Paper)
+                        </button>
+                        <button data-set-theme="theme-nordic" class="theme-option">
+                            <span class="theme-dot nordic"></span> Sáng Thanh Lịch (Nordic)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-wrapper">
+
+        <!-- Hero Showcase -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Lắng Đọng Cảm Xúc Qua <span class="gradient-text">Từng Trang Thơ</span></h1>
+                <p class="hero-description">Nơi lưu giữ trọn vẹn những vần thơ sâu lắng, hình ảnh minh họa nghệ thuật và tâm sự qua tháng năm.</p>
+
+                <!-- Poem of the Day Card -->
+                <div class="daily-poem-box" id="dailyPoemBox">
+                    <div class="daily-poem-info">
+                        <span class="daily-badge"><i class="ri-calendar-event-line"></i> Bài Thơ Hôm Nay</span>
+                        <h4 class="daily-title" id="dailyPoemTitle">Đang tải bài thơ...</h4>
+                    </div>
+                    <button id="dailyPoemReadBtn" class="btn btn-sm btn-primary">
+                        <i class="ri-book-read-line"></i> Đọc Ngay
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter & View Bar -->
+        <section class="controls-bar">
+            <!-- Filter Category Pills -->
+            <div class="category-pills" id="categoryPills">
+                <button class="pill-btn active" data-filter="all">
+                    <i class="ri-apps-2-line"></i> Tất Cả (<span id="countAll">0</span>)
+                </button>
+                <button class="pill-btn" data-filter="favorites">
+                    <i class="ri-heart-3-fill text-rose"></i> Yêu Thích (<span id="countFav">0</span>)
+                </button>
+                
+                <!-- Mood Filters -->
+                <span class="mood-divider"></span>
+                <button class="pill-btn mood-pill" data-filter="mood-peace" title="Thơ Bình Yên">
+                    🌱 Bình Yên
+                </button>
+                <button class="pill-btn mood-pill" data-filter="mood-deep" title="Thơ Trầm Tư">
+                    🌙 Trầm Tư
+                </button>
+                <button class="pill-btn mood-pill" data-filter="mood-nostalgia" title="Thơ Hoài Niệm">
+                    🌧️ Hoài Niệm
+                </button>
+                <button class="pill-btn mood-pill" data-filter="mood-lonely" title="Thơ Cô Đơn">
+                    ☕ Cô Đơn
+                </button>
+                <button class="pill-btn mood-pill" data-filter="mood-hope" title="Thơ Hi Vọng">
+                    ✨ Hi Vọng
+                </button>
+            </div>
+
+            <!-- View Mode Switcher & Sort -->
+            <div class="view-controls">
+                <div class="sort-select-wrapper">
+                    <i class="ri-sort-desc"></i>
+                    <select id="sortSelect" aria-label="Sắp xếp bài thơ">
+                        <option value="newest">Mới nhất trước</option>
+                        <option value="oldest">Cũ nhất trước</option>
+                        <option value="title-asc">Tiêu đề (A-Z)</option>
+                    </select>
+                </div>
+
+                <div class="view-mode-buttons" role="radiogroup" aria-label="Chế độ hiển thị">
+                    <button class="view-btn active" data-view="grid" title="Dạng Lưới (Grid)">
+                        <i class="ri-grid-fill"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="Dạng Danh Sách (List)">
+                        <i class="ri-list-check-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Poems Container Section -->
+        <section id="poemsSection" class="poems-section">
+            <div id="poemsGrid" class="poems-grid grid-view">
+                <!-- Dynamic poem cards rendered here -->
+            </div>
+
+            <!-- Empty Search Results -->
+            <div id="emptyState" class="empty-state" hidden>
+                <div class="empty-icon"><i class="ri-file-search-line"></i></div>
+                <h3>Không tìm thấy bài thơ phù hợp</h3>
+                <p>Thử tìm với từ khóa khác hoặc xóa bộ lọc hiện tại.</p>
+                <button id="resetFilterBtn" class="btn btn-primary">Xóa tìm kiếm</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <i class="ri-quill-pen-line"></i> ZzCFIzZ Poetry Collection
+            </div>
+            <p class="footer-credit">Thanh lịch • Hiện đại • Trải nghiệm đọc tối ưu</p>
+        </div>
+    </footer>
+
+    <!-- Exit Zen Mode Button Overlay -->
+    <button id="exitZenBtn" class="exit-zen-btn" hidden>
+        <i class="ri-close-line"></i> Thoát Chế Độ Tập Trung (Esc)
+    </button>
+
+    <!-- POEM READER MODAL -->
+    <dialog id="poemModal" class="poem-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card">
+            <!-- Reading Progress Bar -->
+            <div id="readingProgressBar" class="reading-progress-bar"></div>
+
+            <!-- Modal Header with Integrated Actions -->
+            <header class="modal-header">
+                <div class="modal-header-top">
+                    <div class="modal-title-area">
+                        <span class="modal-category-badge" id="modalCategory">Tác Phẩm Thơ</span>
+                        <h2 class="modal-poem-title" id="modalTitle">Tiêu đề bài thơ</h2>
+                        <div class="modal-poem-date" id="modalDate"><i class="ri-calendar-line"></i> Ngày đăng</div>
+                    </div>
+
+                    <!-- Quick Action Buttons Toolbar at Top Right Corner -->
+                    <div class="action-toolbar-group quick-actions-group">
+                        <button id="zenModeBtn" class="tool-btn icon-badge-btn" title="Chế độ tập trung (Zen Mode)">
+                            <i class="ri-focus-3-line"></i>
+                        </button>
+                        <button id="quoteCardBtn" class="tool-btn icon-badge-btn" title="Tạo thiệp thơ nghệ thuật">
+                            <i class="ri-image-edit-line"></i>
+                        </button>
+                        <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="Thêm vào yêu thích">
+                            <i class="ri-heart-line"></i>
+                        </button>
+                        <button id="modalCopyBtn" class="tool-btn icon-badge-btn" title="Sao chép bài thơ">
+                            <i class="ri-file-copy-line"></i>
+                        </button>
+                        <button id="modalShareBtn" class="tool-btn icon-badge-btn" title="Chia sẻ liên kết">
+                            <i class="ri-share-line"></i>
+                        </button>
+                        <button id="closeModalBtn" class="modal-close-btn" title="Đóng cửa sổ (Esc)">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Integrated Header Actions (TTS & Customizer Toolbar) -->
+                <div class="modal-header-actions">
+                    <!-- Group 1: Voice & Audio Player (TTS) -->
+                    <div class="action-toolbar-group tts-toolbar-group">
+                        <button id="ttsPlayBtn" class="tool-btn tts-btn" title="Nghe đọc thơ bằng giọng nói AI">
+                            <i class="ri-volume-up-line"></i>
+                            <span id="ttsBtnText">Đọc Thơ</span>
+                        </button>
+
+                        <select id="ttsVoiceSelect" class="custom-styled-select tts-voice-select" title="Chọn giọng đọc AI">
+                            <option value="auto">Giọng AI Mặc Định</option>
+                        </select>
+
+                        <select id="ttsSpeedSelect" class="custom-styled-select tts-speed-select" title="Tốc độ đọc">
+                            <option value="0.8">0.8x</option>
+                            <option value="1.0" selected>1.0x</option>
+                            <option value="1.2">1.2x</option>
+                        </select>
+
+                        <label class="autoplay-toggle" title="Tự động đọc bài tiếp theo">
+                            <input type="checkbox" id="ttsAutoplayCheck">
+                            <span>Auto</span>
+                        </label>
+                    </div>
+
+                    <!-- Group 2: Reading & Typography Customizer -->
+                    <div class="action-toolbar-group reading-toolbar-group">
+                        <!-- Font Family Selector -->
+                        <select id="fontFamilySelect" class="custom-styled-select font-family-select" title="Chọn Font chữ">
+                            <option value="'Lora', serif">🖋️ Lora (Cổ Điển)</option>
+                            <option value="'Playfair Display', serif">✨ Playfair (Sang Trọng)</option>
+                            <option value="'Cormorant Garamond', serif">📜 Cormorant (Thanh Lịch)</option>
+                            <option value="'Dancing Script', cursive">✍️ Dancing (Bay Bổng)</option>
+                            <option value="'Merriweather', serif">📖 Merriweather (Văn Học)</option>
+                        </select>
+
+                        <!-- Font Size Adjuster -->
+                        <div class="font-size-group">
+                            <button id="fontDecBtn" class="tool-btn icon-only-btn" title="Giảm cỡ chữ"><i class="ri-subtract-line"></i></button>
+                            <span id="fontSizeDisplay" class="font-size-val">100%</span>
+                            <button id="fontIncBtn" class="tool-btn icon-only-btn" title="Tăng cỡ chữ"><i class="ri-add-line"></i></button>
+                        </div>
+
+                        <!-- Alignment -->
+                        <div class="align-group">
+                            <button data-align="center" class="tool-btn align-btn active" title="Căn giữa"><i class="ri-align-center"></i></button>
+                            <button data-align="left" class="tool-btn align-btn" title="Căn trái"><i class="ri-align-left"></i></button>
+                        </div>
+
+                        <!-- Auto-Scroll Button -->
+                        <button id="btnAutoScroll" class="tool-btn auto-scroll-btn" title="Bật/Tắt tự động cuộn">
+                            <i class="ri-scroll-to-bottom-line"></i> <span class="auto-scroll-text">Tự Cuộn</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Modal Body (Poem Content & Interactive Area) -->
+            <div class="modal-body" id="modalBody">
+                <div class="poem-body-text align-center" id="modalPoemText">
+                    <!-- Poem content lines -->
+                </div>
+                <div class="modal-images-container" id="modalImagesContainer">
+                    <!-- Images embedded here -->
+                </div>
+
+                <!-- Reactions & Personal Notes Section -->
+                <div class="poem-interactive-section">
+                    <div class="reactions-bar">
+                        <span class="reactions-title">Cảm xúc:</span>
+                        <button class="reaction-btn" data-reaction="love" title="Bày tỏ Yêu thích">
+                            ❤️ <span class="react-count" id="reactCountLove">0</span>
+                        </button>
+                        <button class="reaction-btn" data-reaction="cozy" title="Cảm giác Bình yên">
+                            ☕ <span class="react-count" id="reactCountCozy">0</span>
+                        </button>
+                        <button class="reaction-btn" data-reaction="moon" title="Cảm giác Trầm tư">
+                            🌙 <span class="react-count" id="reactCountMoon">0</span>
+                        </button>
+                        <button class="reaction-btn" data-reaction="wind" title="Cảm giác Hoài niệm">
+                            🍃 <span class="react-count" id="reactCountWind">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Personal Note Expandable Box -->
+                    <details class="personal-note-details">
+                        <summary class="personal-note-summary">
+                            <i class="ri-edit-line"></i> Ghi chú & Cảm nhận cá nhân
+                        </summary>
+                        <div class="personal-note-box">
+                            <textarea id="poemNoteInput" placeholder="Viết vài dòng cảm nghĩ hoặc ghi chú của bạn cho bài thơ này..." rows="3"></textarea>
+                            <button id="saveNoteBtn" class="btn btn-sm btn-primary">Lưu Ghi Chú</button>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Modal Footer (Navigation) -->
+            <footer class="modal-footer">
+                <button id="prevPoemBtn" class="btn btn-secondary">
+                    <i class="ri-arrow-left-s-line"></i> Bài Trước
+                </button>
+                <span id="poemCounterText" class="poem-counter">1 / 124</span>
+                <button id="nextPoemBtn" class="btn btn-secondary">
+                    Bài Tiếp <i class="ri-arrow-right-s-line"></i>
+                </button>
+            </footer>
+        </div>
+    </dialog>
+
+    <!-- QUOTE CARD GENERATOR MODAL -->
+    <dialog id="quoteCardModal" class="quote-card-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card quote-card-dialog">
+            <header class="modal-header">
+                <h3><i class="ri-image-edit-line"></i> Tạo Thiệp Thơ Nghệ Thuật</h3>
+                <button id="closeQuoteModalBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="quote-card-body">
+                <div class="quote-card-preview-area">
+                    <canvas id="quoteCanvas" width="600" height="750"></canvas>
+                </div>
+                <div class="quote-card-controls">
+                    <label class="control-label">Chọn Mẫu Giao Diện:</label>
+                    <div class="theme-options-grid" id="cardThemeGrid">
+                        <button class="card-style-opt active" data-style="midnight">🌌 Midnight</button>
+                        <button class="card-style-opt" data-style="paper">📜 Warm Paper</button>
+                        <button class="card-style-opt" data-style="sunset">🌅 Sunset Gold</button>
+                        <button class="card-style-opt" data-style="emerald">🍃 Deep Emerald</button>
+                        <button class="card-style-opt" data-style="cosmic">✨ Cosmic Violet</button>
+                    </div>
+
+                    <label class="control-label">Chọn Trích Đoạn Thơ:</label>
+                    <select id="quoteLinesSelect" class="form-select">
+                        <option value="full">Toàn bộ bài thơ</option>
+                        <option value="first4">4 câu thơ đầu</option>
+                        <option value="last4">4 câu thơ cuối</option>
+                    </select>
+
+                    <label class="control-label" style="margin-top:12px;">Khắc Tên / Chữ Ký Tặng:</label>
+                    <input type="text" id="quoteSignatureInput" class="form-input" placeholder="VD: Gửi tặng em... / Antigravity" maxlength="35">
+
+                    <div class="checkbox-wrapper" style="margin-top:10px; margin-bottom:16px;">
+                        <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13.5px; color:var(--text-secondary);">
+                            <input type="checkbox" id="quoteQrCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-primary);">
+                            <span><i class="ri-qr-code-line"></i> Đính kèm mã QR Code bài thơ</span>
+                        </label>
+                    </div>
+
+                    <button id="downloadCardBtn" class="btn btn-primary btn-block">
+                        <i class="ri-download-2-line"></i> Tải Thiệp Thơ PNG Về Máy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- RECENTLY VIEWED MODAL -->
+    <dialog id="recentModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog">
+            <header class="modal-header">
+                <h3><i class="ri-history-line"></i> Bài Thơ Vừa Đọc Gần Đây</h3>
+                <button id="closeRecentModalBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="recent-list-body" id="recentListBody">
+                <!-- Recent poem list items rendered here -->
+            </div>
+        </div>
+    </dialog>
+
+    <!-- IMAGE LIGHTBOX MODAL -->
+    <dialog id="lightboxModal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <button id="closeLightboxBtn" class="lightbox-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            <img id="lightboxImg" src="" alt="Hình ảnh bài thơ">
+            <div class="lightbox-caption">
+                <h4 id="lightboxTitle">Tên bài thơ</h4>
+                <button id="lightboxGoToPoemBtn" class="btn btn-sm btn-primary">
+                    <i class="ri-book-read-line"></i> Xem Bài Thơ Này
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- AI POETRY BOT CHAT DRAWER -->
+    <div id="poemBotDrawer" class="poem-bot-drawer" hidden>
+        <header class="bot-header">
+            <div class="bot-title-area">
+                <div class="bot-avatar"><i class="ri-robot-2-line"></i></div>
+                <div>
+                    <h3 class="bot-name">Thi Sĩ AI ZzCFIzZ</h3>
+                    <span class="bot-status"><span class="status-dot"></span> Sẵn sàng gợi ý & tìm thơ</span>
+                </div>
+            </div>
+            <button id="closeBotBtn" class="bot-close-btn" title="Đóng chat"><i class="ri-close-line"></i></button>
+        </header>
+
+        <div class="bot-chat-body" id="botChatBody">
+            <div class="chat-msg bot-msg">
+                <div class="msg-bubble">
+                    Xin chào! Tôi là **Thi Sĩ AI ZzCFIzZ**. ✒️<br>
+                    Bạn đang tìm bài thơ về chủ đề hay cảm xúc gì? (ví dụ: *mưa, hoài niệm, tình yêu, cô đơn, tuổi trẻ...*), hãy nhập bên dưới hoặc chọn gợi ý nhanh nhé!
+                </div>
+            </div>
+
+            <div class="chat-chips-container" id="chatChipsContainer">
+                <button class="chat-chip" data-query="Tìm bài thơ về mưa và nỗi nhớ">🌧️ Mưa & Nỗi Nhớ</button>
+                <button class="chat-chip" data-query="Bài thơ nào về hoài niệm mùa thu?">🍂 Hoài Niệm Mùa Thu</button>
+                <button class="chat-chip" data-query="Thơ về tuổi trẻ và giấc mơ">✨ Tuổi Trẻ & Giấc Mơ</button>
+                <button class="chat-chip" data-query="Gợi ý thơ lãng mạn nhẹ nhàng">☕ Lãng Mạn Nhẹ Nhàng</button>
+            </div>
+        </div>
+
+        <form id="botChatForm" class="bot-chat-footer">
+            <input type="text" id="botInput" placeholder="Nhập cảm xúc hoặc từ khóa muốn tìm..." autocomplete="off">
+            <button type="submit" id="botSendBtn" class="bot-send-btn" title="Gửi">
+                <i class="ri-send-plane-fill"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- AI POETRY BOT FLOATING BUTTON -->
+    <button id="botToggleBtn" class="bot-toggle-btn" title="Hỏi Trợ Lý Thơ AI (Thi Sĩ AI)">
+        <i class="ri-robot-2-line"></i>
+    </button>
+
+    <!-- Back To Top Floating Action Button -->
+    <button id="backToTopBtn" class="back-to-top-btn" title="Về đầu trang" hidden>
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-container" hidden>
+        <i class="toast-icon ri-checkbox-circle-fill"></i>
+        <span id="toastMessage">Thông báo</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="poems.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
