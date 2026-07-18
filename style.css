@@ -3094,9 +3094,24 @@ body.zen-mode-active #poemModal .poem-body-text {
 #amberFilterBtn   { --btn-accent: #fbbf24; }
 #dailyCalendarBtn { --btn-accent: #eab308; }
 #theaterModeBtn   { --btn-accent: #f43f5e; }
+#glossaryToggleBtn{ --btn-accent: #10b981; }
 
-#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i {
+#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #glossaryToggleBtn i {
     color: var(--btn-accent);
+}
+
+.poetry-glossary-highlight {
+    background: rgba(16, 185, 129, 0.15);
+    border-bottom: 1.5px dashed #10b981;
+    color: var(--accent-primary);
+    cursor: help;
+    padding: 0 3px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.poetry-glossary-highlight:hover {
+    background: rgba(16, 185, 129, 0.3);
 }
 
 /* Borderless Theater Mode */

@@ -1030,6 +1030,30 @@ document.addEventListener('DOMContentLoaded', () => {
             lofiFilter.connect(destNode);
             ambientNodes.push(lofiFilter);
             showToast('🎹 Đã bật nhạc nền Chill Lo-Fi Synth' + (isSpatial ? ' (8D Spatial)' : ''));
+        } else if (type === 'piano') {
+            const pianoNotes = [261.63, 329.63, 392.00, 493.88];
+            const pianoFilter = audioCtx.createBiquadFilter();
+            pianoFilter.type = 'lowpass';
+            pianoFilter.frequency.setValueAtTime(800, audioCtx.currentTime);
+
+            pianoNotes.forEach((f, idx) => {
+                const osc = audioCtx.createOscillator();
+                const noteGain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+
+                noteGain.gain.setValueAtTime(0.15, audioCtx.currentTime + idx * 0.2);
+                noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 3.0 + idx * 0.2);
+
+                osc.connect(noteGain);
+                noteGain.connect(pianoFilter);
+                osc.start();
+                ambientNodes.push(osc, noteGain);
+            });
+
+            pianoFilter.connect(destNode);
+            ambientNodes.push(pianoFilter);
+            showToast('🎼 Đã bật giai điệu Đàn Piano Trầm Lắng' + (isSpatial ? ' (8D Spatial)' : ''));
         }
     }
 
@@ -3101,6 +3125,55 @@ document.addEventListener('DOMContentLoaded', () => {
             if (dockCmdBtn) dockCmdBtn.onclick = () => document.getElementById('cmdPaletteBtn')?.click();
         }
         initQuickDock();
+
+        // ------------------------------------------------------------------
+        // Poetry Glossary & Literary Terms
+        // ------------------------------------------------------------------
+        function initPoetryGlossary() {
+            const glossaryToggleBtn = document.getElementById('glossaryToggleBtn');
+            const modalPoemText = document.getElementById('modalPoemText');
+
+            if (!glossaryToggleBtn || !modalPoemText) return;
+
+            const dictionary = {
+                'sương khói': 'Chú giải: Hình ảnh gợi vẻ mơ hồ, hoài niệm và mong manh của không gian thời gian.',
+                'hư không': 'Chú giải: Cõi tĩnh lặng, buông bỏ mọi muộn phiền nơi tâm hồn.',
+                'trùng khơi': 'Chú giải: Biển rộng mênh mông hoặc không gian xa xăm cách trở.',
+                'hoài niệm': 'Chú giải: Cảm xúc nhớ nhung ký ức đẹp trong quá khứ.',
+                'bình yên': 'Chú giải: Trạng thái tâm thanh thản, không gợn sóng lo âu.',
+                'mênh mang': 'Chú giải: Rộng lớn vô cùng, trải dài đến tận chân trời.',
+                'tuổi trẻ': 'Chú giải: Quãng thời gian nhiệt huyết, rực rỡ và đầy hoài bão.'
+            };
+
+            let isGlossaryActive = false;
+
+            glossaryToggleBtn.addEventListener('click', () => {
+                isGlossaryActive = !isGlossaryActive;
+                glossaryToggleBtn.classList.toggle('active', isGlossaryActive);
+
+                if (isGlossaryActive) {
+                    showToast('📜 Đã bật Chú Giải Từ Vựng Thơ (Nhấp từ được gạch chân để xem)');
+                    let textHtml = modalPoemText.innerHTML;
+                    Object.keys(dictionary).forEach(term => {
+                        const regex = new RegExp(`(${term})`, 'gi');
+                        textHtml = textHtml.replace(regex, `<span class="poetry-glossary-highlight" title="${dictionary[term]}">$1</span>`);
+                    });
+                    modalPoemText.innerHTML = textHtml;
+
+                    modalPoemText.querySelectorAll('.poetry-glossary-highlight').forEach(el => {
+                        el.onclick = (e) => {
+                            e.stopPropagation();
+                            showToast(el.title);
+                        };
+                    });
+                } else {
+                    showToast('📜 Đã tắt Chú Giải Từ Vựng Thơ');
+                    const poem = filteredPoemsList[activePoemIndex];
+                    if (poem) openReaderModal(activePoemIndex);
+                }
+            });
+        }
+        initPoetryGlossary();
 
     // Run
     init();
