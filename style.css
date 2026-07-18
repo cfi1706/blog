@@ -3087,43 +3087,177 @@ body.zen-mode-active #poemModal .poem-body-text {
 #themeToggleBtn   { --btn-accent: var(--c-theme); }
 #zenModeBtn       { --btn-accent: var(--c-zen); }
 #quoteCardBtn     { --btn-accent: var(--c-quote); }
-#modalFavBtn      { --btn-accent: var(--c-fav); }
-#modalCopyBtn     { --btn-accent: var(--c-copy); }
-#modalShareBtn    { --btn-accent: var(--c-share); }
-#closeModalBtn    { --btn-accent: var(--c-close); }
+#cmdPaletteBtn    { --btn-accent: #a855f7; }
+#cardSwiperBtn    { --btn-accent: #ec4899; }
+#emotionStatsBtn  { --btn-accent: #10b981; }
 
-/* Rest: colored glyph (close stays neutral until hover). */
-#headerBotBtn i, #randomPoemBtn i, #recentPoemsBtn i, #ambientToggleBtn i,
-#themeToggleBtn i, #zenModeBtn i, #quoteCardBtn i, #modalFavBtn i,
-#modalCopyBtn i, #modalShareBtn i {
+#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i {
     color: var(--btn-accent);
 }
 
-/* Hover: soft tinted surface + matching border/glyph, in the button's hue. */
-.btn-icon:hover, .btn-outline:hover, .icon-badge-btn:hover {
-    border-color: var(--btn-accent, var(--accent-primary));
-    color: var(--btn-accent, var(--accent-primary));
-    background: color-mix(in srgb, var(--btn-accent, var(--accent-primary)) 16%, transparent);
-}
-.btn-icon:hover i, .icon-badge-btn:hover i, .btn-outline:hover i {
-    color: var(--btn-accent, var(--accent-primary));
+/* Floating Audio Mini Player Dock */
+.floating-mini-player {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: var(--bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-highlight);
+    border-radius: var(--radius-full);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ==========================================================================
-   Premium polish — refined glass edges, keyboard focus rings, typographic finish
-   ========================================================================== */
+.equalizer-wave {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 16px;
+}
 
-/* Glass edge: 1px inner top highlight simulates light hitting the surface edge,
-   so the existing backdrop-blur reads as intentional glass, not default blur.
-   Full box-shadow re-declared (accent-tinted elevation + inner highlight). */
-.poem-card {
-    box-shadow: var(--shadow-elevated), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+.eq-bar {
+    width: 3px;
+    height: 100%;
+    background: var(--accent-primary);
+    border-radius: 2px;
+    animation: eqBounce 1.2s ease-in-out infinite alternate;
 }
-.modal-card {
-    box-shadow: var(--shadow-modal), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+.eq-bar:nth-child(1) { animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { animation-delay: 0.3s; }
+.eq-bar:nth-child(3) { animation-delay: 0.5s; }
+.eq-bar:nth-child(4) { animation-delay: 0.2s; }
+.eq-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes eqBounce {
+    0% { height: 20%; }
+    100% { height: 100%; }
 }
-.site-header {
-    box-shadow: var(--shadow-subtle), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+
+.mini-player-info {
+    max-width: 180px;
+    overflow: hidden;
+}
+
+.mini-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.btn-mini-control {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.btn-mini-control:hover {
+    transform: scale(1.15);
+    color: var(--accent-primary);
+}
+
+/* Command Palette Items */
+.cmd-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.cmd-item:hover, .cmd-item.active {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.cmd-item i {
+    font-size: 18px;
+    color: var(--accent-primary);
+}
+
+/* Card Swiper 3D Deck */
+.card-swiper-box {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.swiper-card-item {
+    width: 90%;
+    max-width: 440px;
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 30px 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.swiper-card-item h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.swiper-card-item p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-height: 240px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Mood Progress Bars */
+.mood-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mood-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.mood-bar-track {
+    height: 8px;
+    background: var(--bg-hover);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.mood-bar-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .theme-menu, .ambient-menu, .poem-bot-drawer, .recent-dialog, .quote-card-dialog {
     box-shadow: var(--shadow-modal), inset 0 1px 0 rgba(255, 255, 255, 0.10);

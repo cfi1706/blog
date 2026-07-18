@@ -2342,6 +2342,251 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // ------------------------------------------------------------------
+        // Background Particle Stardust Canvas
+        // ------------------------------------------------------------------
+        function initParticleCanvas() {
+            const canvas = document.getElementById('particleCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const particles = Array.from({ length: 25 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: Math.random() * 2 + 1,
+                speedY: Math.random() * 0.4 + 0.1,
+                speedX: Math.random() * 0.2 - 0.1,
+                opacity: Math.random() * 0.7 + 0.2
+            }));
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = 'rgba(168, 85, 247, 0.4)';
+
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    p.y -= p.speedY;
+                    p.x += p.speedX;
+
+                    if (p.y < 0) {
+                        p.y = height;
+                        p.x = Math.random() * width;
+                    }
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+        initParticleCanvas();
+
+        // ------------------------------------------------------------------
+        // Command Palette (Ctrl + K)
+        // ------------------------------------------------------------------
+        function initCommandPalette() {
+            const cmdPaletteBtn = document.getElementById('cmdPaletteBtn');
+            const commandPaletteModal = document.getElementById('commandPaletteModal');
+            const cmdInput = document.getElementById('cmdInput');
+            const cmdResultsList = document.getElementById('cmdResultsList');
+
+            if (!commandPaletteModal || !cmdInput || !cmdResultsList) return;
+
+            const commands = [
+                { title: '🌌 Đổi Theme: Midnight Glow', action: () => applyTheme('theme-midnight') },
+                { title: '🕯️ Đổi Theme: Charcoal Dark', action: () => applyTheme('theme-dark') },
+                { title: '📜 Đổi Theme: Warm Paper Sepia', action: () => applyTheme('theme-paper') },
+                { title: '❄️ Đổi Theme: Nordic Light', action: () => applyTheme('theme-nordic') },
+                { title: '🎛️ Chế Độ Tập Trung (Zen Mode)', action: () => { const p = filteredPoemsList[0]; if (p) openReaderModal(0); enableZenMode(); } },
+                { title: '📄 Xuất Tập Thơ PDF / E-Book', action: exportPoetryEBookPdf },
+                { title: '⏳ Hộp Thư Gửi Thơ Tới Tương Lai', action: () => { document.getElementById('timeCapsuleBtn')?.click(); } },
+                { title: '📈 Xem Thống Kê Cảm Xúc Cá Nhân', action: () => { document.getElementById('emotionStatsBtn')?.click(); } },
+                { title: '🎴 Khám Phá Thơ Thẻ Bài 3D', action: () => { document.getElementById('cardSwiperBtn')?.click(); } }
+            ];
+
+            function renderCmdList(filterQuery = '') {
+                cmdResultsList.innerHTML = '';
+                const q = filterQuery.toLowerCase().trim();
+
+                const filteredCmds = commands.filter(c => c.title.toLowerCase().includes(q));
+                const allPoems = getPoemsData();
+                const matchedPoems = q.length > 0 ? allPoems.filter(p => p.title.toLowerCase().includes(q)).slice(0, 5) : [];
+
+                filteredCmds.forEach(c => {
+                    const div = document.createElement('div');
+                    div.className = 'cmd-item';
+                    div.innerHTML = `<i class="ri-terminal-box-line"></i> <span>${c.title}</span>`;
+                    div.onclick = () => {
+                        commandPaletteModal.close();
+                        c.action();
+                    };
+                    cmdResultsList.appendChild(div);
+                });
+
+                matchedPoems.forEach(p => {
+                    const div = document.createElement('div');
+                    div.className = 'cmd-item';
+                    div.innerHTML = `<i class="ri-quill-pen-line"></i> <span>Mở bài thơ: <strong>${p.title}</strong></span>`;
+                    div.onclick = () => {
+                        commandPaletteModal.close();
+                        const idx = filteredPoemsList.findIndex(item => item.id === p.id);
+                        if (idx !== -1) openReaderModal(idx);
+                    };
+                    cmdResultsList.appendChild(div);
+                });
+            }
+
+            if (cmdPaletteBtn) {
+                cmdPaletteBtn.addEventListener('click', () => {
+                    renderCmdList('');
+                    commandPaletteModal.showModal();
+                    cmdInput.focus();
+                });
+            }
+
+            cmdInput.addEventListener('input', (e) => renderCmdList(e.target.value));
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    renderCmdList('');
+                    commandPaletteModal.showModal();
+                    cmdInput.focus();
+                }
+            });
+        }
+        initCommandPalette();
+
+        // ------------------------------------------------------------------
+        // Poetry Card Discovery Swiper 3D
+        // ------------------------------------------------------------------
+        function initCardSwiper() {
+            const cardSwiperBtn = document.getElementById('cardSwiperBtn');
+            const cardSwiperModal = document.getElementById('cardSwiperModal');
+            const closeSwiperBtn = document.getElementById('closeSwiperBtn');
+            const cardSwiperBox = document.getElementById('cardSwiperBox');
+            const swiperPrevBtn = document.getElementById('swiperPrevBtn');
+            const swiperNextBtn = document.getElementById('swiperNextBtn');
+
+            if (!cardSwiperModal || !cardSwiperBox) return;
+
+            let swiperIndex = 0;
+
+            function renderSwiperCard() {
+                const poems = getPoemsData();
+                if (poems.length === 0) return;
+
+                const poem = poems[swiperIndex % poems.length];
+                cardSwiperBox.innerHTML = `
+                    <div class="swiper-card-item">
+                        <span class="modal-category-badge" style="margin-bottom:8px; display:inline-block;">✨ Khám Phá Thơ</span>
+                        <h3>${poem.title}</h3>
+                        <p>${poem.content_text}</p>
+                        <button class="btn btn-primary btn-sm" onclick="window.openPoemById('${poem.id}')">
+                            <i class="ri-book-read-line"></i> Đọc Toàn Bài & Nghe AI
+                        </button>
+                    </div>
+                `;
+            }
+
+            window.openPoemById = (id) => {
+                cardSwiperModal.close();
+                const idx = filteredPoemsList.findIndex(p => p.id === id);
+                if (idx !== -1) openReaderModal(idx);
+            };
+
+            if (cardSwiperBtn) {
+                cardSwiperBtn.addEventListener('click', () => {
+                    swiperIndex = Math.floor(Math.random() * getPoemsData().length);
+                    renderSwiperCard();
+                    cardSwiperModal.showModal();
+                });
+            }
+
+            if (closeSwiperBtn) closeSwiperBtn.onclick = () => cardSwiperModal.close();
+
+            if (swiperNextBtn) {
+                swiperNextBtn.onclick = () => {
+                    swiperIndex++;
+                    renderSwiperCard();
+                };
+            }
+
+            if (swiperPrevBtn) {
+                swiperPrevBtn.onclick = () => {
+                    swiperIndex = Math.max(0, swiperIndex - 1);
+                    renderSwiperCard();
+                };
+            }
+        }
+        initCardSwiper();
+
+        // ------------------------------------------------------------------
+        // Personal Emotion Stats Insights
+        // ------------------------------------------------------------------
+        function initEmotionStats() {
+            const emotionStatsBtn = document.getElementById('emotionStatsBtn');
+            const emotionStatsModal = document.getElementById('emotionStatsModal');
+            const closeStatsBtn = document.getElementById('closeStatsBtn');
+            const statsReadCount = document.getElementById('statsReadCount');
+            const statsFavCount = document.getElementById('statsFavCount');
+            const statsMoodBarsList = document.getElementById('statsMoodBarsList');
+
+            if (!emotionStatsModal) return;
+
+            function renderStats() {
+                if (statsReadCount) statsReadCount.textContent = recentlyViewed.length;
+                if (statsFavCount) statsFavCount.textContent = favorites.length;
+
+                if (!statsMoodBarsList) return;
+                const poems = getPoemsData();
+                const favPoems = poems.filter(p => favorites.includes(p.id));
+
+                const moodCounts = {
+                    '🌱 Bình Yên': favPoems.filter(p => matchesMood(p, 'mood-peace')).length,
+                    '🌙 Trầm Tư': favPoems.filter(p => matchesMood(p, 'mood-deep')).length,
+                    '🌧️ Hoài Niệm': favPoems.filter(p => matchesMood(p, 'mood-nostalgia')).length,
+                    '☕ Cô Đơn': favPoems.filter(p => matchesMood(p, 'mood-lonely')).length,
+                    '✨ Hi Vọng': favPoems.filter(p => matchesMood(p, 'mood-hope')).length
+                };
+
+                const totalFav = favPoems.length || 1;
+
+                statsMoodBarsList.innerHTML = Object.entries(moodCounts).map(([label, count]) => {
+                    const pct = Math.round((count / totalFav) * 100);
+                    return `
+                        <div class="mood-bar-wrapper">
+                            <div class="mood-bar-label">
+                                <span>${label}</span>
+                                <span>${pct}% (${count})</span>
+                            </div>
+                            <div class="mood-bar-track">
+                                <div class="mood-bar-fill" style="width: ${pct}%;"></div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            if (emotionStatsBtn) {
+                emotionStatsBtn.addEventListener('click', () => {
+                    renderStats();
+                    emotionStatsModal.showModal();
+                });
+            }
+
+            if (closeStatsBtn) closeStatsBtn.onclick = () => emotionStatsModal.close();
+        }
+        initEmotionStats();
+
     // Run
     init();
 });
