@@ -3381,20 +3381,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (savedSettings.hasOwnProperty(key)) {
                     check.checked = savedSettings[key];
                 }
-                applyFeatureState(key, check.checked);
+                applyFeatureState(check);
 
                 check.addEventListener('change', () => {
                     savedSettings[key] = check.checked;
                     localStorage.setItem('zzcfizz_system_settings', JSON.stringify(savedSettings));
-                    applyFeatureState(key, check.checked);
-                    showToast(`⚙️ Đã ${check.checked ? 'bật' : 'tắt'} tính năng ${key}`);
+                    applyFeatureState(check);
+                    showToast(`⚙️ Đã ${check.checked ? 'bật' : 'tắt'} tính năng`);
                 });
             });
 
-            function applyFeatureState(key, isEnabled) {
+            function applyFeatureState(check) {
+                const key = check.dataset.feature;
+                const isEnabled = check.checked;
+                const targetSelector = check.dataset.target;
+
+                if (targetSelector) {
+                    const targets = document.querySelectorAll(targetSelector);
+                    targets.forEach(el => {
+                        el.style.display = isEnabled ? '' : 'none';
+                    });
+                }
+
                 if (key === 'quick_dock') {
                     const dock = document.getElementById('quickDockContainer');
-                    if (dock) dock.hidden = !isEnabled;
+                    if (dock) dock.style.display = isEnabled ? '' : 'none';
                 } else if (key === 'cursor_trail') {
                     const canvas = document.getElementById('cursorTrailCanvas');
                     if (canvas) canvas.hidden = !isEnabled;
@@ -3421,10 +3432,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         check.checked = true;
                         const key = check.dataset.feature;
                         savedSettings[key] = true;
-                        applyFeatureState(key, true);
+                        applyFeatureState(check);
                     });
                     localStorage.setItem('zzcfizz_system_settings', JSON.stringify(savedSettings));
-                    showToast('✅ Đã bật toàn bộ tất cả tính năng!');
+                    showToast('✅ Đã bật toàn bộ tất cả nút & tính năng!');
                 };
             }
 
@@ -3434,10 +3445,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         check.checked = false;
                         const key = check.dataset.feature;
                         savedSettings[key] = false;
-                        applyFeatureState(key, false);
+                        applyFeatureState(check);
                     });
                     localStorage.setItem('zzcfizz_system_settings', JSON.stringify(savedSettings));
-                    showToast('⛔ Đã tắt toàn bộ tất cả tính năng!');
+                    showToast('⛔ Đã tắt toàn bộ tất cả nút & tính năng!');
                 };
             }
 
@@ -3446,8 +3457,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.removeItem('zzcfizz_system_settings');
                     featureChecks.forEach(check => {
                         check.checked = true;
-                        const key = check.dataset.feature;
-                        applyFeatureState(key, true);
+                        applyFeatureState(check);
                     });
                     showToast('🔄 Đã khôi phục cài đặt mặc định!');
                 };

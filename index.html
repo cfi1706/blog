@@ -854,68 +854,149 @@
                     <button id="resetFeaturesBtn" class="btn btn-sm btn-outline" style="flex: 1;"><i class="ri-refresh-line"></i> Mặc Định</button>
                 </div>
 
-                <!-- Feature Toggle Options List -->
-                <div class="feature-toggle-list" style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto; padding-right: 4px;">
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🎧 Âm Thanh 8D Spatial Audio</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="spatial_audio" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🎹 Nhạc Nền Synth, Piano & Đàn Tranh</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="synth_audio" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🌧️ Hiệu Ứng Giọt Mưa Trượt Kính (Raindrop FX)</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="weather_fx" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🌸 Hiệu Ứng Hạt Mùa Background Canvas</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="particles" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">✨ Vệt Con Trỏ Chuột Bụi Sao (Mouse Trail)</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="cursor_trail" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">📐 Hiệu Ứng Nghiêng 3D Thẻ Thơ (Parallax Tilt)</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="card_tilt" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">📖 Hiệu Ứng Lật Trang Sách 3D (Page Flip)</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="page_flip" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🌖 Bầu Trời Thay Đổi Theo Giờ Thực</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="time_of_day" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🕯️ Chế Độ Đèn Ngủ Nhịp Thở 8s</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="nightlight" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🌙 Thông Báo Lời Chúc Thơ Đêm</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="bedtime_greeting" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🎬 Video Thơ Slideshow (Ken Burns Zoom)</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="ken_burns" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">📜 Chú Giải & Điển Tích Từ Vựng Thơ</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="glossary" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🔮 Tự Động Đổi Tone Màu Theo Mood Thơ</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="mood_lighting" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🎯 Thanh Nút Nổi Công Cụ Nhanh (Quick Dock)</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="quick_dock" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
-                    <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; cursor: pointer;">
-                        <span style="font-size: 13.5px; font-weight: 500; color: var(--text-primary);">🪞 Hiệu Ứng Phản Chiếu Mặt Thủy Tinh</span>
-                        <input type="checkbox" class="feature-toggle-check" data-feature="glass_reflection" checked style="accent-color: var(--accent-primary); width: 16px; height: 16px;">
-                    </label>
+                <!-- Feature Toggle Options List Categorized -->
+                <div class="feature-toggle-list" style="display: flex; flex-direction: column; gap: 14px; max-height: 440px; overflow-y: auto; padding-right: 6px;">
+
+                    <!-- SECTION 1: HEADER BUTTONS -->
+                    <div class="settings-section">
+                        <h4 style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">📌 Thanh Nút Tiêu Đề (Header Actions)</h4>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🤖 Nút Trợ Lý Thơ AI</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#headerBotBtn" data-feature="btn_header_bot" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🔀 Nút Đọc Ngẫu Nhiên</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#randomPoemBtn" data-feature="btn_random_poem" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📆 Nút Lịch Thơ 365 Ngày</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#dailyCalendarBtn" data-feature="btn_daily_calendar" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎮 Nút Game Đố Thơ</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#poetryQuizBtn" data-feature="btn_poetry_quiz" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎙️ Nút Đài Thơ Chill Stream</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#poetryRadioBtn" data-feature="btn_poetry_radio" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🕯️ Nút Lọc Đêm Amber</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#amberFilterBtn" data-feature="btn_amber_filter" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📄 Nút Xuất E-Book PDF</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#exportPdfBtn" data-feature="btn_export_pdf" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">⏳ Nút Hộp Thư Tương Lai</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#timeCapsuleBtn" data-feature="btn_time_capsule" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎴 Nút Khám Phá Thẻ Bài 3D</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#cardSwiperBtn" data-feature="btn_card_swiper" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📊 Nút Thống Kê Cảm Xúc</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#emotionStatsBtn" data-feature="btn_emotion_stats" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: POEM MODAL ACTIONS -->
+                    <div class="settings-section">
+                        <h4 style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">📖 Thanh Nút Đọc Thơ (Poem Quick Actions)</h4>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📜 Nút Chú Giải Từ Vựng</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#glossaryToggleBtn" data-feature="btn_glossary" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎭 Nút Rạp Chiếu Thơ</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#theaterModeBtn" data-feature="btn_theater" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎯 Nút Chế Độ Tập Trung Zen Mode</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#zenModeBtn" data-feature="btn_zen" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🖼️ Nút Tạo Thiệp Thơ</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#quoteCardBtn" data-feature="btn_quote_card" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🖨️ Nút In Thơ Tặng A5</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#printPoemBtn" data-feature="btn_print_poem" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📜 Nút Giấy Da Dê Cổ</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target="#parchmentToggleBtn" data-feature="btn_parchment" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: TOOLBAR GROUPS -->
+                    <div class="settings-section">
+                        <h4 style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">🎛️ Nhóm Thanh Công Cụ (Toolbar Groups)</h4>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🔊 Nhóm Đọc Thơ Giọng Nói AI (TTS Group)</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target=".tts-toolbar-group" data-feature="group_tts" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎨 Nhóm Tùy Biến Font & Cỡ Chữ (Typography Group)</span>
+                                <input type="checkbox" class="feature-toggle-check" data-target=".reading-toolbar-group" data-feature="group_typo" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4: CREATIVE MODULES -->
+                    <div class="settings-section">
+                        <h4 style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">✨ Hiệu Ứng Sáng Tạo & Âm Thanh (Creative Modules)</h4>
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎧 Âm Thanh 8D Spatial Audio</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="spatial_audio" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎹 Nhạc Nền Synth, Piano & Đàn Tranh</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="synth_audio" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🌧️ Hiệu Ứng Giọt Mưa Trượt Kính</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="weather_fx" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🌸 Hiệu Ứng Hạt Mùa Background Canvas</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="particles" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">✨ Vệt Con Trỏ Chuột Bụi Sao</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="cursor_trail" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📐 Hiệu Ứng Nghiêng 3D Thẻ Thơ</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="card_tilt" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">📖 Hiệu Ứng Lật Trang Sách 3D</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="page_flip" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🌖 Bầu Trời Thay Đổi Theo Giờ Thực</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="time_of_day" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎬 Video Thơ Slideshow (Ken Burns)</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="ken_burns" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
+                                <span style="font-size: 13px; color: var(--text-primary);">🎯 Thanh Nút Nổi Công Cụ Nhanh (Quick Dock)</span>
+                                <input type="checkbox" class="feature-toggle-check" data-feature="quick_dock" checked style="accent-color: var(--accent-primary);">
+                            </label>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
