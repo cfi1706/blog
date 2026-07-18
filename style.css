@@ -3359,6 +3359,38 @@ textarea:focus-visible {
 /* Stop the blurred ambient orbs repainting when the tab is backgrounded. */
 body.bg-paused .light-orb { animation-play-state: paused; }
 
+/* Nightlight Breathing Pulse Animation */
+.nightlight-breathing-overlay:not([hidden]) {
+    animation: breathingPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes breathingPulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.85; }
+    100% { opacity: 0.3; }
+}
+
+/* Handwritten Ink Stroke Title Animation */
+.modal-poem-title {
+    animation: inkStrokeReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes inkStrokeReveal {
+    0% { opacity: 0; filter: blur(6px); transform: translateY(-6px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+/* Mobile Full-Viewport 9:16 Story Card Layout */
+@media (max-width: 768px) {
+    #poemModal .modal-card {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+    }
+}
+
 /* ==========================================================================
    Reduced Motion — kill continuous GPU/battery cost (orbs, glow, sound pulse)
    and honor OS accessibility preference. Keeps one-shot transitions subtle.

@@ -3046,6 +3046,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initTheaterMode();
 
+        // ------------------------------------------------------------------
+        // Nightlight Breathing Mode, Bedtime Greeting & Quick Dock
+        // ------------------------------------------------------------------
+        function initNightlightMode() {
+            const nightlightCheck = document.getElementById('nightlightCheck');
+            const nightlightOverlay = document.getElementById('nightlightOverlay');
+
+            if (!nightlightCheck || !nightlightOverlay) return;
+
+            nightlightCheck.addEventListener('change', (e) => {
+                nightlightOverlay.hidden = !e.target.checked;
+                if (e.target.checked) {
+                    showToast('🕯️ Đã bật Chế Độ Đèn Ngủ Nhịp Thở Thư Giãn');
+                } else {
+                    showToast('☀️ Đã tắt Chế Độ Đèn Ngủ');
+                }
+            });
+        }
+        initNightlightMode();
+
+        function checkBedtimeGreeting() {
+            const hour = new Date().getHours();
+            if (hour >= 22 || hour < 5) {
+                setTimeout(() => {
+                    showToast('🌙 Đêm đã về khuya, chúc bạn tìm thấy chút bình yên qua những vần thơ...');
+                }, 1800);
+            }
+        }
+        checkBedtimeGreeting();
+
+        function initQuickDock() {
+            const quickDockBtn = document.getElementById('quickDockBtn');
+            const quickDockMenu = document.getElementById('quickDockMenu');
+            const dockThemeBtn = document.getElementById('dockThemeBtn');
+            const dockAudioBtn = document.getElementById('dockAudioBtn');
+            const dockCmdBtn = document.getElementById('dockCmdBtn');
+
+            if (!quickDockBtn || !quickDockMenu) return;
+
+            quickDockBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                quickDockMenu.hidden = !quickDockMenu.hidden;
+            });
+
+            document.addEventListener('click', (e) => {
+                if (quickDockMenu && !e.target.closest('#quickDockContainer')) {
+                    quickDockMenu.hidden = true;
+                }
+            });
+
+            if (dockThemeBtn) dockThemeBtn.onclick = () => document.getElementById('themeToggleBtn')?.click();
+            if (dockAudioBtn) dockAudioBtn.onclick = () => document.getElementById('ambientToggleBtn')?.click();
+            if (dockCmdBtn) dockCmdBtn.onclick = () => document.getElementById('cmdPaletteBtn')?.click();
+        }
+        initQuickDock();
+
     // Run
     init();
 });

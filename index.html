@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-midnight">
+    <!-- Nightlight Breathing Overlay -->
+    <div id="nightlightOverlay" class="nightlight-breathing-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99997; background: rgba(245, 158, 11, 0.12); backdrop-filter: sepia(0.2);" hidden></div>
+
     <!-- Weather Raindrop FX Canvas -->
     <canvas id="weatherFxCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99998;" hidden></canvas>
 
@@ -184,6 +187,12 @@
                             <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);" title="Âm thanh xoay tròn 360° qua tai nghe">
                                 <input type="checkbox" id="spatial8dCheck" style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
                                 <span>🎧 Âm Thanh 8D Không Gian</span>
+                            </label>
+                        </div>
+                        <div class="nightlight-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);" title="Ánh sáng cam dịu xung nhịp thở thư giãn">
+                                <input type="checkbox" id="nightlightCheck" style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
+                                <span>🕯️ Đèn Ngủ Nhịp Thở Thư Giãn</span>
                             </label>
                         </div>
                     </div>
@@ -802,6 +811,18 @@
             </div>
         </div>
     </dialog>
+
+    <!-- COMPACT QUICK DOCK MENU -->
+    <div id="quickDockContainer" class="quick-dock-container" style="position: fixed; bottom: 85px; right: 24px; z-index: 9999;">
+        <button id="quickDockBtn" class="btn btn-icon" style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-surface); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border: 1px solid var(--border-highlight);" title="Menu Công Cụ Nhanh 1-Chạm">
+            <i class="ri-apps-2-line" style="font-size: 20px; color: var(--accent-primary);"></i>
+        </button>
+        <div id="quickDockMenu" class="quick-dock-menu" style="position: absolute; bottom: 52px; right: 0; display: flex; flex-direction: column; gap: 8px; padding: 8px; background: var(--bg-surface); border-radius: 24px; backdrop-filter: blur(16px); border: 1px solid var(--border-highlight); box-shadow: 0 10px 30px rgba(0,0,0,0.4);" hidden>
+            <button class="btn btn-icon" id="dockThemeBtn" title="Đổi Theme Giao Diện" style="width: 36px; height: 36px;"><i class="ri-palette-line" style="font-size: 16px;"></i></button>
+            <button class="btn btn-icon" id="dockAudioBtn" title="Bật Nhạc Nền" style="width: 36px; height: 36px;"><i class="ri-headphone-line" style="font-size: 16px;"></i></button>
+            <button class="btn btn-icon" id="dockCmdBtn" title="Phím Tắt Ctrl+K" style="width: 36px; height: 36px;"><i class="ri-command-line" style="font-size: 16px;"></i></button>
+        </div>
+    </div>
 
     <!-- Toast Notification -->
     <div id="toast" class="toast-container" hidden>
