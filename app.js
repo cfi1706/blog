@@ -490,6 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timeBadge) {
             timeBadge.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; ${estText} (${verseCount} câu)`;
         }
+        const favBtn = card.querySelector('.card-fav-btn');
         if (favBtn) {
             favBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -1273,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         isTtsPlaying = true;
         ttsPlayBtn.classList.add('active');
-        ttsBtnText.textContent = 'Dừng Đọc';
+        if (ttsBtnText) ttsBtnText.textContent = 'Dừng Đọc';
 
         ttsQueue = phrases;
         ttsQueueIndex = 0;
@@ -1913,28 +1914,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Theme Toggle Dropdown
-        themeToggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            themeMenu.hidden = !themeMenu.hidden;
-            if (ambientMenu) ambientMenu.hidden = true;
-        });
+        // Header dropdown menus (Công cụ / Âm thanh / Cài đặt) — mutually exclusive
+        const toolsToggleBtn = document.getElementById('toolsToggleBtn');
+        const toolsMenu = document.getElementById('toolsMenu');
+        const headerMenus = [
+            [toolsToggleBtn, toolsMenu],
+            [ambientToggleBtn, ambientMenu],
+            [themeToggleBtn, themeMenu],
+        ];
+        function syncMenuAria() {
+            headerMenus.forEach(([btn, menu]) => {
+                if (btn && menu) btn.setAttribute('aria-expanded', String(!menu.hidden));
+            });
+        }
+        function toggleHeaderMenu(target) {
+            headerMenus.forEach(([, menu]) => { if (menu && menu !== target) menu.hidden = true; });
+            if (target) target.hidden = !target.hidden;
+            syncMenuAria();
+        }
+
+        if (toolsToggleBtn && toolsMenu) {
+            toolsToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(toolsMenu); });
+            // Close after picking a tool (each item's own handler still fires first).
+            toolsMenu.addEventListener('click', (e) => {
+                if (e.target.closest('.hdr-menu-item')) { toolsMenu.hidden = true; syncMenuAria(); }
+            });
+        }
+
+        // Theme / Settings Dropdown
+        themeToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(themeMenu); });
 
         themeOptions.forEach(opt => {
             opt.addEventListener('click', (e) => {
                 e.stopPropagation();
                 applyTheme(opt.dataset.setTheme);
                 themeMenu.hidden = true;
+                syncMenuAria();
             });
         });
 
         // Ambient Sound Controls
         if (ambientToggleBtn) {
-            ambientToggleBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                ambientMenu.hidden = !ambientMenu.hidden;
-                if (themeMenu) themeMenu.hidden = true;
-            });
+            ambientToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(ambientMenu); });
         }
 
         if (ambientStopBtn) {
@@ -2078,6 +2099,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ambientMenu && !e.target.closest('.ambient-dropdown-container')) {
                 ambientMenu.hidden = true;
             }
+            if (toolsMenu && !e.target.closest('.hdr-dd')) {
+                toolsMenu.hidden = true;
+            }
+            syncMenuAria();
         });
 
         // Modal Controls
@@ -2905,9 +2930,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // ------------------------------------------------------------------
         // Mouse Cursor Trail Canvas
         // ------------------------------------------------------------------
+        // Only on hover-capable (desktop) devices with motion enabled — a
+        // cursor trail is pointless on touch and wastes battery.
+        const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         function initMouseCursorTrail() {
             const canvas = document.getElementById('cursorTrailCanvas');
-            if (!canvas) return;
+            if (!canvas || !canHover || !motionOK) return;
             const ctx = canvas.getContext('2d');
             let width = canvas.width = window.innerWidth;
             let height = canvas.height = window.innerHeight;
@@ -2915,22 +2945,10 @@ document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('resize', () => {
                 width = canvas.width = window.innerWidth;
                 height = canvas.height = window.innerHeight;
-            });
+            }, { passive: true });
 
             const particles = [];
-            window.addEventListener('mousemove', (e) => {
-                for (let i = 0; i < 2; i++) {
-                    particles.push({
-                        x: e.clientX,
-                        y: e.clientY,
-                        r: Math.random() * 3 + 1,
-                        vx: (Math.random() - 0.5) * 1.5,
-                        vy: (Math.random() - 0.5) * 1.5,
-                        life: 1.0,
-                        color: `hsla(${Math.random() * 60 + 260}, 80%, 70%, `
-                    });
-                }
-            });
+            let rafId = null;
 
             function renderTrail() {
                 ctx.clearRect(0, 0, width, height);
@@ -2947,9 +2965,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (p.life <= 0) particles.splice(i, 1);
                 }
-                requestAnimationFrame(renderTrail);
+                // Idle the loop when nothing to draw — no wasted frames.
+                rafId = particles.length ? requestAnimationFrame(renderTrail) : null;
             }
-            renderTrail();
+
+            window.addEventListener('mousemove', (e) => {
+                for (let i = 0; i < 2; i++) {
+                    particles.push({
+                        x: e.clientX,
+                        y: e.clientY,
+                        r: Math.random() * 3 + 1,
+                        vx: (Math.random() - 0.5) * 1.5,
+                        vy: (Math.random() - 0.5) * 1.5,
+                        life: 1.0,
+                        color: `hsla(${Math.random() * 60 + 260}, 80%, 70%, `
+                    });
+                }
+                if (!rafId) rafId = requestAnimationFrame(renderTrail);
+            }, { passive: true });
         }
         initMouseCursorTrail();
 
@@ -3088,21 +3121,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3D Card Parallax Tilt & Theater Mode Logic
         // ------------------------------------------------------------------
         function initCardParallaxTilt() {
+            if (!canHover || !motionOK) return; // no tilt on touch / reduced-motion
+            let tiltTicking = false;
+            let lastCard = null;
             document.addEventListener('mousemove', (e) => {
-                const card = e.target.closest('.poem-card');
-                if (card) {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) scale(1.02)`;
-                }
-            });
-
-            document.addEventListener('mouseout', (e) => {
-                if (e.target.classList && e.target.classList.contains('poem-card')) {
-                    e.target.style.transform = '';
-                }
-            });
+                if (tiltTicking) return;
+                tiltTicking = true;
+                requestAnimationFrame(() => {   // one layout read per frame, not per pixel
+                    const card = e.target.closest && e.target.closest('.poem-card');
+                    if (card) {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) scale(1.02)`;
+                        lastCard = card;
+                    } else if (lastCard) {
+                        lastCard.style.transform = ''; // reset when cursor leaves any card
+                        lastCard = null;
+                    }
+                    tiltTicking = false;
+                });
+            }, { passive: true });
         }
         initCardParallaxTilt();
 
