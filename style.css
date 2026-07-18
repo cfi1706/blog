@@ -1553,7 +1553,22 @@ dialog::backdrop {
     .main-wrapper {
         padding: 28px 18px;
     }
-    
+
+    /* Header: search drops to its own full-width row so it never gets crushed
+       between the logo and action buttons on tablets. */
+    .header-container {
+        flex-wrap: wrap;
+    }
+    .search-box {
+        order: 3;
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-top: 6px;
+    }
+    .search-kbd {
+        display: none;
+    }
+
     .hero-section {
         padding: 22px 20px;
         margin-bottom: 20px;
@@ -1607,6 +1622,7 @@ dialog::backdrop {
 
     .search-box {
         order: 3;
+        flex: 1 1 100%; /* reset base flex:1 (basis 0) so it wraps, not shrinks to a sliver */
         max-width: 100%;
         width: 100%;
         margin-top: 4px;
@@ -2706,6 +2722,30 @@ body.zen-mode-active #poemModal .poem-body-text {
 .form-input:focus {
     border-color: var(--accent-primary);
     box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
+}
+
+/* ==========================================================================
+   Mobile reader toolbar (placed last so it beats the base .action-toolbar-group
+   / select rules that appear earlier — equal specificity, source order wins).
+   Stacks the TTS + typography groups and lets dropdowns shrink instead of
+   overflowing the viewport (flex children default to min-width:auto).
+   ========================================================================== */
+@media (max-width: 480px) {
+    .modal-header-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .action-toolbar-group {
+        flex: 0 0 auto;   /* column context: keep height = content, not 340px basis */
+        width: 100%;
+    }
+    .custom-styled-select,
+    .tts-voice-select,
+    .font-family-select {
+        flex: 1 1 auto;
+        min-width: 0;     /* allow shrink below content width */
+    }
 }
 
 /* ==========================================================================
