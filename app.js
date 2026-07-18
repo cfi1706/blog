@@ -2800,6 +2800,88 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initDailyPoetryCalendar();
 
+        // ------------------------------------------------------------------
+        // Mouse Cursor Trail Canvas
+        // ------------------------------------------------------------------
+        function initMouseCursorTrail() {
+            const canvas = document.getElementById('cursorTrailCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const particles = [];
+            window.addEventListener('mousemove', (e) => {
+                for (let i = 0; i < 2; i++) {
+                    particles.push({
+                        x: e.clientX,
+                        y: e.clientY,
+                        r: Math.random() * 3 + 1,
+                        vx: (Math.random() - 0.5) * 1.5,
+                        vy: (Math.random() - 0.5) * 1.5,
+                        life: 1.0,
+                        color: `hsla(${Math.random() * 60 + 260}, 80%, 70%, `
+                    });
+                }
+            });
+
+            function renderTrail() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color + p.life + ')';
+                    ctx.fill();
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.life -= 0.03;
+
+                    if (p.life <= 0) particles.splice(i, 1);
+                }
+                requestAnimationFrame(renderTrail);
+            }
+            renderTrail();
+        }
+        initMouseCursorTrail();
+
+        // ------------------------------------------------------------------
+        // Top Reading Progress Bar Logic
+        // ------------------------------------------------------------------
+        function initTopReadingProgressBar() {
+            const topBar = document.getElementById('topReadingProgressBar');
+            const modalBody = document.getElementById('modalBody');
+
+            if (!topBar) return;
+
+            window.addEventListener('scroll', () => {
+                if (!poemModal || !poemModal.open) {
+                    const scrollTop = window.scrollY;
+                    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+                    topBar.style.width = `${pct}%`;
+                }
+            }, { passive: true });
+
+            if (modalBody) {
+                modalBody.addEventListener('scroll', () => {
+                    if (poemModal && poemModal.open) {
+                        const scrollTop = modalBody.scrollTop;
+                        const scrollHeight = modalBody.scrollHeight - modalBody.clientHeight;
+                        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 100;
+                        topBar.style.width = `${pct}%`;
+                    }
+                }, { passive: true });
+            }
+        }
+        initTopReadingProgressBar();
+
     // Run
     init();
 });

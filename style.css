@@ -3262,6 +3262,31 @@ body.zen-mode-active #poemModal .poem-body-text {
     border-radius: 4px;
     transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Interactive 3D Reaction Badges */
+.reaction-btn {
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s;
+}
+
+.reaction-btn:active, .reaction-btn.active {
+    animation: pop3dBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop3dBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.35) rotate(-6deg); }
+    75% { transform: scale(0.9) rotate(3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Frosted Glass 2.0 Card Reader Modal */
+#poemModal .modal-card {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-highlight);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+}
+
 .theme-menu, .ambient-menu, .poem-bot-drawer, .recent-dialog, .quote-card-dialog {
     box-shadow: var(--shadow-modal), inset 0 1px 0 rgba(255, 255, 255, 0.10);
 }
