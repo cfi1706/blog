@@ -357,39 +357,10 @@
 
                 <!-- Quick Action Buttons Row -->
                 <div class="action-toolbar-group quick-actions-group">
-                    <button id="glossaryToggleBtn" class="tool-btn icon-badge-btn" title="Bật/Tắt chú giải từ vựng thơ">
-                        <i class="ri-book-read-line"></i>
-                    </button>
-                    <button id="theaterModeBtn" class="tool-btn icon-badge-btn" title="Chế độ Rạp Chiếu Thơ (Theater Mode)">
-                        <i class="ri-film-line"></i>
-                    </button>
-                    <button id="zenModeBtn" class="tool-btn icon-badge-btn" title="Chế độ tập trung (Zen Mode)">
-                        <i class="ri-focus-3-line"></i>
-                    </button>
-                    <button id="quoteCardBtn" class="tool-btn icon-badge-btn" title="Tạo thiệp thơ nghệ thuật">
-                        <i class="ri-image-edit-line"></i>
-                    </button>
-                    <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="Thêm vào yêu thích">
-                        <i class="ri-heart-line"></i>
-                    </button>
-                    <button id="modalCopyBtn" class="tool-btn icon-badge-btn" title="Sao chép bài thơ">
-                        <i class="ri-file-copy-line"></i>
-                    </button>
-                    <button id="modalShareBtn" class="tool-btn icon-badge-btn" title="Chia sẻ liên kết">
-                        <i class="ri-share-line"></i>
-                    </button>
-                    <button id="printPoemBtn" class="tool-btn icon-badge-btn" title="In thơ tặng nghệ thuật (A5 Layout)">
-                        <i class="ri-printer-line"></i>
-                    </button>
-                    <button id="parchmentToggleBtn" class="tool-btn icon-badge-btn" title="Bật/Tắt chất liệu Giấy Da Dê Cổ">
-                        <i class="ri-file-paper-2-line"></i>
-                    </button>
-                </div>
-
-                <!-- Integrated Header Actions (TTS & Customizer Toolbar) -->
+                <!-- Categorized Action Toolbar Groups for Poem Detail Modal -->
                 <div class="modal-header-actions">
                     <!-- Group 1: Voice & Audio Player (TTS) -->
-                    <div class="action-toolbar-group tts-toolbar-group">
+                    <div class="action-toolbar-group tts-toolbar-group" title="Nhóm Đọc Thơ Giọng Nói AI">
                         <button id="ttsPlayBtn" class="tool-btn icon-badge-btn tts-btn" title="🔊 Đọc Thơ bằng Giọng Nói AI: Nhấn để Kích Hoạt / Tạm Dừng phát đọc bài thơ bằng giọng AI và cuộn nổi bật câu thơ Karaoke">
                             <i class="ri-volume-up-line"></i>
                         </button>
@@ -416,10 +387,32 @@
                         </label>
                     </div>
 
-                    <!-- Group 2: Reading & Typography Customizer -->
-                    <div class="action-toolbar-group reading-toolbar-group">
+                    <!-- Group 2: Reading Modes & Ambiance -->
+                    <div class="action-toolbar-group modes-toolbar-group" title="Nhóm Chế Độ Đọc & Âm Nền">
+                        <button id="glossaryToggleBtn" class="tool-btn icon-badge-btn" title="📜 Chú Giải Từ Vựng: Tra cứu nghĩa từ ngữ cổ và điển tích trong bài thơ">
+                            <i class="ri-book-read-line"></i>
+                        </button>
+                        <button id="theaterModeBtn" class="tool-btn icon-badge-btn" title="🎭 Rạp Chiếu Thơ: Mở không gian đọc thơ toàn màn hình tràn khung cảnh">
+                            <i class="ri-film-line"></i>
+                        </button>
+                        <button id="zenModeBtn" class="tool-btn icon-badge-btn" title="🎯 Zen Mode: Chế độ tập trung tối đa ẩn hết mọi chi tiết thừa">
+                            <i class="ri-focus-3-line"></i>
+                        </button>
+                        <button id="parchmentToggleBtn" class="tool-btn icon-badge-btn" title="📜 Giấy Da Dê: Bật/Tắt hiệu ứng chất liệu giấy da cổ kính">
+                            <i class="ri-file-paper-2-line"></i>
+                        </button>
+                        <button id="toggleAmberFilterBtn" class="tool-btn icon-badge-btn" title="🕯️ Đèn Đêm Amber: Bật/Tắt lớp lọc màu hổ phách dịu mắt">
+                            <i class="ri-contrast-2-line"></i>
+                        </button>
+                        <button id="togglePoetryRadioBtn" class="tool-btn icon-badge-btn" title="🎙️ Chill Radio: Bật/Tắt đài phát thanh nhạc nền du dương">
+                            <i class="ri-radio-2-line"></i>
+                        </button>
+                    </div>
+
+                    <!-- Group 3: Reading & Typography Customizer -->
+                    <div class="action-toolbar-group reading-toolbar-group" title="Nhóm Tùy Biến Chữ & Phông Nền">
                         <!-- Font Family Selector -->
-                        <select id="fontFamilySelect" class="custom-styled-select font-family-select" title="Chọn Font chữ">
+                        <select id="fontFamilySelect" class="custom-styled-select font-family-select" title="Chọn Font chữ bài thơ">
                             <option value="'Lora', serif">🖋️ Lora (Cổ Điển)</option>
                             <option value="'Playfair Display', serif">✨ Playfair (Sang Trọng)</option>
                             <option value="'Cormorant Garamond', serif">📜 Cormorant (Thanh Lịch)</option>
@@ -436,21 +429,13 @@
 
                         <!-- Alignment -->
                         <div class="align-group">
-                            <button data-align="center" class="tool-btn align-btn active" title="Căn giữa"><i class="ri-align-center"></i></button>
-                            <button data-align="left" class="tool-btn align-btn" title="Căn trái"><i class="ri-align-left"></i></button>
+                            <button data-align="center" class="tool-btn align-btn active" title="Căn giữa dòng thơ"><i class="ri-align-center"></i></button>
+                            <button data-align="left" class="tool-btn align-btn" title="Căn trái dòng thơ"><i class="ri-align-left"></i></button>
                         </div>
 
                         <!-- Auto-Scroll Button -->
-                        <button id="btnAutoScroll" class="tool-btn auto-scroll-btn" title="Bật/Tắt tự động cuộn">
-                            <i class="ri-scroll-to-bottom-line"></i> <span class="auto-scroll-text">Tự Cuộn</span>
-                        </button>
-
-                        <button id="toggleAmberFilterBtn" class="tool-btn" title="Bật/Tắt bộ lọc đêm (Amber)">
-                            <i class="ri-contrast-2-line"></i>
-                        </button>
-
-                        <button id="togglePoetryRadioBtn" class="tool-btn" title="Đài phát thanh thơ (Lo-fi)">
-                            <i class="ri-radio-2-line"></i>
+                        <button id="btnAutoScroll" class="tool-btn icon-badge-btn auto-scroll-btn" title="📜 Tự Cuộn Trang: Bật/Tắt chế độ tự động cuộn đọc thơ từ từ">
+                            <i class="ri-scroll-to-bottom-line"></i>
                         </button>
 
                         <!-- Backdrop Preset Selector -->
@@ -462,6 +447,25 @@
                             <option value="custom">🖼️ Tải Ảnh Cá Nhân...</option>
                         </select>
                         <input type="file" id="customBackdropInput" accept="image/*" style="display:none;">
+                    </div>
+
+                    <!-- Group 4: Utilities, Sharing & Export -->
+                    <div class="action-toolbar-group utils-toolbar-group" title="Nhóm Lưu Trữ, Chia Sẻ & In Thơ">
+                        <button id="quoteCardBtn" class="tool-btn icon-badge-btn" title="🖼️ Tạo Thiệp Thơ: Xuất thiệp ảnh câu thơ tâm đắc để chia sẻ">
+                            <i class="ri-image-edit-line"></i>
+                        </button>
+                        <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="❤️ Yêu Thích: Lưu bài thơ vào bộ sưu tập yêu thích">
+                            <i class="ri-heart-line"></i>
+                        </button>
+                        <button id="modalCopyBtn" class="tool-btn icon-badge-btn" title="📋 Sao Chép: Coppy toàn bộ nội dung bài thơ vào bộ nhớ tạm">
+                            <i class="ri-file-copy-line"></i>
+                        </button>
+                        <button id="modalShareBtn" class="tool-btn icon-badge-btn" title="🔗 Chia Sẻ: Trích xuất đường dẫn bài thơ">
+                            <i class="ri-share-line"></i>
+                        </button>
+                        <button id="printPoemBtn" class="tool-btn icon-badge-btn" title="🖨️ In Thơ A5: Định dạng trang in khổ A5 làm quà tặng">
+                            <i class="ri-printer-line"></i>
+                        </button>
                     </div>
                 </div>
             </header>
@@ -1051,7 +1055,7 @@
     </dialog>
 
     <!-- COMPACT QUICK DOCK MENU -->
-    <div id="quickDockContainer" class="quick-dock-container" style="position: fixed; bottom: 85px; right: 24px; z-index: 9999;">
+    <div id="quickDockContainer" class="quick-dock-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
         <button id="quickDockBtn" class="btn btn-icon" style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-surface); box-shadow: 0 8px 24px rgba(0,0,0,0.4); border: 1px solid var(--border-highlight);" title="Menu Công Cụ Nhanh 1-Chạm">
             <i class="ri-apps-2-line" style="font-size: 20px; color: var(--accent-primary);"></i>
         </button>

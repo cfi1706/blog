@@ -1402,21 +1402,21 @@ dialog::backdrop {
 /* Floating Back to Top Button */
 .back-to-top-btn {
     position: fixed;
-    bottom: 84px;
+    bottom: 80px;
     right: 24px;
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: var(--bg-surface-solid);
     border: 1px solid var(--border-highlight);
     color: var(--accent-primary);
     font-size: 22px;
-    box-shadow: var(--shadow-elevated);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 900;
+    z-index: 9990;
     backdrop-filter: blur(12px);
     transition: transform var(--transition-bounce), background var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
 }
