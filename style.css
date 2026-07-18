@@ -1181,10 +1181,10 @@ dialog::backdrop {
 
 .poem-body-text {
     font-family: var(--font-serif);
-    font-size: 22.5px;
+    font-size: 21.5px;
     font-weight: 500;
-    line-height: 1.48;
-    letter-spacing: 0.15px;
+    line-height: 1.72;
+    letter-spacing: 0.2px;
     color: var(--text-primary);
 }
 
@@ -1193,8 +1193,8 @@ dialog::backdrop {
 
 .poem-line {
     display: block;
-    padding: 5px 16px;
-    margin: 2px 0;
+    padding: 4px 18px;
+    margin: 3px 0;
     border-radius: 10px;
     border-left: 4px solid transparent;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1216,7 +1216,7 @@ dialog::backdrop {
 }
 
 .poem-paragraph-spacer {
-    height: 14px;
+    height: 18px;
 }
 
 /* --------------------------------------------------------------------------
