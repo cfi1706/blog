@@ -3096,9 +3096,56 @@ body.zen-mode-active #poemModal .poem-body-text {
 #theaterModeBtn   { --btn-accent: #f43f5e; }
 #glossaryToggleBtn{ --btn-accent: #10b981; }
 #poetryQuizBtn    { --btn-accent: #f43f5e; }
+#printPoemBtn     { --btn-accent: #f59e0b; }
+#parchmentToggleBtn{ --btn-accent: #8b5cf6; }
 
-#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #glossaryToggleBtn i, #poetryQuizBtn i {
+#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #glossaryToggleBtn i, #poetryQuizBtn i, #printPoemBtn i, #parchmentToggleBtn i {
     color: var(--btn-accent);
+}
+
+/* Vintage Parchment Paper Texture */
+.parchment-mode {
+    background: #fef3c7 !important;
+    color: #451a03 !important;
+    border: 3px double #b45309 !important;
+    box-shadow: inset 0 0 60px rgba(180, 83, 9, 0.15), 0 20px 50px rgba(0,0,0,0.5) !important;
+}
+
+.parchment-mode .modal-poem-title,
+.parchment-mode .poem-line {
+    color: #451a03 !important;
+    font-family: 'Lora', serif !important;
+}
+
+/* Auto Storybook Ken Burns Effect */
+.ken-burns-active img {
+    animation: kenBurnsZoom 20s ease-in-out infinite alternate !important;
+}
+
+@keyframes kenBurnsZoom {
+    0% { transform: scale(1.0) translate(0, 0); }
+    50% { transform: scale(1.08) translate(-8px, -5px); }
+    100% { transform: scale(1.15) translate(6px, 8px); }
+}
+
+/* Heartbeat Pulse 60 BPM Visualizer */
+.heartbeat-pulse {
+    animation: heartbeatPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes heartbeatPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.18); opacity: 1; filter: drop-shadow(0 0 8px #f43f5e); }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Print Mode A5 Layout */
+@media print {
+    body * { visibility: hidden; }
+    #poemModal, #poemModal * { visibility: visible; }
+    #poemModal { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #fff !important; }
+    .modal-card { border: 2px solid #b45309 !important; padding: 40px !important; box-shadow: none !important; }
+    .modal-header-actions, .quick-actions-group, .modal-footer { display: none !important; }
 }
 
 /* Glass Reflection & Shimmer Effect for Poem Title */

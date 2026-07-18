@@ -483,7 +483,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const favBtn = card.querySelector('.card-fav-btn');
+        const verseCount = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0).length : 0;
+        const estSeconds = Math.max(20, Math.round(verseCount * 4));
+        const estText = estSeconds < 60 ? `⚡ ${estSeconds}s` : `📜 ${Math.round(estSeconds / 60)} phút`;
+        const timeBadge = card.querySelector('.card-date');
+        if (timeBadge) {
+            timeBadge.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; ${estText} (${verseCount} câu)`;
+        }
         if (favBtn) {
             favBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -1279,6 +1285,8 @@ document.addEventListener('DOMContentLoaded', () => {
             speakNextWebSpeech(selectedVoice);
         } else {
             showToast('🔊 Đang đọc bài thơ bằng giọng nói AI...');
+            const modalImagesContainer = document.getElementById('modalImagesContainer');
+            if (modalImagesContainer) modalImagesContainer.classList.add('ken-burns-active');
             speakNextWebSpeech(null);
         }
     }
@@ -3320,6 +3328,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initPoetryQuiz();
+
+        // ------------------------------------------------------------------
+        // Parchment Paper Texture & Print Poem Layout
+        // ------------------------------------------------------------------
+        function initParchmentMode() {
+            const parchmentToggleBtn = document.getElementById('parchmentToggleBtn');
+            if (!parchmentToggleBtn || !poemModal) return;
+
+            const modalCard = poemModal.querySelector('.modal-card');
+            parchmentToggleBtn.addEventListener('click', () => {
+                const isParchment = modalCard.classList.toggle('parchment-mode');
+                parchmentToggleBtn.classList.toggle('active', isParchment);
+                if (isParchment) {
+                    showToast('📜 Đã bật chất liệu Giấy Da Dê Cổ');
+                } else {
+                    showToast('📜 Đã tắt chất liệu Giấy Cổ');
+                }
+            });
+        }
+        initParchmentMode();
+
+        function initPrintPoem() {
+            const printPoemBtn = document.getElementById('printPoemBtn');
+            if (!printPoemBtn) return;
+
+            printPoemBtn.addEventListener('click', () => {
+                showToast('🖨️ Đang mở trang in thơ nghệ thuật (A5 Layout)...');
+                setTimeout(() => window.print(), 500);
+            });
+        }
+        initPrintPoem();
 
     // Run
     init();
