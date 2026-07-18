@@ -1402,7 +1402,7 @@ dialog::backdrop {
 /* Floating Back to Top Button */
 .back-to-top-btn {
     position: fixed;
-    bottom: 80px;
+    bottom: 140px;
     right: 24px;
     width: 46px;
     height: 46px;
