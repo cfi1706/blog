@@ -1200,6 +1200,19 @@ dialog::backdrop {
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
+    animation: lineFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--line-index, 0) * 0.04s);
+}
+
+@keyframes lineFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .poem-paragraph-spacer {
@@ -1686,6 +1699,22 @@ dialog::backdrop {
         gap: 14px;
         margin-bottom: 24px;
         overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease, padding 0.3s ease, transform 0.35s ease;
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .controls-bar.is-collapsed {
+        max-height: 0 !important;
+        opacity: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        transform: translateY(-12px) !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
     }
 
     .category-pills {
@@ -1811,6 +1840,33 @@ dialog::backdrop {
         font-size: 15px;
     }
 
+    /* ---- Modal Collapsible Action Toolbars ---- */
+    .quick-actions-group,
+    .modal-header-actions {
+        transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin 0.3s ease, padding 0.3s ease, transform 0.3s ease;
+        max-height: 300px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .modal-header.actions-collapsed .quick-actions-group,
+    .modal-header.actions-collapsed .modal-header-actions {
+        max-height: 0 !important;
+        opacity: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        transform: translateY(-8px) !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+        border: none !important;
+    }
+
+    .modal-header.actions-collapsed {
+        padding-bottom: 8px;
+    }
+
     /* ---- TTS & Typography toolbar groups ---- */
     .modal-header-actions {
         flex-direction: column;
@@ -1933,12 +1989,7 @@ dialog::backdrop {
 
 /* Small Mobile Breakpoint (< 480px) */
 @media (max-width: 480px) {
-    #randomPoemBtn span {
-        display: none;
-    }
-    #randomPoemBtn {
-        padding: 10px 12px;
-    }
+
 
     .hero-stats {
         flex-direction: row;
@@ -2376,19 +2427,20 @@ body.zen-mode-active #poemModal .poem-body-text {
     gap: 8px;
 }
 
-.card-style-opt {
-    padding: 8px 12px;
+.card-style-opt, .card-aspect-opt {
+    padding: 8px 10px;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     color: var(--text-secondary);
     font-size: 12px;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
     transition: var(--transition-fast);
 }
 
-.card-style-opt:hover, .card-style-opt.active {
+.card-style-opt:hover, .card-style-opt.active,
+.card-aspect-opt:hover, .card-aspect-opt.active {
     border-color: var(--accent-primary);
     background: var(--accent-glow);
     color: var(--text-primary);
@@ -2408,6 +2460,58 @@ body.zen-mode-active #poemModal .poem-body-text {
 .btn-block {
     width: 100%;
     justify-content: center;
+}
+
+/* Heart Burst Particle Effect */
+.heart-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+    font-size: 18px;
+    animation: heartBurst 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heartBurst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(var(--dx), var(--dy)) scale(1.2) rotate(var(--rot));
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), calc(var(--dy) - 30px)) scale(0.3) rotate(var(--rot));
+    }
+}
+
+/* Continue Reading Bookmark Banner */
+.continue-reading-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-highlight);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-glow);
+    animation: slideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.continue-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+}
+
+.continue-icon {
+    font-size: 20px;
+    color: var(--accent-primary);
 }
 
 /* Recently Viewed Modal */
@@ -2739,6 +2843,71 @@ body.zen-mode-active #poemModal .poem-body-text {
     border: 1px solid var(--border-color);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+}
+
+.modal-top-btns {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.modal-actions-toggle-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-hover);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.modal-actions-toggle-btn:hover,
+.modal-actions-toggle-btn.active {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Floating Filter Expand Button for Mobile */
+.floating-filter-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px) scale(0.9);
+    z-index: 999;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: var(--accent-gradient);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-glow), 0 8px 24px rgba(0, 0, 0, 0.4);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-filter-btn.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.floating-filter-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(147, 51, 234, 0.5);
 }
 
 /* Custom Styled Select Dropdowns */

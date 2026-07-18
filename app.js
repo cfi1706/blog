@@ -238,6 +238,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ----------------------------------------------------------------------
+    // Heart Burst Particle Effect
+    // ----------------------------------------------------------------------
+    function createHeartBurst(x, y) {
+        if (!x || !y) {
+            x = window.innerWidth / 2;
+            y = window.innerHeight / 2;
+        }
+        const icons = ['❤️', '✨', '💖', '🌸', '🌙', '🍃', '💕'];
+        for (let i = 0; i < 9; i++) {
+            const particle = document.createElement('span');
+            particle.className = 'heart-particle';
+            particle.textContent = icons[Math.floor(Math.random() * icons.length)];
+
+            const dx = (Math.random() - 0.5) * 120 + 'px';
+            const dy = (Math.random() - 0.7) * 120 + 'px';
+            const rot = (Math.random() - 0.5) * 90 + 'deg';
+
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            particle.style.setProperty('--dx', dx);
+            particle.style.setProperty('--dy', dy);
+            particle.style.setProperty('--rot', rot);
+
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 800);
+        }
+    }
+
     function observeElements() {
         const elements = document.querySelectorAll('.reveal-on-scroll:not(.is-visible)');
         if (scrollObserver) {
@@ -296,6 +325,51 @@ document.addEventListener('DOMContentLoaded', () => {
         return keywords.some(kw => text.includes(kw));
     }
 
+    // ----------------------------------------------------------------------
+    // Semantic Emotion Search Logic
+    // ----------------------------------------------------------------------
+    const EMOTION_SYNONYMS = {
+        'buồn': ['buồn', 'sầu', 'lẻ loi', 'cô đơn', 'đơn côi', 'u sầu', 'tàn', 'lạnh', 'tan'],
+        'nhớ': ['nhớ', 'hoài niệm', 'kỷ niệm', 'xưa', 'người cũ', 'qua', 'xa', 'về'],
+        'mưa': ['mưa', 'giọt mưa', 'chiều mưa', 'sương', 'lạnh', 'đêm'],
+        'bình yên': ['bình yên', 'yên', 'nhẹ', 'tịnh', 'tĩnh', 'xanh', 'ru', 'nắng', 'hoa', 'mây'],
+        'trầm tư': ['trầm', 'sâu', 'ngẫm', 'lặng', 'trăng', 'đêm', 'vô đề', 'mơ', 'bóng'],
+        'yêu': ['yêu', 'thương', 'tình', 'trái tim', 'má', 'môi', 'nụ cười'],
+        'hi vọng': ['hi vọng', 'sống', 'ngày mai', 'tương lai', 'ấm', 'mặt trời', 'ước', 'vui']
+    };
+
+    function calculateEmotionRelevance(poem, rawQuery) {
+        if (!rawQuery) return 0;
+        const stopWords = ['tìm', 'bài', 'thơ', 'những', 'của', 'cho', 'về', 'nào', 'với', 'trong', 'lại', 'rồi', 'người', 'một'];
+        const words = rawQuery.toLowerCase().trim().split(/\s+/).filter(w => !stopWords.includes(w));
+        const cleanQuery = (words.length > 0 ? words : [rawQuery.toLowerCase().trim()]).join(' ');
+
+        const title = (poem.title || '').toLowerCase();
+        const content = (poem.content_text || '').toLowerCase();
+        const fullText = title + ' ' + content;
+
+        let score = 0;
+
+        if (title.includes(cleanQuery)) score += 60;
+        if (content.includes(cleanQuery)) score += 40;
+
+        words.forEach(w => {
+            if (w.length < 2) return;
+            if (title.includes(w)) score += 15;
+            if (content.includes(w)) score += 10;
+
+            Object.keys(EMOTION_SYNONYMS).forEach(key => {
+                if (key.includes(w) || w.includes(key)) {
+                    EMOTION_SYNONYMS[key].forEach(syn => {
+                        if (fullText.includes(syn)) score += 5;
+                    });
+                }
+            });
+        });
+
+        return score;
+    }
+
     function getFilteredPoems() {
         const poems = getPoemsData();
         if (!poems || poems.length === 0) return [];
@@ -308,19 +382,25 @@ document.addEventListener('DOMContentLoaded', () => {
             list = list.filter(p => matchesMood(p, currentFilter));
         }
 
-        // Filter search query
+        // Semantic Emotion & Keyword Search Filter
         if (searchQuery.trim() !== '') {
-            const q = searchQuery.toLowerCase().trim();
-            list = list.filter(p => (p.title && p.title.toLowerCase().includes(q)) || (p.content_text && p.content_text.toLowerCase().includes(q)));
-        }
+            const q = searchQuery.trim();
+            const scoredList = list.map(p => {
+                const score = calculateEmotionRelevance(p, q);
+                return { poem: p, score };
+            }).filter(item => item.score > 0);
 
-        // Sort
-        if (currentSort === 'newest') {
-            list.sort((a, b) => new Date(b.date) - new Date(a.date));
-        } else if (currentSort === 'oldest') {
-            list.sort((a, b) => new Date(a.date) - new Date(b.date));
-        } else if (currentSort === 'title-asc') {
-            list.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'vi'));
+            scoredList.sort((a, b) => b.score - a.score);
+            list = scoredList.map(item => item.poem);
+        } else {
+            // Default Sort when no search query
+            if (currentSort === 'newest') {
+                list.sort((a, b) => new Date(b.date) - new Date(a.date));
+            } else if (currentSort === 'oldest') {
+                list.sort((a, b) => new Date(a.date) - new Date(b.date));
+            } else if (currentSort === 'title-asc') {
+                list.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'vi'));
+            }
         }
 
         return list;
@@ -431,13 +511,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // Favorites Management
     // ----------------------------------------------------------------------
-    function toggleFavorite(poemId) {
+    function toggleFavorite(poemId, event) {
         if (favorites.includes(poemId)) {
             favorites = favorites.filter(id => id !== poemId);
             showToast('Đã xóa bài thơ khỏi danh sách yêu thích.');
         } else {
             favorites.push(poemId);
             showToast('❤️ Đã thêm bài thơ vào danh sách yêu thích!');
+            if (event && event.clientX) {
+                createHeartBurst(event.clientX, event.clientY);
+            }
         }
         localStorage.setItem('zzcfizz_favorites', JSON.stringify(favorites));
         updateCategoryCounts();
@@ -587,6 +670,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ`;
         if (modalCategory) modalCategory.textContent = 'Tác Phẩm Thơ';
 
+        // Bookmark last read poem
+        localStorage.setItem('zzcfizz_last_read_poem_id', poem.id);
+
         if (modalBody) modalBody.scrollTop = 0;
         if (readingProgressBar) readingProgressBar.style.width = '0%';
 
@@ -658,6 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopTts();
         stopAutoScroll();
         populateTtsVoices();
+        autoPlayMoodSoundForPoem(poem);
 
         // Restore saved font family
         const savedFontFamily = localStorage.getItem('zzcfizz_font_family') || "'Lora', serif";
@@ -667,6 +754,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalPoemText) {
             modalPoemText.style.fontFamily = savedFontFamily;
         }
+
+        // Reset header actions collapse state
+        const modalHeader = document.querySelector('.modal-header');
+        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
+        if (modalHeader) modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
+        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
 
         if (poemModal) {
             if (typeof poemModal.showModal === 'function') {
@@ -684,6 +777,11 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAutoScroll();
         disableZenMode();
         updateUrlHash(null);
+
+        const modalHeader = document.querySelector('.modal-header');
+        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
+        if (modalHeader) modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
+        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
 
         if (poemModal) {
             try {
@@ -885,6 +983,33 @@ document.addEventListener('DOMContentLoaded', () => {
             osc2.start();
             ambientNodes.push(osc1, osc2, padFilter);
             showToast('🍃 Đã bật âm thanh gió trầm lắng');
+        }
+    }
+
+    function autoPlayMoodSoundForPoem(poem) {
+        const autoCheck = document.getElementById('autoMoodSoundCheck');
+        if (autoCheck && !autoCheck.checked) return;
+
+        let soundType = 'pad';
+        let soundName = 'Gió Trầm Lắng';
+
+        if (matchesMood(poem, 'mood-nostalgia')) {
+            soundType = 'rain';
+            soundName = 'Tiếng Mưa Rơi';
+        } else if (matchesMood(poem, 'mood-lonely')) {
+            soundType = 'waves';
+            soundName = 'Sóng Biển Vỗ';
+        } else if (matchesMood(poem, 'mood-deep')) {
+            soundType = 'pad';
+            soundName = 'Nhạc Nhè Nhẹ';
+        } else if (matchesMood(poem, 'mood-peace')) {
+            soundType = 'pad';
+            soundName = 'Gió Trầm Lắng';
+        }
+
+        if (activeAmbientSound !== soundType) {
+            playAmbientSound(soundType);
+            showToast(`🎵 Đã phối âm thanh [${soundName}] phù hợp với bài thơ`);
         }
     }
 
@@ -1175,13 +1300,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // Quote Card Generator Canvas Logic
     // ----------------------------------------------------------------------
+    // ----------------------------------------------------------------------
+    // Quote Card Generator Canvas with Aspect Ratios
+    // ----------------------------------------------------------------------
+    let currentCardAspect = 'portrait'; // portrait (9:16), square (1:1), classic (4:5)
+
     function renderQuoteCardCanvas() {
         const poem = filteredPoemsList[activePoemIndex];
         if (!poem || !quoteCanvas) return;
 
+        let width = 600;
+        let height = 750;
+
+        if (currentCardAspect === 'portrait') {
+            width = 540;
+            height = 960;
+        } else if (currentCardAspect === 'square') {
+            width = 600;
+            height = 600;
+        } else {
+            width = 600;
+            height = 750;
+        }
+
+        quoteCanvas.width = width;
+        quoteCanvas.height = height;
+
         const ctx = quoteCanvas.getContext('2d');
-        const width = 600;
-        const height = 750;
 
         if (currentCardStyle === 'midnight') {
             const grad = ctx.createLinearGradient(0, 0, width, height);
@@ -1234,21 +1379,21 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.shadowBlur = 15;
         }
 
-        ctx.font = '24px serif';
+        ctx.font = '22px serif';
         ctx.textAlign = 'center';
-        ctx.fillText('✒️ ZzCFIzZ Poetry', width / 2, 70);
+        ctx.fillText('✒️ ZzCFIzZ Poetry', width / 2, 60);
 
         ctx.shadowBlur = 0;
 
         ctx.fillStyle = currentCardStyle === 'paper' ? '#78350f' : '#ffffff';
-        ctx.font = 'bold 30px "Cormorant Garamond", "Lora", serif';
-        ctx.fillText(poem.title, width / 2, 130);
+        ctx.font = 'bold 28px "Cormorant Garamond", "Lora", serif';
+        ctx.fillText(poem.title, width / 2, 115);
 
         ctx.strokeStyle = currentCardStyle === 'paper' ? '#d97706' : 'rgba(255,255,255,0.3)';
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(width / 2 - 60, 150);
-        ctx.lineTo(width / 2 + 60, 150);
+        ctx.moveTo(width / 2 - 60, 135);
+        ctx.lineTo(width / 2 + 60, 135);
         ctx.stroke();
 
         const allLines = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0) : [];
@@ -1260,15 +1405,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (lineChoice === 'last4') {
             selectedLines = allLines.slice(-4);
         } else {
-            selectedLines = allLines.slice(0, 12);
+            selectedLines = allLines.slice(0, currentCardAspect === 'portrait' ? 14 : 8);
         }
 
-        ctx.font = 'italic 20px "Lora", serif';
+        ctx.font = 'italic 19px "Lora", serif';
         ctx.fillStyle = currentCardStyle === 'paper' ? '#451a03' : '#f1f5f9';
         ctx.textAlign = 'center';
 
-        const startY = 220;
-        const lineHeight = 38;
+        const startY = 190;
+        const lineHeight = 36;
 
         selectedLines.forEach((line, idx) => {
             ctx.fillText(line, width / 2, startY + (idx * lineHeight));
@@ -1279,31 +1424,31 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Signature / Dedicated Name
         const signatureText = quoteSignatureInput ? quoteSignatureInput.value.trim() : '';
         if (signatureText) {
-            ctx.font = 'italic 20px "Dancing Script", "Lora", serif';
+            ctx.font = 'italic 19px "Dancing Script", "Lora", serif';
             ctx.fillStyle = currentCardStyle === 'paper' ? '#d97706' : '#c084fc';
             ctx.textAlign = 'right';
-            ctx.fillText(`— ${signatureText}`, width - 60, Math.min(linesEndY + 35, height - 120));
+            ctx.fillText(`— ${signatureText}`, width - 50, Math.min(linesEndY + 35, height - 100));
         }
 
         // Render QR Code & Footer Link
         const showQr = quoteQrCheckbox ? quoteQrCheckbox.checked : true;
         if (showQr) {
-            const qrSize = 60;
-            const qrX = 40;
-            const qrY = height - 95;
+            const qrSize = 54;
+            const qrX = 36;
+            const qrY = height - 85;
             const linkUrl = `https://zzcfizz.blog/#poem-${poem.id}`;
             drawQrCodeCanvas(ctx, linkUrl, qrX, qrY, qrSize, currentCardStyle === 'paper' ? '#78350f' : '#ffffff', currentCardStyle === 'paper' ? '#fde68a' : 'rgba(15,23,42,0.6)');
 
-            ctx.font = '12px sans-serif';
+            ctx.font = '11px sans-serif';
             ctx.fillStyle = currentCardStyle === 'paper' ? '#92400e' : 'rgba(255,255,255,0.7)';
             ctx.textAlign = 'left';
-            ctx.fillText('Quét để đọc thơ', qrX + qrSize + 12, qrY + 26);
-            ctx.fillText(poem.date_formatted, qrX + qrSize + 12, qrY + 45);
+            ctx.fillText('Quét để đọc thơ', qrX + qrSize + 10, qrY + 22);
+            ctx.fillText(poem.date_formatted, qrX + qrSize + 10, qrY + 40);
         } else {
-            ctx.font = '13px sans-serif';
+            ctx.font = '12px sans-serif';
             ctx.fillStyle = currentCardStyle === 'paper' ? '#92400e' : 'rgba(255,255,255,0.6)';
             ctx.textAlign = 'center';
-            ctx.fillText(`${poem.date_formatted}  •  zzcfizz.blog`, width / 2, height - 50);
+            ctx.fillText(`${poem.date_formatted}  •  zzcfizz.blog`, width / 2, height - 40);
         }
     }
 
@@ -1663,6 +1808,18 @@ document.addEventListener('DOMContentLoaded', () => {
             closeQuoteModalBtn.addEventListener('click', () => quoteCardModal.close());
         }
 
+        const cardAspectGrid = document.getElementById('cardAspectGrid');
+        if (cardAspectGrid) {
+            cardAspectGrid.querySelectorAll('.card-aspect-opt').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    cardAspectGrid.querySelectorAll('.card-aspect-opt').forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    currentCardAspect = opt.dataset.aspect;
+                    renderQuoteCardCanvas();
+                });
+            });
+        }
+
         if (cardThemeGrid) {
             cardThemeGrid.querySelectorAll('.card-style-opt').forEach(opt => {
                 opt.addEventListener('click', () => {
@@ -1786,16 +1943,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        modalFavBtn.addEventListener('click', () => {
+        modalFavBtn.addEventListener('click', (e) => {
             const poem = filteredPoemsList[activePoemIndex];
-            if (poem) toggleFavorite(poem.id);
+            if (poem) toggleFavorite(poem.id, e);
         });
 
         modalCopyBtn.addEventListener('click', () => {
             const poem = filteredPoemsList[activePoemIndex];
             if (!poem) return;
-            navigator.clipboard.writeText(`${poem.title}\n\n${poem.content_text}`).then(() => {
-                showToast('📋 Đã sao chép văn bản bài thơ!');
+            const copyText = `« ${poem.title} »\n\n${poem.content_text}\n\n— Nguồn: https://zzcfizz.blog/#poem-${poem.id}`;
+            navigator.clipboard.writeText(copyText).then(() => {
+                showToast('📋 Đã sao chép bài thơ kèm định dạng!');
             });
         });
 
@@ -1824,22 +1982,149 @@ document.addEventListener('DOMContentLoaded', () => {
             openReaderModal(activePoemIndex + 1);
         });
 
-        // Modal Body Scroll Progress
-        if (modalBody) {
-            modalBody.addEventListener('scroll', () => {
-                const scrollTop = modalBody.scrollTop;
-                const scrollHeight = modalBody.scrollHeight - modalBody.clientHeight;
-                const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 100;
-                if (readingProgressBar) readingProgressBar.style.width = `${progress}%`;
+        // ------------------------------------------------------------------
+        // Sleep Timer Logic & Continue Reading Check
+        // ------------------------------------------------------------------
+        let sleepTimerInterval = null;
+
+        function startSleepTimer(minutes) {
+            if (sleepTimerInterval) clearInterval(sleepTimerInterval);
+            if (minutes <= 0) {
+                showToast('⏰ Đã tắt hẹn giờ');
+                return;
+            }
+
+            const targetTime = Date.now() + minutes * 60 * 1000;
+            showToast(`⏰ Đã hẹn giờ tắt sau ${minutes} phút`);
+
+            sleepTimerInterval = setInterval(() => {
+                const remaining = targetTime - Date.now();
+                if (remaining <= 0) {
+                    clearInterval(sleepTimerInterval);
+                    sleepTimerInterval = null;
+                    stopTts();
+                    stopAmbientSound();
+                    showToast('⏰ Đã hết giờ hẹn giờ! Chúc bạn ngủ ngon 🌙');
+                    const timerSel = document.getElementById('sleepTimerSelect');
+                    if (timerSel) timerSel.value = '0';
+                }
+            }, 5000);
+        }
+
+        const sleepTimerSelect = document.getElementById('sleepTimerSelect');
+        if (sleepTimerSelect) {
+            sleepTimerSelect.addEventListener('change', (e) => {
+                startSleepTimer(parseInt(e.target.value, 10));
             });
         }
 
-        // Window Scroll for Back to Top Button
-        window.addEventListener('scroll', () => {
-            if (backToTopBtn) {
-                backToTopBtn.hidden = window.scrollY < 300;
+        function checkContinueReadingBanner() {
+            const lastId = localStorage.getItem('zzcfizz_last_read_poem_id');
+            const continueBanner = document.getElementById('continueReadingBanner');
+            const continueTitle = document.getElementById('continuePoemTitle');
+            const continueBtn = document.getElementById('continueReadingBtn');
+
+            if (!lastId || !continueBanner || !continueTitle || !continueBtn) return;
+
+            const allPoems = getPoemsData();
+            const poem = allPoems.find(p => p.id === lastId);
+
+            if (poem) {
+                continueTitle.textContent = poem.title;
+                continueBanner.hidden = false;
+
+                continueBtn.onclick = () => {
+                    const pIdx = filteredPoemsList.findIndex(p => p.id === poem.id);
+                    if (pIdx !== -1) {
+                        openReaderModal(pIdx);
+                    } else {
+                        currentFilter = 'all';
+                        renderPoems();
+                        const newIdx = filteredPoemsList.findIndex(p => p.id === poem.id);
+                        if (newIdx !== -1) openReaderModal(newIdx);
+                    }
+                    continueBanner.hidden = true;
+                };
             }
-        });
+        }
+
+        checkContinueReadingBanner();
+
+        // Window Scroll for Back to Top Button & List View Controls Collapsing
+        let lastWinScrollY = 0;
+        const controlsBar = document.querySelector('.controls-bar');
+        const floatingExpandFilterBtn = document.getElementById('floatingExpandFilterBtn');
+
+        window.addEventListener('scroll', () => {
+            const currentY = window.scrollY;
+            if (backToTopBtn) {
+                backToTopBtn.hidden = currentY < 300;
+            }
+
+            if (window.innerWidth <= 768) {
+                if (currentY > 150 && currentY > lastWinScrollY + 12) {
+                    if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
+                        controlsBar.classList.add('is-collapsed');
+                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.add('is-visible');
+                    }
+                } else if (currentY < lastWinScrollY - 12 || currentY <= 50) {
+                    if (controlsBar) {
+                        controlsBar.classList.remove('is-collapsed', 'is-collapsed-by-user');
+                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.remove('is-visible');
+                    }
+                }
+            }
+            lastWinScrollY = currentY;
+        }, { passive: true });
+
+        if (floatingExpandFilterBtn) {
+            floatingExpandFilterBtn.addEventListener('click', () => {
+                if (controlsBar) {
+                    const isCollapsed = controlsBar.classList.contains('is-collapsed');
+                    if (isCollapsed) {
+                        controlsBar.classList.remove('is-collapsed', 'is-collapsed-by-user');
+                        floatingExpandFilterBtn.classList.remove('is-visible');
+                    } else {
+                        controlsBar.classList.add('is-collapsed');
+                        controlsBar.classList.add('is-collapsed-by-user');
+                        floatingExpandFilterBtn.classList.add('is-visible');
+                    }
+                }
+            });
+        }
+
+        // Poem Detail Modal Card Scroll for Auto Collapsing Actions
+        let lastModalScrollY = 0;
+        const poemModalCard = document.querySelector('.modal-card');
+        const modalHeader = document.querySelector('.modal-header');
+        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
+
+        if (poemModalCard && modalHeader) {
+            poemModalCard.addEventListener('scroll', () => {
+                if (window.innerWidth > 768) return;
+                const currentY = poemModalCard.scrollTop;
+
+                if (currentY > 60 && currentY > lastModalScrollY + 8) {
+                    if (!modalHeader.classList.contains('actions-manual-toggled')) {
+                        modalHeader.classList.add('actions-collapsed');
+                        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.add('active');
+                    }
+                } else if (currentY < lastModalScrollY - 8 || currentY <= 20) {
+                    modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
+                    if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
+                }
+                lastModalScrollY = currentY;
+            }, { passive: true });
+        }
+
+        if (toggleModalActionsBtn && modalHeader) {
+            toggleModalActionsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalHeader.classList.add('actions-manual-toggled');
+                const isCollapsed = modalHeader.classList.toggle('actions-collapsed');
+                toggleModalActionsBtn.classList.toggle('active', isCollapsed);
+            });
+        }
 
         if (backToTopBtn) {
             backToTopBtn.addEventListener('click', () => {

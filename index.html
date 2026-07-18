@@ -61,9 +61,8 @@
                     <i class="ri-robot-2-line"></i>
                 </button>
 
-                <button id="randomPoemBtn" class="btn btn-outline" title="Đọc bài thơ ngẫu nhiên">
-                    <i class="ri-dice-line"></i>
-                    <span>Thơ Ngẫu Nhiên</span>
+                <button id="randomPoemBtn" class="btn btn-icon" title="Đọc bài thơ ngẫu nhiên">
+                    <i class="ri-shuffle-line"></i>
                 </button>
 
                 <!-- Recently Viewed Button -->
@@ -97,9 +96,24 @@
                             <input type="range" id="ambientVolInput" min="0" max="1" step="0.05" value="0.4" title="Âm lượng">
                             <i class="ri-volume-up-line"></i>
                         </div>
+                        <div class="auto-mood-wrapper" style="padding: 8px 12px 4px; border-top: 1px solid var(--border-color); margin-top: 6px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);">
+                                <input type="checkbox" id="autoMoodSoundCheck" checked style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
+                                <span>🎵 Phối nhạc theo Mood thơ</span>
+                            </label>
+                        </div>
+                        <div class="sleep-timer-wrapper" style="padding: 6px 12px 8px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-size: 11.5px; color: var(--text-secondary);"><i class="ri-timer-flash-line"></i> Hẹn giờ tắt:</span>
+                            <select id="sleepTimerSelect" class="custom-styled-select" style="padding: 2px 20px 2px 6px; font-size: 11px;">
+                                <option value="0">Tắt</option>
+                                <option value="15">15 phút</option>
+                                <option value="30">30 phút</option>
+                                <option value="45">45 phút</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="theme-dropdown-container">
                     <button id="themeToggleBtn" class="btn btn-icon" title="Đổi giao diện">
                         <i class="ri-palette-line"></i>
@@ -144,6 +158,17 @@
                 </div>
             </div>
         </section>
+
+        <!-- Continue Reading Bookmark Banner -->
+        <div id="continueReadingBanner" class="continue-reading-banner" hidden>
+            <div class="continue-banner-content">
+                <i class="ri-bookmark-3-line continue-icon"></i>
+                <span>Đọc tiếp bài thơ gần đây: <strong id="continuePoemTitle">...</strong></span>
+            </div>
+            <button id="continueReadingBtn" class="btn btn-sm btn-primary">
+                <i class="ri-arrow-right-line"></i> Đọc Tiếp
+            </button>
+        </div>
 
         <!-- Filter & View Bar -->
         <section class="controls-bar">
@@ -245,10 +270,15 @@
                         <div class="modal-poem-date" id="modalDate"><i class="ri-calendar-line"></i> Ngày đăng</div>
                     </div>
 
-                    <!-- Close Button (always visible, top-right) -->
-                    <button id="closeModalBtn" class="modal-close-btn" title="Đóng cửa sổ (Esc)">
-                        <i class="ri-close-line"></i>
-                    </button>
+                    <!-- Header Top Buttons Group -->
+                    <div class="modal-top-btns">
+                        <button id="toggleModalActionsBtn" class="modal-actions-toggle-btn" title="Hiện/Ẩn công cụ">
+                            <i class="ri-equalizer-line"></i>
+                        </button>
+                        <button id="closeModalBtn" class="modal-close-btn" title="Đóng cửa sổ (Esc)">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Quick Action Buttons Row -->
@@ -393,6 +423,13 @@
                     <canvas id="quoteCanvas" width="600" height="750"></canvas>
                 </div>
                 <div class="quote-card-controls">
+                    <label class="control-label">Chọn Khổ Thiệp (Kích Thước):</label>
+                    <div class="theme-options-grid" id="cardAspectGrid" style="margin-bottom: 12px;">
+                        <button class="card-aspect-opt active" data-aspect="portrait">📱 Story (9:16)</button>
+                        <button class="card-aspect-opt" data-aspect="square">📷 Post (1:1)</button>
+                        <button class="card-aspect-opt" data-aspect="classic">🖼️ Banner (4:5)</button>
+                    </div>
+
                     <label class="control-label">Chọn Mẫu Giao Diện:</label>
                     <div class="theme-options-grid" id="cardThemeGrid">
                         <button class="card-style-opt active" data-style="midnight">🌌 Midnight</button>
@@ -495,6 +532,12 @@
     <!-- AI POETRY BOT FLOATING BUTTON -->
     <button id="botToggleBtn" class="bot-toggle-btn" title="Hỏi Trợ Lý Thơ AI (Thi Sĩ AI)">
         <i class="ri-robot-2-line"></i>
+    </button>
+
+    <!-- Floating Expand Filter Button for Mobile -->
+    <button id="floatingExpandFilterBtn" class="floating-filter-btn" title="Hiện bộ lọc & công cụ">
+        <i class="ri-filter-3-line"></i>
+        <span>Bộ Lọc</span>
     </button>
 
     <!-- Back To Top Floating Action Button -->
