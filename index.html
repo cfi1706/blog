@@ -65,6 +65,16 @@
                     <i class="ri-shuffle-line"></i>
                 </button>
 
+                <!-- Poetry Radio Chill Stream Button -->
+                <button id="poetryRadioBtn" class="btn btn-icon" title="Kênh Đài Thơ Đêm Tự Động (Chill Stream Radio)">
+                    <i class="ri-radio-line"></i>
+                </button>
+
+                <!-- Amber Night Filter Button -->
+                <button id="amberFilterBtn" class="btn btn-icon" title="Bộ Lọc Đêm Dịu Mắt (Amber Night Filter)">
+                    <i class="ri-contrast-drop-line"></i>
+                </button>
+
                 <!-- Export E-Book PDF Button -->
                 <button id="exportPdfBtn" class="btn btn-icon" title="Xuất Tập Thơ PDF / E-Book">
                     <i class="ri-file-pdf-2-line"></i>
@@ -390,6 +400,24 @@
                         <button id="btnAutoScroll" class="tool-btn auto-scroll-btn" title="Bật/Tắt tự động cuộn">
                             <i class="ri-scroll-to-bottom-line"></i> <span class="auto-scroll-text">Tự Cuộn</span>
                         </button>
+
+                        <button id="toggleAmberFilterBtn" class="tool-btn" title="Bật/Tắt bộ lọc đêm (Amber)">
+                            <i class="ri-contrast-2-line"></i>
+                        </button>
+
+                        <button id="togglePoetryRadioBtn" class="tool-btn" title="Đài phát thanh thơ (Lo-fi)">
+                            <i class="ri-radio-2-line"></i>
+                        </button>
+
+                        <!-- Backdrop Preset Selector -->
+                        <select id="backdropPresetSelect" class="custom-styled-select backdrop-preset-select" title="Chọn phông nền nghệ thuật">
+                            <option value="default">🏞️ Phông Nền Mặc Định</option>
+                            <option value="fog">🌲 Sương Mù Rừng Thông</option>
+                            <option value="autumn">🍂 Chiều Thu Lá Vàng</option>
+                            <option value="rain">🌧️ Mưa Đêm Phố Cũ</option>
+                            <option value="custom">🖼️ Tải Ảnh Cá Nhân...</option>
+                        </select>
+                        <input type="file" id="customBackdropInput" accept="image/*" style="display:none;">
                     </div>
                 </div>
             </header>

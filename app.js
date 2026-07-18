@@ -1212,14 +1212,16 @@ document.addEventListener('DOMContentLoaded', () => {
         utterance.pitch = pitch;
     }
 
+    let isPoetryRadioActive = false;
+
     function handleTtsFinished() {
         stopTts();
-        if (ttsAutoplayCheck && ttsAutoplayCheck.checked && activePoemIndex < filteredPoemsList.length - 1) {
-            showToast('▶️ Tự động chuyển bài tiếp theo...');
+        if ((isPoetryRadioActive || (ttsAutoplayCheck && ttsAutoplayCheck.checked)) && activePoemIndex < filteredPoemsList.length - 1) {
+            showToast('📻 Đài Thơ Đêm: Đang phát bài tiếp theo...');
             setTimeout(() => {
                 openReaderModal(activePoemIndex + 1);
                 startTts();
-            }, 1500);
+            }, 2500);
         }
     }
 
@@ -2586,6 +2588,125 @@ document.addEventListener('DOMContentLoaded', () => {
             if (closeStatsBtn) closeStatsBtn.onclick = () => emotionStatsModal.close();
         }
         initEmotionStats();
+
+        // ------------------------------------------------------------------
+        // Poetry Radio (Chill Stream) Logic
+        // ------------------------------------------------------------------
+        function initPoetryRadio() {
+            const poetryRadioBtn = document.getElementById('poetryRadioBtn');
+            const togglePoetryRadioBtn = document.getElementById('togglePoetryRadioBtn');
+
+            function toggleRadio() {
+                isPoetryRadioActive = !isPoetryRadioActive;
+                if (poetryRadioBtn) poetryRadioBtn.classList.toggle('active', isPoetryRadioActive);
+                if (togglePoetryRadioBtn) togglePoetryRadioBtn.classList.toggle('active', isPoetryRadioActive);
+
+                if (isPoetryRadioActive) {
+                    showToast('📻 Đã mở Kênh Đài Thơ Đêm ZzCFIzZ (Chill Stream)');
+                    if (!poemModal.open) openReaderModal(0);
+                    playAmbientSound('rain');
+                    startTts();
+                } else {
+                    showToast('📻 Đã tắt Kênh Đài Thơ Đêm');
+                    stopTts();
+                }
+            }
+
+            if (poetryRadioBtn) poetryRadioBtn.addEventListener('click', toggleRadio);
+            if (togglePoetryRadioBtn) togglePoetryRadioBtn.addEventListener('click', toggleRadio);
+        }
+        initPoetryRadio();
+
+        // ------------------------------------------------------------------
+        // Amber Night Filter Logic
+        // ------------------------------------------------------------------
+        function initAmberFilter() {
+            const amberFilterBtn = document.getElementById('amberFilterBtn');
+            const toggleAmberFilterBtn = document.getElementById('toggleAmberFilterBtn');
+            const amberOverlay = document.getElementById('amberOverlay');
+
+            const isAmberSaved = localStorage.getItem('zzcfizz_amber_filter') === 'true';
+            if (isAmberSaved && amberOverlay) {
+                amberOverlay.hidden = false;
+                if (amberFilterBtn) amberFilterBtn.classList.add('active');
+                if (toggleAmberFilterBtn) toggleAmberFilterBtn.classList.add('active');
+            }
+
+            function toggleAmber() {
+                if (!amberOverlay) return;
+                const isHidden = amberOverlay.hidden;
+                amberOverlay.hidden = !isHidden;
+                localStorage.setItem('zzcfizz_amber_filter', isHidden ? 'true' : 'false');
+
+                if (amberFilterBtn) amberFilterBtn.classList.toggle('active', isHidden);
+                if (toggleAmberFilterBtn) toggleAmberFilterBtn.classList.toggle('active', isHidden);
+
+                if (isHidden) {
+                    showToast('🕯️ Đã bật Bộ Lọc Đêm Amber Dịu Mắt');
+                } else {
+                    showToast('☀️ Đã tắt Bộ Lọc Đêm Amber');
+                }
+            }
+
+            if (amberFilterBtn) amberFilterBtn.addEventListener('click', toggleAmber);
+            if (toggleAmberFilterBtn) toggleAmberFilterBtn.addEventListener('click', toggleAmber);
+        }
+        initAmberFilter();
+
+        // ------------------------------------------------------------------
+        // Backdrop Library & Custom Upload Logic
+        // ------------------------------------------------------------------
+        function initBackdropPresets() {
+            const backdropPresetSelect = document.getElementById('backdropPresetSelect');
+            const customBackdropInput = document.getElementById('customBackdropInput');
+            const modalCard = poemModal ? poemModal.querySelector('.modal-card') : null;
+
+            if (!backdropPresetSelect || !modalCard) return;
+
+            const presetUrls = {
+                fog: 'https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200',
+                autumn: 'https://images.unsplash.com/photo-1507499739999-097706ad8914?q=80&w=1200',
+                rain: 'https://images.unsplash.com/photo-1519692933481-e162a57d6721?q=80&w=1200'
+            };
+
+            function applyBackdrop(val, customUrl = null) {
+                if (val === 'default') {
+                    modalCard.style.backgroundImage = '';
+                } else if (customUrl) {
+                    modalCard.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("${customUrl}")`;
+                    modalCard.style.backgroundSize = 'cover';
+                    modalCard.style.backgroundPosition = 'center';
+                } else if (presetUrls[val]) {
+                    modalCard.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("${presetUrls[val]}")`;
+                    modalCard.style.backgroundSize = 'cover';
+                    modalCard.style.backgroundPosition = 'center';
+                }
+            }
+
+            backdropPresetSelect.addEventListener('change', (e) => {
+                const val = e.target.value;
+                if (val === 'custom') {
+                    if (customBackdropInput) customBackdropInput.click();
+                } else {
+                    applyBackdrop(val);
+                }
+            });
+
+            if (customBackdropInput) {
+                customBackdropInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            applyBackdrop('custom', event.target.result);
+                            showToast('🖼️ Đã áp dụng hình nền cá nhân của bạn!');
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        }
+        initBackdropPresets();
 
     // Run
     init();
