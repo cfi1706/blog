@@ -1012,6 +1012,24 @@ document.addEventListener('DOMContentLoaded', () => {
             osc2.start();
             ambientNodes.push(osc1, osc2, padFilter);
             showToast('🍃 Đã bật âm thanh gió trầm lắng' + (isSpatial ? ' (8D Spatial)' : ''));
+        } else if (type === 'lofi') {
+            const freqs = [130.81, 164.81, 196.00, 246.94];
+            const lofiFilter = audioCtx.createBiquadFilter();
+            lofiFilter.type = 'lowpass';
+            lofiFilter.frequency.setValueAtTime(450, audioCtx.currentTime);
+
+            freqs.forEach(f => {
+                const osc = audioCtx.createOscillator();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+                osc.connect(lofiFilter);
+                osc.start();
+                ambientNodes.push(osc);
+            });
+
+            lofiFilter.connect(destNode);
+            ambientNodes.push(lofiFilter);
+            showToast('🎹 Đã bật nhạc nền Chill Lo-Fi Synth' + (isSpatial ? ' (8D Spatial)' : ''));
         }
     }
 
@@ -2989,6 +3007,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleAutoScroll();
             }
         });
+
+        // ------------------------------------------------------------------
+        // 3D Card Parallax Tilt & Theater Mode Logic
+        // ------------------------------------------------------------------
+        function initCardParallaxTilt() {
+            document.addEventListener('mousemove', (e) => {
+                const card = e.target.closest('.poem-card');
+                if (card) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) scale(1.02)`;
+                }
+            });
+
+            document.addEventListener('mouseout', (e) => {
+                if (e.target.classList && e.target.classList.contains('poem-card')) {
+                    e.target.style.transform = '';
+                }
+            });
+        }
+        initCardParallaxTilt();
+
+        function initTheaterMode() {
+            const theaterModeBtn = document.getElementById('theaterModeBtn');
+            if (!theaterModeBtn || !poemModal) return;
+
+            theaterModeBtn.addEventListener('click', () => {
+                const isTheater = poemModal.classList.toggle('theater-mode-active');
+                theaterModeBtn.classList.toggle('active', isTheater);
+                if (isTheater) {
+                    showToast('🎭 Đã mở Chế Độ Rạp Chiếu Thơ Tràn Màn Hình');
+                } else {
+                    showToast('🎭 Đã thoát Chế Độ Rạp Chiếu Thơ');
+                }
+            });
+        }
+        initTheaterMode();
 
     // Run
     init();
