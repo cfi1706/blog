@@ -3360,6 +3360,101 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initPrintPoem();
 
+        // ------------------------------------------------------------------
+        // System Settings & Feature Manager Logic
+        // ------------------------------------------------------------------
+        function initSystemSettings() {
+            const systemSettingsBtn = document.getElementById('systemSettingsBtn');
+            const systemSettingsModal = document.getElementById('systemSettingsModal');
+            const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+            const enableAllFeaturesBtn = document.getElementById('enableAllFeaturesBtn');
+            const disableAllFeaturesBtn = document.getElementById('disableAllFeaturesBtn');
+            const resetFeaturesBtn = document.getElementById('resetFeaturesBtn');
+            const featureChecks = document.querySelectorAll('.feature-toggle-check');
+
+            if (!systemSettingsModal) return;
+
+            const savedSettings = JSON.parse(localStorage.getItem('zzcfizz_system_settings') || '{}');
+
+            featureChecks.forEach(check => {
+                const key = check.dataset.feature;
+                if (savedSettings.hasOwnProperty(key)) {
+                    check.checked = savedSettings[key];
+                }
+                applyFeatureState(key, check.checked);
+
+                check.addEventListener('change', () => {
+                    savedSettings[key] = check.checked;
+                    localStorage.setItem('zzcfizz_system_settings', JSON.stringify(savedSettings));
+                    applyFeatureState(key, check.checked);
+                    showToast(`⚙️ Đã ${check.checked ? 'bật' : 'tắt'} tính năng ${key}`);
+                });
+            });
+
+            function applyFeatureState(key, isEnabled) {
+                if (key === 'quick_dock') {
+                    const dock = document.getElementById('quickDockContainer');
+                    if (dock) dock.hidden = !isEnabled;
+                } else if (key === 'cursor_trail') {
+                    const canvas = document.getElementById('cursorTrailCanvas');
+                    if (canvas) canvas.hidden = !isEnabled;
+                } else if (key === 'particles') {
+                    const canvas = document.getElementById('particleCanvas');
+                    if (canvas) canvas.hidden = !isEnabled;
+                } else if (key === 'weather_fx') {
+                    const canvas = document.getElementById('weatherFxCanvas');
+                    if (canvas && !isEnabled) canvas.hidden = true;
+                }
+            }
+
+            if (systemSettingsBtn) {
+                systemSettingsBtn.addEventListener('click', () => systemSettingsModal.showModal());
+            }
+
+            if (closeSettingsBtn) {
+                closeSettingsBtn.onclick = () => systemSettingsModal.close();
+            }
+
+            if (enableAllFeaturesBtn) {
+                enableAllFeaturesBtn.onclick = () => {
+                    featureChecks.forEach(check => {
+                        check.checked = true;
+                        const key = check.dataset.feature;
+                        savedSettings[key] = true;
+                        applyFeatureState(key, true);
+                    });
+                    localStorage.setItem('zzcfizz_system_settings', JSON.stringify(savedSettings));
+                    showToast('✅ Đã bật toàn bộ tất cả tính năng!');
+                };
+            }
+
+            if (disableAllFeaturesBtn) {
+                disableAllFeaturesBtn.onclick = () => {
+                    featureChecks.forEach(check => {
+                        check.checked = false;
+                        const key = check.dataset.feature;
+                        savedSettings[key] = false;
+                        applyFeatureState(key, false);
+                    });
+                    localStorage.setItem('zzcfizz_system_settings', JSON.stringify(savedSettings));
+                    showToast('⛔ Đã tắt toàn bộ tất cả tính năng!');
+                };
+            }
+
+            if (resetFeaturesBtn) {
+                resetFeaturesBtn.onclick = () => {
+                    localStorage.removeItem('zzcfizz_system_settings');
+                    featureChecks.forEach(check => {
+                        check.checked = true;
+                        const key = check.dataset.feature;
+                        applyFeatureState(key, true);
+                    });
+                    showToast('🔄 Đã khôi phục cài đặt mặc định!');
+                };
+            }
+        }
+        initSystemSettings();
+
     // Run
     init();
 });
