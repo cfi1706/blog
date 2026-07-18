@@ -1759,6 +1759,21 @@ dialog::backdrop {
         gap: 8px;
     }
 
+    /* Stack the header: title gets its own full-width row, the action-icon
+       toolbar (incl. Close) sits on its own row below — otherwise the icons
+       either run off-screen or crush the title to a vertical sliver. */
+    .modal-header-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .modal-title-area {
+        min-width: 0;
+    }
+    .quick-actions-group {
+        justify-content: space-between !important;
+    }
+
     .modal-poem-title {
         font-size: 22px;
     }
@@ -2739,6 +2754,9 @@ body.zen-mode-active #poemModal .poem-body-text {
     .action-toolbar-group {
         flex: 0 0 auto;   /* column context: keep height = content, not 340px basis */
         width: 100%;
+        flex-wrap: wrap;  /* fixed-width controls (align, auto-scroll) wrap instead of clipping */
+        justify-content: center;
+        row-gap: 8px;
     }
     .custom-styled-select,
     .tts-voice-select,
