@@ -3101,9 +3101,10 @@ body.zen-mode-active #poemModal .poem-body-text {
     color: var(--btn-accent);
 }
 
-/* Glass Reflection Effect for Poem Title */
+/* Glass Reflection & Shimmer Effect for Poem Title */
 .modal-poem-title {
-    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.08));
+    -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(255, 255, 255, 0.12));
+    letter-spacing: 0.2px;
 }
 
 .poetry-glossary-highlight {
