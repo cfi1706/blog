@@ -150,6 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setupKeyboardShortcuts();
         checkUrlHashForPoem();
         // TTS voices load async in Chrome; setupEventListeners wires onvoiceschanged=populateTtsVoices.
+
+        // Pause the blurred ambient orbs while the tab is hidden (saves GPU/battery).
+        document.addEventListener('visibilitychange', () => {
+            document.body.classList.toggle('bg-paused', document.hidden);
+        });
     }
 
     // ----------------------------------------------------------------------
