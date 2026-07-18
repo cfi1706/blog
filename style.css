@@ -3429,6 +3429,33 @@ textarea:focus-visible {
 /* Stop the blurred ambient orbs repainting when the tab is backgrounded. */
 body.bg-paused .light-orb { animation-play-state: paused; }
 
+/* Responsive Action Buttons & Header Actions Polish */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        justify-content: flex-end;
+        max-width: 100%;
+    }
+
+    dialog .recent-dialog,
+    dialog .modal-card {
+        max-width: 95vw !important;
+        margin: 10px auto !important;
+    }
+
+    .action-toolbar-group {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 6px 10px;
+    }
+}
+
 /* Nightlight Breathing Pulse Animation */
 .nightlight-breathing-overlay:not([hidden]) {
     animation: breathingPulse 8s ease-in-out infinite alternate;
