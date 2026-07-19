@@ -2244,6 +2244,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // ------------------------------------------------------------------
+        // Touch Swipe Left / Right Gesture Navigation for Poem Detail Modal
+        // ------------------------------------------------------------------
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        if (poemModal) {
+            poemModal.addEventListener('touchstart', (e) => {
+                if (!e.touches || e.touches.length === 0) return;
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+
+            poemModal.addEventListener('touchend', (e) => {
+                if (!e.changedTouches || e.changedTouches.length === 0) return;
+                const touchEndX = e.changedTouches[0].clientX;
+                const touchEndY = e.changedTouches[0].clientY;
+
+                const diffX = touchEndX - touchStartX;
+                const diffY = touchEndY - touchStartY;
+
+                // Thresholds: horizontal swipe > 50px & horizontal movement dominates vertical scroll
+                if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+                    if (diffX < 0) {
+                        // Swipe Left -> Next Poem
+                        if (activePoemIndex < filteredPoemsList.length - 1) {
+                            openReaderModal(activePoemIndex + 1);
+                            showToast('👉 Bài tiếp theo');
+                        }
+                    } else {
+                        // Swipe Right -> Previous Poem
+                        if (activePoemIndex > 0) {
+                            openReaderModal(activePoemIndex - 1);
+                            showToast('👈 Bài trước đó');
+                        }
+                    }
+                }
+            }, { passive: true });
+        }
+
+        // ------------------------------------------------------------------
         // Sleep Timer Logic & Continue Reading Check
         // ------------------------------------------------------------------
         let sleepTimerInterval = null;
