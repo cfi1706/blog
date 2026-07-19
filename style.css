@@ -722,6 +722,8 @@ a:hover {
     position: relative;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 320px;
 }
 
 .poem-card:hover {
