@@ -4230,7 +4230,173 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btn) btn.addEventListener('click', () => modal.showModal());
             if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
         }
-        initPoetryBadges();
+        // ------------------------------------------------------------------
+        // FEATURE 1: PERSONAL VOICE RECORDER
+        // ------------------------------------------------------------------
+        function initVoiceRecorder() {
+            const btn = document.getElementById('voiceRecordBtn');
+            const modal = document.getElementById('voiceRecordModal');
+            const closeBtn = document.getElementById('closeVoiceModalBtn');
+            const startBtn = document.getElementById('startRecordBtn');
+            const stopBtn = document.getElementById('stopRecordBtn');
+            const audioPlayer = document.getElementById('recordedAudioPlayer');
+            const statusText = document.getElementById('recordingStatusText');
+            const micStatus = document.getElementById('recordingMicStatus');
+
+            if (!modal) return;
+            let mediaRecorder = null;
+            let audioChunks = [];
+
+            if (btn) btn.addEventListener('click', () => modal.showModal());
+            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
+
+            if (startBtn) {
+                startBtn.addEventListener('click', async () => {
+                    try {
+                        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                        mediaRecorder = new MediaRecorder(stream);
+                        audioChunks = [];
+
+                        mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+                        mediaRecorder.onstop = () => {
+                            const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                            const audioUrl = URL.createObjectURL(audioBlob);
+                            if (audioPlayer) {
+                                audioPlayer.src = audioUrl;
+                                audioPlayer.hidden = false;
+                            }
+                            if (statusText) statusText.textContent = '🎉 Đã thu âm xong! Bấm Play bên dưới để nghe lại.';
+                            if (micStatus) micStatus.style.transform = 'scale(1)';
+                            showToast('🎙️ Đã lưu bản thu âm giọng đọc thơ của bạn!');
+                        };
+
+                        mediaRecorder.start();
+                        startBtn.disabled = true;
+                        if (stopBtn) stopBtn.disabled = false;
+                        if (statusText) statusText.textContent = '🔴 Đang thu âm... Hãy ngâm bài thơ bằng giọng của bạn!';
+                        if (micStatus) micStatus.style.transform = 'scale(1.3)';
+                    } catch (e) {
+                        showToast('⚠️ Vui lòng cấp quyền Micro trên trình duyệt để thu âm!');
+                    }
+                });
+            }
+
+            if (stopBtn) {
+                stopBtn.addEventListener('click', () => {
+                    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                        mediaRecorder.stop();
+                        if (startBtn) startBtn.disabled = false;
+                        stopBtn.disabled = true;
+                    }
+                });
+            }
+        }
+        initVoiceRecorder();
+
+        // ------------------------------------------------------------------
+        // FEATURE 2: CUSTOM AMBIENT MIXER
+        // ------------------------------------------------------------------
+        function initAmbientMixer() {
+            const btn = document.getElementById('ambientMixerBtn');
+            const modal = document.getElementById('ambientMixerModal');
+            const closeBtn = document.getElementById('closeMixerBtn');
+            const playBtn = document.getElementById('playMixerBtn');
+
+            if (!modal) return;
+            if (btn) btn.addEventListener('click', () => modal.showModal());
+            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
+
+            if (playBtn) {
+                playBtn.addEventListener('click', () => {
+                    playAmbientPreset('waves');
+                    showToast('🎼 Đã hòa trộn bản nhạc Ambient thư giãn!');
+                    modal.close();
+                });
+            }
+        }
+        initAmbientMixer();
+
+        // ------------------------------------------------------------------
+        // FEATURE 3: DUAL-PAGE BOOK READER MODE
+        // ------------------------------------------------------------------
+        function initDualPageMode() {
+            const btn = document.getElementById('dualPageToggleBtn');
+            let isDualPage = false;
+
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    isDualPage = !isDualPage;
+                    const card = document.querySelector('#poemModal .modal-card');
+                    if (card) card.classList.toggle('dual-page-active', isDualPage);
+                    showToast(`📖 Đã ${isDualPage ? 'bật' : 'tắt'} Chế độ Mở Sách Đôi Dual-Page!`);
+                });
+            }
+        }
+        initDualPageMode();
+
+        // ------------------------------------------------------------------
+        // FEATURE 4: ANONYMOUS LETTER BOX TO AUTHOR
+        // ------------------------------------------------------------------
+        function initAuthorLetterBox() {
+            const btn = document.getElementById('authorLetterBtn');
+            const modal = document.getElementById('authorLetterModal');
+            const closeBtn = document.getElementById('closeAuthorLetterBtn');
+            const sendBtn = document.getElementById('sendAuthorLetterBtn');
+            const input = document.getElementById('authorLetterInput');
+
+            if (!modal) return;
+            if (btn) btn.addEventListener('click', () => modal.showModal());
+            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
+
+            if (sendBtn) {
+                sendBtn.addEventListener('click', () => {
+                    const text = input ? input.value.trim() : '';
+                    if (!text) {
+                        showToast('✍️ Vui lòng nhập nội dung lời nhắn!');
+                        return;
+                    }
+                    const letters = JSON.parse(localStorage.getItem('zzcfizz_author_letters') || '[]');
+                    letters.push({ text, date: new Date().toISOString() });
+                    localStorage.setItem('zzcfizz_author_letters', JSON.stringify(letters));
+
+                    if (input) input.value = '';
+                    modal.close();
+                    showToast('💌 Lời nhắn của bạn đã được niêm phong gửi tác giả Võ Hoàng Thắng 🇻🇳!');
+                });
+            }
+        }
+        initAuthorLetterBox();
+
+        // ------------------------------------------------------------------
+        // FEATURE 5: SLEEP SANCTUARY & NIGHTFALL TIMER
+        // ------------------------------------------------------------------
+        function initSleepSanctuary() {
+            const btn = document.getElementById('sleepSanctuaryBtn');
+            const modal = document.getElementById('sleepSanctuaryModal');
+
+            if (!modal) return;
+            if (btn) btn.addEventListener('click', () => modal.showModal());
+
+            const startSleep = (mins) => {
+                playAmbientPreset('rain');
+                showToast(`🌙 Đã kích hoạt Đài Thơ Thiền Ngủ Ngon (${mins} Phút)!`);
+                modal.close();
+                setTimeout(() => {
+                    stopAmbientSound();
+                    stopTts();
+                    showToast('💤 Chúc bạn giấc ngủ an lành!');
+                }, mins * 60 * 1000);
+            };
+
+            const s15 = document.getElementById('sleep15Btn');
+            const s30 = document.getElementById('sleep30Btn');
+            const s60 = document.getElementById('sleep60Btn');
+
+            if (s15) s15.onclick = () => startSleep(15);
+            if (s30) s30.onclick = () => startSleep(30);
+            if (s60) s60.onclick = () => startSleep(60);
+        }
+        initSleepSanctuary();
 
         initSystemSettings();
 
