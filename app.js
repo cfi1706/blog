@@ -813,6 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopAutoScroll();
         populateTtsVoices();
         autoPlayMoodSoundForPoem(poem);
+        updateEmotionAura(poem);
 
         // Restore saved font family
         const savedFontFamily = localStorage.getItem('zzcfizz_font_family') || "'Lora', serif";
@@ -821,6 +822,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (modalPoemText) {
             modalPoemText.style.fontFamily = savedFontFamily;
+        }
+
+        // 3D Book Page Flip Animation Trigger
+        if (poemModal) {
+            const modalCard = poemModal.querySelector('.modal-card');
+            if (modalCard) {
+                modalCard.classList.remove('page-flip-anim');
+                void modalCard.offsetWidth;
+                modalCard.classList.add('page-flip-anim');
+            }
         }
 
         // Reset header actions collapse state
@@ -4062,6 +4073,89 @@ document.addEventListener('DOMContentLoaded', () => {
             if (closeShortBtn) closeShortBtn.addEventListener('click', () => shortModal.close());
         }
         initPoetryShortGenerator();
+
+        // ------------------------------------------------------------------
+        // FEATURE 1: DYNAMIC EMOTION AURA BACKGROUND
+        // ------------------------------------------------------------------
+        function updateEmotionAura(poem) {
+            if (!poem) return;
+            const text = (poem.title + ' ' + (poem.content_text || '')).toLowerCase();
+            const body = document.body;
+
+            let orb1 = 'rgba(168, 85, 247, 0.25)';
+            let orb2 = 'rgba(236, 72, 153, 0.2)';
+            let orb3 = 'rgba(245, 158, 11, 0.15)';
+
+            if (text.includes('yêu') || text.includes('thương') || text.includes('tình')) {
+                orb1 = 'rgba(244, 63, 94, 0.35)'; // Rose pink
+                orb2 = 'rgba(236, 72, 153, 0.25)';
+                orb3 = 'rgba(251, 146, 60, 0.2)';
+            } else if (text.includes('thu') || text.includes('chiều') || text.includes('lá')) {
+                orb1 = 'rgba(245, 158, 11, 0.35)'; // Amber gold
+                orb2 = 'rgba(217, 119, 6, 0.25)';
+                orb3 = 'rgba(234, 88, 12, 0.2)';
+            } else if (text.includes('mưa') || text.includes('đêm') || text.includes('sông')) {
+                orb1 = 'rgba(6, 182, 212, 0.35)'; // Cyan blue
+                orb2 = 'rgba(59, 130, 246, 0.25)';
+                orb3 = 'rgba(99, 102, 241, 0.2)';
+            } else if (text.includes('an') || text.includes('thiền') || text.includes('xanh')) {
+                orb1 = 'rgba(16, 185, 129, 0.35)'; // Emerald green
+                orb2 = 'rgba(52, 211, 153, 0.25)';
+                orb3 = 'rgba(20, 184, 166, 0.2)';
+            }
+
+            body.style.setProperty('--orb-1', orb1);
+            body.style.setProperty('--orb-2', orb2);
+            body.style.setProperty('--orb-3', orb3);
+        }
+
+        // ------------------------------------------------------------------
+        // FEATURE 4: PIN FAVORITE POEM TO TOP BANNER
+        // ------------------------------------------------------------------
+        function initPinnedPoem() {
+            const banner = document.getElementById('pinnedPoemBanner');
+            const titleEl = document.getElementById('pinnedPoemTitle');
+            const readBtn = document.getElementById('readPinnedPoemBtn');
+            const unpinBtn = document.getElementById('unpinPoemBtn');
+
+            function renderPinnedBanner() {
+                const pinnedId = localStorage.getItem('zzcfizz_pinned_poem_id');
+                if (!pinnedId || !banner) {
+                    if (banner) banner.hidden = true;
+                    return;
+                }
+                const poem = getPoemsData().find(p => p.id === pinnedId);
+                if (!poem) {
+                    banner.hidden = true;
+                    return;
+                }
+                if (titleEl) titleEl.textContent = poem.title;
+                banner.hidden = false;
+
+                if (readBtn) {
+                    readBtn.onclick = () => {
+                        const idx = filteredPoemsList.findIndex(p => p.id === pinnedId);
+                        if (idx !== -1) openReaderModal(idx);
+                        else openReaderModal(0);
+                    };
+                }
+                if (unpinBtn) {
+                    unpinBtn.onclick = () => {
+                        localStorage.removeItem('zzcfizz_pinned_poem_id');
+                        renderPinnedBanner();
+                        showToast('📌 Đã bỏ ghim bài thơ!');
+                    };
+                }
+            }
+            renderPinnedBanner();
+
+            window.pinPoem = (id) => {
+                localStorage.setItem('zzcfizz_pinned_poem_id', id);
+                renderPinnedBanner();
+                showToast('📌 Đã ghim bài thơ lên đầu trang chủ!');
+            };
+        }
+        initPinnedPoem();
 
         initSystemSettings();
 

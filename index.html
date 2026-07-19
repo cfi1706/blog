@@ -305,6 +305,21 @@
 
         <!-- Poems Container Section -->
         <section id="poemsSection" class="poems-section">
+            <!-- Pinned Poem Banner -->
+            <div id="pinnedPoemBanner" class="pinned-poem-banner" style="background: var(--bg-card); border: 1px solid var(--border-highlight); border-radius: 16px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--shadow-elevated);" hidden>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">📌</span>
+                    <div>
+                        <span style="font-size: 11px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1px;">Bài Thơ Ghim Yêu Thích</span>
+                        <h4 id="pinnedPoemTitle" style="font-size: 16px; font-family: var(--font-serif); color: var(--text-primary); margin: 2px 0 0 0;">Tiêu Đề Bài Thơ</h4>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button id="readPinnedPoemBtn" class="btn btn-sm btn-primary"><i class="ri-book-read-line"></i> Đọc Ngay</button>
+                    <button id="unpinPoemBtn" class="btn btn-sm btn-outline" title="Bỏ ghim bài thơ"><i class="ri-pushpin-2-line"></i></button>
+                </div>
+            </div>
+
             <div id="poemsGrid" class="poems-grid grid-view">
                 <!-- Dynamic poem cards rendered here -->
             </div>
