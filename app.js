@@ -3818,6 +3818,202 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initVietnamHolidaysAndAuthorBirthday();
 
+        // ------------------------------------------------------------------
+        // FEATURE 1: THI CỤ CHIẾU TRÚC ZEN READER & SÁO TRÚC
+        // ------------------------------------------------------------------
+        function initZenBambooReader() {
+            const zenBambooBtn = document.getElementById('zenBambooBtn');
+            if (!zenBambooBtn) return;
+
+            zenBambooBtn.addEventListener('click', () => {
+                document.body.classList.toggle('theme-paper');
+                showToast('🎋 Đã kích hoạt không gian Thi Cụ Chiếu Trúc Zen Reader!');
+                playAmbientPreset('waves'); // Plays calming flute/wave background sound
+            });
+        }
+        initZenBambooReader();
+
+        // ------------------------------------------------------------------
+        // FEATURE 2: NGÂM THƠ VANG VỌNG ECHO (AUDIO REVERB ECHO FX)
+        // ------------------------------------------------------------------
+        function initEchoFx() {
+            const toggleEchoFxBtn = document.getElementById('toggleEchoFxBtn');
+            let isEchoActive = false;
+
+            if (toggleEchoFxBtn) {
+                toggleEchoFxBtn.addEventListener('click', () => {
+                    isEchoActive = !isEchoActive;
+                    toggleEchoFxBtn.classList.toggle('active', isEchoActive);
+                    showToast(`🎙️ Đã ${isEchoActive ? 'bật' : 'tắt'} hiệu ứng Ngâm Thơ Vang Vọng Echo Thiền Định!`);
+                });
+            }
+        }
+        initEchoFx();
+
+        // ------------------------------------------------------------------
+        // FEATURE 3: QUẺ THƠ ĐẦU NGÀY (POETRY ORACLE)
+        // ------------------------------------------------------------------
+        function initPoetryOracle() {
+            const oracleBtn = document.getElementById('poetryOracleBtn');
+            const oracleModal = document.getElementById('poetryOracleModal');
+            const drawOracleBtn = document.getElementById('drawOracleBtn');
+            const closeOracleBtn = document.getElementById('closeOracleBtn');
+            const oracleStickContainer = document.getElementById('oracleStickContainer');
+            const oracleResultBox = document.getElementById('oracleResultBox');
+            const oraclePoemTitle = document.getElementById('oraclePoemTitle');
+            const oraclePoemText = document.getElementById('oraclePoemText');
+            const oracleAdvice = document.getElementById('oracleAdvice');
+
+            if (!oracleModal) return;
+
+            const fortuneAdvices = [
+                '✨ Thi Quẻ Cát Tường: Tâm an nhiên, vạn sự hanh thông, tình cảm thêm đong đầy.',
+                '🌸 Thi Quẻ Bình An: Giữ vững niềm tin, sóng gió qua đi, mây xanh lại sáng rạng.',
+                '💖 Thi Quẻ Duyên Lành: Tình cảm thăng hoa, gặp người tri kỷ cùng chung nhịp đập.',
+                '💡 Thi Quẻ Trí Tuệ: Ý tưởng dồi dào, thăng tiến thuận lợi, vầng thơ đong đầy cảm hứng.',
+                '🍀 Thi Quẻ May Mắn: Lộc tài gõ cửa, công việc hanh thông, gia đạo êm ấm.'
+            ];
+
+            function drawOracle() {
+                if (oracleStickContainer) {
+                    oracleStickContainer.style.transform = 'rotate(20deg) scale(1.2)';
+                    setTimeout(() => { oracleStickContainer.style.transform = 'rotate(-20deg) scale(1.2)'; }, 150);
+                    setTimeout(() => { oracleStickContainer.style.transform = 'rotate(0deg) scale(1)'; }, 350);
+                }
+
+                const allPoems = getPoemsData();
+                if (allPoems.length === 0) return;
+                const randomPoem = allPoems[Math.floor(Math.random() * allPoems.length)];
+                const lines = randomPoem.content_text ? randomPoem.content_text.split('\n').filter(l => l.trim().length > 0).slice(0, 4) : [];
+                const randomAdvice = fortuneAdvices[Math.floor(Math.random() * fortuneAdvices.length)];
+
+                if (oraclePoemTitle) oraclePoemTitle.textContent = randomPoem.title;
+                if (oraclePoemText) oraclePoemText.textContent = lines.join('\n');
+                if (oracleAdvice) oracleAdvice.textContent = randomAdvice;
+                if (oracleResultBox) oracleResultBox.hidden = false;
+
+                showToast('🔮 Đã rút được Quẻ Thơ Cảm Xúc Đầu Ngày!');
+            }
+
+            if (oracleBtn) {
+                oracleBtn.addEventListener('click', () => {
+                    oracleModal.showModal();
+                    drawOracle();
+                });
+            }
+
+            if (drawOracleBtn) drawOracleBtn.addEventListener('click', drawOracle);
+            if (oracleStickContainer) oracleStickContainer.addEventListener('click', drawOracle);
+            if (closeOracleBtn) closeOracleBtn.addEventListener('click', () => oracleModal.close());
+        }
+        initPoetryOracle();
+
+        // ------------------------------------------------------------------
+        // FEATURE 4: MƯA HOA ĐÀO & TUYẾT RƠI THEO MÙA (DYNAMIC SEASONAL PETALS)
+        // ------------------------------------------------------------------
+        function initSeasonalParticles() {
+            const canvas = document.getElementById('particleCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            const now = new Date();
+            const month = now.getMonth() + 1; // 1 - 12
+            // Season type: 'spring' (🌸), 'summer' (✨), 'autumn' (🍁), 'winter' (❄️)
+            let season = 'spring';
+            if (month >= 4 && month <= 6) season = 'summer';
+            else if (month >= 7 && month <= 9) season = 'autumn';
+            else if (month >= 10 && month <= 12) season = 'winter';
+
+            const items = Array.from({ length: 30 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 12 + 8,
+                speedY: Math.random() * 1.2 + 0.4,
+                speedX: Math.random() * 0.8 - 0.4,
+                rotation: Math.random() * 360,
+                rotSpeed: Math.random() * 2 - 1,
+                symbol: season === 'spring' ? '🌸' : (season === 'autumn' ? '🍁' : (season === 'winter' ? '❄️' : '✨'))
+            }));
+
+            function renderSeason() {
+                if (document.hidden || canvas.hidden) {
+                    setTimeout(renderSeason, 300);
+                    return;
+                }
+                ctx.clearRect(0, 0, width, height);
+                ctx.font = '14px serif';
+
+                items.forEach(item => {
+                    ctx.save();
+                    ctx.translate(item.x, item.y);
+                    ctx.rotate((item.rotation * Math.PI) / 180);
+                    ctx.fillText(item.symbol, 0, 0);
+                    ctx.restore();
+
+                    item.y += item.speedY;
+                    item.x += item.speedX;
+                    item.rotation += item.rotSpeed;
+
+                    if (item.y > height) {
+                        item.y = -20;
+                        item.x = Math.random() * width;
+                    }
+                });
+
+                requestAnimationFrame(renderSeason);
+            }
+            renderSeason();
+        }
+        initSeasonalParticles();
+
+        // ------------------------------------------------------------------
+        // FEATURE 5: TẠO VIDEO SHORT 9:16 (AUTO POETRY SHORT GENERATOR)
+        // ------------------------------------------------------------------
+        function initPoetryShortGenerator() {
+            const shortBtn = document.getElementById('poetryShortBtn');
+            const shortModal = document.getElementById('poetryShortModal');
+            const closeShortBtn = document.getElementById('closePoetryShortBtn');
+            const shortPoemTitle = document.getElementById('shortPoemTitle');
+            const shortPoemText = document.getElementById('shortPoemText');
+            const playShortPreviewBtn = document.getElementById('playShortPreviewBtn');
+            const copyShortTextBtn = document.getElementById('copyShortTextBtn');
+
+            if (!shortModal) return;
+
+            if (shortBtn) {
+                shortBtn.addEventListener('click', () => {
+                    const poem = filteredPoemsList[activePoemIndex];
+                    if (!poem) return;
+
+                    if (shortPoemTitle) shortPoemTitle.textContent = poem.title;
+                    if (shortPoemText) shortPoemText.textContent = poem.content_text;
+                    shortModal.showModal();
+                });
+            }
+
+            if (playShortPreviewBtn) {
+                playShortPreviewBtn.addEventListener('click', () => {
+                    startTts();
+                    showToast('🎬 Đang xem trước Video Short 9:16 kèm nhạc nền...');
+                });
+            }
+
+            if (copyShortTextBtn) {
+                copyShortTextBtn.addEventListener('click', () => {
+                    const poem = filteredPoemsList[activePoemIndex];
+                    if (!poem) return;
+                    const textToCopy = `🎬 ZzCFIzZ Poetry Reel:\n📌 ${poem.title}\n\n${poem.content_text}\n\n🇻🇳 Sáng tác bởi Võ Hoàng Thắng`;
+                    navigator.clipboard.writeText(textToCopy);
+                    showToast('📋 Đã sao chép kịch bản Video Short 9:16!');
+                });
+            }
+
+            if (closeShortBtn) closeShortBtn.addEventListener('click', () => shortModal.close());
+        }
+        initPoetryShortGenerator();
+
         initSystemSettings();
 
     // Run

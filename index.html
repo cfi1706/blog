@@ -89,6 +89,8 @@
                         <button id="timeCapsuleBtn" class="hdr-menu-item"><i class="ri-time-line"></i> Hộp thư tương lai</button>
                         <button id="exportPdfBtn" class="hdr-menu-item"><i class="ri-file-pdf-2-line"></i> Xuất PDF / E-Book</button>
                         <button id="poetryRadioBtn" class="hdr-menu-item"><i class="ri-radio-line"></i> Đài thơ đêm (Radio)</button>
+                        <button id="poetryOracleBtn" class="hdr-menu-item"><i class="ri-magic-line"></i> Quẻ thơ đầu ngày (Oracle)</button>
+                        <button id="zenBambooBtn" class="hdr-menu-item"><i class="ri-plant-line"></i> Trà đạo sáo trúc (Zen)</button>
                         <button id="headerBotBtn" class="hdr-menu-item"><i class="ri-robot-2-line"></i> Trợ lý thơ AI</button>
                     </div>
                 </div>
@@ -453,6 +455,7 @@
                         </button>
                         <div id="ddUtils" class="hdr-menu md-dd-panel" hidden>
                             <button id="quoteCardBtn" class="hdr-menu-item"><i class="ri-image-edit-line"></i> Tạo thiệp thơ</button>
+                            <button id="poetryShortBtn" class="hdr-menu-item"><i class="ri-video-download-line"></i> Tạo Video Short 9:16</button>
                             <button id="modalCopyBtn" class="hdr-menu-item"><i class="ri-file-copy-line"></i> Sao chép thơ</button>
                             <button id="modalShareBtn" class="hdr-menu-item"><i class="ri-share-line"></i> Chia sẻ liên kết</button>
                             <button id="printPoemBtn" class="hdr-menu-item"><i class="ri-printer-line"></i> In thơ khổ A5</button>
@@ -1221,6 +1224,57 @@
         <i class="toast-icon ri-checkbox-circle-fill"></i>
         <span id="toastMessage">Thông báo</span>
     </div>
+
+    <!-- POETRY ORACLE / QUẺ THƠ ĐẦU NGÀY MODAL -->
+    <dialog id="poetryOracleModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 460px; text-align: center; background: var(--bg-surface-solid); border: 2px solid var(--border-highlight);">
+            <header class="modal-header" style="justify-content: center; border-bottom: none;">
+                <h3 style="font-size: 20px; font-weight: 800; color: var(--accent-primary);"><i class="ri-magic-line"></i> Quẻ Thơ Cảm Xúc Đầu Ngày</h3>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <div id="oracleStickContainer" style="font-size: 64px; cursor: pointer; transition: transform 0.5s ease;" title="Bấm vào để lắc quẻ thơ!">
+                    🔮
+                </div>
+                <div id="oracleResultBox" hidden style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; text-align: center; width: 100%;">
+                    <div style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;" id="oracleBadge">✨ THI QUẺ CÁT TƯỜNG</div>
+                    <h4 id="oraclePoemTitle" style="font-size: 18px; font-family: var(--font-serif); margin-bottom: 8px; color: var(--text-primary);">Tiêu Đề Thơ</h4>
+                    <p id="oraclePoemText" style="font-family: var(--font-serif); font-size: 15px; font-style: italic; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px; white-space: pre-line;"></p>
+                    <div id="oracleAdvice" style="font-size: 13px; color: var(--accent-primary); font-weight: 600; padding: 8px; background: var(--accent-glow); border-radius: 8px;"></div>
+                </div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <button id="drawOracleBtn" class="btn btn-primary" style="flex: 1;"><i class="ri-shuffle-line"></i> Rút Quẻ Thơ</button>
+                    <button id="closeOracleBtn" class="btn btn-outline" style="flex: 1;">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- POETRY SHORT / REELS 9:16 VIDEO GENERATOR MODAL -->
+    <dialog id="poetryShortModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 420px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3><i class="ri-video-line"></i> Xem Trước Video Short 9:16</h3>
+                <button id="closePoetryShortBtn" class="modal-close-btn"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 14px;">
+                <!-- 9:16 Aspect Ratio Frame Preview -->
+                <div id="shortVideoFrame" style="width: 270px; height: 480px; border-radius: 20px; border: 2px solid var(--border-highlight); background: #0f172a; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%); z-index: 1;"></div>
+                    <div style="position: relative; z-index: 2;">
+                        <span style="font-size: 11px; font-weight: 700; color: #a855f7; letter-spacing: 1.5px; text-transform: uppercase;">ZzCFIzZ Poetry Reel</span>
+                        <h3 id="shortPoemTitle" style="font-family: var(--font-serif); font-size: 20px; color: #ffffff; margin: 8px 0;">Tiêu Đề Thơ</h3>
+                        <p id="shortPoemText" style="font-family: var(--font-serif); font-size: 14px; font-style: italic; color: #e2e8f0; line-height: 1.6; white-space: pre-line; max-height: 280px; overflow: hidden;"></p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <button id="playShortPreviewBtn" class="btn btn-primary" style="flex: 1;"><i class="ri-play-circle-line"></i> Xem Thử Reel</button>
+                    <button id="copyShortTextBtn" class="btn btn-outline" style="flex: 1;"><i class="ri-file-copy-line"></i> Chép Kèm Nhạc</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
 
     <!-- VIETNAM HOLIDAY & AUTHOR BIRTHDAY CELEBRATION OVERLAYS -->
     <!-- Waving Vietnam Flag Canvas Overlay -->
