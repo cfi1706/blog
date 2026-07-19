@@ -842,6 +842,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeReaderModal() {
         stopTts();
+        stopAmbientSound(); // Auto-stop background music on modal close
         stopAutoScroll();
         disableZenMode();
         updateUrlHash(null);
