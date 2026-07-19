@@ -716,9 +716,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => modalCard.classList.remove('page-flip-anim'), 500);
         }
 
-        if (modalTitle) modalTitle.textContent = poem.title;
+        if (modalTitle) {
+            modalTitle.textContent = poem.title;
+            modalTitle.classList.add('calligraphy-3d-text');
+        }
         const verseCount = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0).length : 0;
-        if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ`;
+        const rhythmType = verseCount % 2 === 0 ? '📜 Thể Thơ Lục Bát / Thất Ngôn' : '🖋️ Thể Thơ Tự Do';
+        if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ &nbsp;•&nbsp; ${rhythmType}`;
         if (modalCategory) modalCategory.textContent = 'Tác Phẩm Thơ';
 
         // Dynamic Emotion Mood Lighting Filter
