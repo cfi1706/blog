@@ -2243,20 +2243,37 @@ document.addEventListener('DOMContentLoaded', () => {
             openReaderModal(activePoemIndex + 1);
         });
 
+        const mobileSidePrevBtn = document.getElementById('mobileSidePrevBtn');
+        const mobileSideNextBtn = document.getElementById('mobileSideNextBtn');
+
+        if (mobileSidePrevBtn) {
+            mobileSidePrevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (activePoemIndex > 0) openReaderModal(activePoemIndex - 1);
+            });
+        }
+        if (mobileSideNextBtn) {
+            mobileSideNextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (activePoemIndex < filteredPoemsList.length - 1) openReaderModal(activePoemIndex + 1);
+            });
+        }
+
         // ------------------------------------------------------------------
-        // Touch Swipe Left / Right Gesture Navigation for Poem Detail Modal
+        // Touch Swipe Left / Right Gesture Navigation for Mobile Reader
         // ------------------------------------------------------------------
         let touchStartX = 0;
         let touchStartY = 0;
 
-        if (poemModal) {
-            poemModal.addEventListener('touchstart', (e) => {
+        function bindSwipe(el) {
+            if (!el) return;
+            el.addEventListener('touchstart', (e) => {
                 if (!e.touches || e.touches.length === 0) return;
                 touchStartX = e.touches[0].clientX;
                 touchStartY = e.touches[0].clientY;
             }, { passive: true });
 
-            poemModal.addEventListener('touchend', (e) => {
+            el.addEventListener('touchend', (e) => {
                 if (!e.changedTouches || e.changedTouches.length === 0) return;
                 const touchEndX = e.changedTouches[0].clientX;
                 const touchEndY = e.changedTouches[0].clientY;
@@ -2264,8 +2281,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const diffX = touchEndX - touchStartX;
                 const diffY = touchEndY - touchStartY;
 
-                // Thresholds: horizontal swipe > 50px & horizontal movement dominates vertical scroll
-                if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+                // Thresholds: horizontal swipe > 35px & horizontal movement dominates vertical scroll
+                if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY) * 1.1) {
                     if (diffX < 0) {
                         // Swipe Left -> Next Poem
                         if (activePoemIndex < filteredPoemsList.length - 1) {
@@ -2281,6 +2298,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }, { passive: true });
+        }
+
+        if (poemModal) {
+            bindSwipe(poemModal);
+            bindSwipe(poemModal.querySelector('.modal-card'));
+            bindSwipe(poemModal.querySelector('.modal-body'));
         }
 
         // ------------------------------------------------------------------
