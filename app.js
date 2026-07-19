@@ -1751,12 +1751,12 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             const matches = searchPoemsWithBot(query);
             if (matches.length > 0) {
-                const replyText = `Dựa trên cảm xúc và từ khóa "**${query}**", tôi gợi ý ${matches.length} bài thơ đặc sắc phù hợp nhất dành cho bạn:`;
+                const replyText = `Dựa trên cảm xúc và từ khóa “**${query}**”, tôi gợi ý ${matches.length} bài thơ đặc sắc phù hợp nhất dành cho bạn:`;
                 appendChatMessage('bot', replyText, matches);
             } else {
                 const poems = getPoemsData();
                 const randomPoem = poems[Math.floor(Math.random() * poems.length)];
-                const replyText = `Tôi chưa tìm thấy bài thơ khớp hoàn toàn với từ khóa "**${query}**", nhưng xin gợi ý cho bạn bài thơ rất được yêu thích này:`;
+                const replyText = `Tôi chưa tìm thấy bài thơ khớp hoàn toàn với từ khóa “**${query}**”, nhưng xin gợi ý cho bạn bài thơ rất được yêu thích này:`;
                 appendChatMessage('bot', replyText, [randomPoem]);
             }
         }, 300);
@@ -3032,6 +3032,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             window.addEventListener('mousemove', (e) => {
+                if (canvas.hidden) return; // trail toggled off in Settings — no particles, loop idles
                 for (let i = 0; i < 2; i++) {
                     particles.push({
                         x: e.clientX,
