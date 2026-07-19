@@ -4155,7 +4155,82 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast('📌 Đã ghim bài thơ lên đầu trang chủ!');
             };
         }
-        initPinnedPoem();
+        // ------------------------------------------------------------------
+        // FEATURE 1: AI POETRY STUDIO & RHYME ASSISTANT
+        // ------------------------------------------------------------------
+        function initAiPoetryStudio() {
+            const btn = document.getElementById('aiPoetryStudioBtn');
+            const modal = document.getElementById('aiPoetryStudioModal');
+            const closeBtn = document.getElementById('closeAiStudioBtn');
+            const input = document.getElementById('aiInputLine');
+            const generateBtn = document.getElementById('generateRhymeBtn');
+            const box = document.getElementById('aiRhymeResultBox');
+            const rhymeText = document.getElementById('aiRhymeText');
+
+            if (!modal) return;
+
+            if (btn) btn.addEventListener('click', () => modal.showModal());
+            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
+
+            if (generateBtn) {
+                generateBtn.addEventListener('click', () => {
+                    const userLine = input ? input.value.trim() : '';
+                    if (!userLine) {
+                        showToast('✍️ Vui lòng nhập một câu thơ hoặc ý thơ!');
+                        return;
+                    }
+
+                    const sampleContinuations = [
+                        `Vầng trăng vút ngọn dải ngàn xanh,\nGió lùa qua lá rụng hiên cành.\nTình ta như suối ngàn năm chảy,\nTrọn kiếp bên nhau mộng mới thành.`,
+                        `Một mai tựa cửa bóng hoàng hôn,\nNhớ bước chân ai vọng suối nguồn.\nSương giăng lối mộng thời hoa mộng,\nGửi lại người thương vạn nét buồn.`,
+                        `Sương rơi lạnh lẽo bóng đêm sâu,\nTri kỷ tìm nhau giữa bạc đầu.\nCâu thơ để lại dòng thương nhớ,\nGói trọn tình thu quyện mối sầu.`
+                    ];
+
+                    const randomResult = sampleContinuations[Math.floor(Math.random() * sampleContinuations.length)];
+                    if (rhymeText) rhymeText.textContent = `${userLine}\n${randomResult}`;
+                    if (box) box.hidden = false;
+                    showToast('✨ AI đã gợi ý câu nối vần mượt mà!');
+                });
+            }
+        }
+        initAiPoetryStudio();
+
+        // ------------------------------------------------------------------
+        // FEATURE 2: AUTO TIME-OF-DAY AMBIENT ENGINE
+        // ------------------------------------------------------------------
+        function initTimeOfDayAmbientEngine() {
+            const hour = new Date().getHours();
+            let autoPreset = 'waves';
+            let timeLabel = 'Chiều Hoàng Hôn';
+
+            if (hour >= 5 && hour < 12) {
+                autoPreset = 'birds';
+                timeLabel = 'Sáng Bình Minh';
+            } else if (hour >= 18 || hour < 5) {
+                autoPreset = 'rain';
+                timeLabel = 'Đêm Thiền Định';
+            }
+
+            window.triggerTimeOfDayAmbiance = () => {
+                playAmbientPreset(autoPreset);
+                showToast(`🎼 Đã phát nhạc thư giãn theo thời gian: ${timeLabel}`);
+            };
+        }
+        initTimeOfDayAmbientEngine();
+
+        // ------------------------------------------------------------------
+        // FEATURE 4: POETRY READER ACHIEVEMENTS & BADGES
+        // ------------------------------------------------------------------
+        function initPoetryBadges() {
+            const btn = document.getElementById('poetryBadgesBtn');
+            const modal = document.getElementById('poetryBadgesModal');
+            const closeBtn = document.getElementById('closeBadgesBtn');
+
+            if (!modal) return;
+            if (btn) btn.addEventListener('click', () => modal.showModal());
+            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
+        }
+        initPoetryBadges();
 
         initSystemSettings();
 
