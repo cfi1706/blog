@@ -3666,3 +3666,28 @@ body.bg-paused .light-orb { animation-play-state: paused; }
     }
     .bg-ambient-lights { display: none; }
 }
+
+/* Card Hover Top Accent Gradient */
+.poem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 2;
+}
+.poem-card:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced Toast Glassmorphism Notification */
+.toast-container {
+    border: 1px solid var(--border-highlight) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
