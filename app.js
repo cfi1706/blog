@@ -11,10 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentView = 'grid'; // 'grid', 'list'
     let searchQuery = '';
     let currentTheme = localStorage.getItem('zzcfizz_theme') || 'theme-midnight';
-    let favorites = JSON.parse(localStorage.getItem('zzcfizz_favorites') || '[]');
-    let reactionsData = JSON.parse(localStorage.getItem('zzcfizz_reactions') || '{}');
-    let notesData = JSON.parse(localStorage.getItem('zzcfizz_notes') || '{}');
-    let recentlyViewed = JSON.parse(localStorage.getItem('zzcfizz_recents') || '[]');
+    // One corrupt localStorage value must not crash the whole app at startup.
+    function readJson(key, fallback) {
+        try {
+            const raw = localStorage.getItem(key);
+            return raw ? JSON.parse(raw) : fallback;
+        } catch (e) {
+            return fallback;
+        }
+    }
+    let favorites = readJson('zzcfizz_favorites', []);
+    let reactionsData = readJson('zzcfizz_reactions', {});
+    let notesData = readJson('zzcfizz_notes', {});
+    let recentlyViewed = readJson('zzcfizz_recents', []);
     let activePoemIndex = 0;
     let filteredPoemsList = [];
     let fontSizePercentage = 100;
@@ -911,7 +920,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('reactCountMoon').textContent = pReactions.moon || 0;
         document.getElementById('reactCountWind').textContent = pReactions.wind || 0;
 
-        const userReacted = JSON.parse(localStorage.getItem(`zzcfizz_user_react_${poemId}`) || '{}');
+        const userReacted = readJson(`zzcfizz_user_react_${poemId}`, {});
         reactionBtns.forEach(btn => {
             const rType = btn.dataset.reaction;
             btn.classList.toggle('active', !!userReacted[rType]);
@@ -931,7 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const pId = poem.id;
 
             if (!reactionsData[pId]) reactionsData[pId] = { love: 0, cozy: 0, moon: 0, wind: 0 };
-            const userReacted = JSON.parse(localStorage.getItem(`zzcfizz_user_react_${pId}`) || '{}');
+            const userReacted = readJson(`zzcfizz_user_react_${pId}`, {});
 
             if (userReacted[rType]) {
                 userReacted[rType] = false;
@@ -2011,30 +2020,162 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('[data-dd]').forEach(b => b.setAttribute('aria-expanded', 'false'));
             document.querySelectorAll('.md-dd-scrim').forEach(s => s.remove());
         }
+
         document.addEventListener('click', (e) => {
             const ddToggle = e.target.closest('[data-dd]');
             if (ddToggle) {
-                const panel = document.getElementById(ddToggle.dataset.dd);
+                e.stopPropagation();
+                const panelId = ddToggle.dataset.dd;
+                const panel = document.getElementById(panelId);
                 if (!panel) return;
                 const willOpen = panel.hidden;
                 closeAllMdPanels();
                 if (willOpen) {
-                    // Center the panel: move it (+ a scrim) to the dialog root so it
-                    // can't be clipped by an edge toggle's container or a transform.
-                    const host = ddToggle.closest('dialog') || document.body;
-                    const scrim = document.createElement('div');
-                    scrim.className = 'md-dd-scrim';
-                    host.appendChild(scrim);
-                    host.appendChild(panel);
                     panel.hidden = false;
+                    ddToggle.setAttribute('aria-expanded', 'true');
+                } else {
+                    ddToggle.setAttribute('aria-expanded', 'false');
                 }
-                ddToggle.setAttribute('aria-expanded', String(willOpen));
                 return;
             }
+
             const ddItem = e.target.closest('.md-dd-panel .hdr-menu-item');
-            if (ddItem) { closeAllMdPanels(); return; } // action chosen; its own handler still runs
-            if (!e.target.closest('.md-dd-panel')) closeAllMdPanels(); // click scrim / outside
+            if (ddItem) { closeAllMdPanels(); return; }
+            if (!e.target.closest('.md-dd-panel')) closeAllMdPanels();
         });
+
+        // Mode Actions
+        const modeNightlightBtn = document.getElementById('modeNightlightBtn');
+        const modeZenFocusBtn = document.getElementById('modeZenFocusBtn');
+        const modeAmberNightBtn = document.getElementById('modeAmberNightBtn');
+        const modeEyeProtectionBtn = document.getElementById('modeEyeProtectionBtn');
+
+        if (modeNightlightBtn) {
+            modeNightlightBtn.addEventListener('click', () => {
+                const isNight = document.body.classList.toggle('nightlight-mode');
+                showToast(`🌙 Đã ${isNight ? 'bật' : 'tắt'} Chế độ Đêm Dịu Mắt!`);
+            });
+        }
+        if (modeZenFocusBtn) {
+            modeZenFocusBtn.addEventListener('click', () => {
+                const isZen = document.body.classList.toggle('spotlight-active');
+                showToast(`🧘 Đã ${isZen ? 'bật' : 'tắt'} Chế độ Spotlight Tĩnh Tâm!`);
+            });
+        }
+        if (modeAmberNightBtn) {
+            modeAmberNightBtn.addEventListener('click', () => {
+                const overlay = document.querySelector('.amber-overlay');
+                if (overlay) {
+                    const isAmber = overlay.hidden;
+                    overlay.hidden = !isAmber;
+                    showToast(`🌇 Đã ${isAmber ? 'bật' : 'tắt'} Lọc Ánh Sáng Vàng Hoàng Hôn!`);
+                }
+            });
+        }
+        if (modeEyeProtectionBtn) {
+            modeEyeProtectionBtn.addEventListener('click', () => {
+                const isEye = document.body.classList.toggle('eye-protection-mode');
+                showToast(`👁️ Đã ${isEye ? 'bật' : 'tắt'} Chế độ Bảo Vệ Mắt!`);
+            });
+        }
+
+        // Font Alignment Controls
+        const fontAlignLeft = document.getElementById('fontAlignLeft');
+        const fontAlignCenter = document.getElementById('fontAlignCenter');
+        const fontAlignRight = document.getElementById('fontAlignRight');
+
+        if (fontAlignLeft && modalPoemText) {
+            fontAlignLeft.addEventListener('click', () => {
+                modalPoemText.style.textAlign = 'left';
+                showToast('📐 Đã căn lề trái!');
+            });
+        }
+        if (fontAlignCenter && modalPoemText) {
+            fontAlignCenter.addEventListener('click', () => {
+                modalPoemText.style.textAlign = 'center';
+                showToast('📐 Đã căn giữa!');
+            });
+        }
+        // Font Size Increase / Decrease Controls
+        const btnFontIncrease = document.getElementById('btnFontIncrease');
+        const btnFontDecrease = document.getElementById('btnFontDecrease');
+        const fontSizeVal = document.querySelector('.font-size-val');
+
+        if (btnFontIncrease && modalPoemText) {
+            btnFontIncrease.addEventListener('click', () => {
+                fontSizePercentage = Math.min(220, fontSizePercentage + 10);
+                modalPoemText.style.fontSize = `${fontSizePercentage}%`;
+                if (fontSizeVal) fontSizeVal.textContent = `${fontSizePercentage}%`;
+            });
+        }
+        if (btnFontDecrease && modalPoemText) {
+            btnFontDecrease.addEventListener('click', () => {
+                fontSizePercentage = Math.max(80, fontSizePercentage - 10);
+                modalPoemText.style.fontSize = `${fontSizePercentage}%`;
+                if (fontSizeVal) fontSizeVal.textContent = `${fontSizePercentage}%`;
+            });
+        }
+
+        // Font Family Select
+        const fontFamilySelect = document.getElementById('fontFamilySelect');
+        if (fontFamilySelect && modalPoemText) {
+            fontFamilySelect.addEventListener('change', (e) => {
+                const font = e.target.value;
+                modalPoemText.style.fontFamily = font;
+                localStorage.setItem('zzcfizz_font_family', font);
+                showToast(`🔤 Đã đổi phông chữ!`);
+            });
+        }
+
+        // Backdrop Presets
+        const backdropPresetSelect = document.getElementById('backdropPresetSelect');
+        const customBackdropInput = document.getElementById('customBackdropInput');
+        if (backdropPresetSelect) {
+            backdropPresetSelect.addEventListener('change', (e) => {
+                const val = e.target.value;
+                if (val === 'custom' && customBackdropInput) {
+                    customBackdropInput.click();
+                } else if (val !== 'default') {
+                    showToast('🖼️ Đã áp dụng phông nền nghệ thuật!');
+                }
+            });
+        }
+        if (customBackdropInput) {
+            customBackdropInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    showToast('🖼️ Đã tải lên phông nền cá nhân thành công!');
+                }
+            });
+        }
+
+        // Copy, Share, Print Actions
+        const modalCopyBtn = document.getElementById('modalCopyBtn');
+        const modalShareBtn = document.getElementById('modalShareBtn');
+        const printPoemBtn = document.getElementById('printPoemBtn');
+
+        if (modalCopyBtn) {
+            modalCopyBtn.addEventListener('click', () => {
+                const poem = filteredPoemsList[activePoemIndex];
+                if (!poem) return;
+                const fullContent = `${poem.title}\n\n${poem.content_text}\n\n— Võ Hoàng Thắng (ZzCFIzZ)`;
+                navigator.clipboard.writeText(fullContent);
+                showToast('📋 Đã sao chép toàn bộ bài thơ!');
+            });
+        }
+        if (modalShareBtn) {
+            modalShareBtn.addEventListener('click', () => {
+                const poem = filteredPoemsList[activePoemIndex];
+                if (!poem) return;
+                const shareUrl = `${window.location.origin}${window.location.pathname}?poem=${poem.id}`;
+                navigator.clipboard.writeText(shareUrl);
+                showToast('🔗 Đã sao chép liên kết bài thơ!');
+            });
+        }
+        if (printPoemBtn) {
+            printPoemBtn.addEventListener('click', () => {
+                window.print();
+            });
+        }
 
         if (ambientStopBtn) {
             ambientStopBtn.addEventListener('click', () => {
@@ -2606,7 +2747,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const months = parseInt(capsuleDurationSelect.value, 10) || 6;
                     const targetDate = Date.now() + (months * 30 * 24 * 3600 * 1000);
 
-                    const capsules = JSON.parse(localStorage.getItem('zzcfizz_time_capsules') || '[]');
+                    const capsules = readJson('zzcfizz_time_capsules', []);
                     capsules.push({ poemId, note, targetDate, createdAt: Date.now() });
                     localStorage.setItem('zzcfizz_time_capsules', JSON.stringify(capsules));
 
@@ -2616,7 +2757,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Check matured time capsules
-            const capsules = JSON.parse(localStorage.getItem('zzcfizz_time_capsules') || '[]');
+            const capsules = readJson('zzcfizz_time_capsules', []);
             const matured = capsules.filter(c => Date.now() >= c.targetDate && !c.opened);
             if (matured.length > 0) {
                 setTimeout(() => {
@@ -3545,7 +3686,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!systemSettingsModal) return;
 
-            const savedSettings = JSON.parse(localStorage.getItem('zzcfizz_system_settings') || '{}');
+            const savedSettings = readJson('zzcfizz_system_settings', {});
 
             featureChecks.forEach(check => {
                 const key = check.dataset.feature;
@@ -4359,7 +4500,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         showToast('✍️ Vui lòng nhập nội dung lời nhắn!');
                         return;
                     }
-                    const letters = JSON.parse(localStorage.getItem('zzcfizz_author_letters') || '[]');
+                    const letters = readJson('zzcfizz_author_letters', []);
                     letters.push({ text, date: new Date().toISOString() });
                     localStorage.setItem('zzcfizz_author_letters', JSON.stringify(letters));
 
