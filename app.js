@@ -1331,8 +1331,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        window.speechSynthesis.cancel(); // Reset speech synthesis queue
-
         ttsUtterance = new SpeechSynthesisUtterance(phraseObj.text);
         ttsUtterance.lang = 'vi-VN';
         ttsUtterance.rate = 0.88 * getSelectedTtsSpeed();
@@ -1340,33 +1338,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (viVoice) ttsUtterance.voice = viVoice;
 
         ttsUtterance.onend = () => {
+            if (!isTtsPlaying) return;
             ttsQueueIndex++;
             speakNextWebSpeech(viVoice);
         };
 
         ttsUtterance.onerror = (e) => {
-            console.warn('SpeechSynthesis error, falling back to audio stream:', e);
-            playNextAudioStream();
+            console.warn('SpeechSynthesis error on line', ttsQueueIndex, e);
+            if (!isTtsPlaying) return;
+            if (e.error !== 'interrupted' && e.error !== 'canceled') {
+                playNextAudioStream();
+                return;
+            }
+            ttsQueueIndex++;
+            speakNextWebSpeech(viVoice);
         };
 
         window.speechSynthesis.speak(ttsUtterance);
         if (window.speechSynthesis.paused) {
             window.speechSynthesis.resume();
         }
-    }
-
-    function preloadNextAudioStream(currentIndex) {
-        const nextIndex = currentIndex + 1;
-        if (nextIndex >= ttsQueue.length) {
-            ttsPreloadedAudio = null;
-            return;
-        }
-        const phraseObj = ttsQueue[nextIndex];
-        const chunk = phraseObj.text.substring(0, 200);
-        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=vi&client=tw-ob`;
-        ttsPreloadedAudio = new Audio(audioUrl);
-        ttsPreloadedAudio.playbackRate = 0.92 * getSelectedTtsSpeed();
-        ttsPreloadedAudio.load();
     }
 
     function playNextAudioStream() {
@@ -1384,29 +1375,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         highlightActiveLine(phraseObj.lineIndex);
 
-        if (ttsPreloadedAudio && ttsQueueIndex > 0) {
-            ttsAudioInstance = ttsPreloadedAudio;
-        } else {
-            const chunk = phraseObj.text.substring(0, 200);
-            const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=vi&client=tw-ob`;
-            ttsAudioInstance = new Audio(audioUrl);
-            ttsAudioInstance.playbackRate = 0.92 * getSelectedTtsSpeed();
+        if (ttsAudioInstance) {
+            ttsAudioInstance.pause();
+            ttsAudioInstance = null;
         }
 
-        preloadNextAudioStream(ttsQueueIndex);
+        const chunk = phraseObj.text.substring(0, 200);
+        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=vi&client=tw-ob`;
+        ttsAudioInstance = new Audio(audioUrl);
+        ttsAudioInstance.playbackRate = 0.92 * getSelectedTtsSpeed();
 
         ttsAudioInstance.onended = () => {
+            if (!isTtsPlaying) return;
             ttsQueueIndex++;
             playNextAudioStream();
         };
 
         ttsAudioInstance.onerror = (e) => {
+            console.warn('AudioStream error on line', ttsQueueIndex, e);
+            if (!isTtsPlaying) return;
             ttsQueueIndex++;
             playNextAudioStream();
         };
 
         ttsAudioInstance.play().catch(err => {
-            stopTts();
+            console.warn('Audio play error:', err);
+            if (isTtsPlaying) {
+                ttsQueueIndex++;
+                playNextAudioStream();
+            }
         });
     }
 
