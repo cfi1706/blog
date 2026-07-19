@@ -1208,50 +1208,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const defaultOpt = document.createElement('option');
         defaultOpt.value = 'auto';
-        defaultOpt.textContent = 'Giọng AI Mặc Định';
+        defaultOpt.textContent = '🔊 Giọng AI Tiếng Việt Mặc Định';
         ttsVoiceSelect.appendChild(defaultOpt);
 
-        if (voices.length === 0) return;
-
-        const viVoices = voices.filter(v => v.lang && v.lang.toLowerCase().includes('vi'));
-        const otherVoices = voices.filter(v => !v.lang || !v.lang.toLowerCase().includes('vi'));
+        // Filter ONLY Vietnamese language voices (vi-VN, vi_VN, or Vietnamese in name)
+        const viVoices = voices.filter(v => v.lang && (v.lang.toLowerCase().includes('vi') || (v.name && v.name.toLowerCase().includes('vietnamese'))));
 
         const savedVoiceURI = localStorage.getItem('zzcfizz_tts_voice_uri');
 
         if (viVoices.length > 0) {
             const viOptGroup = document.createElement('optgroup');
-            viOptGroup.label = 'Giọng Tiếng Việt';
+            viOptGroup.label = '🇻🇳 Giọng Đọc Tiếng Việt System';
             viVoices.forEach(v => {
                 const opt = document.createElement('option');
                 opt.value = v.voiceURI || v.name;
-                opt.textContent = `${v.name}`;
+                opt.textContent = `🇻🇳 ${v.name}`;
                 if (savedVoiceURI && (v.voiceURI === savedVoiceURI || v.name === savedVoiceURI)) {
                     opt.selected = true;
                 }
                 viOptGroup.appendChild(opt);
             });
             ttsVoiceSelect.appendChild(viOptGroup);
-        }
+        } else {
+            // Preset AI options when no native local vi-VN voices exist on browser/OS
+            const aiPresetGroup = document.createElement('optgroup');
+            aiPresetGroup.label = '🇻🇳 Giọng Đọc AI Trực Tuyến';
 
-        if (otherVoices.length > 0) {
-            const otherOptGroup = document.createElement('optgroup');
-            otherOptGroup.label = 'Giọng Nói Khác';
-            otherVoices.slice(0, 10).forEach(v => {
-                const opt = document.createElement('option');
-                opt.value = v.voiceURI || v.name;
-                opt.textContent = `${v.name} (${v.lang})`;
-                if (savedVoiceURI && (v.voiceURI === savedVoiceURI || v.name === savedVoiceURI)) {
-                    opt.selected = true;
-                }
-                otherOptGroup.appendChild(opt);
-            });
-            ttsVoiceSelect.appendChild(otherOptGroup);
+            const p1 = document.createElement('option');
+            p1.value = 'ai_female_south';
+            p1.textContent = '🔊 Giọng Nữ AI Tiếng Việt (Trầm Ấm)';
+            aiPresetGroup.appendChild(p1);
+
+            const p2 = document.createElement('option');
+            p2.value = 'ai_male_north';
+            p2.textContent = '🔊 Giọng Nam AI Tiếng Việt (Truyền Cảm)';
+            aiPresetGroup.appendChild(p2);
+
+            ttsVoiceSelect.appendChild(aiPresetGroup);
         }
 
         if (savedVoiceURI && savedVoiceURI !== 'auto') {
             ttsVoiceSelect.value = savedVoiceURI;
-        } else if (viVoices.length > 0) {
-            ttsVoiceSelect.value = viVoices[0].voiceURI || viVoices[0].name;
         }
     }
 
@@ -1282,34 +1279,29 @@ document.addEventListener('DOMContentLoaded', () => {
         let selectedVoice = getSelectedTtsVoice();
 
         if (selectedVoice) {
-            showToast(`🔊 Đọc với giọng ${selectedVoice.name}...`);
+            showToast(`🔊 Đọc bài thơ bằng giọng ${selectedVoice.name}...`);
             speakNextWebSpeech(selectedVoice);
         } else {
-            showToast('🔊 Đang đọc bài thơ bằng giọng nói AI...');
+            showToast('🔊 Đọc bài thơ bằng Giọng Nói AI Tiếng Việt...');
             const modalImagesContainer = document.getElementById('modalImagesContainer');
             if (modalImagesContainer) modalImagesContainer.classList.add('ken-burns-active');
-            speakNextWebSpeech(null);
+            playNextAudioStream();
         }
     }
 
+    // Reading style (whisper/poetic) adjusts rate multiplier + pitch.
+    function getSelectedTtsStyle() {
+        const sel = document.getElementById('ttsStyleSelect');
+        const style = sel ? sel.value : 'standard';
+        if (style === 'whisper') return { rateMul: 0.8, pitch: 0.75 };
+        if (style === 'poetic') return { rateMul: 0.85, pitch: 0.95 };
+        return { rateMul: 1.0, pitch: 1.05 };
+    }
+
+    // Returns the effective speed multiplier (callers multiply their base rate).
     function getSelectedTtsSpeed() {
         const speedVal = parseFloat(ttsSpeedSelect ? ttsSpeedSelect.value : '1.0');
-        const ttsStyleSelect = document.getElementById('ttsStyleSelect');
-        const ttsStyle = ttsStyleSelect ? ttsStyleSelect.value : 'standard';
-
-        let pitch = 1.0;
-        let rate = speedVal;
-
-        if (ttsStyle === 'whisper') {
-            pitch = 0.75;
-            rate = 0.8 * speedVal;
-        } else if (ttsStyle === 'poetic') {
-            pitch = 0.95;
-            rate = 0.85 * speedVal;
-        }
-
-        utterance.rate = rate;
-        utterance.pitch = pitch;
+        return getSelectedTtsStyle().rateMul * speedVal;
     }
 
     let isPoetryRadioActive = false;
@@ -1334,11 +1326,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const phraseObj = ttsQueue[ttsQueueIndex];
         highlightActiveLine(phraseObj.lineIndex);
 
+        if (!('speechSynthesis' in window)) {
+            playNextAudioStream();
+            return;
+        }
+
+        window.speechSynthesis.cancel(); // Reset speech synthesis queue
+
         ttsUtterance = new SpeechSynthesisUtterance(phraseObj.text);
         ttsUtterance.lang = 'vi-VN';
         ttsUtterance.rate = 0.88 * getSelectedTtsSpeed();
-        ttsUtterance.pitch = 1.05;
-        ttsUtterance.voice = viVoice;
+        ttsUtterance.pitch = getSelectedTtsStyle().pitch;
+        if (viVoice) ttsUtterance.voice = viVoice;
 
         ttsUtterance.onend = () => {
             ttsQueueIndex++;
@@ -1346,16 +1345,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         ttsUtterance.onerror = (e) => {
-            if (e.error !== 'interrupted' && e.error !== 'canceled') {
-                preloadNextAudioStream(ttsQueueIndex);
-                playNextAudioStream();
-                return;
-            }
-            ttsQueueIndex++;
-            speakNextWebSpeech(viVoice);
+            console.warn('SpeechSynthesis error, falling back to audio stream:', e);
+            playNextAudioStream();
         };
 
         window.speechSynthesis.speak(ttsUtterance);
+        if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+        }
     }
 
     function preloadNextAudioStream(currentIndex) {
@@ -3087,9 +3084,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }));
 
             function renderRain() {
-                ctx.clearRect(0, 0, width, height);
                 if (activeAmbientSound === 'rain') {
                     canvas.hidden = false;
+                    ctx.clearRect(0, 0, width, height);
                     ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
                     ctx.lineWidth = 1;
 
@@ -3107,10 +3104,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             d.x = Math.random() * width;
                         }
                     });
+                    requestAnimationFrame(renderRain);
                 } else {
-                    canvas.hidden = true;
+                    // Rain off: clear once, hide, and poll cheaply instead of
+                    // burning a full-screen canvas clear at 60fps forever.
+                    if (!canvas.hidden) {
+                        ctx.clearRect(0, 0, width, height);
+                        canvas.hidden = true;
+                    }
+                    setTimeout(renderRain, 500);
                 }
-                requestAnimationFrame(renderRain);
             }
             renderRain();
         }
@@ -3751,7 +3754,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (closeHolidayModalBtn && greetingModal) {
-                closeHolidayModalBtn.onclick = () => greetingModal.close();
+                closeHolidayModalBtn.onclick = () => {
+                    greetingModal.close();
+                    // Stop the celebration overlays too — otherwise both canvases
+                    // keep animating full-screen at 60fps for the rest of the day.
+                    if (flagAnimId) { cancelAnimationFrame(flagAnimId); flagAnimId = null; }
+                    if (confettiAnimId) { cancelAnimationFrame(confettiAnimId); confettiAnimId = null; }
+                    flagCanvas.hidden = true;
+                    confettiCanvas.hidden = true;
+                };
             }
 
             // Public simulation test functions for manual preview
