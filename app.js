@@ -2243,22 +2243,6 @@ document.addEventListener('DOMContentLoaded', () => {
             openReaderModal(activePoemIndex + 1);
         });
 
-        const mobileSidePrevBtn = document.getElementById('mobileSidePrevBtn');
-        const mobileSideNextBtn = document.getElementById('mobileSideNextBtn');
-
-        if (mobileSidePrevBtn) {
-            mobileSidePrevBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (activePoemIndex > 0) openReaderModal(activePoemIndex - 1);
-            });
-        }
-        if (mobileSideNextBtn) {
-            mobileSideNextBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (activePoemIndex < filteredPoemsList.length - 1) openReaderModal(activePoemIndex + 1);
-            });
-        }
-
         // ------------------------------------------------------------------
         // Touch Swipe Left / Right Gesture Navigation for Mobile Reader
         // ------------------------------------------------------------------
