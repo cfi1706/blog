@@ -1,40 +1,225 @@
 // Auto-generated poem database
 window.POEMS_DATA = [
   {
+    "id": 2010,
+    "slug": "muoi-nam-chua-lan-gap",
+    "title": "Mười Năm Chưa Lần Gặp",
+    "date": "2026-07-20T12:43:41",
+    "date_formatted": "20 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Mười năm chưa lần gặp<br>Sao ta vẫn đợi chờ<br>Một bóng hình đã lỡ<br>Chưa gặp lại trong mơ<br><br>Mọi thứ đã phai mờ<br>Chỉ in hằn lên cát<br>Dấu chân kẻ tình si<br>Từng bước đi từng đi<br><br>Luẩn quẩn trong tâm trí<br>Kẻ si chẳng bóng hình<br>Nhân gian thật vô tình<br>Đến hay đi chẳng tỏ...</p>",
+    "content_text": "Mười năm chưa lần gặp\nSao ta vẫn đợi chờ\nMột bóng hình đã lỡ\nChưa gặp lại trong mơ\n\nMọi thứ đã phai mờ\nChỉ in hằn lên cát\nDấu chân kẻ tình si\nTừng bước đi từng đi\n\nLuẩn quẩn trong tâm trí\nKẻ si chẳng bóng hình\nNhân gian thật vô tình\nĐến hay đi chẳng tỏ...",
+    "featured_image": "images/poem_2010_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2010_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2010_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2009,
+    "slug": "yeu-em-toc-da-bac-roi",
+    "title": "Yêu Em Tóc Đã Bạc Rồi",
+    "date": "2026-07-20T12:43:00",
+    "date_formatted": "20 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Yêu em tóc đã bạc rồi<br>Trái tim không biết nói lời mộng mơ<br>Ngày ngày chỉ biết trông chờ<br>Trăng lên gửi áng vầng thơ tới nàng<br><br>Bóng trăng in khuyết gối nàng<br>Gió xuân vội khẽ thì thầm bên tai<br>Hai ta xa tận góc trời<br>Nhờ lời của gió gởi lời yêu thương<br><br>Dặm trường dạo bước nhớ thương<br>Xa xôi muôn dặm còn thương nhớ về</p>",
+    "content_text": "Yêu em tóc đã bạc rồi\nTrái tim không biết nói lời mộng mơ\nNgày ngày chỉ biết trông chờ\nTrăng lên gửi áng vầng thơ tới nàng\n\nBóng trăng in khuyết gối nàng\nGió xuân vội khẽ thì thầm bên tai\nHai ta xa tận góc trời\nNhờ lời của gió gởi lời yêu thương\n\nDặm trường dạo bước nhớ thương\nXa xôi muôn dặm còn thương nhớ về",
+    "featured_image": "images/poem_2009_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2009_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2009_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2008,
+    "slug": "toi-di-giua-chon-nhan-gian",
+    "title": "Tôi Đi Giữa Chốn Nhân Gian",
+    "date": "2026-07-20T12:36:00",
+    "date_formatted": "20 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Tôi đi giữa chốn nhân gian<br>Muốn mang gửi lại bên hàng dương xanh<br>Oanh vàng cất tiếng líu lo<br>Mộng vàng chưa tỏ, nắng vàng vội phai<br><br>Hỡi ai gieo chút nhớ thương<br>Còn vương sợi nhớ bên hàng thông reo<br>Trăng treo trong gió dỗi hờn<br>Gieo chi một nửa vấn vương tơ lòng<br><br>Hỏi rằng người có nhớ không<br>Ánh hồng rẽ nước chia đôi<br>Nửa mang thương nhớ trôi theo ngược dòng<br>Bóng hồng tựa nhánh liễu đào<br>Gieo tương tư ấy vào trong cõi trần</p>",
+    "content_text": "Tôi đi giữa chốn nhân gian\nMuốn mang gửi lại bên hàng dương xanh\nOanh vàng cất tiếng líu lo\nMộng vàng chưa tỏ, nắng vàng vội phai\n\nHỡi ai gieo chút nhớ thương\nCòn vương sợi nhớ bên hàng thông reo\nTrăng treo trong gió dỗi hờn\nGieo chi một nửa vấn vương tơ lòng\n\nHỏi rằng người có nhớ không\nÁnh hồng rẽ nước chia đôi\nNửa mang thương nhớ trôi theo ngược dòng\nBóng hồng tựa nhánh liễu đào\nGieo tương tư ấy vào trong cõi trần",
+    "featured_image": "images/poem_2008_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2008_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2008_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2007,
+    "slug": "lung-lo-giua-the-gian-nay",
+    "title": "Lững Lờ Giữa Thế Gian Này",
+    "date": "2026-07-18T20:52:30",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Lững lờ giữa chốn gian trần,<br>Gửi trao kỷ niệm bên phần dương liễu.<br>Tiếng chim vang đượm khúc chiều,<br>Giấc mơ vàng úa, nắng xiêu mịt mờ.<br><br>Ai gieo chi sợi thương nhớ,<br>Thông reo gió bấc, trăng treo bên trời.<br>Rối bời một dải tơ đời,<br>Nửa lòng vương vấn, nửa lời thở than.<br><br>Người ơi, có nhớ chăng ngàn?<br>Dòng sông ánh hồng, đôi hàng mộng mơ.<br>Thương nhớ trôi bến bờ xa,<br>Bóng hồng đào liễu, mênh mông tình si.</p>",
+    "content_text": "Lững lờ giữa chốn gian trần,\nGửi trao kỷ niệm bên phần dương liễu.\nTiếng chim vang đượm khúc chiều,\nGiấc mơ vàng úa, nắng xiêu mịt mờ.\n\nAi gieo chi sợi thương nhớ,\nThông reo gió bấc, trăng treo bên trời.\nRối bời một dải tơ đời,\nNửa lòng vương vấn, nửa lời thở than.\n\nNgười ơi, có nhớ chăng ngàn?\nDòng sông ánh hồng, đôi hàng mộng mơ.\nThương nhớ trôi bến bờ xa,\nBóng hồng đào liễu, mênh mông tình si.",
+    "featured_image": "images/poem_2007_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2007_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2007_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2006,
+    "slug": "gio-dong-heo-hat-ben-them",
+    "title": "Gió Đông Heo Hắt Bên Thềm",
+    "date": "2026-07-18T20:52:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Gió đông heo hắt bên thềm<br>Rêu phong cảnh cũ, sau thềm lá rơi<br>Phong sương tuyết phủ ngập trời<br>Bếp nhỏ hiu hắt đưa người về đâu<br>Giọt sương pha với giọt sầu<br>Áo nâu xếp lại, bạc màu nắng mưa<br>Vườn xưa vắng bóng người xưa<br>Hàng cau đứng lặng như vừa ngóng ai<br>Khói trầm lãng đãng sương mai<br>Hương quen phảng phất, trang đài bỏ không.</p>",
+    "content_text": "Gió đông heo hắt bên thềm\nRêu phong cảnh cũ, sau thềm lá rơi\nPhong sương tuyết phủ ngập trời\nBếp nhỏ hiu hắt đưa người về đâu\nGiọt sương pha với giọt sầu\nÁo nâu xếp lại, bạc màu nắng mưa\nVườn xưa vắng bóng người xưa\nHàng cau đứng lặng như vừa ngóng ai\nKhói trầm lãng đãng sương mai\nHương quen phảng phất, trang đài bỏ không.",
+    "featured_image": "images/poem_2006_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2006_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2006_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2005,
+    "slug": "bep-nha-lua-van-nhom-moi-dem",
+    "title": "Bếp Nhà Lửa Vẫn Nhóm Mỗi Đêm",
+    "date": "2026-07-18T20:49:30",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Bếp nhà lửa vẫn nhóm mỗi đêm<br>Củi hồng vẫn cháy, tro tàn vẫn rơi<br>Người ngồi hong lại khoảng đời<br>Mà tim lạnh giá như thời lập đông.<br><br>Bình hoa nằm ở góc phòng<br>Vẹn nguyên không vết rạn ngoài<br>Nhưng nguồn nước bên trong đành chịu lỗi<br>Chẳng thể nuôi nổi một nhành hoa phai<br><br>Hai chiếc lá như chung một cội<br>Nương vào nhau qua giông gió cuộc đời<br>Nhưng nhựa sống bên trong đã mỏi<br>Chẳng buồn xanh, cũng chẳng muốn rơi.</p>",
+    "content_text": "Bếp nhà lửa vẫn nhóm mỗi đêm\nCủi hồng vẫn cháy, tro tàn vẫn rơi\nNgười ngồi hong lại khoảng đời\nMà tim lạnh giá như thời lập đông.\n\nBình hoa nằm ở góc phòng\nVẹn nguyên không vết rạn ngoài\nNhưng nguồn nước bên trong đành chịu lỗi\nChẳng thể nuôi nổi một nhành hoa phai\n\nHai chiếc lá như chung một cội\nNương vào nhau qua giông gió cuộc đời\nNhưng nhựa sống bên trong đã mỏi\nChẳng buồn xanh, cũng chẳng muốn rơi.",
+    "featured_image": "images/poem_2005_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2005_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2005_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2004,
+    "slug": "mot-doi-nho-nho-thuong-thuong",
+    "title": "Một Đời Nhớ Nhớ Thương Thương",
+    "date": "2026-07-18T20:49:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Một đời nhớ nhớ thương thương<br>Cười vui thì ít mà nhớ thương thì nhiều<br>Hoàng hôn bớt rán bóng chiều<br>Tương tư trải cạnh một chiều yêu đương</p>",
+    "content_text": "Một đời nhớ nhớ thương thương\nCười vui thì ít mà nhớ thương thì nhiều\nHoàng hôn bớt rán bóng chiều\nTương tư trải cạnh một chiều yêu đương",
+    "featured_image": "images/poem_2004_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2004_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2004_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2003,
+    "slug": "dau-buoc-gan-sao-van-xa-tron-kiep",
+    "title": "Dẫu Bước Gần... Sao Vẫn Xa Trọn Kiếp",
+    "date": "2026-07-18T20:47:40",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Em hỡi em, ta còn gì cho nhau?<br>Là nhung nhớ hay những điều vụn vỡ?<br>Là chút bình yên sau tro tàn còn sót,<br>Hay muộn phiền quẩn quanh miền ký ức?<br><br>Ta thấy lòng như lửa đốt, rã rời,<br>Giữa đêm lạnh chẳng vòng tay ấm áp.<br>Những giấc mơ trôi dạt tận phương nào,<br>Tuổi thanh xuân – một lần từng ảo vọng.<br><br>Ám ảnh theo ta đến tận chiều tàn,<br>Khóe mắt cay, lòng chẳng còn bình lặng.<br>Chỉ muốn say, để mãi mãi ngủ quên,<br>Dẫu bước gần, sao vẫn xa trọn kiếp…</p>",
+    "content_text": "Em hỡi em, ta còn gì cho nhau?\nLà nhung nhớ hay những điều vụn vỡ?\nLà chút bình yên sau tro tàn còn sót,\nHay muộn phiền quẩn quanh miền ký ức?\n\nTa thấy lòng như lửa đốt, rã rời,\nGiữa đêm lạnh chẳng vòng tay ấm áp.\nNhững giấc mơ trôi dạt tận phương nào,\nTuổi thanh xuân – một lần từng ảo vọng.\n\nÁm ảnh theo ta đến tận chiều tàn,\nKhóe mắt cay, lòng chẳng còn bình lặng.\nChỉ muốn say, để mãi mãi ngủ quên,\nDẫu bước gần, sao vẫn xa trọn kiếp…",
+    "featured_image": "images/poem_2003_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2003_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2003_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2002,
+    "slug": "co-gang-tram-lan-van-mat-nhau",
+    "title": "Cố Gắng Trăm Lần... Vẫn Mất Nhau",
+    "date": "2026-07-18T20:47:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Cố gắng chăm vườn, vườn vẫn sâu,<br>Cố gắng không sầu, sầu vẫn vương.<br>Cố gắng không khóc, lệ vẫn tuôn,<br>Cố gắng quên người, dạ vẫn thương.<br><br>Cố gắng gượng cười, môi héo hắt,<br>Cố gắng thản nhiên, lòng vẫn đau.<br>Cố gắng tìm quên, sầu lại thắt,<br>Cố gắng trăm lần, vẫn mất nhau.</p>",
+    "content_text": "Cố gắng chăm vườn, vườn vẫn sâu,\nCố gắng không sầu, sầu vẫn vương.\nCố gắng không khóc, lệ vẫn tuôn,\nCố gắng quên người, dạ vẫn thương.\n\nCố gắng gượng cười, môi héo hắt,\nCố gắng thản nhiên, lòng vẫn đau.\nCố gắng tìm quên, sầu lại thắt,\nCố gắng trăm lần, vẫn mất nhau.",
+    "featured_image": "images/poem_2002_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2002_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2002_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2001,
+    "slug": "chon-vao-hu-khong",
+    "title": "Chôn Vào Hư Không",
+    "date": "2026-07-18T20:46:30",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Ngày ấy,<br>Tre vẫn xanh, gió vẫn reo<br>Nhưng bình yên đã không còn nữa<br>Chim vẫn hót, mây vẫn bay<br>Tay đã không còn nắm<br><br>Và rồi,<br>Người mỉm cười, chân vẫn bước<br>Gió cũng im, lá đã ngừng<br>Sóng ngoài xa đã thôi rì rào<br>Lòng ta đã chôn vào hư không!</p>",
+    "content_text": "Ngày ấy,\nTre vẫn xanh, gió vẫn reo\nNhưng bình yên đã không còn nữa\nChim vẫn hót, mây vẫn bay\nTay đã không còn nắm\n\nVà rồi,\nNgười mỉm cười, chân vẫn bước\nGió cũng im, lá đã ngừng\nSóng ngoài xa đã thôi rì rào\nLòng ta đã chôn vào hư không!",
+    "featured_image": "images/poem_2001_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2001_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2001_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2000,
+    "slug": "gan-gang-tac-cach-trung-khoi",
+    "title": "Gần Gang Tấc... Cách Trùng Khơi",
+    "date": "2026-07-18T20:46:00",
+    "date_formatted": "18 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Tôi đã dốc thanh xuân qua trăm ngả,<br>Nhìn hoa tàn lặng phủ lối xưa,<br>Nhìn nắng sớm vừa chạm bên trời,<br>Mà chẳng thể sưởi tan hồ băng giá.<br><br>Cứ ngỡ chung thuyền, cùng vượt sóng,<br>Nào hay lạc giữa cõi dửng dưng.<br>Lửa nơi vách lòng ta âm thầm đỏ rực,<br>Người lặng im, mặc kệ hóa tro than.<br><br>Gần gang tấc... mà cách trùng khơi.</p>",
+    "content_text": "Tôi đã dốc thanh xuân qua trăm ngả,\nNhìn hoa tàn lặng phủ lối xưa,\nNhìn nắng sớm vừa chạm bên trời,\nMà chẳng thể sưởi tan hồ băng giá.\n\nCứ ngỡ chung thuyền, cùng vượt sóng,\nNào hay lạc giữa cõi dửng dưng.\nLửa nơi vách lòng ta âm thầm đỏ rực,\nNgười lặng im, mặc kệ hóa tro than.\n\nGần gang tấc... mà cách trùng khơi.",
+    "featured_image": "images/poem_2000_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2000_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2000_img_0.jpg"
+    ]
+  },
+  {
     "id": 1353,
     "slug": "vo-de-121",
     "title": "Người mơ về chốn xa xôi",
     "date": "2025-09-05T14:01:48",
     "date_formatted": "5 tháng 9, 2025",
-    "content_html": "\n<p class=\"wp-block-paragraph\">​Người mơ về chốn xa xôi<br>Ta chỉ thèm một mái nhà bình yên<br>Người vui với những muộn phiền<br>Ta gom nhặt chút an nhiên cho mình!<br>​Người nhìn bằng ánh bình minh<br>Thấy danh vọng, thấy cuộc tình hơn thua<br>Ta nhìn đời lúc đổ mưa<br>Thấy vai gầy gánh nắng trưa mệt nhoài.<br>​Câu chuyện cứ mỗi ngày dài<br>Mà tâm hồn lại cách hai phương trời<br>Người buông những tiếng buông lơi<br>Ta nghe chỉ thấy một đời lặng câm.<br>​Nhiều khi cay đắng âm thầm<br>Muốn buông tay để lạc lầm một phen<br>Chẳng chung một giấc mơ hồng<br>Chẳng chung lối bước, giấc nồng đêm say.</p>\n",
-    "content_text": "​Người mơ về chốn xa xôi\nTa chỉ thèm một mái nhà bình yên\nNgười vui với những muộn phiền\nTa gom nhặt chút an nhiên cho mình!\n​Người nhìn bằng ánh bình minh\nThấy danh vọng, thấy cuộc tình hơn thua\nTa nhìn đời lúc đổ mưa\nThấy vai gầy gánh nắng trưa mệt nhoài.\n​Câu chuyện cứ mỗi ngày dài\nMà tâm hồn lại cách hai phương trời\nNgười buông những tiếng buông lơi\nTa nghe chỉ thấy một đời lặng câm.\n​Nhiều khi cay đắng âm thầm\nMuốn buông tay để lạc lầm một phen\nChẳng chung một giấc mơ hồng\nChẳng chung lối bước, giấc nồng đêm say.",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/09/vd121.webp",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Người mơ về chốn xa xôi<br>Ta chỉ thèm một mái nhà bình yên<br>Người vui với những muộn phiền<br>Ta gom nhặt chút an nhiên cho mình!<br>Người nhìn bằng ánh bình minh<br>Thấy danh vọng, thấy cuộc tình hơn thua<br>Ta nhìn đời lúc đổ mưa<br>Thấy vai gầy gánh nắng trưa mệt nhoài.<br>Câu chuyện cứ mỗi ngày dài<br>Mà tâm hồn lại cách hai phương trời<br>Người buông những tiếng buông lơi<br>Ta nghe chỉ thấy một đời lặng câm.<br>Nhiều khi cay đắng âm thầm<br>Muốn buông tay để lạc lầm một phen<br>Chẳng chung một giấc mơ hồng<br>Chẳng chung lối bước, giấc nồng đêm say.</p>\n",
+    "content_text": "Người mơ về chốn xa xôi\nTa chỉ thèm một mái nhà bình yên\nNgười vui với những muộn phiền\nTa gom nhặt chút an nhiên cho mình!\nNgười nhìn bằng ánh bình minh\nThấy danh vọng, thấy cuộc tình hơn thua\nTa nhìn đời lúc đổ mưa\nThấy vai gầy gánh nắng trưa mệt nhoài.\nCâu chuyện cứ mỗi ngày dài\nMà tâm hồn lại cách hai phương trời\nNgười buông những tiếng buông lơi\nTa nghe chỉ thấy một đời lặng câm.\nNhiều khi cay đắng âm thầm\nMuốn buông tay để lạc lầm một phen\nChẳng chung một giấc mơ hồng\nChẳng chung lối bước, giấc nồng đêm say.",
+    "featured_image": "images/poem_1353_img_0.jpg",
     "inline_images": [],
     "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/09/vd121.webp"
+      "images/poem_1353_img_0.jpg"
     ],
     "local_images": [
-      "images/poem_1353_img_0.webp"
-    ],
-    "code_title": "Vô Đề 121"
+      "images/poem_1353_img_0.jpg"
+    ]
   },
   {
     "id": 1338,
     "slug": "vo-de-120",
-    "title": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại ...",
+    "title": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đ...",
     "date": "2025-08-28T09:10:28",
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.<br>Cô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.<br>Nỗi buồn là hạt cát, lấp đầy cả đại dương.<br>Muốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.</p>\n",
     "content_text": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.\nCô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.\nNỗi buồn là hạt cát, lấp đầy cả đại dương.\nMuốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd120.webp",
+    "featured_image": "images/poem_1338_img_0.jpg",
     "inline_images": [],
     "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd120.webp"
+      "images/poem_1338_img_0.jpg"
     ],
     "local_images": [
-      "images/poem_1338_img_0.webp"
-    ],
-    "code_title": "Vô Đề 120"
+      "images/poem_1338_img_0.jpg"
+    ]
   },
   {
     "id": 1335,
@@ -44,15 +229,14 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em thấy gì trong buổi chiều lạc lõng!<br>Đôi vai gầy không cõng hết cô đơn.<br>Bóng hoàng hôn in dấu chân lạc mất,<br>Cõi cô đơn dài đến cạn ưu phiền.</p>\n",
     "content_text": "Em thấy gì trong buổi chiều lạc lõng!\nĐôi vai gầy không cõng hết cô đơn.\nBóng hoàng hôn in dấu chân lạc mất,\nCõi cô đơn dài đến cạn ưu phiền.",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd119.webp",
+    "featured_image": "images/poem_1335_img_0.jpg",
     "inline_images": [],
     "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd119.webp"
+      "images/poem_1335_img_0.jpg"
     ],
     "local_images": [
-      "images/poem_1335_img_0.webp"
-    ],
-    "code_title": "Vô Đề 119"
+      "images/poem_1335_img_0.jpg"
+    ]
   },
   {
     "id": 1332,
@@ -62,15 +246,14 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Có những nơi gọi là nhà<br>Có những phút giây gọi là hạnh phúc<br>Không thiên đường cũng chẳng là địa ngục<br>Nơi chôn vùi những hạnh phúc từng qua…</p>\n",
     "content_text": "Có những nơi gọi là nhà\nCó những phút giây gọi là hạnh phúc\nKhông thiên đường cũng chẳng là địa ngục\nNơi chôn vùi những hạnh phúc từng qua…",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd118.webp",
+    "featured_image": "images/poem_1332_img_0.jpg",
     "inline_images": [],
     "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd118.webp"
+      "images/poem_1332_img_0.jpg"
     ],
     "local_images": [
-      "images/poem_1332_img_0.webp"
-    ],
-    "code_title": "Vô Đề 118"
+      "images/poem_1332_img_0.jpg"
+    ]
   },
   {
     "id": 1329,
@@ -80,15 +263,14 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nắng rớt bên thềm nhà<br>Một cánh hoa tàn phai<br>Gió reo trên ngọn cỏ<br>Hoàng hôn của ngày mai!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chiều xuống nhẹ như kéo<br>Sau những tháng ngày dài<br>Đầy sương và sỏi đá<br>Ướt đẫm cả tương lai</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sau cùng chỉ còn có<br>Đêm và bóng hình ai<br>In dài trên cát trắng<br>Một nốt trầm ngân dài</p>\n",
     "content_text": "Nắng rớt bên thềm nhà\nMột cánh hoa tàn phai\nGió reo trên ngọn cỏ\nHoàng hôn của ngày mai!\n\n\n\n\n\nChiều xuống nhẹ như kéo\nSau những tháng ngày dài\nĐầy sương và sỏi đá\nƯớt đẫm cả tương lai\n\n\n\n\n\nSau cùng chỉ còn có\nĐêm và bóng hình ai\nIn dài trên cát trắng\nMột nốt trầm ngân dài",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd117.webp",
+    "featured_image": "images/poem_1329_img_0.jpg",
     "inline_images": [],
     "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/08/vd117.webp"
+      "images/poem_1329_img_0.jpg"
     ],
     "local_images": [
-      "images/poem_1329_img_0.webp"
-    ],
-    "code_title": "Vô Đề 117"
+      "images/poem_1329_img_0.jpg"
+    ]
   },
   {
     "id": 1308,
@@ -105,26 +287,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1308_img_0.webp"
-    ],
-    "code_title": "Vô Đề 116"
-  },
-  {
-    "id": 1305,
-    "slug": "vo-de-115",
-    "title": "Em hỡi em, ta còn gì cho nhau",
-    "date": "2025-04-16T11:59:44",
-    "date_formatted": "16 tháng 4, 2025",
-    "content_html": "\n<p class=\"wp-block-paragraph\">Em hỡi em, ta còn gì cho nhau?<br>Là nhung nhớ hay những điều vụn vỡ?<br>Là chút bình yên sau tro tàn còn sót,<br>Hay muộn phiền quẩn quanh miền ký ức!<br>Ta thấy lòng như lửa đốt, rã rời,<br>Giữa đêm lạnh chẳng vòng tay ấm áp.<br>Những giấc mơ trôi dạt tận phương nào,<br>Tuổi thanh xuân – một lần từng ảo vọng.<br>Ám ảnh theo ta đến tận chiều tàn,<br>Khóe mắt cay, lòng chẳng còn bình lặng.<br>Chỉ muốn say, để mãi mãi ngủ quên,<br>Dẫu bước gần, sao vẫn xa trọn kiếp…</p>\n",
-    "content_text": "Em hỡi em, ta còn gì cho nhau?\nLà nhung nhớ hay những điều vụn vỡ?\nLà chút bình yên sau tro tàn còn sót,\nHay muộn phiền quẩn quanh miền ký ức!\nTa thấy lòng như lửa đốt, rã rời,\nGiữa đêm lạnh chẳng vòng tay ấm áp.\nNhững giấc mơ trôi dạt tận phương nào,\nTuổi thanh xuân – một lần từng ảo vọng.\nÁm ảnh theo ta đến tận chiều tàn,\nKhóe mắt cay, lòng chẳng còn bình lặng.\nChỉ muốn say, để mãi mãi ngủ quên,\nDẫu bước gần, sao vẫn xa trọn kiếp…",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/glass-shatter-shattered-surface_9901240.webp",
-    "inline_images": [],
-    "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2025/04/glass-shatter-shattered-surface_9901240.webp"
-    ],
-    "local_images": [
-      "images/poem_1305_img_0.webp"
-    ],
-    "code_title": "Vô Đề 115"
+    ]
   },
   {
     "id": 1302,
@@ -141,8 +304,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1302_img_0.webp"
-    ],
-    "code_title": "Vô Đề 114"
+    ]
   },
   {
     "id": 1298,
@@ -159,8 +321,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1298_img_0.webp"
-    ],
-    "code_title": "Vô Đề 113"
+    ]
   },
   {
     "id": 1294,
@@ -177,8 +338,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1294_img_0.webp"
-    ],
-    "code_title": "Vô Đề 112"
+    ]
   },
   {
     "id": 1291,
@@ -195,8 +355,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1291_img_0.webp"
-    ],
-    "code_title": "Vô Đề 111"
+    ]
   },
   {
     "id": 1248,
@@ -213,8 +372,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1248_img_0.webp"
-    ],
-    "code_title": "Vô Đề 110"
+    ]
   },
   {
     "id": 1245,
@@ -231,8 +389,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1245_img_0.webp"
-    ],
-    "code_title": "Vô Đề 109"
+    ]
   },
   {
     "id": 1241,
@@ -249,8 +406,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1241_img_0.webp"
-    ],
-    "code_title": "Vô Đề 108"
+    ]
   },
   {
     "id": 1231,
@@ -267,8 +423,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1231_img_0.webp"
-    ],
-    "code_title": "Vô Đề 107"
+    ]
   },
   {
     "id": 1228,
@@ -285,8 +440,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1228_img_0.webp"
-    ],
-    "code_title": "Vô Đề 106"
+    ]
   },
   {
     "id": 1225,
@@ -303,8 +457,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1225_img_0.webp"
-    ],
-    "code_title": "Vô Đề 105"
+    ]
   },
   {
     "id": 1222,
@@ -321,8 +474,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1222_img_0.webp"
-    ],
-    "code_title": "Vô Đề 104"
+    ]
   },
   {
     "id": 1219,
@@ -339,8 +491,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1219_img_0.webp"
-    ],
-    "code_title": "Vô Đề 103"
+    ]
   },
   {
     "id": 1216,
@@ -357,8 +508,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1216_img_0.png"
-    ],
-    "code_title": "Vô Đề 102"
+    ]
   },
   {
     "id": 1213,
@@ -375,8 +525,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1213_img_0.webp"
-    ],
-    "code_title": "Vô Đề 101"
+    ]
   },
   {
     "id": 1194,
@@ -393,8 +542,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1194_img_0.webp"
-    ],
-    "code_title": "Vô Đề 100"
+    ]
   },
   {
     "id": 1191,
@@ -411,8 +559,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1191_img_0.webp"
-    ],
-    "code_title": "Vô Đề 99"
+    ]
   },
   {
     "id": 1188,
@@ -429,8 +576,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1188_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 98"
+    ]
   },
   {
     "id": 1184,
@@ -447,8 +593,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1184_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 97"
+    ]
   },
   {
     "id": 1177,
@@ -465,8 +610,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1177_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 96"
+    ]
   },
   {
     "id": 1174,
@@ -483,8 +627,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1174_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 95"
+    ]
   },
   {
     "id": 1171,
@@ -501,8 +644,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1171_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 94"
+    ]
   },
   {
     "id": 1168,
@@ -519,8 +661,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1168_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 93"
+    ]
   },
   {
     "id": 1165,
@@ -537,8 +678,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1165_img_0.png"
-    ],
-    "code_title": "Vô Đề 92"
+    ]
   },
   {
     "id": 1162,
@@ -555,8 +695,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1162_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 91"
+    ]
   },
   {
     "id": 1159,
@@ -573,8 +712,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1159_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 90"
+    ]
   },
   {
     "id": 1156,
@@ -591,8 +729,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1156_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 89"
+    ]
   },
   {
     "id": 1154,
@@ -609,8 +746,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1154_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 88"
+    ]
   },
   {
     "id": 1150,
@@ -627,8 +763,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1150_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 87"
+    ]
   },
   {
     "id": 1140,
@@ -645,8 +780,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1140_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 86"
+    ]
   },
   {
     "id": 1137,
@@ -663,8 +797,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1137_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 85"
+    ]
   },
   {
     "id": 1132,
@@ -681,8 +814,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1132_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 84"
+    ]
   },
   {
     "id": 1121,
@@ -699,8 +831,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1121_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 83"
+    ]
   },
   {
     "id": 1101,
@@ -717,8 +848,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1101_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 82"
+    ]
   },
   {
     "id": 1088,
@@ -735,8 +865,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1088_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 81 (Mây trắng qua đồi)"
+    ]
   },
   {
     "id": 1086,
@@ -753,8 +882,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1086_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 80"
+    ]
   },
   {
     "id": 1083,
@@ -771,8 +899,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1083_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 79"
+    ]
   },
   {
     "id": 1055,
@@ -789,8 +916,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1055_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 78"
+    ]
   },
   {
     "id": 1049,
@@ -807,8 +933,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1049_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 77"
+    ]
   },
   {
     "id": 1027,
@@ -825,8 +950,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1027_img_0.png"
-    ],
-    "code_title": "Vô Đề 76"
+    ]
   },
   {
     "id": 887,
@@ -843,8 +967,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_887_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 75"
+    ]
   },
   {
     "id": 885,
@@ -861,8 +984,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_885_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 74"
+    ]
   },
   {
     "id": 880,
@@ -879,8 +1001,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_880_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 73"
+    ]
   },
   {
     "id": 809,
@@ -897,8 +1018,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_809_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 72"
+    ]
   },
   {
     "id": 783,
@@ -915,8 +1035,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_783_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 71"
+    ]
   },
   {
     "id": 780,
@@ -933,8 +1052,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_780_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 70"
+    ]
   },
   {
     "id": 773,
@@ -951,8 +1069,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_773_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 69"
+    ]
   },
   {
     "id": 765,
@@ -986,8 +1103,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_726_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 68"
+    ]
   },
   {
     "id": 700,
@@ -1004,8 +1120,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_700_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 67"
+    ]
   },
   {
     "id": 697,
@@ -1022,8 +1137,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_697_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 66"
+    ]
   },
   {
     "id": 694,
@@ -1040,8 +1154,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_694_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 65 (Yên Tử)"
+    ]
   },
   {
     "id": 691,
@@ -1058,8 +1171,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_691_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 64"
+    ]
   },
   {
     "id": 688,
@@ -1076,8 +1188,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_688_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 63"
+    ]
   },
   {
     "id": 685,
@@ -1094,8 +1205,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_685_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 62"
+    ]
   },
   {
     "id": 682,
@@ -1112,8 +1222,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_682_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 61"
+    ]
   },
   {
     "id": 679,
@@ -1130,8 +1239,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_679_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 60"
+    ]
   },
   {
     "id": 676,
@@ -1148,8 +1256,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_676_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 59"
+    ]
   },
   {
     "id": 673,
@@ -1166,8 +1273,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_673_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 58"
+    ]
   },
   {
     "id": 513,
@@ -1184,8 +1290,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_513_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 57"
+    ]
   },
   {
     "id": 505,
@@ -1202,8 +1307,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_505_img_0.gif"
-    ],
-    "code_title": "Vô Đề 56"
+    ]
   },
   {
     "id": 484,
@@ -1220,8 +1324,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_484_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 55"
+    ]
   },
   {
     "id": 419,
@@ -1255,8 +1358,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_415_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 54"
+    ]
   },
   {
     "id": 406,
@@ -1273,8 +1375,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_406_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 53"
+    ]
   },
   {
     "id": 403,
@@ -1291,8 +1392,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_403_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 52"
+    ]
   },
   {
     "id": 396,
@@ -1309,8 +1409,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_396_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 51"
+    ]
   },
   {
     "id": 389,
@@ -1318,8 +1417,8 @@ window.POEMS_DATA = [
     "title": "Đừng tưởng em không còn đây nữa",
     "date": "2016-07-30T08:27:32",
     "date_formatted": "30 tháng 7, 2016",
-    "content_html": "<p>​Đừng tưởng em không còn đây nữa<br />\nThì anh buồn anh khóc với cô đơn<br />\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh<br />\nVẫn vô tư như khi có còn em!</p>\n<p>Bởi em xa nhưng ta là tri kỷ<br />\nKhông thấy nhau nhưng vẫn tỉ yêu thương<br />\nEm là gió, là khói sương tan biến<br />\nAnh vô tình như nước biển chờ mong</p>\n<p>Sương kia rớt xuống dòng sông<br />\nTrôi ra biển lớn anh mong mỏi chờ<br />\nBơ vơ một chút hững hờ<br />\nMong chờ một chút mong chờ thế thôi</p>\n",
-    "content_text": "​Đừng tưởng em không còn đây nữa\n\nThì anh buồn anh khóc với cô đơn\n\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh\n\nVẫn vô tư như khi có còn em!\n\n\nBởi em xa nhưng ta là tri kỷ\n\nKhông thấy nhau nhưng vẫn tỉ yêu thương\n\nEm là gió, là khói sương tan biến\n\nAnh vô tình như nước biển chờ mong\n\n\nSương kia rớt xuống dòng sông\n\nTrôi ra biển lớn anh mong mỏi chờ\n\nBơ vơ một chút hững hờ\n\nMong chờ một chút mong chờ thế thôi",
+    "content_html": "<p>Đừng tưởng em không còn đây nữa<br />\nThì anh buồn anh khóc với cô đơn<br />\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh<br />\nVẫn vô tư như khi có còn em!</p>\n<p>Bởi em xa nhưng ta là tri kỷ<br />\nKhông thấy nhau nhưng vẫn tỉ yêu thương<br />\nEm là gió, là khói sương tan biến<br />\nAnh vô tình như nước biển chờ mong</p>\n<p>Sương kia rớt xuống dòng sông<br />\nTrôi ra biển lớn anh mong mỏi chờ<br />\nBơ vơ một chút hững hờ<br />\nMong chờ một chút mong chờ thế thôi</p>\n",
+    "content_text": "Đừng tưởng em không còn đây nữa\n\nThì anh buồn anh khóc với cô đơn\n\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh\n\nVẫn vô tư như khi có còn em!\n\n\nBởi em xa nhưng ta là tri kỷ\n\nKhông thấy nhau nhưng vẫn tỉ yêu thương\n\nEm là gió, là khói sương tan biến\n\nAnh vô tình như nước biển chờ mong\n\n\nSương kia rớt xuống dòng sông\n\nTrôi ra biển lớn anh mong mỏi chờ\n\nBơ vơ một chút hững hờ\n\nMong chờ một chút mong chờ thế thôi",
     "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/hay-chung-minh-chia-xa-1-1024x536.png",
     "inline_images": [],
     "all_images": [
@@ -1327,8 +1426,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_389_img_0.png"
-    ],
-    "code_title": "Vô Đề 50"
+    ]
   },
   {
     "id": 385,
@@ -1345,8 +1443,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_385_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 49"
+    ]
   },
   {
     "id": 382,
@@ -1363,8 +1460,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_382_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 48"
+    ]
   },
   {
     "id": 375,
@@ -1398,8 +1494,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_367_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 47"
+    ]
   },
   {
     "id": 363,
@@ -1416,8 +1511,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_363_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 46"
+    ]
   },
   {
     "id": 346,
@@ -1434,8 +1528,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_346_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 45"
+    ]
   },
   {
     "id": 342,
@@ -1452,8 +1545,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_342_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 44"
+    ]
   },
   {
     "id": 337,
@@ -1470,8 +1562,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_337_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 43"
+    ]
   },
   {
     "id": 333,
@@ -1488,8 +1579,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_333_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 42"
+    ]
   },
   {
     "id": 331,
@@ -1506,8 +1596,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_331_img_0.png"
-    ],
-    "code_title": "Vô Đề 41"
+    ]
   },
   {
     "id": 297,
@@ -1524,8 +1613,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_297_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 40 ( Lạc Lõng )"
+    ]
   },
   {
     "id": 295,
@@ -1542,8 +1630,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_295_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 39 ( tặng Nhi & chị Phượng bài thơ con cóc)"
+    ]
   },
   {
     "id": 160,
@@ -1560,8 +1647,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_160_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 38"
+    ]
   },
   {
     "id": 122,
@@ -1578,8 +1664,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_122_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 37"
+    ]
   },
   {
     "id": 119,
@@ -1596,8 +1681,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_119_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 36"
+    ]
   },
   {
     "id": 116,
@@ -1614,8 +1698,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_116_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 35"
+    ]
   },
   {
     "id": 113,
@@ -1632,8 +1715,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_113_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 34"
+    ]
   },
   {
     "id": 110,
@@ -1650,8 +1732,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_110_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 33"
+    ]
   },
   {
     "id": 107,
@@ -1668,8 +1749,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_107_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 32"
+    ]
   },
   {
     "id": 104,
@@ -1686,8 +1766,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_104_img_0.png"
-    ],
-    "code_title": "Vô Đề 31"
+    ]
   },
   {
     "id": 101,
@@ -1704,8 +1783,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_101_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 30"
+    ]
   },
   {
     "id": 98,
@@ -1722,8 +1800,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_98_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 29"
+    ]
   },
   {
     "id": 95,
@@ -1740,8 +1817,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_95_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 28"
+    ]
   },
   {
     "id": 92,
@@ -1758,8 +1834,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_92_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 27"
+    ]
   },
   {
     "id": 89,
@@ -1776,8 +1851,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_89_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 26"
+    ]
   },
   {
     "id": 86,
@@ -1794,8 +1868,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_86_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 25"
+    ]
   },
   {
     "id": 83,
@@ -1812,8 +1885,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_83_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 24"
+    ]
   },
   {
     "id": 80,
@@ -1830,8 +1902,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_80_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 23"
+    ]
   },
   {
     "id": 77,
@@ -1848,8 +1919,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_77_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 22"
+    ]
   },
   {
     "id": 74,
@@ -1866,8 +1936,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_74_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 21"
+    ]
   },
   {
     "id": 71,
@@ -1884,8 +1953,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_71_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 20"
+    ]
   },
   {
     "id": 68,
@@ -1902,13 +1970,12 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_68_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 19"
+    ]
   },
   {
     "id": 65,
     "slug": "vo-de-18",
-    "title": "Em&#8230;em là ai mà quay vội bước đi",
+    "title": "Em...em là ai mà quay vội bước đi",
     "date": "2015-01-15T08:57:04",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Em&#8230;em là ai mà quay vội bước đi<br />\nĐể mình anh với vô vàn cảm xúc<br />\nKhi buồn vương có lúc lại sầu bi<br />\nVì đã gặp khi chẳng hề quen biết!<br />\nMà lòng anh cứ luyến tiếc mãi người đi<br />\nTrời có sai khi cho ta gặp mặt<br />\nĐày đọa thân anh với nỗi nhớ vô vàn</p>\n",
@@ -1920,8 +1987,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_65_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 18"
+    ]
   },
   {
     "id": 62,
@@ -1938,8 +2004,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_62_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 17"
+    ]
   },
   {
     "id": 59,
@@ -1956,8 +2021,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_59_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 16"
+    ]
   },
   {
     "id": 56,
@@ -1974,8 +2038,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_56_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 15"
+    ]
   },
   {
     "id": 53,
@@ -1992,8 +2055,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_53_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 14"
+    ]
   },
   {
     "id": 50,
@@ -2008,10 +2070,7 @@ window.POEMS_DATA = [
     "all_images": [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/0_00Love.jpg"
     ],
-    "local_images": [
-      "images/poem_50_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 13"
+    "local_images": []
   },
   {
     "id": 47,
@@ -2028,8 +2087,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_47_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 12"
+    ]
   },
   {
     "id": 44,
@@ -2046,8 +2104,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_44_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 11"
+    ]
   },
   {
     "id": 41,
@@ -2064,8 +2121,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_41_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 10"
+    ]
   },
   {
     "id": 38,
@@ -2082,8 +2138,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_38_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 9"
+    ]
   },
   {
     "id": 35,
@@ -2100,8 +2155,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_35_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 8"
+    ]
   },
   {
     "id": 32,
@@ -2118,8 +2172,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_32_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 7"
+    ]
   },
   {
     "id": 29,
@@ -2136,8 +2189,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_29_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 6"
+    ]
   },
   {
     "id": 26,
@@ -2154,8 +2206,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_26_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 5"
+    ]
   },
   {
     "id": 23,
@@ -2172,8 +2223,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_23_img_0.jpeg"
-    ],
-    "code_title": "Vô Đề 4"
+    ]
   },
   {
     "id": 20,
@@ -2190,8 +2240,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_20_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 3"
+    ]
   },
   {
     "id": 17,
@@ -2208,8 +2257,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_17_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 2"
+    ]
   },
   {
     "id": 275,
@@ -2226,7 +2274,6 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_275_img_0.jpg"
-    ],
-    "code_title": "Vô Đề 1"
+    ]
   }
 ];

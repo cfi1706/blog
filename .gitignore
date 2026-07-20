@@ -6,3 +6,4 @@ config
 Thumbs.db
 *.swp
 node_modules/
+.idea/
