@@ -1,13 +1,64 @@
 // Auto-generated poem database
 window.POEMS_DATA = [
   {
+    "id": 2010,
+    "slug": "muoi-nam-chua-lan-gap",
+    "title": "Mười Năm Chưa Lần Gặp",
+    "date": "2026-07-20T12:43:41",
+    "date_formatted": "20 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Mười năm chưa lần gặp<br>Sao ta vẫn đợi chờ<br>Một bóng hình đã lỡ<br>Chưa gặp lại trong mơ<br><br>Mọi thứ đã phai mờ<br>Chỉ in hằn lên cát<br>Dấu chân kẻ tình si<br>Từng bước đi từng đi<br><br>Luẩn quẩn trong tâm trí<br>Kẻ si chẳng bóng hình<br>Nhân gian thật vô tình<br>Đến hay đi chẳng tỏ...</p>",
+    "content_text": "Mười năm chưa lần gặp\nSao ta vẫn đợi chờ\nMột bóng hình đã lỡ\nChưa gặp lại trong mơ\n\nMọi thứ đã phai mờ\nChỉ in hằn lên cát\nDấu chân kẻ tình si\nTừng bước đi từng đi\n\nLuẩn quẩn trong tâm trí\nKẻ si chẳng bóng hình\nNhân gian thật vô tình\nĐến hay đi chẳng tỏ...",
+    "featured_image": "images/poem_2010_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2010_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2010_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2009,
+    "slug": "yeu-em-toc-da-bac-roi",
+    "title": "Yêu Em Tóc Đã Bạc Rồi",
+    "date": "2026-07-20T12:43:00",
+    "date_formatted": "20 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Yêu em tóc đã bạc rồi<br>Trái tim không biết nói lời mộng mơ<br>Ngày ngày chỉ biết trông chờ<br>Trăng lên gửi áng vầng thơ tới nàng<br><br>Bóng trăng in khuyết gối nàng<br>Gió xuân vội khẽ thì thầm bên tai<br>Hai ta xa tận góc trời<br>Nhờ lời của gió gởi lời yêu thương<br><br>Dặm trường dạo bước nhớ thương<br>Xa xôi muôn dặm còn thương nhớ về</p>",
+    "content_text": "Yêu em tóc đã bạc rồi\nTrái tim không biết nói lời mộng mơ\nNgày ngày chỉ biết trông chờ\nTrăng lên gửi áng vầng thơ tới nàng\n\nBóng trăng in khuyết gối nàng\nGió xuân vội khẽ thì thầm bên tai\nHai ta xa tận góc trời\nNhờ lời của gió gởi lời yêu thương\n\nDặm trường dạo bước nhớ thương\nXa xôi muôn dặm còn thương nhớ về",
+    "featured_image": "images/poem_2009_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2009_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2009_img_0.jpg"
+    ]
+  },
+  {
+    "id": 2008,
+    "slug": "toi-di-giua-chon-nhan-gian",
+    "title": "Tôi Đi Giữa Chốn Nhân Gian",
+    "date": "2026-07-20T12:36:00",
+    "date_formatted": "20 tháng 7, 2026",
+    "content_html": "<p class=\"wp-block-paragraph\">Tôi đi giữa chốn nhân gian<br>Muốn mang gửi lại bên hàng dương xanh<br>Oanh vàng cất tiếng líu lo<br>Mộng vàng chưa tỏ, nắng vàng vội phai<br><br>Hỡi ai gieo chút nhớ thương<br>Còn vương sợi nhớ bên hàng thông reo<br>Trăng treo trong gió dỗi hờn<br>Gieo chi một nửa vấn vương tơ lòng<br><br>Hỏi rằng người có nhớ không<br>Ánh hồng rẽ nước chia đôi<br>Nửa mang thương nhớ trôi theo ngược dòng<br>Bóng hồng tựa nhánh liễu đào<br>Gieo tương tư ấy vào trong cõi trần</p>",
+    "content_text": "Tôi đi giữa chốn nhân gian\nMuốn mang gửi lại bên hàng dương xanh\nOanh vàng cất tiếng líu lo\nMộng vàng chưa tỏ, nắng vàng vội phai\n\nHỡi ai gieo chút nhớ thương\nCòn vương sợi nhớ bên hàng thông reo\nTrăng treo trong gió dỗi hờn\nGieo chi một nửa vấn vương tơ lòng\n\nHỏi rằng người có nhớ không\nÁnh hồng rẽ nước chia đôi\nNửa mang thương nhớ trôi theo ngược dòng\nBóng hồng tựa nhánh liễu đào\nGieo tương tư ấy vào trong cõi trần",
+    "featured_image": "images/poem_2008_img_0.jpg",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2008_img_0.jpg"
+    ],
+    "local_images": [
+      "images/poem_2008_img_0.jpg"
+    ]
+  },
+  {
     "id": 2007,
     "slug": "lung-lo-giua-the-gian-nay",
     "title": "Lững Lờ Giữa Thế Gian Này",
     "date": "2026-07-18T20:52:30",
     "date_formatted": "18 tháng 7, 2026",
-    "content_html": "<p class=\"wp-block-paragraph\">Lững lờ giữa thế gian này<br>Gửi trao kỷ niệm bên hàng dương liễu<br>Tiếng chim oanh vang đượm điệu<br>Giấc mơ vàng úa, nắng phai mịt mờ<br><br>Ai đây rải nhớ thương nhẹ<br>Sợi nhớ vương vấn, thông reo bên trời<br>Trăng treo, gió bấc se lời<br>Nửa lòng vấn vương, tơ đời rối bời<br><br>Người ơi, có nhớ chăng không?<br>Dòng sông ánh hồng, chia đôi mộng mơ<br>Thương nhớ theo dòng nước trôi<br>Bóng hồng liễu đào, tình si mênh mông</p>",
-    "content_text": "Lững lờ giữa thế gian này\nGửi trao kỷ niệm bên hàng dương liễu\nTiếng chim oanh vang đượm điệu\nGiấc mơ vàng úa, nắng phai mịt mờ\n\nAi đây rải nhớ thương nhẹ\nSợi nhớ vương vấn, thông reo bên trời\nTrăng treo, gió bấc se lời\nNửa lòng vấn vương, tơ đời rối bời\n\nNgười ơi, có nhớ chăng không?\nDòng sông ánh hồng, chia đôi mộng mơ\nThương nhớ theo dòng nước trôi\nBóng hồng liễu đào, tình si mênh mông",
+    "content_html": "<p class=\"wp-block-paragraph\">Lững lờ giữa chốn gian trần,<br>Gửi trao kỷ niệm bên phần dương liễu.<br>Tiếng chim vang đượm khúc chiều,<br>Giấc mơ vàng úa, nắng xiêu mịt mờ.<br><br>Ai gieo chi sợi thương nhớ,<br>Thông reo gió bấc, trăng treo bên trời.<br>Rối bời một dải tơ đời,<br>Nửa lòng vương vấn, nửa lời thở than.<br><br>Người ơi, có nhớ chăng ngàn?<br>Dòng sông ánh hồng, đôi hàng mộng mơ.<br>Thương nhớ trôi bến bờ xa,<br>Bóng hồng đào liễu, mênh mông tình si.</p>",
+    "content_text": "Lững lờ giữa chốn gian trần,\nGửi trao kỷ niệm bên phần dương liễu.\nTiếng chim vang đượm khúc chiều,\nGiấc mơ vàng úa, nắng xiêu mịt mờ.\n\nAi gieo chi sợi thương nhớ,\nThông reo gió bấc, trăng treo bên trời.\nRối bời một dải tơ đời,\nNửa lòng vương vấn, nửa lời thở than.\n\nNgười ơi, có nhớ chăng ngàn?\nDòng sông ánh hồng, đôi hàng mộng mơ.\nThương nhớ trôi bến bờ xa,\nBóng hồng đào liễu, mênh mông tình si.",
     "featured_image": "images/poem_2007_img_0.jpg",
     "inline_images": [],
     "all_images": [
