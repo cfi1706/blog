@@ -33,28 +33,28 @@
    THEME PALETTES
    -------------------------------------------------------------------------- */
 
-/* 1. Midnight Glow Theme (Default Dark Luxury) */
+/* 1. Midnight Glow Theme (Default Dark Navy Blue) */
 body.theme-midnight {
-    --bg-page: #0b0f19;
-    --bg-surface: rgba(18, 24, 38, 0.85);
-    --bg-surface-solid: #121826;
-    --bg-card: rgba(23, 31, 48, 0.85);
-    --bg-hover: rgba(255, 255, 255, 0.1);
+    --bg-page: #0a1124;
+    --bg-surface: rgba(15, 25, 50, 0.88);
+    --bg-surface-solid: #0f1932;
+    --bg-card: rgba(19, 32, 62, 0.85);
+    --bg-hover: rgba(255, 255, 255, 0.12);
     --border-color: rgba(255, 255, 255, 0.14);
-    --border-highlight: rgba(99, 102, 241, 0.5);
+    --border-highlight: rgba(56, 189, 248, 0.5);
     
     --text-primary: #ffffff;
     --text-secondary: #e2e8f0;
-    --text-muted: #a1b0cb;
-    --text-accent: #a5b4fc;
+    --text-muted: #94a3b8;
+    --text-accent: #38bdf8;
     
-    --accent-primary: #6366f1;
-    --accent-gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f43f5e 100%);
-    --accent-glow: rgba(99, 102, 241, 0.3);
+    --accent-primary: #2563eb;
+    --accent-gradient: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #06b6d4 100%);
+    --accent-glow: rgba(37, 99, 235, 0.35);
     
-    --orb-1: rgba(99, 102, 241, 0.15);
-    --orb-2: rgba(168, 85, 247, 0.12);
-    --orb-3: rgba(244, 63, 94, 0.1);
+    --orb-1: rgba(29, 78, 216, 0.25);
+    --orb-2: rgba(59, 130, 246, 0.18);
+    --orb-3: rgba(6, 182, 212, 0.14);
 }
 
 /* 2. Charcoal Dark Theme */
@@ -473,7 +473,7 @@ a:hover {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.theme-dot.midnight { background: #6366f1; }
+.theme-dot.midnight { background: #2563eb; }
 .theme-dot.dark { background: #f59e0b; }
 .theme-dot.paper { background: #b05010; }
 .theme-dot.nordic { background: #06b6d4; }
@@ -3065,7 +3065,7 @@ body.zen-mode-active #poemModal .poem-body-text {
     --c-recent: #0ea5e9;   /* history — sky */
     --c-ambient: #14b8a6;  /* ambient sound — teal */
     --c-theme: #ec4899;    /* theme palette — pink */
-    --c-zen: #6366f1;      /* focus mode — indigo */
+    --c-zen: #2563eb;      /* focus mode — navy blue */
     --c-quote: #d946ef;    /* quote card — fuchsia */
     --c-fav: #f43f5e;      /* favorite — rose */
     --c-copy: #10b981;     /* copy — emerald */
