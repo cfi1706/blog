@@ -2064,12 +2064,14 @@
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Con tim là tim của anh<br />\nMà sao nó mãi chạy quanh chốn nào<br />\nGặp em thì nó hồng hào<br />\nKhông em như nó rơi vào hư không</p>\n",
     "content_text": "Con tim là tim của anh\n\nMà sao nó mãi chạy quanh chốn nào\n\nGặp em thì nó hồng hào\n\nKhông em như nó rơi vào hư không",
-    "featured_image": "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/0_00Love.jpg",
+    "featured_image": "images/poem_50_img_0.jpg",
     "inline_images": [],
     "all_images": [
-      "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/0_00Love.jpg"
+      "images/poem_50_img_0.jpg"
     ],
-    "local_images": []
+    "local_images": [
+      "images/poem_50_img_0.jpg"
+    ]
   },
   {
     "id": 47,
