@@ -5789,6 +5789,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initSeasonMorph();
 
+        initPinnedPoem();
+        initPoetryBadges();
+
         initSleepSanctuary();
 
         initSystemSettings();

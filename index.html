@@ -83,51 +83,77 @@
                     <button id="toolsToggleBtn" class="btn btn-outline hdr-dd-btn" aria-expanded="false" title="Công cụ & Tính năng">
                         <i class="ri-apps-2-line"></i> <span class="hdr-dd-label">Công cụ</span> <i class="ri-arrow-down-s-line dd-caret"></i>
                     </button>
-                    <div id="toolsMenu" class="hdr-menu" hidden>
-                        <button id="vietnamFlagBtn" onclick="window.testVietnamFlag()" class="hdr-menu-item"><i class="ri-flag-fill" style="color: #da251d;"></i> Hiệu ứng Cờ Việt Nam phất phới</button>
-                        <button id="verticalReelBtn" class="hdr-menu-item"><i class="ri-smartphone-line"></i> Đọc thơ Vertical Reel Story</button>
-                        <button id="cursorTrailBtn" class="hdr-menu-item"><i class="ri-magic-line"></i> Con trỏ bút lông & bụi sao</button>
-                        <button id="museumLightboxBtn" class="hdr-menu-item"><i class="ri-gallery-upload-line"></i> Triển lãm tranh bảo tàng 4K</button>
-                        <button id="seasonMorphBtn" class="hdr-menu-item"><i class="ri-sun-cloudy-line"></i> Đổi giao diện 4 Mùa (Season)</button>
-                        <button id="parallaxReaderBtn" class="hdr-menu-item"><i class="ri-ruler-2-line"></i> Thưởng thức 3D Parallax Depth</button>
-                        <button id="glassStudioBtn" class="hdr-menu-item"><i class="ri-drop-line"></i> Studio thẻ thơ Glassmorphism</button>
-                        <button id="oledNightBtn" class="hdr-menu-item"><i class="ri-moon-line"></i> Đọc đêm OLED True-Black Amber</button>
-                        <button id="multiTrackMixerBtn" class="hdr-menu-item"><i class="ri-equalizer-line"></i> Mixer bàn gạt âm thanh real-time</button>
-                        <button id="stargazingBtn" class="hdr-menu-item"><i class="ri-star-smile-line"></i> Thi ca vũ trụ & đêm sao Ngân Hà 3D</button>
-                        <button id="folkInstrumentsBtn" class="hdr-menu-item"><i class="ri-music-2-line"></i> Nhạc cụ dân tộc tương tác</button>
-                        <button id="fireplaceBtn" class="hdr-menu-item"><i class="ri-fire-line"></i> Góc đọc thơ bên bếp lửa mùa đông</button>
-                        <button id="hoiAnLanternBtn" class="hdr-menu-item"><i class="ri-lightbulb-line"></i> Thi đèn lồng Hội An & thả hoa đăng</button>
-                        <button id="zodiacPoetryBtn" class="hdr-menu-item"><i class="ri-sparkles-line"></i> Cung hoàng đạo & chiêm tinh thơ</button>
-                        <button id="calligraphyBtn" class="hdr-menu-item"><i class="ri-brush-line"></i> Thi phòng thư pháp Việt 3D</button>
-                        <button id="audioVisualizerBtn" class="hdr-menu-item"><i class="ri-pulse-line"></i> Thi ca vũ điệu ánh sáng 3D</button>
-                        <button id="bilingualPoetryBtn" class="hdr-menu-item"><i class="ri-translate-2"></i> Thơ song ngữ Anh - Việt</button>
-                        <button id="teaCeremonyBtn" class="hdr-menu-item"><i class="ri-cup-line"></i> Trà đạo thi ca quán trà cổ</button>
-                        <button id="mindfulnessBtn" class="hdr-menu-item"><i class="ri-heart-pulse-line"></i> Thi thiền định tâm (Zen Breathing)</button>
-                        <button id="waxSealCardBtn" class="hdr-menu-item"><i class="ri-mail-open-line"></i> Thiệp thư 3D niêm phong sáp</button>
-                        <button id="authorTimelineBtn" class="hdr-menu-item"><i class="ri-route-line"></i> Dòng thời gian tác giả (Timeline)</button>
-                        <button id="artGalleryBtn" class="hdr-menu-item"><i class="ri-gallery-line"></i> Triển lãm tranh thơ thủy mặc</button>
-                        <button id="rhymeStudioBtn" class="hdr-menu-item"><i class="ri-quill-pen-line"></i> Studio sáng tác & hiệp vần</button>
-                        <button id="flipbookBtn" class="hdr-menu-item"><i class="ri-book-3-line"></i> Thi tập bìa da 3D Flipbook</button>
-                        <button id="poetryMapBtn" class="hdr-menu-item"><i class="ri-map-pin-2-line"></i> Bản đồ địa danh thơ ca</button>
-                        <button id="weatherPoetryBtn" class="hdr-menu-item"><i class="ri-cloud-windy-line"></i> Thơ theo thời tiết Real-time</button>
-                        <button id="cmdPaletteBtn" class="hdr-menu-item"><i class="ri-command-line"></i> Bảng lệnh nhanh <kbd class="search-kbd hdr-kbd">Ctrl K</kbd></button>
-                        <button id="randomPoemBtn" class="hdr-menu-item"><i class="ri-shuffle-line"></i> Thơ ngẫu nhiên</button>
-                        <button id="dailyCalendarBtn" class="hdr-menu-item"><i class="ri-calendar-event-line"></i> Lịch thơ 365 ngày</button>
-                        <button id="recentPoemsBtn" class="hdr-menu-item"><i class="ri-history-line"></i> Bài thơ vừa đọc</button>
-                        <button id="cardSwiperBtn" class="hdr-menu-item"><i class="ri-stack-line"></i> Khám phá thẻ bài</button>
-                        <button id="poetryQuizBtn" class="hdr-menu-item"><i class="ri-gamepad-line"></i> Game trí nhớ thơ</button>
-                        <button id="emotionStatsBtn" class="hdr-menu-item"><i class="ri-pie-chart-2-line"></i> Thống kê cảm xúc</button>
-                        <button id="timeCapsuleBtn" class="hdr-menu-item"><i class="ri-time-line"></i> Hộp thư tương lai</button>
-                        <button id="exportPdfBtn" class="hdr-menu-item"><i class="ri-file-pdf-2-line"></i> Xuất PDF / E-Book</button>
-                        <button id="poetryRadioBtn" class="hdr-menu-item"><i class="ri-radio-line"></i> Đài thơ đêm (Radio)</button>
-                        <button id="poetryOracleBtn" class="hdr-menu-item"><i class="ri-magic-line"></i> Quẻ thơ đầu ngày (Oracle)</button>
-                        <button id="zenBambooBtn" class="hdr-menu-item"><i class="ri-plant-line"></i> Trà đạo sáo trúc (Zen)</button>
-                        <button id="aiPoetryStudioBtn" class="hdr-menu-item"><i class="ri-edit-2-line"></i> Thi phòng sáng tạo AI</button>
-                        <button id="poetryBadgesBtn" class="hdr-menu-item"><i class="ri-award-line"></i> Huy chương đọc thơ</button>
-                        <button id="ambientMixerBtn" class="hdr-menu-item"><i class="ri-sound-module-line"></i> Trộn nhạc Ambient Mixer</button>
-                        <button id="authorLetterBtn" class="hdr-menu-item"><i class="ri-mail-send-line"></i> Hòm thư gửi Tác Giả</button>
-                        <button id="sleepSanctuaryBtn" class="hdr-menu-item"><i class="ri-moon-clear-line"></i> Đài thơ thiền ngủ ngon</button>
-                        <button id="headerBotBtn" class="hdr-menu-item"><i class="ri-robot-2-line"></i> Trợ lý thơ AI</button>
+                    <div id="toolsMenu" class="hdr-menu tools-grouped-menu" hidden>
+                        <!-- Group 1: 🌌 TRÌNH DIỄN & HIỆU ỨNG 3D -->
+                        <div class="tools-group">
+                            <div class="tools-group-title"><i class="ri-3d-line"></i> Trình Diễn & Hiệu Ứng 3D</div>
+                            <button id="vietnamFlagBtn" onclick="window.testVietnamFlag()" class="hdr-menu-item"><i class="ri-flag-fill" style="color: #da251d;"></i> Cờ Việt Nam phất phới</button>
+                            <button id="verticalReelBtn" class="hdr-menu-item"><i class="ri-smartphone-line"></i> Vertical Reel Story</button>
+                            <button id="parallaxReaderBtn" class="hdr-menu-item"><i class="ri-ruler-2-line"></i> 3D Parallax Depth</button>
+                            <button id="stargazingBtn" class="hdr-menu-item"><i class="ri-star-smile-line"></i> Vũ trụ đêm sao 3D</button>
+                            <button id="hoiAnLanternBtn" class="hdr-menu-item"><i class="ri-lightbulb-line"></i> Đèn lồng Hội An 3D</button>
+                            <button id="calligraphyBtn" class="hdr-menu-item"><i class="ri-brush-line"></i> Thư pháp Việt 3D</button>
+                            <button id="audioVisualizerBtn" class="hdr-menu-item"><i class="ri-pulse-line"></i> Vũ điệu ánh sáng 3D</button>
+                            <button id="flipbookBtn" class="hdr-menu-item"><i class="ri-book-3-line"></i> Thi tập bìa da 3D</button>
+                            <button id="cursorTrailBtn" class="hdr-menu-item"><i class="ri-magic-line"></i> Con trỏ bút lông sao</button>
+                            <button id="museumLightboxBtn" class="hdr-menu-item"><i class="ri-gallery-upload-line"></i> Tranh bảo tàng 4K</button>
+                            <button id="seasonMorphBtn" class="hdr-menu-item"><i class="ri-sun-cloudy-line"></i> Đổi giao diện 4 Mùa</button>
+                        </div>
+
+                        <!-- Group 2: 🌿 THIỀN ĐỊNH & CHỮA LÀNH -->
+                        <div class="tools-group">
+                            <div class="tools-group-title"><i class="ri-heart-pulse-line"></i> Thiền Định & Chữa Lành</div>
+                            <button id="mindfulnessBtn" class="hdr-menu-item"><i class="ri-heart-pulse-line"></i> Thiền định tâm (Zen)</button>
+                            <button id="fireplaceBtn" class="hdr-menu-item"><i class="ri-fire-line"></i> Góc đọc bên bếp lửa</button>
+                            <button id="teaCeremonyBtn" class="hdr-menu-item"><i class="ri-cup-line"></i> Trà đạo thi ca quán trà</button>
+                            <button id="sleepSanctuaryBtn" class="hdr-menu-item"><i class="ri-moon-clear-line"></i> Đài thơ thiền ngủ ngon</button>
+                            <button id="oledNightBtn" class="hdr-menu-item"><i class="ri-moon-line"></i> Đọc đêm OLED Amber</button>
+                            <button id="zenBambooBtn" class="hdr-menu-item"><i class="ri-plant-line"></i> Trà đạo sáo trúc (Zen)</button>
+                            <button id="weatherPoetryBtn" class="hdr-menu-item"><i class="ri-cloud-windy-line"></i> Thơ thời tiết Realtime</button>
+                        </div>
+
+                        <!-- Group 3: 🎨 STUDIO & SÁNG TÁC -->
+                        <div class="tools-group">
+                            <div class="tools-group-title"><i class="ri-quill-pen-line"></i> Studio & Sáng Tác</div>
+                            <button id="glassStudioBtn" class="hdr-menu-item"><i class="ri-drop-line"></i> Studio Glassmorphism</button>
+                            <button id="rhymeStudioBtn" class="hdr-menu-item"><i class="ri-quill-pen-line"></i> Studio sáng tác & hiệp vần</button>
+                            <button id="aiPoetryStudioBtn" class="hdr-menu-item"><i class="ri-edit-2-line"></i> Thi phòng sáng tạo AI</button>
+                            <button id="bilingualPoetryBtn" class="hdr-menu-item"><i class="ri-translate-2"></i> Thơ song ngữ Anh - Việt</button>
+                            <button id="waxSealCardBtn" class="hdr-menu-item"><i class="ri-mail-open-line"></i> Thiệp thư niêm phong sáp</button>
+                            <button id="artGalleryBtn" class="hdr-menu-item"><i class="ri-gallery-line"></i> Triển lãm tranh thủy mặc</button>
+                            <button id="authorLetterBtn" class="hdr-menu-item"><i class="ri-mail-send-line"></i> Hòm thư gửi Tác Giả</button>
+                        </div>
+
+                        <!-- Group 4: 🎵 ÂM NHẠC & CHIÊM TINH -->
+                        <div class="tools-group">
+                            <div class="tools-group-title"><i class="ri-headphone-line"></i> Âm Nhạc & Chiêm Tinh</div>
+                            <button id="multiTrackMixerBtn" class="hdr-menu-item"><i class="ri-equalizer-line"></i> Mixer âm thanh Realtime</button>
+                            <button id="folkInstrumentsBtn" class="hdr-menu-item"><i class="ri-music-2-line"></i> Nhạc cụ dân tộc Việt</button>
+                            <button id="poetryRadioBtn" class="hdr-menu-item"><i class="ri-radio-line"></i> Đài thơ đêm (Radio)</button>
+                            <button id="ambientMixerBtn" class="hdr-menu-item"><i class="ri-sound-module-line"></i> Trộn nhạc Ambient Mixer</button>
+                            <button id="zodiacPoetryBtn" class="hdr-menu-item"><i class="ri-sparkles-line"></i> Cung hoàng đạo & chiêm tinh</button>
+                            <button id="poetryOracleBtn" class="hdr-menu-item"><i class="ri-magic-line"></i> Quẻ thơ đầu ngày (Oracle)</button>
+                            <button id="poetryQuizBtn" class="hdr-menu-item"><i class="ri-gamepad-line"></i> Game trí nhớ thơ</button>
+                            <button id="poetryBadgesBtn" class="hdr-menu-item"><i class="ri-award-line"></i> Huy chương đọc thơ</button>
+                        </div>
+
+                        <!-- Group 5: ⚡ BẢNG LỆNH & HỆ THỐNG -->
+                        <div class="tools-group tools-group-full">
+                            <div class="tools-group-title"><i class="ri-settings-4-line"></i> Tiện Ích & Bảng Lệnh</div>
+                            <div class="tools-group-grid">
+                                <button id="cmdPaletteBtn" class="hdr-menu-item"><i class="ri-command-line"></i> Lệnh nhanh <kbd class="hdr-kbd">Ctrl K</kbd></button>
+                                <button id="randomPoemBtn" class="hdr-menu-item"><i class="ri-shuffle-line"></i> Thơ ngẫu nhiên</button>
+                                <button id="dailyCalendarBtn" class="hdr-menu-item"><i class="ri-calendar-event-line"></i> Lịch thơ 365 ngày</button>
+                                <button id="recentPoemsBtn" class="hdr-menu-item"><i class="ri-history-line"></i> Bài thơ vừa đọc</button>
+                                <button id="cardSwiperBtn" class="hdr-menu-item"><i class="ri-stack-line"></i> Khám phá thẻ bài</button>
+                                <button id="poetryMapBtn" class="hdr-menu-item"><i class="ri-map-pin-2-line"></i> Bản đồ thơ ca</button>
+                                <button id="authorTimelineBtn" class="hdr-menu-item"><i class="ri-route-line"></i> Timeline Tác Giả</button>
+                                <button id="emotionStatsBtn" class="hdr-menu-item"><i class="ri-pie-chart-2-line"></i> Thống kê cảm xúc</button>
+                                <button id="timeCapsuleBtn" class="hdr-menu-item"><i class="ri-time-line"></i> Hộp thư tương lai</button>
+                                <button id="exportPdfBtn" class="hdr-menu-item"><i class="ri-file-pdf-2-line"></i> Xuất PDF / E-Book</button>
+                                <button id="headerBotBtn" class="hdr-menu-item"><i class="ri-robot-2-line"></i> Trợ lý thơ AI</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
