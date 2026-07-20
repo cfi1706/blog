@@ -2121,7 +2121,7 @@ dialog::backdrop {
     accent-color: var(--accent-primary);
 }
 
-#ambientToggleBtn.playing {
+#ambientToggleBtn.playing, #dockAudioBtn.playing {
     color: var(--accent-primary);
     animation: pulseGlow 2s infinite alternate;
 }

@@ -84,6 +84,32 @@
                         <i class="ri-apps-2-line"></i> <span class="hdr-dd-label">Công cụ</span> <i class="ri-arrow-down-s-line dd-caret"></i>
                     </button>
                     <div id="toolsMenu" class="hdr-menu" hidden>
+                        <button id="vietnamFlagBtn" onclick="window.testVietnamFlag()" class="hdr-menu-item"><i class="ri-flag-fill" style="color: #da251d;"></i> Hiệu ứng Cờ Việt Nam phất phới</button>
+                        <button id="verticalReelBtn" class="hdr-menu-item"><i class="ri-smartphone-line"></i> Đọc thơ Vertical Reel Story</button>
+                        <button id="cursorTrailBtn" class="hdr-menu-item"><i class="ri-magic-line"></i> Con trỏ bút lông & bụi sao</button>
+                        <button id="museumLightboxBtn" class="hdr-menu-item"><i class="ri-gallery-upload-line"></i> Triển lãm tranh bảo tàng 4K</button>
+                        <button id="seasonMorphBtn" class="hdr-menu-item"><i class="ri-sun-cloudy-line"></i> Đổi giao diện 4 Mùa (Season)</button>
+                        <button id="parallaxReaderBtn" class="hdr-menu-item"><i class="ri-ruler-2-line"></i> Thưởng thức 3D Parallax Depth</button>
+                        <button id="glassStudioBtn" class="hdr-menu-item"><i class="ri-drop-line"></i> Studio thẻ thơ Glassmorphism</button>
+                        <button id="oledNightBtn" class="hdr-menu-item"><i class="ri-moon-line"></i> Đọc đêm OLED True-Black Amber</button>
+                        <button id="multiTrackMixerBtn" class="hdr-menu-item"><i class="ri-equalizer-line"></i> Mixer bàn gạt âm thanh real-time</button>
+                        <button id="stargazingBtn" class="hdr-menu-item"><i class="ri-star-smile-line"></i> Thi ca vũ trụ & đêm sao Ngân Hà 3D</button>
+                        <button id="folkInstrumentsBtn" class="hdr-menu-item"><i class="ri-music-2-line"></i> Nhạc cụ dân tộc tương tác</button>
+                        <button id="fireplaceBtn" class="hdr-menu-item"><i class="ri-fire-line"></i> Góc đọc thơ bên bếp lửa mùa đông</button>
+                        <button id="hoiAnLanternBtn" class="hdr-menu-item"><i class="ri-lightbulb-line"></i> Thi đèn lồng Hội An & thả hoa đăng</button>
+                        <button id="zodiacPoetryBtn" class="hdr-menu-item"><i class="ri-sparkles-line"></i> Cung hoàng đạo & chiêm tinh thơ</button>
+                        <button id="calligraphyBtn" class="hdr-menu-item"><i class="ri-brush-line"></i> Thi phòng thư pháp Việt 3D</button>
+                        <button id="audioVisualizerBtn" class="hdr-menu-item"><i class="ri-pulse-line"></i> Thi ca vũ điệu ánh sáng 3D</button>
+                        <button id="bilingualPoetryBtn" class="hdr-menu-item"><i class="ri-translate-2"></i> Thơ song ngữ Anh - Việt</button>
+                        <button id="teaCeremonyBtn" class="hdr-menu-item"><i class="ri-cup-line"></i> Trà đạo thi ca quán trà cổ</button>
+                        <button id="mindfulnessBtn" class="hdr-menu-item"><i class="ri-heart-pulse-line"></i> Thi thiền định tâm (Zen Breathing)</button>
+                        <button id="waxSealCardBtn" class="hdr-menu-item"><i class="ri-mail-open-line"></i> Thiệp thư 3D niêm phong sáp</button>
+                        <button id="authorTimelineBtn" class="hdr-menu-item"><i class="ri-route-line"></i> Dòng thời gian tác giả (Timeline)</button>
+                        <button id="artGalleryBtn" class="hdr-menu-item"><i class="ri-gallery-line"></i> Triển lãm tranh thơ thủy mặc</button>
+                        <button id="rhymeStudioBtn" class="hdr-menu-item"><i class="ri-quill-pen-line"></i> Studio sáng tác & hiệp vần</button>
+                        <button id="flipbookBtn" class="hdr-menu-item"><i class="ri-book-3-line"></i> Thi tập bìa da 3D Flipbook</button>
+                        <button id="poetryMapBtn" class="hdr-menu-item"><i class="ri-map-pin-2-line"></i> Bản đồ địa danh thơ ca</button>
+                        <button id="weatherPoetryBtn" class="hdr-menu-item"><i class="ri-cloud-windy-line"></i> Thơ theo thời tiết Real-time</button>
                         <button id="cmdPaletteBtn" class="hdr-menu-item"><i class="ri-command-line"></i> Bảng lệnh nhanh <kbd class="search-kbd hdr-kbd">Ctrl K</kbd></button>
                         <button id="randomPoemBtn" class="hdr-menu-item"><i class="ri-shuffle-line"></i> Thơ ngẫu nhiên</button>
                         <button id="dailyCalendarBtn" class="hdr-menu-item"><i class="ri-calendar-event-line"></i> Lịch thơ 365 ngày</button>
@@ -254,6 +280,15 @@
             <button id="continueReadingBtn" class="btn btn-sm btn-primary">
                 <i class="ri-arrow-right-line"></i> Đọc Tiếp
             </button>
+        </div>
+
+        <!-- Feature 5: Interactive Mood Matrix Slider Search -->
+        <div id="moodMatrixSliderBox" style="margin-bottom: 20px; padding: 14px 20px; background: var(--bg-surface-solid); border: 1px solid var(--border-color); border-radius: 16px; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; color: var(--accent-primary); white-space: nowrap;">
+                <i class="ri-equalizer-line"></i> Slider Cảm Xúc:
+            </div>
+            <input type="range" id="moodMatrixSlider" min="0" max="100" value="50" step="1" style="flex: 1; accent-color: var(--accent-primary); cursor: pointer;" title="Lướt qua các dải cảm xúc thơ ca">
+            <span id="moodMatrixLabel" style="font-size: 13px; font-weight: 700; color: var(--text-primary); min-width: 100px; text-align: right;">🌙 Trầm Lắng</span>
         </div>
 
         <!-- Filter & View Bar -->
@@ -1021,13 +1056,6 @@
                                 </label>
                             </label>
                             <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
-                                <span style="font-size: 13px; color: var(--text-primary);">🌸 Hiệu Ứng Hạt Mùa Background Canvas</span>
-                                <label class="toggle-switch">
-                                    <input type="checkbox" class="feature-toggle-check" data-feature="particles" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </label>
-                            <label class="feature-toggle-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; cursor: pointer;">
                                 <span style="font-size: 13px; color: var(--text-primary);">✨ Vệt Con Trỏ Chuột Bụi Sao</span>
                                 <label class="toggle-switch">
                                     <input type="checkbox" class="feature-toggle-check" data-feature="cursor_trail">
@@ -1082,6 +1110,578 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 1. THI ĐÀN ĐỐI HỌA & STUDIO HIỆP VẦN MODAL -->
+    <dialog id="rhymeStudioModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 560px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-quill-pen-line" style="color: var(--accent-primary);"></i> Thi Đàn Đối Họa & Studio Hiệp Vần</h3>
+                <button id="closeRhymeStudioBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                    <label style="font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; display: block;">Nhập câu thơ của bạn (1-2 câu):</label>
+                    <textarea id="rhymeInputText" class="form-input" style="width: 100%; height: 70px; font-family: var(--font-serif); font-size: 15px;" placeholder="Ví dụ: Đêm nay mưa rớt bên hiên nhỏ..."></textarea>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <select id="rhymeMeterSelect" class="custom-styled-select" style="flex: 1; padding: 8px 12px; font-size: 13px;">
+                        <option value="lucbat">Thể Lục Bát (6 - 8)</option>
+                        <option value="thatngon">Thể Thất Ngôn (7 Chữ)</option>
+                        <option value="tangon">Thể Tám Chữ (8 Chữ)</option>
+                        <option value="tuxuat">Thể Thơ Tự Do</option>
+                    </select>
+                    <button id="analyzeRhymeBtn" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px;">
+                        <i class="ri-search-eye-line"></i> Phân Tích & Họa Thơ
+                    </button>
+                </div>
+
+                <div id="rhymeAnalysisBox" hidden style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px;">
+                    <div style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">📊 Kết Quả Phân Tích Thanh Điệu:</div>
+                    <div id="rhymeTonePattern" style="font-family: monospace; font-size: 14px; color: var(--text-primary); margin-bottom: 10px; display: flex; gap: 6px; flex-wrap: wrap;"></div>
+
+                    <div style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">💡 Gợi Ý Từ Cùng Vần:</div>
+                    <div id="rhymeSuggestionsTags" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px;"></div>
+
+                    <div style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">✨ Gợi Ý Câu Thơ Họa Tiếp Theo:</div>
+                    <div id="rhymeGeneratedNextLine" style="font-family: var(--font-serif); font-size: 16px; font-style: italic; color: var(--text-primary); padding: 10px; background: var(--bg-hover); border-radius: 8px; border-left: 3px solid var(--accent-primary);"></div>
+                    
+                    <button id="copyNextLineBtn" class="btn btn-sm btn-outline" style="margin-top: 10px;"><i class="ri-file-copy-line"></i> Sao Chép Câu Họa</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 2. THI TẬP BÌA DA 3D FLIPBOOK MODAL -->
+    <dialog id="flipbookModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 780px; background: transparent; border: none; box-shadow: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 8px;">
+                <h3 style="color: #fff; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 8px;"><i class="ri-book-3-line" style="color: #f59e0b;"></i> Thi Tập Bìa Da Cổ Điển 3D</h3>
+                <button id="closeFlipbookBtn" class="modal-close-btn" style="background: rgba(0,0,0,0.5); color:#fff;"><i class="ri-close-line"></i></button>
+            </div>
+
+            <div class="vintage-flipbook-container" style="background: #2a1b12; border: 3px solid #b45309; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); padding: 16px; position: relative;">
+                <div class="vintage-book-pages" style="display: flex; background: #fffdf5; border-radius: 12px; border: 1px solid #d97706; min-height: 420px; box-shadow: inset 0 0 20px rgba(180, 83, 9, 0.15); overflow: hidden; position: relative;">
+                    <div id="flipbookLeftPage" style="flex: 1; padding: 24px; border-right: 1px solid rgba(180, 83, 9, 0.2); font-family: var(--font-serif); color: #451a03; position: relative; background: linear-gradient(90deg, #f7f1e1 0%, #fffdf5 100%);">
+                    </div>
+                    <div style="width: 12px; background: linear-gradient(90deg, rgba(0,0,0,0.15), rgba(0,0,0,0.03), rgba(0,0,0,0.15)); border-left: 1px solid rgba(0,0,0,0.08); border-right: 1px solid rgba(0,0,0,0.08);"></div>
+                    <div id="flipbookRightPage" style="flex: 1; padding: 24px; font-family: var(--font-serif); color: #451a03; position: relative; background: linear-gradient(270deg, #f7f1e1 0%, #fffdf5 100%);">
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding: 0 8px;">
+                    <button id="flipPrevBtn" class="btn btn-outline" style="color: #fef3c7; border-color: #d97706;"><i class="ri-arrow-left-line"></i> Trang Trước</button>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span id="flipPageIndicator" style="color: #fef3c7; font-size: 13px; font-weight: 600;">Trang 1 / 124</span>
+                        <select id="flipQuickSelect" class="custom-styled-select" style="font-size: 12px; padding: 4px 10px; max-width: 180px;"></select>
+                    </div>
+                    <button id="flipNextBtn" class="btn btn-outline" style="color: #fef3c7; border-color: #d97706;">Trang Tiếp <i class="ri-arrow-right-line"></i></button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 4. BẢN ĐỒ ĐỊA DANH THƠ CA MODAL -->
+    <dialog id="poetryMapModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 680px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-map-pin-2-line" style="color: var(--accent-primary);"></i> Bản Đồ Địa Danh & Hành Trình Thơ Ca</h3>
+                <button id="closePoetryMapBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                <div class="map-region-filter" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                    <button class="btn btn-sm btn-outline map-region-btn active" data-region="all">🌏 Tất Cả Vùng Miền</button>
+                    <button class="btn btn-sm btn-outline map-region-btn" data-region="hanoi">🏯 Hà Nội & Miền Bắc</button>
+                    <button class="btn btn-sm btn-outline map-region-btn" data-region="hue">🏛️ Huế & Cố Đô</button>
+                    <button class="btn btn-sm btn-outline map-region-btn" data-region="dalat">🌲 Đà Lạt & Tây Nguyên</button>
+                    <button class="btn btn-sm btn-outline map-region-btn" data-region="saigon">🌆 Sài Gòn & Phương Nam</button>
+                    <button class="btn btn-sm btn-outline map-region-btn" data-region="mientay">🌾 Miền Tây Rivers</button>
+                </div>
+
+                <div id="regionPoemList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-height: 400px; overflow-y: auto; padding: 4px;">
+                    <!-- Region poems cards rendered here -->
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 5. THI CA VŨ TRỤ & THỜI TIẾT REAL-TIME MODAL -->
+    <dialog id="weatherPoetryModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 580px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-cloud-windy-line" style="color: var(--accent-primary);"></i> Thi Ca Vũ Trụ - Thơ Theo Thời Tiết Real-Time</h3>
+                <button id="closeWeatherPoetryBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="font-size: 13px; color: var(--text-secondary); text-align: center;">Chọn không khí thời tiết để hòa mình cùng không gian thơ:</div>
+                
+                <div class="weather-selector-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <button class="btn btn-outline weather-opt-btn active" data-weather="rain" style="flex-direction: column; padding: 12px 8px; gap: 6px;">
+                        <span style="font-size: 24px;">🌧️</span>
+                        <span style="font-size: 12px; font-weight: 600;">Mưa Rào Đêm</span>
+                    </button>
+                    <button class="btn btn-outline weather-opt-btn" data-weather="wind" style="flex-direction: column; padding: 12px 8px; gap: 6px;">
+                        <span style="font-size: 24px;">🍃</span>
+                        <span style="font-size: 12px; font-weight: 600;">Chiều Thu Gió Lạnh</span>
+                    </button>
+                    <button class="btn btn-outline weather-opt-btn" data-weather="sun" style="flex-direction: column; padding: 12px 8px; gap: 6px;">
+                        <span style="font-size: 24px;">☀️</span>
+                        <span style="font-size: 12px; font-weight: 600;">Nắng Vàng Rực Rỡ</span>
+                    </button>
+                    <button class="btn btn-outline weather-opt-btn" data-weather="mist" style="flex-direction: column; padding: 12px 8px; gap: 6px;">
+                        <span style="font-size: 24px;">🌫️</span>
+                        <span style="font-size: 12px; font-weight: 600;">Sương Mờ Mơ Hồ</span>
+                    </button>
+                    <button class="btn btn-outline weather-opt-btn" data-weather="night" style="flex-direction: column; padding: 12px 8px; gap: 6px;">
+                        <span style="font-size: 24px;">🌙</span>
+                        <span style="font-size: 12px; font-weight: 600;">Đêm Thanh Đầy Sao</span>
+                    </button>
+                    <button class="btn btn-outline weather-opt-btn" data-weather="snow" style="flex-direction: column; padding: 12px 8px; gap: 6px;">
+                        <span style="font-size: 24px;">❄️</span>
+                        <span style="font-size: 12px; font-weight: 600;">Tuyết Lạnh Vô Bờ</span>
+                    </button>
+                </div>
+
+                <div id="weatherOverlayToggleWrapper" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-hover); border-radius: 10px;">
+                    <span style="font-size: 13px; color: var(--text-primary);"><i class="ri-sparkles-line" style="color: var(--accent-primary);"></i> Hiệu ứng hạt thời tiết trên màn hình</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="weatherParticleCheck" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div style="font-size: 13px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.5px;">📜 Gợi Ý Thơ Phù Hợp Không Khí:</div>
+                <div id="weatherPoemList" style="display: flex; flex-direction: column; gap: 8px; max-height: 220px; overflow-y: auto;">
+                    <!-- Weather poems rendered here -->
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 1. THI THIỀN ĐỊNH TÂM MODAL -->
+    <dialog id="mindfulnessModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 480px; text-align: center; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;"><i class="ri-heart-pulse-line" style="color: #10b981;"></i> Thi Thiền Định Tâm & Nhịp Thở</h3>
+                <button id="closeMindfulnessBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <div id="breathingRingBox" style="width: 180px; height: 180px; border-radius: 50%; border: 4px solid #10b981; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);">
+                    <div id="breathPhaseText" style="font-size: 16px; font-weight: 700; color: var(--accent-primary);">Hít Vào...</div>
+                    <div id="breathTimerNum" style="font-size: 28px; font-weight: 800; color: var(--text-primary); margin-top: 4px;">4</div>
+                </div>
+
+                <div id="zenPoemSnippetText" style="font-family: var(--font-serif); font-size: 15px; font-style: italic; color: var(--text-secondary); max-width: 360px; line-height: 1.6; min-height: 50px;">
+                    "Rủ bỏ muộn phiền nơi gót chân<br>Trả lại tâm thanh tựa mây trôi..."
+                </div>
+
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <button id="startZenSessionBtn" class="btn btn-primary btn-block"><i class="ri-play-circle-line"></i> Bắt Đầu Thiền 3 Phút</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 3. THIỆP THƯ CỔ ĐIỂN 3D NIÊM PHONG SÁP MODAL -->
+    <dialog id="waxSealCardModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 620px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-mail-open-line" style="color: #d97706;"></i> Thiết Kế Thiệp Thư 3D Niêm Phong Sáp</h3>
+                <button id="closeWaxSealCardBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: block;">📜 Chất liệu giấy dó:</label>
+                        <select id="cardPaperSelect" class="custom-styled-select" style="width: 100%; font-size: 12px; padding: 6px 10px;">
+                            <option value="sepia">Giấy Dó Sepia Cổ</option>
+                            <option value="parchment">Giấy Da Dày Parchment</option>
+                            <option value="rose">Giấy Ép Cánh Hoa Hồng</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: block;">🕯️ Màu con dấu sáp (Wax Seal):</label>
+                        <select id="waxColorSelect" class="custom-styled-select" style="width: 100%; font-size: 12px; padding: 6px 10px;">
+                            <option value="#991b1b">🔴 Đỏ Đô Hoàng Gia</option>
+                            <option value="#b45309">🟡 Vàng Hổ Phách</option>
+                            <option value="#7e22ce">🟣 Tím Mộng Mơ</option>
+                            <option value="#0f766e">🟢 Xanh Cổ Vịt</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: block;">💌 Lời nhắn người tặng:</label>
+                    <input type="text" id="waxSenderGreeting" placeholder="Ví dụ: Gửi tặng người bạn thân thương..." style="width: 100%; padding: 8px 12px; background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 8px; font-size: 13px; color: var(--text-primary);">
+                </div>
+
+                <div id="waxCardPreviewBox" style="background: #fffdf5; border: 2px solid #d97706; border-radius: 16px; padding: 20px; color: #451a03; box-shadow: 0 10px 25px rgba(0,0,0,0.15); text-align: center; position: relative;">
+                    <div id="waxSealBadgeIcon" style="position: absolute; top: 12px; right: 16px; width: 32px; height: 32px; background: #991b1b; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">⚜️</div>
+                    <div id="waxPreviewGreeting" style="font-family: var(--font-serif); font-size: 13px; font-style: italic; color: #78350f; margin-bottom: 10px;">"Gửi tặng người bạn thân thương..."</div>
+                    <div id="waxPreviewPoemTitle" style="font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: #451a03; margin-bottom: 6px;">Con tim là tim của anh</div>
+                    <div id="waxPreviewPoemSnippet" style="font-family: var(--font-serif); font-size: 13.5px; color: #78350f; line-height: 1.5; white-space: pre-line;">Con tim là tim của anh&#n;Mà sao nó mãi chạy quanh chốn nào...</div>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button id="copyWaxCardLinkBtn" class="btn btn-primary" style="flex: 1;"><i class="ri-file-copy-line"></i> Sao Chép Thiệp Tặng</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 4. HÀNH TRÌNH DÒNG THỜI GIAN TÁC GIẢ MODAL -->
+    <dialog id="authorTimelineModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 640px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-route-line" style="color: var(--accent-primary);"></i> Dòng Thời Gian Sáng Tác (2015 - 2026)</h3>
+                <button id="closeAuthorTimelineBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; max-height: 480px; overflow-y: auto;">
+                <div class="author-timeline-wrapper" style="position: relative; padding-left: 24px; border-left: 3px solid var(--accent-primary); display: flex; flex-direction: column; gap: 20px;">
+                    <div class="timeline-item" style="position: relative;">
+                        <div style="position: absolute; left: -31px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary); border: 2px solid var(--bg-surface-solid);"></div>
+                        <div style="font-size: 11px; font-weight: 700; color: var(--accent-primary); letter-spacing: 1px;">2015 • KHỞI ĐẦU CHẶNG ĐƯỜNG</div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Những Nốt Thơ Tuổi Trẻ Đầy Nhiệt Huyết</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">Giai đoạn khởi đầu những câu thơ mộc mạc, chan chứa tình cảm trong sáng và những hoài niệm ngọt ngào của thời sinh viên.</p>
+                    </div>
+
+                    <div class="timeline-item" style="position: relative;">
+                        <div style="position: absolute; left: -31px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary); border: 2px solid var(--bg-surface-solid);"></div>
+                        <div style="font-size: 11px; font-weight: 700; color: var(--accent-primary); letter-spacing: 1px;">2018 • TRƯỞNG THÀNH & CHIÊM NGHIỆM</div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Chiều Trầm Tĩnh & Bến Vắng Hư Không</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">Những vần thơ sâu lắng hơn về tình mẹ, gia đình, dòng đời bươn chải và những khoảng lặng trong tâm hồn.</p>
+                    </div>
+
+                    <div class="timeline-item" style="position: relative;">
+                        <div style="position: absolute; left: -31px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-primary); border: 2px solid var(--bg-surface-solid);"></div>
+                        <div style="font-size: 11px; font-weight: 700; color: var(--accent-primary); letter-spacing: 1px;">2024 - 2026 • KẾT NỐI THI CA SỐ</div>
+                        <h4 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">Số Hóa Thi Tập & Trợ Lý Thơ AI Digital</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">Mang thơ ca đến gần hơn với độc giả thông qua trải nghiệm công nghệ đa giác quan, nhạc ambient và AI sáng tạo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 5. TRIỂN LÃM TRANH THƠ THỦY MẶC MODAL -->
+    <dialog id="artGalleryModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 680px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-gallery-line" style="color: var(--accent-primary);"></i> Triển Lãm Tranh Thơ Thủy Mặc & Digital Art</h3>
+                <button id="closeArtGalleryBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="font-size: 13px; color: var(--text-secondary); text-align: center;">Mỗi bài thơ là một bức tranh nghệ thuật thị giác:</div>
+                
+                <div id="galleryArtGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; max-height: 420px; overflow-y: auto;">
+                    <!-- Art gallery cards rendered dynamically -->
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 1. THI CA VŨ ĐIỆU ÁNH SÁNG MODAL -->
+    <dialog id="audioVisualizerModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 680px; text-align: center; background: #0b0f19; border: 2px solid var(--accent-primary);">
+            <header class="modal-header">
+                <h3 style="color: #fff; display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;"><i class="ri-pulse-line" style="color: #a855f7;"></i> Thi Ca Vũ Điệu Ánh Sáng 3D</h3>
+                <button id="closeAudioVisualizerBtn" class="modal-close-btn" style="color: #fff;"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <canvas id="visualizerCanvas" style="width: 100%; height: 260px; border-radius: 16px; background: #020617; border: 1px solid rgba(168, 85, 247, 0.3); box-shadow: inset 0 0 30px rgba(168, 85, 247, 0.2);"></canvas>
+
+                <div style="display: flex; gap: 10px; width: 100%;">
+                    <button id="toggleVisualizerPlayBtn" class="btn btn-primary" style="flex: 1;"><i class="ri-play-circle-line"></i> Bật Vũ Điệu Ánh Sáng & Nhạc Ambient</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 3. THƠ SONG NGỮ ANH - VIỆT MODAL -->
+    <dialog id="bilingualPoetryModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 720px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-translate-2" style="color: var(--accent-primary);"></i> Thơ Song Ngữ Anh - Việt (Bilingual Poetry Dual Screen)</h3>
+                <button id="closeBilingualBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                    <select id="bilingualPoemSelect" class="custom-styled-select" style="flex: 1; padding: 6px 12px; font-size: 13px;"></select>
+                </div>
+
+                <div style="display: flex; gap: 16px; min-height: 320px;">
+                    <div style="flex: 1; padding: 18px; background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 12px; font-family: var(--font-serif);">
+                        <div style="font-size: 11px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🇻🇳 Nguyên Bản Tiếng Việt</div>
+                        <h4 id="bilingualViTitle" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">Con tim là tim của anh</h4>
+                        <div id="bilingualViText" style="font-size: 14px; line-height: 1.6; white-space: pre-line; color: var(--text-primary);">Con tim là tim của anh&#n;Mà sao nó mãi chạy quanh chốn nào...</div>
+                    </div>
+                    <div style="flex: 1; padding: 18px; background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 12px; font-family: var(--font-serif);">
+                        <div style="font-size: 11px; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">🇬🇧 English Poetic Translation</div>
+                        <h4 id="bilingualEnTitle" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;">My Heart Belongs To Me</h4>
+                        <div id="bilingualEnText" style="font-size: 14px; line-height: 1.6; white-space: pre-line; color: var(--text-primary); font-style: italic;">This heart of mine belongs to me,&#n;Yet wanders far where breezes blow...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 5. TRÀ ĐẠO THI CA QUÁN TRÀ CỔ MODAL -->
+    <dialog id="teaCeremonyModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 580px; text-align: center; background: #1c1512; border: 2px solid #b45309; color: #fef3c7;">
+            <header class="modal-header" style="border-bottom: 1px solid rgba(180, 83, 9, 0.3);">
+                <h3 style="color: #fef3c7; display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;"><i class="ri-cup-line" style="color: #f59e0b;"></i> Trà Đạo Thi Ca & Quán Trà Cổ Việt Nam</h3>
+                <button id="closeTeaCeremonyBtn" class="modal-close-btn" style="color: #fef3c7;"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <div style="font-size: 64px; margin-bottom: -10px;">🍵</div>
+                <div style="font-size: 13px; color: #fde68a;">Nhấp ngụm trà thơm, lắng nghe tiếng mưa rơi bên mái hiên cổ kính:</div>
+
+                <div class="tea-selection-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; width: 100%;">
+                    <button class="btn btn-outline tea-opt-btn active" data-tea="sen" style="color: #fef3c7; border-color: #b45309;">🪷 Trà Sen Tây Hồ</button>
+                    <button class="btn btn-outline tea-opt-btn" data-tea="nhai" style="color: #fef3c7; border-color: #b45309;">🌼 Trà Nhài Thanh Tĩnh</button>
+                    <button class="btn btn-outline tea-opt-btn" data-tea="cuc" style="color: #fef3c7; border-color: #b45309;">🌻 Trà Cúc Hoàng Gia</button>
+                    <button class="btn btn-outline tea-opt-btn" data-tea="oolong" style="color: #fef3c7; border-color: #b45309;">🍃 Trà Oolong Cao Sơn</button>
+                </div>
+
+                <div id="teaPoemTextSnippet" style="font-family: var(--font-serif); font-size: 15px; font-style: italic; color: #fef3c7; line-height: 1.6; padding: 14px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid rgba(180, 83, 9, 0.4); width: 100%;">
+                    "Hương trà quyện khói chiều êm phả<br>Thương một mảnh lòng tựa khói mây..."
+                </div>
+
+                <button id="startTeaSessionBtn" class="btn btn-primary btn-block" style="background: #b45309; border: none; color: #fff;"><i class="ri-play-circle-line"></i> Thưởng Trà & Phối Nhạc Thiền</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 1. THI ĐÈN LỒNG HỘI AN & THẢ HOA ĐĂNG MODAL -->
+    <dialog id="hoiAnLanternModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 620px; text-align: center; background: #0c101d; border: 2px solid #f59e0b; color: #fef3c7;">
+            <header class="modal-header" style="border-bottom: 1px solid rgba(245, 158, 11, 0.3);">
+                <h3 style="color: #fef3c7; display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;"><i class="ri-lightbulb-line" style="color: #f59e0b;"></i> Đêm Rằm Hội An - Thả Hoa Đăng Cầu Nguyện</h3>
+                <button id="closeHoiAnLanternBtn" class="modal-close-btn" style="color: #fef3c7;"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <div style="font-size: 54px; animation: pulseGlow 2s infinite alternate;">🪷</div>
+                <div style="font-size: 13px; color: #fde68a;">Viết lời ước nguyện hoặc câu thơ tâm đắc để thả trôi trên dòng sông Hoài đêm rằm:</div>
+
+                <input type="text" id="lanternWishInput" placeholder="Ví dụ: Cầu chúc gia đình luôn bình an & hạnh phúc..." style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.08); border: 1px solid #f59e0b; border-radius: 12px; font-family: var(--font-serif); font-size: 15px; color: #fff; text-align: center;">
+
+                <div id="lanternRiverBox" style="width: 100%; height: 160px; background: linear-gradient(180deg, #020617 0%, #0f172a 100%); border-radius: 16px; border: 1px solid rgba(245, 158, 11, 0.4); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <div id="floatingLanternVisual" style="font-size: 40px; position: absolute; transition: all 6s ease-out; opacity: 0; transform: translateY(40px);">🪷</div>
+                    <div id="lanternWishDisplay" style="font-family: var(--font-serif); font-size: 14px; font-style: italic; color: #fef3c7; max-width: 80%; opacity: 0; transition: opacity 2s ease;">"Cầu chúc gia đình luôn bình an & hạnh phúc..."</div>
+                </div>
+
+                <button id="releaseLanternBtn" class="btn btn-primary btn-block" style="background: #d97706; border: none; color: #fff;"><i class="ri-send-plane-fill"></i> Thả Hoa Đăng Xuống Dòng Sông</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 3. CUNG HOÀNG ĐẠO & CHIÊM TINH THƠ CA MODAL -->
+    <dialog id="zodiacPoetryModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 640px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-sparkles-line" style="color: var(--accent-primary);"></i> Cung Hoàng Đạo & Chiêm Tinh Thơ Ca</h3>
+                <button id="closeZodiacBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="font-size: 13px; color: var(--text-secondary); text-align: center;">Chọn chòm sao Cung Hoàng Đạo của bạn để khám phá bài thơ định mệnh:</div>
+
+                <div class="zodiac-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                    <button class="btn btn-outline zodiac-btn active" data-zodiac="aries">♈ Bạch Dương</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="taurus">♉ Kim Ngưu</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="gemini">♊ Song Tử</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="cancer">♋ Cự Giải</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="leo">♌ Sư Tử</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="virgo">♍ Xử Nữ</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="libra">♎ Thiên Bình</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="scorpio">♏ Bọ Cạp</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="sagittarius">♐ Nhân Mã</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="capricorn">♑ Ma Kết</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="aquarius">♒ Bảo Bình</button>
+                    <button class="btn btn-outline zodiac-btn" data-zodiac="pisces">♓ Song Ngư</button>
+                </div>
+
+                <div id="zodiacResultCard" style="padding: 16px; background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 12px; text-align: center;">
+                    <div id="zodiacBadge" style="font-size: 12px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">♈ BẠCH DƯƠNG • TẦN SỐ RỰC RỠ</div>
+                    <div id="zodiacPoemTitle" style="font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Con tim là tim của anh</div>
+                    <div id="zodiacPoemSnippet" style="font-family: var(--font-serif); font-size: 14px; font-style: italic; color: var(--text-secondary); line-height: 1.5; white-space: pre-line;">"Con tim là tim của anh&#n;Mà sao nó mãi chạy quanh chốn nào..."</div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 4. THI PHÒNG THƯ PHÁP VIỆT 3D MODAL -->
+    <dialog id="calligraphyModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 600px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-brush-line" style="color: #dc2626;"></i> Thi Phòng Thư Pháp Việt 3D</h3>
+                <button id="closeCalligraphyBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                    <label style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: block;">Nhập câu thơ / câu chúc thư pháp (1-2 câu):</label>
+                    <input type="text" id="calligraphyInput" placeholder="Ví dụ: Bình yên tựa mây trôi..." style="width: 100%; padding: 8px 12px; background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; color: var(--text-primary);">
+                </div>
+
+                <div id="calligraphyParchmentBox" style="background: #991b1b; border: 3px solid #f59e0b; border-radius: 16px; padding: 24px; color: #fef3c7; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(153, 27, 27, 0.4);">
+                    <div style="position: absolute; bottom: 12px; right: 16px; width: 36px; height: 36px; background: #7f1d1d; border: 2px solid #f59e0b; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #fef3c7;">印</div>
+                    <div id="calligraphyOutputText" style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: #fef3c7; letter-spacing: 1px; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">"Bình yên tựa mây trôi"</div>
+                    <div style="font-size: 11px; margin-top: 10px; color: #fde68a; letter-spacing: 2px; text-transform: uppercase;">📜 Thư Pháp Võ Hoàng Thắng 🇻🇳</div>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                    <button id="copyCalligraphyBtn" class="btn btn-primary" style="flex: 1;"><i class="ri-file-copy-line"></i> Sao Chép Bức Thư Pháp</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 1. THI CA VŨ TRỤ & ĐÊM SAO NGÂN HÀ 3D MODAL -->
+    <dialog id="stargazingModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 680px; text-align: center; background: #030712; border: 2px solid #6366f1; color: #e0e7ff;">
+            <header class="modal-header" style="border-bottom: 1px solid rgba(99, 102, 241, 0.3);">
+                <h3 style="color: #e0e7ff; display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;"><i class="ri-star-smile-line" style="color: #818cf8;"></i> Thi Ca Vũ Trụ & Đêm Sao Ngân Hà 3D</h3>
+                <button id="closeStargazingBtn" class="modal-close-btn" style="color: #e0e7ff;"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <canvas id="stargazingCanvas" style="width: 100%; height: 260px; border-radius: 16px; background: #020617; border: 1px solid rgba(99, 102, 241, 0.4); box-shadow: inset 0 0 40px rgba(99, 102, 241, 0.3); cursor: pointer;"></canvas>
+
+                <div id="cosmicPoemDisplay" style="font-family: var(--font-serif); font-size: 15px; font-style: italic; color: #c7d2fe; line-height: 1.6; padding: 14px; background: rgba(15, 23, 42, 0.6); border-radius: 12px; border: 1px solid rgba(99, 102, 241, 0.4); width: 100%;">
+                    "Giữa khoảng trời sao ngàn vạn hốt<br>Hồn ta trôi dạt chốn vô cùng..."
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 3. NHẠC CỤ DÂN TỘC TƯƠNG TÁC MODAL -->
+    <dialog id="folkInstrumentsModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 600px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-music-2-line" style="color: var(--accent-primary);"></i> Góc Trải Nghiệm Nhạc Cụ Dân Tộc Việt Nam</h3>
+                <button id="closeFolkInstrumentsBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="font-size: 13px; color: var(--text-secondary); text-align: center;">Bấm các phím nhạc cụ bên dưới để tạo giai điệu ngẫu hứng hòa tấu cho bài thơ:</div>
+
+                <div class="instrument-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                    <button class="btn btn-outline folk-note-btn" data-inst="dan-bau" style="padding: 16px; font-weight: 700;">🎼 Đàn Bầu (Nốt Đồ - Rê)</button>
+                    <button class="btn btn-outline folk-note-btn" data-inst="dan-tranh" style="padding: 16px; font-weight: 700;">🎶 Đàn Tranh (Nốt Mi - Sol)</button>
+                    <button class="btn btn-outline folk-note-btn" data-inst="sao-truc" style="padding: 16px; font-weight: 700;">🪈 Sáo Trúc (Nốt La - Đố)</button>
+                    <button class="btn btn-outline folk-note-btn" data-inst="dan-trong" style="padding: 16px; font-weight: 700;">🥁 Trống Đồng (Nốt Trầm)</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 4. GÓC ĐỌC THƠ BÊN BẾP LỬA MÙA ĐÔNG MODAL -->
+    <dialog id="fireplaceModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 580px; text-align: center; background: #180905; border: 2px solid #ea580c; color: #ffedd5;">
+            <header class="modal-header" style="border-bottom: 1px solid rgba(234, 88, 12, 0.3);">
+                <h3 style="color: #ffedd5; display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;"><i class="ri-fire-line" style="color: #ea580c;"></i> Góc Đọc Thơ Bên Bếp Lửa Mùa Đông</h3>
+                <button id="closeFireplaceBtn" class="modal-close-btn" style="color: #ffedd5;"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <div style="font-size: 64px; animation: pulseGlow 1.5s infinite alternate; filter: drop-shadow(0 0 20px #ea580c);">🔥</div>
+                <div style="font-size: 13px; color: #fed7aa;">Lắng nghe tiếng củi cháy tách tạch và cảm nhận ngọn lửa hồng sưởi ấm những đêm đông:</div>
+
+                <div id="fireplacePoemText" style="font-family: var(--font-serif); font-size: 15px; font-style: italic; color: #ffedd5; line-height: 1.6; padding: 14px; background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid rgba(234, 88, 12, 0.4); width: 100%;">
+                    "Đêm đông củi cháy bập bùng phả<br>Ấm một khoảng lòng giữa tuyết rơi..."
+                </div>
+
+                <button id="toggleFireplaceSoundBtn" class="btn btn-primary btn-block" style="background: #ea580c; border: none; color: #fff;"><i class="ri-volume-up-line"></i> Bật Âm Thanh Bếp Lửa & Nhạc Thiền</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 1. 3D PARALLAX DEPTH READER MODAL -->
+    <dialog id="parallaxReaderModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 660px; background: #070913; border: 2px solid var(--accent-primary); perspective: 1000px;">
+            <header class="modal-header">
+                <h3 style="color: #fff; display: flex; align-items: center; gap: 8px;"><i class="ri-ruler-2-line" style="color: var(--accent-primary);"></i> Thưởng Thức Thơ 3D Parallax Depth</h3>
+                <button id="closeParallaxBtn" class="modal-close-btn" style="color: #fff;"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; align-items: center;">
+                <div id="parallaxStageCard" style="width: 100%; height: 320px; border-radius: 16px; position: relative; overflow: hidden; transform-style: preserve-3d; transition: transform 0.1s ease-out; background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; text-align: center;">
+                    <div id="parallaxBgLayer" style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%); transform: translateZ(-40px) scale(1.2);"></div>
+                    <div id="parallaxTextLayer" style="position: relative; z-index: 10; transform: translateZ(50px); font-family: var(--font-serif); color: #fff; text-shadow: 0 4px 12px rgba(0,0,0,0.8); padding: 20px;">
+                        <h3 id="parallaxPoemTitle" style="font-size: 22px; font-weight: 700; margin-bottom: 12px;">Con tim là tim của anh</h3>
+                        <p id="parallaxPoemSnippet" style="font-size: 16px; font-style: italic; line-height: 1.6; max-width: 440px; margin: 0 auto;">"Con tim là tim của anh<br>Mà sao nó mãi chạy quanh chốn nào..."</p>
+                    </div>
+                </div>
+                <div style="font-size: 12px; color: #94a3b8; margin-top: 12px;"><i class="ri-drag-move-fill"></i> Di chuyển con trỏ chuột trên thẻ để cảm nhận chiều sâu 3D Parallax!</div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 2. GLASSMORPHISM DESIGNER STUDIO MODAL -->
+    <dialog id="glassStudioModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 640px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-drop-line" style="color: var(--accent-primary);"></i> Studio Thiết Kế Thẻ Thơ Thủy Tinh (Glassmorphism)</h3>
+                <button id="closeGlassStudioBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div id="glassPreviewCard" style="width: 100%; min-height: 220px; border-radius: 20px; padding: 24px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h4 id="glassCardTitle" style="font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Con tim là tim của anh</h4>
+                    <p id="glassCardText" style="font-family: var(--font-serif); font-size: 15px; font-style: italic; color: var(--text-primary); line-height: 1.6;">"Con tim là tim của anh<br>Mà sao nó mãi chạy quanh chốn nào..."</p>
+                </div>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn btn-outline glass-style-btn active" data-style="glass">💎 Glassmorphism</button>
+                    <button class="btn btn-outline glass-style-btn" data-style="leather">📜 Bìa Da Cổ</button>
+                    <button class="btn btn-outline glass-style-btn" data-style="neon">⚡ Cyber Neon</button>
+                </div>
+
+                <button id="copyGlassCardBtn" class="btn btn-primary"><i class="ri-file-copy-line"></i> Sao Chép Thẻ Thơ Thiết Kế</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 4. MULTI-TRACK AUDIO MIXER DECK MODAL -->
+    <dialog id="multiTrackMixerModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 580px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-equalizer-line" style="color: var(--accent-primary);"></i> Bảng Phối Âm Thanh Đa Tầng (Multi-Track Audio Mixer)</h3>
+                <button id="closeMultiTrackMixerBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;"><span>🌧️ Tiếng Mưa Rơi</span><span id="mixRainVal">50%</span></div>
+                        <input type="range" id="mixRainSlider" min="0" max="100" value="50" style="width: 100%;">
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;"><span>🌊 Sóng Biển Vỗ</span><span id="mixWavesVal">30%</span></div>
+                        <input type="range" id="mixWavesSlider" min="0" max="100" value="30" style="width: 100%;">
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 4px;"><span>🔥 Bếp Lửa Bập Bùng</span><span id="mixFireVal">20%</span></div>
+                        <input type="range" id="mixFireSlider" min="0" max="100" value="20" style="width: 100%;">
+                    </div>
+                </div>
+
+                <button id="applyMixerBtn" class="btn btn-primary btn-block"><i class="ri-play-circle-line"></i> Kích Hoạt Bản Phối Âm Thanh</button>
             </div>
         </div>
     </dialog>
@@ -1342,6 +1942,72 @@
                     <div style="font-size: 52px; margin-bottom: 10px;">🏆</div>
                     <p id="quizScoreText" style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">Kết quả...</p>
                     <button id="restartQuizBtn" class="btn btn-primary"><i class="ri-restart-line"></i> Chơi Lại</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Feature 4: Vintage Red Thread Progress Ribbon -->
+    <div id="vintageRedRibbon" style="position: fixed; top: 0; right: 8px; width: 4px; height: 0%; background: #dc2626; box-shadow: 0 0 10px rgba(220,38,38,0.8); z-index: 99999; pointer-events: none; transition: height 0.1s linear;">
+        <div style="position: absolute; bottom: -12px; left: -6px; width: 16px; height: 16px; background: #991b1b; border: 2px solid #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; font-weight: 800;">印</div>
+    </div>
+
+    <!-- Feature 2: Calligraphy Brush Cursor Canvas -->
+    <canvas id="calligraphyCursorCanvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 999999; display: none;"></canvas>
+
+    <!-- 1. VERTICAL REEL STORY MODAL -->
+    <dialog id="verticalReelModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 480px; height: 85vh; background: #09090b; border: 2px solid var(--accent-primary); border-radius: 24px; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+            <header class="modal-header" style="position: absolute; top: 0; left: 0; right: 0; z-index: 20; background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%); border: none; padding: 16px;">
+                <h3 style="color: #fff; font-size: 16px; display: flex; align-items: center; gap: 8px;"><i class="ri-smartphone-line"></i> Poetry Reel Story</h3>
+                <button id="closeVerticalReelBtn" class="modal-close-btn" style="color: #fff;"><i class="ri-close-line"></i></button>
+            </header>
+
+            <div id="verticalReelCard" style="flex: 1; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px 20px 32px; background-size: cover; background-position: center; transition: all 0.5s ease;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 85%);"></div>
+                <div style="position: relative; z-index: 10; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+                    <span id="reelCategoryBadge" style="font-size: 11px; font-weight: 700; background: var(--accent-primary); padding: 4px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 10px; display: inline-block;">✨ Bài Thơ Nổi Bật</span>
+                    <h2 id="reelPoemTitle" style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; margin-bottom: 12px;">Con tim là tim của anh</h2>
+                    <p id="reelPoemText" style="font-family: var(--font-serif); font-size: 15px; line-height: 1.6; max-height: 200px; overflow-y: auto; white-space: pre-line; margin-bottom: 16px; font-style: italic;">Con tim là tim của anh&#n;Mà sao nó mãi chạy quanh chốn nào...</p>
+                    <div style="display: flex; gap: 10px;">
+                        <button id="nextReelBtn" class="btn btn-primary" style="flex: 1; border-radius: 20px;"><i class="ri-arrow-down-line"></i> Vuốt Xem Bài Tiếp Theo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 3. FULL-SCREEN MUSEUM LIGHTBOX GALLERY MODAL -->
+    <dialog id="museumLightboxModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 90vw; height: 90vh; background: #020617; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; padding: 0;">
+            <header class="modal-header" style="background: rgba(0,0,0,0.6); padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <h3 style="color: #fff; font-size: 16px; display: flex; align-items: center; gap: 8px;"><i class="ri-gallery-upload-line" style="color: var(--accent-primary);"></i> Viện Bảo Tàng Tranh Minh Họa 4K</h3>
+                <button id="closeMuseumLightboxBtn" class="modal-close-btn" style="color: #fff;"><i class="ri-close-line"></i></button>
+            </header>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 20px;">
+                <img id="museumLightboxImg" src="" alt="Museum Art" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); transition: transform 0.3s ease;">
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 5. DYNAMIC SEASONAL UI MORPHING MODAL -->
+    <dialog id="seasonMorphModal" class="recent-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card recent-dialog" style="max-width: 540px; background: var(--bg-surface-solid);">
+            <header class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 8px;"><i class="ri-sun-cloudy-line" style="color: var(--accent-primary);"></i> Đổi Giao Diện 4 Mùa (Spring, Summer, Autumn, Winter)</h3>
+                <button id="closeSeasonMorphBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="modal-body" style="padding: 20px; display: flex; flex-direction: column; gap: 16px;">
+                <div style="font-size: 13px; color: var(--text-secondary); text-align: center;">Chọn không gian mùa để biến đổi toàn bộ màu sắc và âm hưởng giao diện:</div>
+
+                <div class="season-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                    <button class="btn btn-outline season-opt-btn active" data-season="spring" style="padding: 14px; font-weight: 700;">🌸 Mùa Xuân (Spring)</button>
+                    <button class="btn btn-outline season-opt-btn" data-season="summer" style="padding: 14px; font-weight: 700;">🌿 Mùa Hạ (Summer)</button>
+                    <button class="btn btn-outline season-opt-btn" data-season="autumn" style="padding: 14px; font-weight: 700;">🍁 Mùa Thu (Autumn)</button>
+                    <button class="btn btn-outline season-opt-btn" data-season="winter" style="padding: 14px; font-weight: 700;">❄️ Mùa Đông (Winter)</button>
                 </div>
             </div>
         </div>
