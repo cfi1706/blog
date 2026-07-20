@@ -3,7 +3,7 @@ window.POEMS_DATA = [
   {
     "id": 1353,
     "slug": "vo-de-121",
-    "title": "Vô Đề 121",
+    "title": "Người mơ về chốn xa xôi",
     "date": "2025-09-05T14:01:48",
     "date_formatted": "5 tháng 9, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">​Người mơ về chốn xa xôi<br>Ta chỉ thèm một mái nhà bình yên<br>Người vui với những muộn phiền<br>Ta gom nhặt chút an nhiên cho mình!<br>​Người nhìn bằng ánh bình minh<br>Thấy danh vọng, thấy cuộc tình hơn thua<br>Ta nhìn đời lúc đổ mưa<br>Thấy vai gầy gánh nắng trưa mệt nhoài.<br>​Câu chuyện cứ mỗi ngày dài<br>Mà tâm hồn lại cách hai phương trời<br>Người buông những tiếng buông lơi<br>Ta nghe chỉ thấy một đời lặng câm.<br>​Nhiều khi cay đắng âm thầm<br>Muốn buông tay để lạc lầm một phen<br>Chẳng chung một giấc mơ hồng<br>Chẳng chung lối bước, giấc nồng đêm say.</p>\n",
@@ -15,12 +15,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1353_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 121"
   },
   {
     "id": 1338,
     "slug": "vo-de-120",
-    "title": "Vô Đề 120",
+    "title": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại ...",
     "date": "2025-08-28T09:10:28",
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.<br>Cô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.<br>Nỗi buồn là hạt cát, lấp đầy cả đại dương.<br>Muốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.</p>\n",
@@ -32,12 +33,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1338_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 120"
   },
   {
     "id": 1335,
     "slug": "vo-de-119",
-    "title": "Vô Đề 119",
+    "title": "Em thấy gì trong buổi chiều lạc lõng",
     "date": "2025-08-28T09:07:49",
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em thấy gì trong buổi chiều lạc lõng!<br>Đôi vai gầy không cõng hết cô đơn.<br>Bóng hoàng hôn in dấu chân lạc mất,<br>Cõi cô đơn dài đến cạn ưu phiền.</p>\n",
@@ -49,12 +51,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1335_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 119"
   },
   {
     "id": 1332,
     "slug": "vo-de-118",
-    "title": "Vô Đề 118",
+    "title": "Có những nơi gọi là nhà",
     "date": "2025-08-28T09:03:33",
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Có những nơi gọi là nhà<br>Có những phút giây gọi là hạnh phúc<br>Không thiên đường cũng chẳng là địa ngục<br>Nơi chôn vùi những hạnh phúc từng qua…</p>\n",
@@ -66,12 +69,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1332_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 118"
   },
   {
     "id": 1329,
     "slug": "vo-de-117",
-    "title": "Vô Đề 117",
+    "title": "Nắng rớt bên thềm nhà",
     "date": "2025-08-28T08:58:51",
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nắng rớt bên thềm nhà<br>Một cánh hoa tàn phai<br>Gió reo trên ngọn cỏ<br>Hoàng hôn của ngày mai!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chiều xuống nhẹ như kéo<br>Sau những tháng ngày dài<br>Đầy sương và sỏi đá<br>Ướt đẫm cả tương lai</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sau cùng chỉ còn có<br>Đêm và bóng hình ai<br>In dài trên cát trắng<br>Một nốt trầm ngân dài</p>\n",
@@ -83,12 +87,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1329_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 117"
   },
   {
     "id": 1308,
     "slug": "vo-de-116",
-    "title": "Vô Đề 116",
+    "title": "Anh từng sống giữa hạ vàng nắng gắt",
     "date": "2025-04-16T12:01:28",
     "date_formatted": "16 tháng 4, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Anh từng sống giữa hạ vàng nắng gắt,<br>Lòng cô đơn như phố vắng chiều tà.<br>Bao năm tháng, tim khô cằn sỏi đá,<br>Chờ một người – như nắng đợi mưa sa!</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Rồi em đến, nhẹ nhàng như mây trắng,<br>Mắt em cười – anh thấy hạ dịu êm.<br>Cơn mưa rào đổ qua tim thầm lặng,<br>Tình yêu về, xanh mát cả trời đêm.</p>\n",
@@ -100,12 +105,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1308_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 116"
   },
   {
     "id": 1305,
     "slug": "vo-de-115",
-    "title": "Vô Đề 115",
+    "title": "Em hỡi em, ta còn gì cho nhau",
     "date": "2025-04-16T11:59:44",
     "date_formatted": "16 tháng 4, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em hỡi em, ta còn gì cho nhau?<br>Là nhung nhớ hay những điều vụn vỡ?<br>Là chút bình yên sau tro tàn còn sót,<br>Hay muộn phiền quẩn quanh miền ký ức!<br>Ta thấy lòng như lửa đốt, rã rời,<br>Giữa đêm lạnh chẳng vòng tay ấm áp.<br>Những giấc mơ trôi dạt tận phương nào,<br>Tuổi thanh xuân – một lần từng ảo vọng.<br>Ám ảnh theo ta đến tận chiều tàn,<br>Khóe mắt cay, lòng chẳng còn bình lặng.<br>Chỉ muốn say, để mãi mãi ngủ quên,<br>Dẫu bước gần, sao vẫn xa trọn kiếp…</p>\n",
@@ -117,12 +123,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1305_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 115"
   },
   {
     "id": 1302,
     "slug": "vo-de-114",
-    "title": "Vô Đề 114",
+    "title": "Ra chợ tìm mua một chút yên",
     "date": "2025-04-16T11:36:24",
     "date_formatted": "16 tháng 4, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Ra chợ tìm mua một chút yên,<br>Tiện tay buông bán thúng muộn phiền.<br>Gánh gồng lảo đảo chân xiêu vẹo,<br>Đổi chút an nhiên – chẳng bạc tiền!<br><br>Phố chợ đông người, toàn bán lo,<br>Ai ai cũng chất muộn phiền to.<br>Bình yên đỏ mắt hoài không thấy,<br>Thúng buồn nằm đó vẫn mớ to.<br><br>Ra chợ tìm mua thưởu dại khờ,<br>Tuổi thơ ngây ngốc lắm mộng mơ.<br>Tìm hoài chẳng thấy – lòng tiếc nuối,<br>Đành bước trọn đời mãi đợi chờ.<br><br>Có hay ai bán giữa trần ai,<br>Vài cân hạnh phúc, chút mê say?<br>Người mua xếp hàng dài chen lấn,<br>Hạnh phúc lang thang, chẳng đến tay.<br><br>Sao thế? Phố chợ rộn ràng vui,<br>Tỷ điều lợi lộc, vạn sầu nguôi.<br>Cho đi toàn những điều không nhận,<br>Mong mãi điều cần chẳng ai vui.</p>\n",
@@ -134,12 +141,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1302_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 114"
   },
   {
     "id": 1298,
     "slug": "vo-de-113",
-    "title": "Vô Đề 113",
+    "title": "Thôi đừng trách mùa thu không còn lá",
     "date": "2025-04-04T14:39:32",
     "date_formatted": "4 tháng 4, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Thôi đừng trách mùa thu không còn lá,<br>Nắng bớt vàng hay… đã nhạt phai!<br>Nắng đã đến, đã đi và đã tắt<br>Sóng vỗ bờ, thuyền mãi còn khơi xa!<br>Hoa đã nở đã tàn nào ai biết<br>Hay chỉ loài ong bướm mới hay<br>Sớm mai này không hoàng hôn nắng cháy<br>Chỉ còn mình loài hoa dại bên đường</p>\n",
@@ -151,12 +159,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1298_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 113"
   },
   {
     "id": 1294,
     "slug": "vo-de-112",
-    "title": "Vô Đề 112",
+    "title": "Bản ngã giăng lối trong tim",
     "date": "2025-04-04T14:36:38",
     "date_formatted": "4 tháng 4, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Bản ngã giăng lối trong tim,<br>Mê cung ảo ảnh, lời tự ngã vang vọng,<br>Phản chiếu những con đường riêng biệt,<br>Ẩn chứa muôn màu của đắng cay và ngọt bùi!</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Nhưng đâu đó, bên dưới lớp vỏ ảo,<br>Chân ngã – linh hồn nguyên sơ chưa phai,<br>Như mảnh đất êm ả chờ đón ánh sáng,<br>Hòa vào giai điệu chân lý của vũ trụ.</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Giữa những va chạm của tư duy và cảm xúc,<br>Ta học cách buông bỏ những ràng buộc xa xăm,<br>Để lắng nghe tiếng thở của sự tự do,<br>Và tìm thấy chính mình trong nhịp đập vĩnh hằng.</p>\n",
@@ -168,12 +177,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1294_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 112"
   },
   {
     "id": 1291,
     "slug": "vo-de-111",
-    "title": "Vô Đề 111",
+    "title": "Tôi tìm ai giữa bầu trời chen nắng",
     "date": "2025-04-04T14:31:18",
     "date_formatted": "4 tháng 4, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Tôi tìm ai giữa bầu trời chen nắng,<br>Ai tìm tôi giữa phố vắng đang mưa?<br>Gió lặng lẽ gọi tên trong thoáng nhớ,<br>Lá rơi đầy lòng có ngỡ như xưa!<br>Chiều lặng lẽ nghiêng mình bên dốc cũ,<br>Ngõ hoang buồn mưa phủ lối tôi đi.<br>Bước chân nhỏ lạc vào miền ký ức,<br>Tay hững hờ níu bóng dáng xuân thì.<br>Người còn đó hay đã thành sương khói?<br>Tôi mải tìm mà chẳng thấy dấu yêu.<br>Giữa nhân thế muôn ngàn dòng mắt vội,<br>Ai đứng chờ trong hoang vắng cô liêu?</p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n",
@@ -185,12 +195,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1291_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 111"
   },
   {
     "id": 1248,
     "slug": "vo-de-110",
-    "title": "Vô Đề 110",
+    "title": "Nhớ em, mưa hạ vội vã trôi",
     "date": "2024-04-09T15:43:36",
     "date_formatted": "9 tháng 4, 2024",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nhớ em, mưa hạ vội vã trôi<br>Nắng lên, hoa nở chào ngày mới<br>Sớm mai tươi, hồng hoa đưa lối<br>Mong manh áo vải gió nhạt phai!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Yêu thương qua, say đắm rồi tỉnh giấc<br>Chìm trong mơ, rồi lại thả tay lơi<br>Rượu nồng cay, lệ đượm buồn vui<br>Mộng mị say, hay tỉnh thực giữa đời?</p>\n",
@@ -202,12 +213,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1248_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 110"
   },
   {
     "id": 1245,
     "slug": "vo-de-109",
-    "title": "Vô Đề 109",
+    "title": "Ta nhớ em, cơn mưa rào trưa hè",
     "date": "2024-04-09T15:40:46",
     "date_formatted": "9 tháng 4, 2024",
     "content_html": "\n<p class=\"wp-block-paragraph\">Ta nhớ em, cơn mưa rào trưa hè<br>Nắng chợt đến và hoa chớm nở<br>Ban mai xanh bên cánh hồng hoa<br>Áo ta ướt nhạt nhòa trong gió!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Ta đã yêu, đã say và đã tỉnh<br>Đã đắm chìm và cũng đã buông tay<br>Men rượu cay, mắt lệ ngắn dài<br>Say trong say hay tỉnh dài trong mộng!</p>\n",
@@ -219,12 +231,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1245_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 109"
   },
   {
     "id": 1241,
     "slug": "vo-de-108",
-    "title": "Vô Đề 108",
+    "title": "Thôi, ta hẹn nhau kiếp khác",
     "date": "2023-12-20T12:00:54",
     "date_formatted": "20 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Thôi, ta hẹn nhau kiếp khác<br>Duyên với tình nay lỡ lạc mất rồi<br>Mây cứ trôi và nước cứ chảy<br>Hòn đá buồn, cây cũng vẫn cô đơn!<br>Dòng suối nhỏ chỉ đưa thuyền ra biển lớn<br>Mặc sóng, mặc gió, mặc tất cả<br>Đoạn đường giờ hai ngã chia đôi<br>Bước cũng vội, lạc mất khúc tình si</p>\n",
@@ -236,12 +249,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1241_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 108"
   },
   {
     "id": 1231,
     "slug": "vo-de-107",
-    "title": "Vô Đề 107",
+    "title": "Hỏi rằng tôi đã quên chưa",
     "date": "2023-12-15T15:38:09",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Hỏi rằng tôi đã quên chưa?<br>Tôi còn nhớ lắm, và thưa: rất buồn!<br>Rèm thưa buông nhẹ hững hờ<br>Kiêu sa ánh mắt chẳng là của tôi!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Kỷ niệm còn chút phôi phai?<br>Tôi còn trong mộng với ai hỡi người!<br>Bốn phương gió lộng tứ bề<br>Một thân cô độc hẹn thề với ai!</p>\n",
@@ -253,12 +267,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1231_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 107"
   },
   {
     "id": 1228,
     "slug": "vo-de-106",
-    "title": "Vô Đề 106",
+    "title": "Em ơi em có nghe",
     "date": "2023-12-15T15:34:54",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em ơi em có nghe<br>Nắng rớt bên hiên nhà<br>Đàn trẻ con ngân nga<br>Những bài ca đón Tết!<br>Mùa xuân vừa mới dệt<br>Tấm áo mới mọi nơi<br>Vẽ nên những nụ cười<br>Trên đôi môi hớn hở<br>Lộc treo đầy khắp phố<br>Hạnh phúc tràn vào nhà<br>Chúc sức khỏe ông bà<br>Gia đình luôn êm ấm<br>Trẻ em luôn vui tươi<br>Học hành càng phấn khởi<br>Cha mẹ luôn yêu đời<br>Công danh càng tấn tới<br>Ông bà luôn phơi phới<br>Bạc đầu tới trăm tuổi<br>Hạnh phúc tới mọi nơi<br>Cùng đón mừng năm mới</p>\n",
@@ -270,12 +285,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1228_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 106"
   },
   {
     "id": 1225,
     "slug": "vo-de-105",
-    "title": "Vô Đề 105",
+    "title": "Người ta học cách nhớ thương",
     "date": "2023-12-15T15:30:49",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Người ta học cách nhớ thương<br>Tôi đây học cách để quên một người<br>Quên trong ánh mắt nụ cười<br>Trong làn môi ấm, trong lời yêu thương!<br>Từng giây trong những đêm trường<br>Uyên ương mộng đẹp khắp vườn hồng hoa<br>Tương tư từ lúc xế tà<br>Canh ba đã điểm tiếng gà cũng say<br>Say trong cõi mộng một ngày<br>Thế gian say cả vạn ngày mộng mơ<br>Làm sao quên đã tôn thờ<br>Làm sao vứt bỏ từng giờ yêu thương<br>Làm sao quên những con đường<br>Làm sao để trả yêu thương trở về<br>Làm sao để xóa não nề<br>Làm sao thoát khỏi u mê mộng tình</p>\n",
@@ -287,12 +303,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1225_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 105"
   },
   {
     "id": 1222,
     "slug": "vo-de-104",
-    "title": "Vô Đề 104",
+    "title": "Chim ơi chim đừng bay",
     "date": "2023-12-15T15:27:47",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Chim ơi chim đừng bay<br>Đậu bên cạnh hoa này<br>Chờ trái chín đầy cành<br>Mang khắp miền yêu thương!<br>Gieo tương tư khắp chốn<br>Lạc rớt hiên nhà nàng<br>Hạt cây si vừa nở<br>Gieo trong niềm nhớ thương<br>Đợi chờ lớn từng ngày<br>Trong từng giây còn nhớ<br>Bóng hình của nàng thơ<br>Mơ trong mơ cũng nhớ<br>Say trong say còn tỉnh<br>Chợt vô tình gọi tên</p>\n",
@@ -304,12 +321,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1222_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 104"
   },
   {
     "id": 1219,
     "slug": "vo-de-103",
-    "title": "Vô Đề 103",
+    "title": "Chú chim nho nhỏ, chưa tỏ yêu thương",
     "date": "2023-12-15T15:21:21",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Chú chim nho nhỏ, chưa tỏ yêu thương<br>Đậu trên cành hường, chờ tương tư đến<br>Cánh hồng cũng mến, tỏa chút hương thơm<br>Chim nhỏ vô tình, rớt trong tình nhỏ!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chim có cánh to nhưng chẳng bay nhảy<br>Cứ cạnh hồng nhỏ chờ gió thật to<br>Chim giang cánh nhỏ cho gió đừng vào<br>Thổi cánh hoa nào vội tàn đi mất</p>\n\n\n\n<p class=\"wp-block-paragraph\">Trông trời trông đất, trông tháng trông ngày<br>Nhưng chẳng được may, hoa tàn phút chốc<br>Chim nhỏ bỗng chốc, gốc hoa cạnh nằm<br>Chờ xuân hoa đến, nảy mầm yêu đương</p>\n",
@@ -321,12 +339,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1219_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 103"
   },
   {
     "id": 1216,
     "slug": "vo-de-102",
-    "title": "Vô Đề 102",
+    "title": "Yêu em cho đến khi con tim ngừng đập",
     "date": "2023-12-15T15:17:46",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Yêu em cho đến khi con tim ngừng đập<br>Nước mắt kia ngừng rơi, lời yêu chẳng rõ thành lời<br>Lòng anh se thắt lại cho nỗi nhớ đừng tan<br>Yêu em trong muộn màng, vội vàng trong sầu lắng!<br>Anh say trong màu nắng em rải trên cát vàng<br>Gục lên tàn cánh phượng, em vô tình đánh rơi<br>Biển xa khơi nhớ bờ<br>Nhớ nhớ em trong mơ</p>\n",
@@ -338,12 +357,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1216_img_0.png"
-    ]
+    ],
+    "code_title": "Vô Đề 102"
   },
   {
     "id": 1213,
     "slug": "vo-de-101",
-    "title": "Vô Đề 101",
+    "title": "Tuyết nguyệt phong sương giăng ngập lối",
     "date": "2023-12-15T15:02:32",
     "date_formatted": "15 tháng 12, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Tuyết nguyệt phong sương giăng ngập lối<br>Sương mờ nhân ảnh khó phôi phai<br>Ảo mộng hồng trần sầu muôn kiếp<br>Duyên nợ hồng trần dễ phai phôi</p>\n",
@@ -355,12 +375,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1213_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 101"
   },
   {
     "id": 1194,
     "slug": "vo-de-100",
-    "title": "Vô Đề 100",
+    "title": "Tương tư nét vẻ thơ ngây",
     "date": "2023-07-21T18:08:06",
     "date_formatted": "21 tháng 7, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Tương tư nét vẻ thơ ngây<br>Ân cần đặt nhẹ lên môi má nàng<br>Mang thêm dáng vẻ ngang tàng<br>Đặt vào ánh mắt muôn vàng yêu thương!<br>An yên chẳng chút muộn phiền<br>Nhân sinh chẳng biết vô tình hữu duyên</p>\n\n\n\n<p class=\"wp-block-paragraph\">Hồng trần đâu dễ phai phôi<br>Oanh vàng cất tiếng rầm rì thế gian<br>À ơi một kiếp xuân thì<br>In trong cõi mộng mơ gì thế gian<br>An yên chẳng chút muộn phiền<br>Nhân sinh chẳng biết vô tình hữu duyên</p>\n",
@@ -372,12 +393,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1194_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 100"
   },
   {
     "id": 1191,
     "slug": "vo-de-99",
-    "title": "Vô Đề 99",
+    "title": "Một ngôi nhà nhỏ giữa thảo nguyên",
     "date": "2023-07-21T18:02:41",
     "date_formatted": "21 tháng 7, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Một ngôi nhà nhỏ giữa thảo nguyên<br>Không mong danh lợi, chẳng muộn phiền<br>Đất xanh gieo chút mầm cây nhỏ<br>Ao cạn thả trôi mấy bọt bèo!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Nắng trải trên vai xuống góc nhà<br>Mưa phùn đượm ướt lá với hoa<br>Sương trà đương tỏa trong nắng mới<br>An yên chờ đợi cạnh hiên nhà</p>\n",
@@ -389,12 +411,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1191_img_0.webp"
-    ]
+    ],
+    "code_title": "Vô Đề 99"
   },
   {
     "id": 1188,
     "slug": "vo-de-98",
-    "title": "Vô Đề 98",
+    "title": "Ngàn năm chỉ đợi một người",
     "date": "2023-07-21T17:58:55",
     "date_formatted": "21 tháng 7, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Ngàn năm chỉ đợi một người<br>Trăm năm chuyển kiếp có quên bao giờ<br>Hỏi rằng nàng có thờ ơ<br>Hay duyên đã rớt cõi mơ mộng nào!</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Đời ta như lá với hoa<br>Lá theo gió cuốn, hoa tàn có hay<br>Thế gian duyên số hợp tan<br>Vội đi rồi để vội vàng bước qua</p>\n\n\n\n<p class=\"wp-block-paragraph\"><br>Đời người như cát với mây<br>Cát theo gió lộng, mây bay không ngừng<br>Phù du duyên nợ tràn đầy<br>Mê cung số phận nào đây vô hình</p>\n",
@@ -406,12 +429,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1188_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 98"
   },
   {
     "id": 1184,
     "slug": "vo-de-97",
-    "title": "Vô Đề 97",
+    "title": "Kiếp nhân sinh buồn vui thoáng chốc",
     "date": "2023-07-21T17:55:46",
     "date_formatted": "21 tháng 7, 2023",
     "content_html": "\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<p class=\"wp-block-paragraph\">Kiếp nhân sinh buồn vui thoáng chốc<br />Đời vô thường sầu muộn ưu tư<br />Có chăng? E phù du trần thế<br />Bụi muộn phiền phủ khắp thế gian!<br />Chân ta bước vội vàng trên cát<br />In dấu hằn mất mát thời gian<br />Tia nắng hồng soi khắp thế gian<br />Rải muộn phiền sau hàng lá nhỏ</p>\n</div></div>\n</div></div>\n</div></div>\n</div></div>\n\n\n\n<div class=\"wp-block-group\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained\">\n<p class=\"wp-block-paragraph\"></p>\n</div></div>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n",
@@ -423,12 +447,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1184_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 97"
   },
   {
     "id": 1177,
     "slug": "vo-de-96",
-    "title": "Vô Đề 96",
+    "title": "Tôi lạc ở đây góc xế chiều",
     "date": "2023-04-20T13:32:07",
     "date_formatted": "20 tháng 4, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Tôi lạc ở đây góc xế chiều<br>Hàng cây chen đá, lá liêu xiêu<br>Gót hồng mơ mộng nhiều đêm trắng<br>Đìu hiu bến nhỏ, rán bóng chiều!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Thiên thu muôn kiếp sầu vô hận<br>Khoảnh khắc tơ lòng chốc vụt tan<br>Cảnh cũ đò xưa còn đón khách<br>Trăng xưa chẳng khuất mối tơ lòng</p>\n",
@@ -440,12 +465,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1177_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 96"
   },
   {
     "id": 1174,
     "slug": "vo-de-95",
-    "title": "Vô Đề 95",
+    "title": "Thưa cha con đi lấy chồng",
     "date": "2023-03-01T15:37:42",
     "date_formatted": "1 tháng 3, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Thưa cha con đi lấy chồng<br>Ở bên người ấy có bằng lòng không?<br>Ngày thơ, xưa bé lông bông<br>Trên tay cha đã bế bồng sớm hôm!<br>Khúc khích khẽ khóc rồi cười<br>Gian nan vất vả để ngoài hiên phơi<br>Giờ đây sương gió trắng trời<br>Thấu trong tim có mở lời cùng ai<br>Dịu dàng đôi mắt hiền nai<br>Sầu lên khóe mắt biết ai tìm về!</p>\n",
@@ -457,12 +483,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1174_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 95"
   },
   {
     "id": 1171,
     "slug": "vo-de-94",
-    "title": "Vô Đề 94",
+    "title": "Đêm quá ngắn với những tâm sự buồn",
     "date": "2023-03-01T15:33:03",
     "date_formatted": "1 tháng 3, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Đêm quá ngắn với những tâm sự buồn<br>Ngày quá dài với những suy tư<br>Tháng năm trôi muộn phiền ở lại<br>Chông chênh đời ngắm cõi hư vô!<br>Kiếp nhân sinh là sầu hay khổ<br>Cõi thế gian sao đượm ưu hoài<br>Ta lạc lối giữa dòng vô tận<br>Trầm luân hồi ai óan suy tư&#8230;</p>\n",
@@ -474,12 +501,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1171_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 94"
   },
   {
     "id": 1168,
     "slug": "vo-de-93",
-    "title": "Vô Đề 93",
+    "title": "Có một thứ khiến đời ta cô quạnh",
     "date": "2023-02-23T14:23:17",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Có một thứ khiến đời ta cô quạnh<br>Ngắm trăng tàn và lạnh tay người thương<br>Trời còn sáng và tối, nhưng ta chỉ lạc lối<br>Tìm đường về mà vô lối người thương</p>\n",
@@ -491,12 +519,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1168_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 93"
   },
   {
     "id": 1165,
     "slug": "vo-de-92",
-    "title": "Vô Đề 92",
+    "title": "Nhân sinh trong một kiếp người",
     "date": "2023-02-23T14:20:55",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nhân sinh trong một kiếp người<br>Gió đưa mây thoảng như lời hư không<br>Phong sương phủ kín bụi trần<br>Nhân duyên như rót muôn phần cô đơn</p>\n",
@@ -508,12 +537,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1165_img_0.png"
-    ]
+    ],
+    "code_title": "Vô Đề 92"
   },
   {
     "id": 1162,
     "slug": "vo-de-91",
-    "title": "Vô Đề 91",
+    "title": "Trường giang sóng cuộn về xuôi",
     "date": "2023-02-23T14:18:24",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Trường giang sóng cuộn về xuôi<br>Mắt ai ướt lệ ngậm ngùi vì ai<br>Hai dòng lệ nhỏ tuôn rơi<br>Sông sâu mất đáy nhớ thương ngậm ngùi</p>\n",
@@ -525,12 +555,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1162_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 91"
   },
   {
     "id": 1159,
     "slug": "vo-de-90",
-    "title": "Vô Đề 90",
+    "title": "Nhìn kìa em con chúng ta đó",
     "date": "2023-02-23T14:13:28",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nhìn kìa em con chúng ta đó<br>Mắt bé nhỏ nhưng xoe tròn nũng nịu<br>Tóc lưa thưa như chứa cả mùa xuân<br>Đường chân trời kề bên vầng trán nhỏ!<br>Sóng mũi dài như dáng đứng quê hương<br>Mỉm miệng cười giữ niềm thương ở lại<br>Má bềnh bồng giống em, hay dỗi hờn</p>\n",
@@ -542,12 +573,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1159_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 90"
   },
   {
     "id": 1156,
     "slug": "vo-de-89",
-    "title": "Vô Đề 89",
+    "title": "Trời đổ lửa cho mắt vàng hoe",
     "date": "2023-02-23T14:00:58",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Trời đổ lửa cho mắt vàng hoe<br>Em lặng thầm khẽ khóc vai anh<br>Màn sương trắng mỏng như tấm lụa<br>Muôn sợi tơ ngăn cách mối tơ lòng!<br>Đêm đã qua, trời đừng vội sáng<br>Phút gẫn gũi để xa cách ngàn ngày<br>Gió heo may từng cơn lạnh lẽo<br>Nắng dần tàn héo hắt lòng ta<br>Cười một chút, đời là bể khổ<br>Buồn hai hàng lệ đổ ướt mi<br>Buông theo gió còn có lại gì<br>Sỏi khô cằn, đá hóa tâm hồn!</p>\n",
@@ -559,12 +591,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1156_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 89"
   },
   {
     "id": 1154,
     "slug": "vo-de-88",
-    "title": "Vô Đề 88",
+    "title": "Trên cành quyên liễu có đôi",
     "date": "2023-02-23T13:49:59",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Trên cành quyên liễu có đôi<br>Thế tôi có thể nên đôi với nàng<br>Trời chiều len chút nắng vàng<br>Dịu dàng ai đặt cho nàng cạnh tôi!<br>Ánh trăng kia biêt dối lừa<br>Khuyết chăng một nửa cho vừa dáng nàng<br>Con đò lỡ bước sang ngang<br>Cho tôi một chút vội vàng ngẫn ngơ<br>Nàng thơ ơi hỡi nàng thơ<br>Tên chi có thể giả vờ buông lơi<br>Cho tôi gửi chút đôi lời<br>Có duyên gặp lại ngỏ lời nên duyên</p>\n",
@@ -576,12 +609,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1154_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 88"
   },
   {
     "id": 1150,
     "slug": "vo-de-87",
-    "title": "Vô Đề 87",
+    "title": "Hẹn người ở tuổi đôi mươi",
     "date": "2023-02-23T13:48:51",
     "date_formatted": "23 tháng 2, 2023",
     "content_html": "\n<p class=\"wp-block-paragraph\">Hẹn người ở tuổi đôi mươi<br>Tóc xanh đã trải, mắt môi má hồng<br>Lỡ dòng khẽ bước sang ngang<br>Nhạt màu nắng rớt hai hàng lệ rơi!<br>Xuân xanh thời cũng có thời<br>Hoa xuân đâu chỉ một đời hoa xuân<br>Đành lòng nhẹ bước bâng khuân<br>Tuổi xuân gửi lại bên nhành hoa xuân</p>\n",
@@ -593,12 +627,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1150_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 87"
   },
   {
     "id": 1140,
     "slug": "vo-de-86",
-    "title": "Vô Đề 86",
+    "title": "Tiễn con đi khi đầu hai thứ tóc",
     "date": "2022-12-12T17:54:39",
     "date_formatted": "12 tháng 12, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Tiễn con đi khi đầu hai thứ tóc<br>Đón con về tóc mẹ bạc phai<br>Sinh con ra với hình hài nhỏ bé<br>Đón con về khi đất đá lẫn xương khô!<br>Chén cơm bạc, xới vội nửa lưng<br>Cơm chưa tròn con lại đi cho kịp<br>Tiếng Tổ Quốc hòa nhịp con tim<br>Những tiếng nấc muộn phiền gói lại<br>Hành trang con đi phải mãi vững lòng<br>Đã qua rồi năm ròng tháng rã<br>Chén cơm vội, con đã ăn đâu<br>Lần gặp gỡ biết đâu là lần cuối<br>Bóng lưng con khuất núi sau hè<br>Khi gặp lại đã không còn giặc nữa<br>Con trở về bên chái bếp sau hè<br>Nghe mẹ ru như những ngày thơ bé<br>Chỉ chạnh lòng không được ấp ôm mẹ</p>\n",
@@ -610,12 +645,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1140_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 86"
   },
   {
     "id": 1137,
     "slug": "vo-de-85",
-    "title": "Vô Đề 85",
+    "title": "Mẹ trăm tuổi bạc đầu sương muối",
     "date": "2022-12-12T17:52:32",
     "date_formatted": "12 tháng 12, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Mẹ trăm tuổi bạc đầu sương muối<br>Đón con về bên núi non thơ<br>Ngày thuở bé chỉ mơ và mộng<br>Mái nhà tranh gió lộng tứ bề!<br>Lúc thơ bé được bế bồng chiều chuộng<br>Lưng mẹ gầy con ngủ suốt thâu đêm<br>Lớn lên trên đất cằn khô sỏi<br>Ước mơ nhỏ qua cơn đói từng ngày<br>Giặc lại đến đốt cháy giấc mơ nhỏ<br>Kiếp nô lệ có còn thấy tự do<br>Con đã đi theo màu cờ đỏ<br>Máu nhuộm bùn, đỏ khắp Việt Nam<br>Nước đã sang trang nhưng ngàn người ở lại<br>Dưới đất sâu mãi với thời gian<br>Đủ gian khổ, hình hài về với mẹ<br>Mắt đã mờ ghi mãi bóng hình con<br>Mâm cơm nhạt bớt đi nhiều nước mắt<br>Chút khói hương mẹ ấm một chút lòng<br>Hình đất nước in bóng hình con đó<br>Tựa lưng vào thân gầy gò mẹ hiền<br>Bóng của cha đã từng chinh chiến<br>Cho hôm nay đất nước mãi vững bền!</p>\n",
@@ -627,12 +663,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1137_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 85"
   },
   {
     "id": 1132,
     "slug": "vo-de-84",
-    "title": "Vô Đề 84",
+    "title": "Tôi nhớ Sapa mùa tuyết lạnh",
     "date": "2022-12-08T08:42:57",
     "date_formatted": "8 tháng 12, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Tôi nhớ Sapa mùa tuyết lạnh<br>Sương mờ phủ trắng mặt người qua<br>Lữ khách phương xa vờ chẳng thấy<br>Sương lạnh bờ môi ướt lệ nhòa!<br>Ngày ấy khi trời còn nắng đẹp<br>Chồi xanh đương mọc với lá hoa<br>Kiêu sa bước đến cạnh bên ta<br>Mây mù bỗng chốc cũng nhạt nhòa<br>Nắng vừa khẽ lên nắng vội tắt<br>Vô tình? Hữu ý? Băng kết hoa<br>Mỗi phút mỗi giây xa cách xa<br>Mỗi phương mỗi hướng hóa hư không<br>Băng tâm, sương kín mây ngập lối<br>Độc bộ, đơn hành, ta với ta</p>\n",
@@ -644,12 +681,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1132_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 84"
   },
   {
     "id": 1121,
     "slug": "vo-de-83",
-    "title": "Vô Đề 83",
+    "title": "Em ơi dáng hình đất nước",
     "date": "2022-05-12T16:53:37",
     "date_formatted": "12 tháng 5, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em ơi dáng hình đất nước<br>Cao như Thái Sơn, sâu tựa lòng mẹ<br>Từng con sóng cứ vỗ về<br>Như lời mẹ hát ru những đêm hè!<br>Gió chảy qua miền sơn cước<br>Phủ lên tóc cha những sợi bạc màu<br>Hình đất nước thật hùng vĩ<br>Như cách ông bà ta đã yêu nhau<br>Núi sông kia phai bạc màu<br>Ao sâu và biển khô cạn đáy<br>Những tâm hồn còn nhỏ bé<br>Xây dựng hình hài của cả núi sông!<br>Lớn lên con xa đất mẹ<br>Ôm trọn hình hài đất nước bên mình<br>Sông dù sâu cũng ra bể<br>Suối dẫu cạn cũng bắt đầu từ nguồn<br>Con dù sống ở bốn phương<br>Quê cha đất mẹ vấn vương không ngừng<br>Mong sao nghe được tin mừng<br>Quê hương đất nước tưng bừng niềm vui!</p>\n",
@@ -661,12 +699,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1121_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 83"
   },
   {
     "id": 1101,
     "slug": "vo-de-82",
-    "title": "Vô Đề 82",
+    "title": "Em chỉ ước thế gian không quá rộng",
     "date": "2022-01-16T23:31:29",
     "date_formatted": "16 tháng 1, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em chỉ ước thế gian không quá rộng<br>Để yếu lòng, quay lại sẽ gặp anh<br>Dẫu mong manh như muôn lớp lụa<br>Nhưng nhủ lòng như lúa đợi mưa rào!<br>Nhưng tại sao khi ta càng mong đợi<br>Càng vô tình vác thêm nỗi ưu phiền<br>Có hay không nơi đó người vẫn thế<br>Chút mong chờ hay đã hóa hư không</p>\n",
@@ -678,12 +717,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1101_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 82"
   },
   {
     "id": 1088,
     "slug": "vo-de-81",
-    "title": "Vô Đề 81 (Mây trắng qua đồi)",
+    "title": "Cỏ trắng sương xanh trải sườn đồi",
     "date": "2022-01-12T23:16:22",
     "date_formatted": "12 tháng 1, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Cỏ trắng sương xanh trải sườn đồi<br>Hai người một lối chẳng chung đôi<br>Khói xa ám trên màu lá biếc<br>Mây hờn trôi nhẹ biết về đâu!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Nhà anh xanh cây, cỏ chẳng thiếu<br>Nắng chiều xuyên qua chồi lá nhỏ<br>Bước chân vừa đó ngỡ xa nhiều<br>Mây trôi nắng tắt cũng đìu hiu</p>\n\n\n\n<p class=\"wp-block-paragraph\"></p>\n",
@@ -695,12 +735,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1088_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 81 (Mây trắng qua đồi)"
   },
   {
     "id": 1086,
     "slug": "vo-de-80",
-    "title": "Vô Đề 80",
+    "title": "Đã có lúc đời ta như bất biến",
     "date": "2022-01-12T03:31:10",
     "date_formatted": "12 tháng 1, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Đã có lúc đời ta như bất biến<br>Phương trình tìm hoài vẫn vô nghiệm<br>Thêm em vào phương trình lại có nghiệm<br>Nhưng âm dương hay vô cực đủ đường!<br>Xích ma tình từ không đến vô cực<br>Chỉ tiệm cận chứ chưa hề giao cắt<br>Trục hoành anh trao, trục tung anh đợi<br>Tiến sát mãi nhưng chẳng bao giờ gặp</p>\n",
@@ -712,12 +753,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1086_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 80"
   },
   {
     "id": 1083,
     "slug": "vo-de-79",
-    "title": "Vô Đề 79",
+    "title": "Cành tre mà có lá đa",
     "date": "2022-01-12T03:12:24",
     "date_formatted": "12 tháng 1, 2022",
     "content_html": "\n<p class=\"wp-block-paragraph\">Cành tre mà có lá đa<br>Như con chim sẻ trong nhà diều hâu<br>Tương tư anh gửi thật sâu<br>Giấu trong giếng cạn dám đâu nói gì!<br>Biển cạn thì có khi đầy<br>Lòng không khô cạn, chẳng vơi nỗi sầu<br>Hỏi rằng em có biết đâu<br>Lòng anh rẽ sóng nhưng trôi ngược dòng</p>\n",
@@ -729,12 +771,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1083_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 79"
   },
   {
     "id": 1055,
     "slug": "vo-de-78",
-    "title": "Vô Đề 78",
+    "title": "Sóng tràn mắt biếc, hoa khô lệ",
     "date": "2021-12-30T20:38:49",
     "date_formatted": "30 tháng 12, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Sóng tràn mắt biếc, hoa khô lệ<br>Nắng dài trên cát, biển cằn khô<br>Liễu rũ đào phai vàng theo lá<br>Cỏ xanh ủ rạp dưới tàn hoa</p>\n",
@@ -746,12 +789,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1055_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 78"
   },
   {
     "id": 1049,
     "slug": "vo-de-77",
-    "title": "Vô Đề 77",
+    "title": "Màu xanh ba vẽ biển",
     "date": "2021-12-07T09:01:46",
     "date_formatted": "7 tháng 12, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Màu xanh ba vẽ biển<br>Màu trắng thì vẽ mây<br>Trong đôi mắt thơ ngây<br>Con vẽ nụ cười hồng!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sắc bông vừa chớm nở<br>Gió trên tóc bồng bềnh<br>Hương thơm bên cỏ lá<br>Hôn lên má dịu dàng</p>\n\n\n\n<p class=\"wp-block-paragraph\">Đôi mắt khẽ mơ màng<br>Bàn tay thon bé xíu<br>Ôm cả trời thương nhớ<br>Bên nụ hồng vấn vương.</p>\n",
@@ -763,12 +807,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1049_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 77"
   },
   {
     "id": 1027,
     "slug": "vo-de-76",
-    "title": "Vô Đề 76",
+    "title": "Con cho ba nụ cười, ngây thơ và mộng mơ",
     "date": "2021-08-14T21:24:28",
     "date_formatted": "14 tháng 8, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Con cho ba nụ cười, ngây thơ và mộng mơ<br>Con cho ba mong nhớ, cả một trời yêu thương<br>Vấn vương trên khóe mắt hay môi chúm chím cười<br>Quên đời đầy vất vả, khó nhọc và gian lao!<br>Trời còn cao và xanh, như đôi mắt long lanh<br>Con gieo từng bước nhỏ vào trong hồn ba ba<br>Đời có qua nhiều kiếp, trong muôn vạn cuộc đời<br>Con vẫn mãi bé nhỏ là con gái của ba</p>\n",
@@ -780,12 +825,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_1027_img_0.png"
-    ]
+    ],
+    "code_title": "Vô Đề 76"
   },
   {
     "id": 887,
     "slug": "vo-de-75",
-    "title": "Vô Đề 75",
+    "title": "Con ngồi con vẽ vầng mây",
     "date": "2021-02-04T09:50:12",
     "date_formatted": "4 tháng 2, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Con ngồi con vẽ vầng mây<br>Ba ngồi ba ngắm cả ngày yêu thương<br>Tô thêm một chút màu hường<br>Vẽ nên cả núi yêu thương gia đình!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Long lanh đôi mắt nụ cười<br>Tóc mây ngang mái đánh rơi hững hờ<br>Nét trông có chút ngây thơ<br>Nét trông già dặn nhưng bơ sự đời</p>\n",
@@ -797,12 +843,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_887_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 75"
   },
   {
     "id": 885,
     "slug": "vo-de-74",
-    "title": "Vô Đề 74",
+    "title": "Mong manh giấy trắng vẽ nụ cười",
     "date": "2021-02-04T09:49:53",
     "date_formatted": "4 tháng 2, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Mong manh giấy trắng vẽ nụ cười<br>Sắc Xuân tô điểm thêm lời yêu thương<br>Má hồng chưa phủ phong sương<br>Nụ cười chưa chút vấn vương u sầu!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Người đâu gặp gỡ lần đầu<br>Tương tư gieo hết lên đầu yêu thương<br>Thế gian thêm chút cõi hường<br>Yêu thương rồi lại muôn phần yêu thương!</p>\n",
@@ -814,12 +861,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_885_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 74"
   },
   {
     "id": 880,
     "slug": "vo-de-73",
-    "title": "Vô Đề 73",
+    "title": "Mong manh như trang giấy",
     "date": "2021-02-04T09:49:28",
     "date_formatted": "4 tháng 2, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Mong manh như trang giấy<br>Đôi mắt thơ dịu hiền<br>Con cho ba hỏi nhỏ<br>Con có phải cô tiên!<br>Xua đi hết muộn phiền<br>Gieo mong manh nỗi nhớ<br>Như nàng thơ xứ Huế<br>Chợt vô tình gọi tên!</p>\n",
@@ -831,12 +879,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_880_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 73"
   },
   {
     "id": 809,
     "slug": "vo-de-72",
-    "title": "Vô Đề 72",
+    "title": "Có những lúc ta thả dòng suy nghĩ",
     "date": "2021-02-03T16:37:01",
     "date_formatted": "3 tháng 2, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Có những lúc ta thả dòng suy nghĩ<br>Ngọn cỏ ven đường sao với được mây<br>Nhưng mây kia có chạm được tới cỏ<br>Hay vội tan khi nắng mới vừa lên.<br>Cũng như chút lãng quên dòng ký ức<br>Ta muốn chạm, nhưng dường như xa quá<br>Mỏi mong chờ những thứ đã đi qua&#8230;</p>\n",
@@ -848,12 +897,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_809_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 72"
   },
   {
     "id": 783,
     "slug": "vo-de-71",
-    "title": "Vô Đề 71",
+    "title": "Nếu sóng không từ gió",
     "date": "2021-01-22T15:33:27",
     "date_formatted": "22 tháng 1, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nếu sóng không từ gió<br>Biển có chút êm đềm?<br>Nếu nắng không còn ấm<br>Đêm về có dịu êm?<br>Sau lưng những tầng lá<br>Người như hoa như cỏ<br>Nhưng lòng ta bé nhỏ<br>Ngước mắt nhìn trời xa</p>\n",
@@ -865,12 +915,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_783_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 71"
   },
   {
     "id": 780,
     "slug": "vo-de-70",
-    "title": "Vô Đề 70",
+    "title": "Ngoài kia vất vả gian lao",
     "date": "2021-01-22T15:23:16",
     "date_formatted": "22 tháng 1, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Ngoài kia vất vả gian lao<br>Mẹ già tần tảo sớm hôm một mình<br>Chờ mong mòn mỏi một tin<br>Xuân về Tết đến có con trở về!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Về bên chái bếp hiên nhà<br>Để quên vất vả bên ngoài thế gian<br>Dẫu về phút chốc vội vàng<br>Một lần gặp gỡ hơn ngàn nhớ thương.</p>\n",
@@ -882,12 +933,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_780_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 70"
   },
   {
     "id": 773,
     "slug": "vo-de-69",
-    "title": "Vô Đề 69",
+    "title": "Phong sương gieo gió trong cõi mộng",
     "date": "2021-01-04T17:43:54",
     "date_formatted": "4 tháng 1, 2021",
     "content_html": "\n<p class=\"wp-block-paragraph\">Phong sương gieo gió trong cõi mộng<br>Hồng trần lạc lối với tình ai<br>Trăng nghiêng qua ánh trên mái tóc<br>Liễu phủ đào tơ với mộng huyền!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Óng ánh sóng gieo thuyền âm sắc<br>Giọng hát phôi pha át nỗi lòng<br>Lữ khách vô tình qua phương ấy<br>Đọng chút trong tâm có muộn phiền!</p>\n",
@@ -899,7 +951,8 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_773_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 69"
   },
   {
     "id": 765,
@@ -921,7 +974,7 @@ window.POEMS_DATA = [
   {
     "id": 726,
     "slug": "vo-de-68",
-    "title": "Vô Đề 68",
+    "title": "Đất nước mình đẹp lắm phải không anh",
     "date": "2020-01-16T10:53:06",
     "date_formatted": "16 tháng 1, 2020",
     "content_html": "\n<p class=\"wp-block-paragraph\">Đất nước mình đẹp lắm phải không anh<br>Bao mái nhà tranh chỉ còn dĩ vãng<br>Những cánh đồng bát ngát hóa nhà máy<br>Những máy cày thay trâu trên đồng lúa.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chiếc xe đạp mẹ chở em ngày nào<br>Chỉ còn mãi trong ký ức xa xăm<br>Đôi vai cha vác cày thay trâu<br>Áo bạc màu giờ chẳng đâu tìm thấy</p>\n\n\n\n<p class=\"wp-block-paragraph\">Đời nô lệ mỏng manh như tờ giấy<br>Bỗng chốc tự do xóa gông cùm<br>Ruộng đất bao la trở lại tay ta<br>Từng tất đất đều hóa những tất vàng</p>\n\n\n\n<p class=\"wp-block-paragraph\">Ruộng lúa thênh thang trên từng đồi nhỏ<br>Sóng vỗ về đưa cá mực đầy khoang<br>Ánh mặt trời vàng trên từng bãi cát<br>Những hàng người ca hát trong tự do</p>\n\n\n\n<p class=\"wp-block-paragraph\">Điện đến buôn làng, nước thênh thang<br>Khoảng cách xa như gần sát lại<br>Khỏa lấp dần ở hai đầu nỗi nhớ<br>Kết nối mọi miền hòa với yêu thương</p>\n\n\n\n<p class=\"wp-block-paragraph\">Cho ta gửi những vấn vương về thời gian khó<br>Đất nước thần kỳ vượt trên từng con sóng nhỏ<br>Luôn vươn mình đối mặt với gió to<br>Tìm đích đến của tự do và hạnh phúc</p>\n",
@@ -933,12 +986,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_726_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 68"
   },
   {
     "id": 700,
     "slug": "vo-de-67",
-    "title": "Vô Đề 67",
+    "title": "Em ơi em sớm mai vừa thức giấc",
     "date": "2019-10-15T17:58:53",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Em ơi em sớm mai vừa thức giấc<br />\nCó phải mình vẫn trong giấc chiêm bao<br />\nVẫn nụ hôn còn mãi chút ngọt ngào<br />\nNhư nắng ấm len vào trong cõi mộng</p>\n",
@@ -950,12 +1004,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_700_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 67"
   },
   {
     "id": 697,
     "slug": "vo-de-66",
-    "title": "Vô Đề 66",
+    "title": "Cà phê đắng ru tình còn mặn",
     "date": "2019-10-15T17:54:53",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Cà phê đắng ru tình còn mặn<br />\nSầu hững hờ xa vắng mắt ai<br />\nGiọt sương mai vương buồn khóe mắt<br />\nVướng chút tình vị đắng lên môi</p>\n",
@@ -967,12 +1022,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_697_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 66"
   },
   {
     "id": 694,
     "slug": "vo-de-65-yen-tu",
-    "title": "Vô Đề 65 (Yên Tử)",
+    "title": "Đất Phật bình yên trời một cõi",
     "date": "2019-10-15T17:53:49",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Đất Phật bình yên trời một cõi<br />\nNon sông gấm vóc vững muôn đời<br />\nBình yên bác ái dang tay rộng<br />\nÔm trọn non sông mãi một nhà!</p>\n",
@@ -984,12 +1040,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_694_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 65 (Yên Tử)"
   },
   {
     "id": 691,
     "slug": "vo-de-64",
-    "title": "Vô Đề 64",
+    "title": "Bước một bước, ta giữa đời cô độc",
     "date": "2019-10-15T17:52:35",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Bước một bước, ta giữa đời cô độc,<br />\nChút nỗi lòng rồi biết trải cùng ai!<br />\nĐường dẫu dài nhưng chẳng ngại gian khổ,<br />\nLữ khách đường xa chỉ sợ một mình!</p>\n<p>Hoa tàn hoa héo ai cũng biết,<br />\nTa buồn ta tủi mấy ai hay!<br />\nĐứng giữa dòng vô thường, đời tấp nập,<br />\nChỉ mình ta mình ta với mình ta!</p>\n",
@@ -1001,12 +1058,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_691_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 64"
   },
   {
     "id": 688,
     "slug": "vo-de-63",
-    "title": "Vô Đề 63",
+    "title": "Vệt nắng cuối chiều còn hiu hắt",
     "date": "2019-10-15T17:51:11",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Vệt nắng cuối chiều còn hiu hắt<br />\nCon đường xưa đã vắng tên em<br />\nBuổi chiều êm như làn gió nhỏ<br />\nKhẽ thẫn thờ nhỏ nhắc tên em!<br />\nChim đã về ngàn tìm chốn ngủ<br />\nAnh về chốn cũ không còn em<br />\nTrời đã chen vào trong đôi mắt<br />\nChút sầu chút hận vẫn chút thương</p>\n",
@@ -1018,12 +1076,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_688_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 63"
   },
   {
     "id": 685,
     "slug": "vo-de-62",
-    "title": "Vô Đề 62",
+    "title": "Anh đâu phải là đá",
     "date": "2019-10-15T17:48:09",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Anh đâu phải là đá<br />\nCũng chẳng phải cỏ cây<br />\nChỉ như mơ ban ngày<br />\nMà chưa kịp tỉnh giấc!<br />\nTrong giấc mộng có em<br />\nChỉ còn là dĩ vãng<br />\nMàu nắng vàng cuối phố<br />\nNhạt theo màu hoàng hôn<br />\nRộn ràng theo con phố<br />\nBước chân dần nhạt hơn</p>\n",
@@ -1035,12 +1094,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_685_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 62"
   },
   {
     "id": 682,
     "slug": "vo-de-61",
-    "title": "Vô Đề 61",
+    "title": "Tôi không sợ nắng làm phai cuộc tình",
     "date": "2019-10-15T17:41:19",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Tôi không sợ nắng làm phai cuộc tình<br />\nTôi không sợ gió cuốn hết yêu thương<br />\nTôi chỉ sợ không thể chung đường<br />\nCủa hai kẻ đơn phương hoài chẳng gặp</p>\n",
@@ -1052,12 +1112,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_682_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 61"
   },
   {
     "id": 679,
     "slug": "vo-de-60",
-    "title": "Vô Đề 60",
+    "title": "Mình thương nhau chút có được không",
     "date": "2019-10-15T17:37:03",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Mình thương nhau chút có được không!<br />\nCho nắng xen thêm chút má hồng<br />\nCho gió len qua từng kẽ lá<br />\nCho nắng hôn lên má môi hồng!</p>\n<p>Mình thương nhau chút có được không!<br />\nCho đường xa vắng hóa hư không<br />\nCho nẻo đường xa gần sát lại<br />\nCho hai đứa mãi gần không xa</p>\n<p>Em ơi cho anh hỏi lần nữa<br />\nMình thương nhau chút có được không!</p>\n",
@@ -1069,12 +1130,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_679_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 60"
   },
   {
     "id": 676,
     "slug": "vo-de-59",
-    "title": "Vô Đề 59",
+    "title": "Đất hỡi đất, nước hỡi nước",
     "date": "2019-10-15T17:33:56",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Đất hỡi đất, nước hỡi nước<br />\nCó nỗi buồn nào cho ta là vô tận<br />\nCó hạt mưa nào rơi bên cửa<br />\nCho gió lạnh về, nắng chợt tan!</p>\n<p>Cho những cánh tay buông vội rời<br />\nCho cả những con đường xưa lối nhỏ<br />\nBước ta về chỉ còn ta vội vã<br />\nNắng tựa lưng thềm, áo nhạt phai</p>\n<p>Ai đã sai hoàng hôn dài kéo đến<br />\nMây gió về kéo giông tố vội sang<br />\nRồi chợt ướt vai kẻ lang thang<br />\nKẻ vội vàng, bỏ hoang dòng suy nghĩ</p>\n",
@@ -1086,12 +1148,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_676_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 59"
   },
   {
     "id": 673,
     "slug": "vo-de-58-2",
-    "title": "Vô Đề 58",
+    "title": "Anh bỏ lỡ tình em",
     "date": "2019-10-15T17:26:50",
     "date_formatted": "15 tháng 10, 2019",
     "content_html": "<p>Anh bỏ lỡ tình em<br />\nGiữa một trời hoa trắng<br />\nNhư mây kia và nắng<br />\nChẳng tiến bước cùng nhau!</p>\n<p>Cánh cò trắng ngày nào<br />\nBay qua đồng êm ả<br />\nSao em không buông thả<br />\nChút thương nhớ về anh</p>\n<p>Trời còn xanh và nắng<br />\nBiển còn sóng và gió<br />\nSao em không còn đó<br />\nNhớ thương và yêu anh</p>\n<p>Gió đi đến phương trời<br />\nNgười ngang qua lối cũ<br />\nNắng và gió cùng nhau<br />\nLại ngược lối yêu thương</p>\n",
@@ -1103,12 +1166,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_673_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 58"
   },
   {
     "id": 513,
     "slug": "vo-de-57",
-    "title": "Vô Đề 57",
+    "title": "Nắng bỏ ta đi, nắng không về nữa",
     "date": "2018-04-17T05:45:11",
     "date_formatted": "17 tháng 4, 2018",
     "content_html": "<p>Nắng bỏ ta đi, nắng không về nữa<br />\nDốc cạn lòng chỉ thấy những cơn mưa<br />\nĐường trăm nẻo, đường về chỉ một<br />\nMưa trăm hướng sao chỉ ướt mình ta!</p>\n<p>Chút hoa, chút trăng, chút gió, chút tình<br />\nCho ta khẽ chút bình minh một mình<br />\nThênh thang vạn nẻo muôn đường xa khuất<br />\nKhói mờ sương ảnh lấp muôn bóng hình</p>\n",
@@ -1120,12 +1184,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_513_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 57"
   },
   {
     "id": 505,
     "slug": "vo-de-56",
-    "title": "Vô Đề 56",
+    "title": "Người trao có nửa nụ cười",
     "date": "2018-04-05T19:42:16",
     "date_formatted": "5 tháng 4, 2018",
     "content_html": "<p style=\"text-align: center;\">Người trao có nửa nụ cười<br />\nMà ta mất cả một đời để quên<br />\nQuên cho những tháng những ngày<br />\nNhững giây những phút của thời gian trôi!</p>\n<p style=\"text-align: center;\">Nụ cười một nửa vội vàng<br />\nMang đi thân xác hai hàng ngẩn ngơ<br />\nNgười vui khẽ nụ cười hờ<br />\nCho ta vương vấn ngẩn ngơ suốt ngày</p>\n<p style=\"text-align: center;\">Ta say chút gió chút tình<br />\nVương trên ánh mắt vô tình khẽ qua<br />\nNgười trao chút gió chút hoa<br />\nHồn ta lại ngập đường hoa chốn về</p>\n<p style=\"text-align: center;\">Cho ta một chút mải mê<br />\nTương tư theo bước nàng về sớm hôm<br />\nCho ta hôn khẽ tóc nàng<br />\nCho mây với gió vội vàng mang theo</p>\n",
@@ -1137,12 +1202,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_505_img_0.gif"
-    ]
+    ],
+    "code_title": "Vô Đề 56"
   },
   {
     "id": 484,
     "slug": "vo-de-55",
-    "title": "Vô Đề 55",
+    "title": "Sài Gòn mưa gió trở trời",
     "date": "2017-05-03T15:23:01",
     "date_formatted": "3 tháng 5, 2017",
     "content_html": "<p>Sài Gòn mưa gió trở trời<br />\nAnh ngồi anh ngắm một trời bình yên<br />\nBao nhiêu sầu não muộn phiền<br />\nAnh đem bỏ lại sau miền yêu thương!</p>\n<p>Ngày nào rồi cũng bình thường<br />\nPhố phường rồi cũng ngập tràn yêu thuơng<br />\nNơi nào anh cũng thấy em<br />\nNơi nào cũng chỉ yêu thương một người</p>\n",
@@ -1154,7 +1220,8 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_484_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 55"
   },
   {
     "id": 419,
@@ -1176,7 +1243,7 @@ window.POEMS_DATA = [
   {
     "id": 415,
     "slug": "vo-de-54",
-    "title": "Vô Đề 54",
+    "title": "Ngủ đi em, ngoài kia trời rất lạnh",
     "date": "2016-10-05T16:30:14",
     "date_formatted": "5 tháng 10, 2016",
     "content_html": "<p>Ngủ đi em, ngoài kia trời rất lạnh<br />\nMười ngón tay không ôm nổi muộn phiền<br />\nĐêm hoài niệm với những điều đã cũ<br />\nEm đừng buồn, em đáng được bình yên.</p>\n<p>Gió lại về trên khắp nẻo mọi miền<br />\nTấm lưng trần phơi giữa đời giá lạnh<br />\nBuốt căm hờn qua muôn vạn phong sương<br />\nChỉ còn em nơi phố phường hoang vắng.</p>\n",
@@ -1188,12 +1255,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_415_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 54"
   },
   {
     "id": 406,
     "slug": "vo-de-53",
-    "title": "Vô Đề 53",
+    "title": "Có những nỗi lòng chẳng bao giờ nói ra được",
     "date": "2016-10-05T16:22:07",
     "date_formatted": "5 tháng 10, 2016",
     "content_html": "<p>Có những nỗi lòng chẳng bao giờ nói ra được<br />\nSợ là giấc mơ theo cơn gió bay đi<br />\nLửa âm ỉ chẳng bao giờ thành ngọn<br />\nCháy tim ta từng chút dỗi hờn!<br />\nCó lẽ cô đơn với đời ta là tri kỷ<br />\nNỗi lòng ta như vạn tỷ mũi tên<br />\nXuyên qua hết nhưng chẳng bao giờ chạm tới<br />\nĐáy lòng ta vội vã giận hờn!</p>\n",
@@ -1205,12 +1273,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_406_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 53"
   },
   {
     "id": 403,
     "slug": "vo-de-52",
-    "title": "Vô Đề 52",
+    "title": "Như chuông vang mãi tiếng lòng",
     "date": "2016-10-05T16:16:40",
     "date_formatted": "5 tháng 10, 2016",
     "content_html": "<p>Như chuông vang mãi tiếng lòng<br />\nNgân lên trong khúc dịu dàng sắc xuân<br />\nHạnh kia chung sức đi tìm<br />\nPhúc đây vang đến mọi miền yêu thương</p>\n",
@@ -1222,12 +1291,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_403_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 52"
   },
   {
     "id": 396,
     "slug": "vo-de-51",
-    "title": "Vô Đề 51",
+    "title": "Đông gõ cửa bên ngoài hiên vắng",
     "date": "2016-09-08T15:58:04",
     "date_formatted": "8 tháng 9, 2016",
     "content_html": "<p>Đông gõ cửa bên ngoài hiên vắng<br />\nĐưa thu và giọt nắng trôi xa<br />\nMây giăng sương trắng nhạt nhòa<br />\nGió đem hơi lạnh ghé qua ngoài thềm!</p>\n<p>Nhớ giây phút bên rèm ngóng đợi<br />\nGiữa đêm khuya vời vợi nhớ thương<br />\nGiọt châu tô ướt má hường<br />\nGiờ người xa cách ở phương trời nào</p>\n<p>Trăng hiu hắt ngó vào song cửa<br />\nNét mi gầy, một nửa xanh xao<br />\nBờ mi níu giấc chiêm bao<br />\nVòng tay ân ái theo vào giấc mơ</p>\n<p>Chợt tỉnh giấc, không giờ rồi đó<br />\nTái tê lòng cơn gió tràn qua<br />\nĐể ai nước mắt nhạt nhòa<br />\nCô đơn gối chiếc&#8230; tình qua lâu rồi.</p>\n",
@@ -1239,12 +1309,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_396_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 51"
   },
   {
     "id": 389,
     "slug": "vo-de-50",
-    "title": "Vô Đề 50",
+    "title": "Đừng tưởng em không còn đây nữa",
     "date": "2016-07-30T08:27:32",
     "date_formatted": "30 tháng 7, 2016",
     "content_html": "<p>​Đừng tưởng em không còn đây nữa<br />\nThì anh buồn anh khóc với cô đơn<br />\nAnh vẫn vậy, vẫn tươi cười hóm hỉnh<br />\nVẫn vô tư như khi có còn em!</p>\n<p>Bởi em xa nhưng ta là tri kỷ<br />\nKhông thấy nhau nhưng vẫn tỉ yêu thương<br />\nEm là gió, là khói sương tan biến<br />\nAnh vô tình như nước biển chờ mong</p>\n<p>Sương kia rớt xuống dòng sông<br />\nTrôi ra biển lớn anh mong mỏi chờ<br />\nBơ vơ một chút hững hờ<br />\nMong chờ một chút mong chờ thế thôi</p>\n",
@@ -1256,12 +1327,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_389_img_0.png"
-    ]
+    ],
+    "code_title": "Vô Đề 50"
   },
   {
     "id": 385,
     "slug": "vo-de-49",
-    "title": "Vô Đề 49",
+    "title": "Anh là anh của hôm qua",
     "date": "2016-07-26T16:02:12",
     "date_formatted": "26 tháng 7, 2016",
     "content_html": "<p>Anh là anh của hôm qua<br />\nEm là em của xót xa mất rồi<br />\nNhìn trời sao lắm mây trôi<br />\nGặp trong phút chốc để rồi cách xa!</p>\n<p>Chẳng qua cũng mối duyên đầu<br />\nChẳng qua hai đứa quay đầu là xong<br />\nVấn vương chi mãi tơ lòng<br />\nĐường chia hai ngã đừng mong đợi gì</p>\n",
@@ -1273,12 +1345,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_385_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 49"
   },
   {
     "id": 382,
     "slug": "vo-de-48",
-    "title": "Vô Đề 48",
+    "title": "Ta đi qua giữa dòng đời quá vội",
     "date": "2016-07-26T16:01:25",
     "date_formatted": "26 tháng 7, 2016",
     "content_html": "<p>Ta đi qua giữa dòng đời quá vội<br />\nChân lý tìm trôi nổi chốn nhân gian<br />\nVới một cái dang tay ôm sầu hận<br />\nPhận duyên tình có lẫn với sầu bi!<br />\nTa quay bước tìm trong nỗi nhớ<br />\nChỉ còn hình mờ chốn nhân gian<br />\nĐã qua rồi thời gian có lại<br />\nKhoảng xóa nhớ, cách chia xa<br />\nCó là ta hay người xa lạ<br />\nTìm chẳng thấy, hóa kẻ người dưng<br />\nRồi ta dừng, bên đời vô thức<br />\nĐể người tìm thực chất yêu thương</p>\n",
@@ -1290,7 +1363,8 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_382_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 48"
   },
   {
     "id": 375,
@@ -1312,7 +1386,7 @@ window.POEMS_DATA = [
   {
     "id": 367,
     "slug": "vo-de-47",
-    "title": "Vô Đề 47",
+    "title": "Buồn vui cùng với nụ cười",
     "date": "2015-07-13T22:33:04",
     "date_formatted": "13 tháng 7, 2015",
     "content_html": "<p>Buồn vui cùng với nụ cười<br />\nTrên môi chút đắng của thời gian trôi<br />\nVẩn vơ như đã ngủ vùi<br />\nTôi xuôi theo nắng buồn vui đôi đường!<br />\nPhố phường cũng chút lặng im<br />\nLim dim một giấc ngủ chìm thế gian<br />\nSương kia có lúc phai tàn<br />\nNgười sao có lúc vội vàng bước đi<br />\nTình xưa còn ý nghĩa gì<br />\nBuông tay là hết, thôi thì chia xa<br />\nĐầu môi còn chút mặn mà<br />\nĐã qua dòng nước mắt xa đôi bờ<br />\nThẫn thờ cùng với nghĩ suy<br />\nYêu sao một chút, hận chi muôn đời</p>\n",
@@ -1324,12 +1398,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_367_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 47"
   },
   {
     "id": 363,
     "slug": "vo-de-46",
-    "title": "Vô Đề 46",
+    "title": "Tình như sương",
     "date": "2015-06-26T23:35:39",
     "date_formatted": "26 tháng 6, 2015",
     "content_html": "<p>Tình như sương<br />\nChơi vơi<br />\nĐời như khói<br />\nRơi rơi!<br />\nNgười cứ thế<br />\nXa xa<br />\nTa cứ thế<br />\nBuồn bã!</p>\n<p>Rồi</p>\n<p>Tình vẫn vậy<br />\nXa xôi<br />\nĐời vẫn thế<br />\nTrôi trôi!<br />\nNgười vẫn vậy<br />\nRời xa<br />\nTa cứ thế<br />\nMình ta</p>\n",
@@ -1341,12 +1416,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_363_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 46"
   },
   {
     "id": 346,
     "slug": "vo-de-45",
-    "title": "Vô Đề 45",
+    "title": "Phố không tên đêm về vắng lặng",
     "date": "2015-03-29T23:07:40",
     "date_formatted": "29 tháng 3, 2015",
     "content_html": "<p>Phố không tên đêm về vắng lặng<br />\nTình không tên tình đắng trong tim<br />\nChôn vào sâu trong một nỗi niềm<br />\nThở than đời dám trách vì ai!</p>\n<p>Chẳng ai sai cũng chẳng ai là đúng<br />\nLà duyên tình thao túng cả thế gian<br />\nBước vội vàng khi tình yêu vừa tới<br />\nRồi xa dần khi tình mới vừa sang</p>\n<p>Cả thế gian nhân tình là như thế<br />\nMãi hẹn thề như chẳng thể xa nhau<br />\nRồi vội mau quên đi theo làn gió<br />\nTỉnh mộng rồi, có còn đó yêu đương!</p>\n",
@@ -1358,12 +1434,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_346_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 45"
   },
   {
     "id": 342,
     "slug": "vo-de-44",
-    "title": "Vô Đề 44",
+    "title": "Ngày xưa mưa gió dặm trường",
     "date": "2015-03-07T22:30:54",
     "date_formatted": "7 tháng 3, 2015",
     "content_html": "<p>Ngày xưa mưa gió dặm trường<br />\nMẹ thường hay bảo con nương vào người<br />\nNgoài trời mưa gió trắng tươi<br />\nTrong vòng tay mẹ con cười con vui!</p>\n<p>Lớn lên sống giữa mọi người<br />\nMưa trời vẫn đổ, nơi đâu tựa vào<br />\nÀo ào như thác tuôn rơi<br />\nNơi này con lạnh, chơi vơi một mình</p>\n<p>Xa xa trong gió lặng thinh<br />\nCó nghe tiếng mẹ tâm tình mỗi đêm<br />\nLời ru xa vẫn êm đềm<br />\nThắm trong con lúc mỗi đêm ùa về</p>\n<p>Giữa đời còn lắm u mê<br />\nTìm đâu để thấy lối về mỗi đêm<br />\nDù xa cách những đêm trường<br />\nTình mẹ vẫn sáng soi đường con đi</p>\n",
@@ -1375,12 +1452,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_342_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 44"
   },
   {
     "id": 337,
     "slug": "vo-de-43",
-    "title": "Vô Đề 43",
+    "title": "Tết đến rồi, xuân có vui gì không",
     "date": "2015-02-18T14:14:22",
     "date_formatted": "18 tháng 2, 2015",
     "content_html": "<p>Tết đến rồi, xuân có vui gì không<br />\nHay niềm vui chỉ là để dối lòng<br />\nMắt thì cười nhưng lòng nhói lệ<br />\nMải mê tìm một thế giới ảo mộng!</p>\n<p>Ở đó lòng tin là tất cả<br />\nRồi phai tàn theo lá mùa thu<br />\nĐời cứ mãi như là phù du<br />\nTrôi theo sóng biết đâu mà tìm</p>\n<p>Thế giới đó tìm nhau có dễ<br />\nCó nhau rồi, dễ mất hay không<br />\nĐời là sống hay là tồn tại<br />\nMãi tìm thứ không thuộc về mình</p>\n",
@@ -1392,12 +1470,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_337_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 43"
   },
   {
     "id": 333,
     "slug": "vo-de-42",
-    "title": "Vô Đề 42",
+    "title": "Chẳng còn đâu những giờ phút đôi ta",
     "date": "2015-02-16T00:16:13",
     "date_formatted": "16 tháng 2, 2015",
     "content_html": "<p>Chẳng còn đâu những giờ phút đôi ta<br />\nBước cùng nhau mặc cả thế giới sầu<br />\nGiờ trong đêm chỉ còn ta mò mẫm<br />\nBước đi cùng mà khác tận trong tâm!</p>\n<p>Gánh lỗi lầm chỉ một mình ta chịu<br />\nChỉ mong người đời xiêu chút nỗi lòng<br />\nNghiêng một chút cho đời bớt hối hả<br />\nChút bình yên sao khó quá cuộc đời</p>\n",
@@ -1409,12 +1488,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_333_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 42"
   },
   {
     "id": 331,
     "slug": "vo-de-41",
-    "title": "Vô Đề 41",
+    "title": "Tôi vẫn thế, vẫn một kẻ cô đơn",
     "date": "2015-02-16T00:15:30",
     "date_formatted": "16 tháng 2, 2015",
     "content_html": "<p>Tôi vẫn thế, vẫn một kẻ cô đơn<br />\nBiết dỗi hờn khi đời nhiều ngang trái<br />\nTôi có sai khi dòng đời hai lối<br />\nBước ngược đường thành một lối người dưng!</p>\n<p>Đời cũng từng là cả một bể vui<br />\nNụ cười xinh chẳng thể tắt cuối đường<br />\nNhưng đời là thứ bể khổ vô thường<br />\nHết con đường rồi lại là vực thẳm</p>\n<p>Đã níu kéo, nắm lấy trong vô vọng<br />\nChút niềm tin sao nó quá mong manh<br />\nRồi mọi thứ chỉ còn là mong đợi<br />\nTrong vô vọng của một thứ hư vô&#8230;</p>\n",
@@ -1426,12 +1506,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_331_img_0.png"
-    ]
+    ],
+    "code_title": "Vô Đề 41"
   },
   {
     "id": 297,
     "slug": "vo-de-40-lac-long",
-    "title": "Vô Đề 40 ( Lạc Lõng )",
+    "title": "Lệ rơi rơi bên ánh mắt xa xăm",
     "date": "2015-01-27T23:30:31",
     "date_formatted": "27 tháng 1, 2015",
     "content_html": "<p>Lệ rơi rơi bên ánh mắt xa xăm<br />\nTừ sâu thẳm thời gian có đọng lại<br />\nChút vương tình thơ dại của thuở nào<br />\nTrót lỡ trao khi mưa rào chợt đến.<br />\nRồi cuốn đi bao yêu mến nồng nàn<br />\nĐời gian nan khi hai đường chia lối<br />\nBước bên nhau nhưng vội cách xa vời<br />\nKẻ cố gắng đợi người nơi xa ấy<br />\nNgười nơi đây lại chẳng bước chung đường<br />\nHai kẻ quen cứ như dần xa lạ<br />\nCách xa nhau mãi cả một đoạn đường<br />\nChẳng đủ dài như phố phường đông đúc<br />\nNhưng xa cách cả một khúc tâm hồn&#8230;</p>\n",
@@ -1443,12 +1524,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_297_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 40 ( Lạc Lõng )"
   },
   {
     "id": 295,
     "slug": "vo-de-39-tang-nhi-chi-phuong-bai-tho-con-coc",
-    "title": "Vô Đề 39 ( tặng Nhi & chị Phượng bài thơ con cóc)",
+    "title": "Tết này có thêm thành viên nhí",
     "date": "2015-01-26T00:00:33",
     "date_formatted": "26 tháng 1, 2015",
     "content_html": "<p>Tết này có thêm thành viên nhí<br />\nCuộc sống có thêm điều thú vị<br />\nNâng ly ta chúc thành viên nhí<br />\nTrăm ngàn hạnh phúc, triệu tỷ vui!</p>\n<p>Gia đình quây quần bên bếp nhỏ<br />\nChẳng cần phải sợ chẳng cần lo<br />\nMột mái nhà xinh thật nho nhỏ<br />\nDù cho sóng gió chẳng phải lo</p>\n",
@@ -1460,12 +1542,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_295_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 39 ( tặng Nhi & chị Phượng bài thơ con cóc)"
   },
   {
     "id": 160,
     "slug": "vo-de-38",
-    "title": "Vô Đề 38",
+    "title": "Con mệt lắm rồi thượng đế ơi",
     "date": "2015-01-17T23:34:59",
     "date_formatted": "17 tháng 1, 2015",
     "content_html": "<p>Con mệt lắm rồi thượng đế ơi<br />\nĐôi chân con bước, lệ con rơi<br />\nMắt ướt đẫm đêm dài trắng xóa<br />\nHéo hon tàn như lá mùa thu!</p>\n<p>Giấc mơ xưa như đã ngủ vùi<br />\nVào hư không nhưng lòng vẫn nhói<br />\nMỗi bước đi gánh cả ngàn cân<br />\nĐày ta xuống trần đầy u uất</p>\n",
@@ -1477,12 +1560,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_160_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 38"
   },
   {
     "id": 122,
     "slug": "vo-de-37",
-    "title": "Vô Đề 37",
+    "title": "Mạnh mẽ đến đâu em vẫn là con gái",
     "date": "2015-01-15T09:44:37",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Mạnh mẽ đến đâu em vẫn là con gái<br />\nMệt mỏi rồi em biết tựa vào ai<br />\nMột bờ vai vẫn hoài mong đợi<br />\nTìm được rồi hay lạc chốn xa xôi!</p>\n<p>Một bước chân dường như còn hụt hẫng<br />\nLạc giữa dòng đầy đấng mày râu<br />\nMạnh mẽ đến đâu em vẫn là con gái<br />\nMệt mỏi rồi, đời ngang trái phải không em</p>\n",
@@ -1494,12 +1578,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_122_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 37"
   },
   {
     "id": 119,
     "slug": "vo-de-36",
-    "title": "Vô Đề 36",
+    "title": "Tôi gởi vào thơ một chút buồn",
     "date": "2015-01-15T09:43:05",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tôi gởi vào thơ một chút buồn<br />\nĐể cho dòng lệ đắng thôi tuôn<br />\nDòng lệ buồn như sầu nhân thế<br />\nTắm trong tim cả huyết lệ tình!</p>\n<p>Kiếp nhân sinh là mê hay tỉnh<br />\nLạc giữa dòng sầu đắng cô liêu<br />\nMột chữ yêu sao nhiều cay đắng<br />\nNuốt ngược vào đỏ thắm máu tươi</p>\n<p>Từng nhịp thở lười như sông nhỏ<br />\nTrôi theo dòng đời có vui đâu<br />\nSầu đã sầu, sầu càng nhung nhớ<br />\nChờ đã chờ, đợi đến bao giờ&#8230;</p>\n",
@@ -1511,12 +1596,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_119_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 36"
   },
   {
     "id": 116,
     "slug": "vo-de-35",
-    "title": "Vô Đề 35",
+    "title": "Nỗi cô đơn không tên mà vẫn nhớ",
     "date": "2015-01-15T09:40:45",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Nỗi cô đơn không tên mà vẫn nhớ<br />\nChén rượu sầu không uống mà vẫn say<br />\nĐời cứ quay sao ta hoài vô thức<br />\nBước ngược đường mà mong sẽ thấy nhau!</p>\n<p>Đời bể dâu hay mang sầu nhân thế<br />\nGiọt lệ buồn cứ thế chẳng thể ngưng<br />\nTa mãi vậy bước trên từng phố nhỏ<br />\nVẫn một mình với gió lạnh từng cơn&#8230;</p>\n",
@@ -1528,12 +1614,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_116_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 35"
   },
   {
     "id": 113,
     "slug": "vo-de-34",
-    "title": "Vô Đề 34",
+    "title": "Em là ai mà mắt nai nhung nhớ",
     "date": "2015-01-15T09:38:55",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Em là ai mà mắt nai nhung nhớ<br />\nLặng lẽ buồn gieo nhịp thở trong anh<br />\nTrời trong xanh như muôn ngàn nỗi nhớ<br />\nChút thẫn thờ theo gió gởi về ai!</p>\n<p>Tình có sai khi ta hoài nhung nhớ<br />\nĐã vương tình nhưng vờ chẳng nhớ nhung<br />\nĐời đã chẳng bước chung về một phía<br />\nSao cứ tìm những tia nắng mong manh</p>\n<p>Thắp lên chút hy vọng rồi sẽ tắt<br />\nLụi tàn dần theo nắng lúc hoàng hôn<br />\nChẳng thể ôm người vào trong giấc mộng<br />\nĐành để người mơ mộng chốn nhân gian</p>\n",
@@ -1545,12 +1632,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_113_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 34"
   },
   {
     "id": 110,
     "slug": "vo-de-33",
-    "title": "Vô Đề 33",
+    "title": "Ngày xưa má đỏ hây hây",
     "date": "2015-01-15T09:37:45",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Ngày xưa má đỏ hây hây<br />\nNgày nay tóc phải đỏ vầy mới sang<br />\nNgày xưa má đỏ dịu dàng<br />\nNgày nay tóc đỏ còn sang hơn nhiều!</p>\n<p>Hay là em đã làm liều<br />\nNhuộm ngay tóc đỏ để xiêu lòng anh<br />\nDù cho mưa gió tanh bành<br />\nTóc em vẫn đỏ để dành cho anh</p>\n",
@@ -1562,12 +1650,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_110_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 33"
   },
   {
     "id": 107,
     "slug": "vo-de-32",
-    "title": "Vô Đề 32",
+    "title": "Mưa nhớ ai mưa giăng sầu nhân thế",
     "date": "2015-01-15T09:35:42",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Mưa nhớ ai mưa giăng sầu nhân thế<br />\nGiọt lệ buồn đỏ khóe ướt mi cay<br />\nChút cồn cào những đêm nao giá lạnh<br />\nGiờ một mình cứ rét buốt tim ta!<br />\nĐông đã qua nhưng sao ta vẫn lạnh<br />\nMột bước đi như cả thế kỷ sầu<br />\nChờ bóng hình đang dần chút phai phôi<br />\nTheo sương khói nhưng chẳng thể tan biến<br />\nMộng mị dần bên giấc ngủ hằng đêm<br />\nChợt tỉnh giấc giữa một chút êm đềm<br />\nCùng nỗi nhớ sẽ mãi là dĩ vãng</p>\n",
@@ -1579,12 +1668,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_107_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 32"
   },
   {
     "id": 104,
     "slug": "vo-de-31",
-    "title": "Vô Đề 31",
+    "title": "Dò sông dò biển dễ dò",
     "date": "2015-01-15T09:34:00",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Dò sông dò biển dễ dò<br />\nMấy ai lấy thước mà đo lòng người<br />\nLòng người sâu lắm ai ơi<br />\nNhưng sao bằng được miệng đời thế gian!</p>\n<p>Gian nan trong một kiếp đời<br />\nVui đây, sầu đó bởi lời thế gian<br />\nThôi thì cũng chẳng muộn màng<br />\nSống sao để thấy đời càng vui hơn<br />\nSống sao cho đúng với mình<br />\nSống cho đời của người mình quan tâm</p>\n",
@@ -1596,12 +1686,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_104_img_0.png"
-    ]
+    ],
+    "code_title": "Vô Đề 31"
   },
   {
     "id": 101,
     "slug": "vo-de-30",
-    "title": "Vô Đề 30",
+    "title": "Còn đâu nữa những đêm dài chung lối",
     "date": "2015-01-15T09:29:31",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Còn đâu nữa những đêm dài chung lối<br />\nBước bên nhau cũng chẳng nói nên lời<br />\nNgười bên ta nhưng xa vào tâm trí<br />\nKhẽ hững hờ buông nhẹ cánh tay ai!</p>\n<p>Hai thế giới của người không cùng hướng<br />\nSẽ xa dần chắc chỉ đợi thời gian<br />\nBước vội vàng qua những cơn sầu khổ<br />\nĐể sau lưng một kiếp số an bài</p>\n",
@@ -1613,12 +1704,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_101_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 30"
   },
   {
     "id": 98,
     "slug": "vo-de-29",
-    "title": "Vô Đề 29",
+    "title": "Ngủ đi em, chẳng còn ai bên cạnh",
     "date": "2015-01-15T09:24:35",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Ngủ đi em, chẳng còn ai bên cạnh<br />\nĐể vỗ về khi gió lạnh đầu hôm<br />\nHay những buổi, chiều vừa tắt nắng<br />\nCũng chẳng còn kẻ đón người đưa!</p>\n<p>Chẳng còn chi khi mưa vừa chợt đến<br />\nĐể hạt buồn ướt đẫm cánh tay ta<br />\nNgười đã xa, chỉ còn ta ở lại<br />\nÔm mối sầu của một kẻ tình si</p>\n",
@@ -1630,12 +1722,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_98_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 29"
   },
   {
     "id": 95,
     "slug": "vo-de-28",
-    "title": "Vô Đề 28",
+    "title": "Giữa cuộc vui cũng có tôi ngồi đó",
     "date": "2015-01-15T09:22:39",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Giữa cuộc vui cũng có tôi ngồi đó,<br />\nNhư dòng đời mang theo cơn gió buồn<br />\nNhững tiếng cười mang theo nhiều thanh sắc<br />\nNhưng nỗi sầu nơi mắt lệ xa xăm!</p>\n<p>Đời trăm năm, đời vẫn là bể khổ<br />\nSuối yêu thương là lệ đổ tuôn trào<br />\nGió dạt dào chẳng bao giờ ngừng thổi<br />\nĐể lệ trong tim cứ nối tiếp tuôn trào</p>\n<p>Trời nhiều sao nhưng bao giờ với được<br />\nNgước mắt nhìn, đời cứ bước thênh thang&#8230;&#8230;.</p>\n",
@@ -1647,12 +1740,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_95_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 28"
   },
   {
     "id": 92,
     "slug": "vo-de-27",
-    "title": "Vô Đề 27",
+    "title": "Cô đơn lặng lẽ mối tình sầu",
     "date": "2015-01-15T09:21:00",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Cô đơn lặng lẽ mối tình sầu<br />\nBuồn vương một chút lệ thêm đau<br />\nNắng gió phai tàn theo lá úa<br />\nLệ sầu theo nắng lệ tuôn rơi</p>\n",
@@ -1664,12 +1758,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_92_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 27"
   },
   {
     "id": 89,
     "slug": "vo-de-26",
-    "title": "Vô Đề 26",
+    "title": "Vì ai mẹ phải mưu sinh",
     "date": "2015-01-15T09:19:17",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Vì ai mẹ phải mưu sinh<br />\nVì ai mẹ phải dầm mình dưới mưa<br />\nVì ai mẹ nhịn cơm trưa<br />\nVì ai mẹ phải cày bừa sớm hôm!</p>\n<p>Một mai thân mẹ gầy còm<br />\nMột mai rồi chẳng sớm hôm vỗ về<br />\nMột mai mắt mẹ não nề<br />\nMột mai lòng mẹ con về đợi mong</p>\n<p>Chờ trông dáng mẹ lưng còng<br />\nChờ trông những lúc gió giông ùa về<br />\nChờ trông sau những cơn mê<br />\nChờ trông con có trở về như xưa</p>\n<p>Rồi đây tóc sẽ bạc màu<br />\nRồi đây da sẽ đậm màu chân chim<br />\nRồi đây khi gió lặng im<br />\nRồi đây tim mẹ lặng tìm tên con</p>\n",
@@ -1681,12 +1776,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_89_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 26"
   },
   {
     "id": 86,
     "slug": "vo-de-25",
-    "title": "Vô Đề 25",
+    "title": "Đâu phải khóc là khổ",
     "date": "2015-01-15T09:16:54",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Đâu phải khóc là khổ<br />\nĐâu phải cười mới vui<br />\nĐôi lúc cười trên môi<br />\nNhưng lệ đổ trong tim!<br />\nNhững lúc lặng im<br />\nLòng lại đầy tâm sự<br />\nNhững lúc khóe mắt cay<br />\nNhưng đời càng cay đắng<br />\nLệ chỉ chực tuôn trào<br />\nNhưng nuốt ngược vào tim&#8230;</p>\n",
@@ -1698,12 +1794,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_86_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 25"
   },
   {
     "id": 83,
     "slug": "vo-de-24",
-    "title": "Vô Đề 24",
+    "title": "Một kẻ ra đi một kẻ sầu",
     "date": "2015-01-15T09:15:12",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Một kẻ ra đi một kẻ sầu<br />\nĐường tình chia lối lệ tuôn rơi<br />\nMắt ướt hoen đôi mi bé nhỏ<br />\nLệ trào trong đáy bể cô liêu!<br />\nHồn lạnh hoang tàn sầu thêm khổ<br />\nCô đơn lẻ bóng lệ thêm rơi&#8230;</p>\n",
@@ -1715,12 +1812,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_83_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 24"
   },
   {
     "id": 80,
     "slug": "vo-de-23",
-    "title": "Vô Đề 23",
+    "title": "Đông đã đến trên những cành hoa tàn héo úa",
     "date": "2015-01-15T09:13:01",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Đông đã đến trên những cành hoa tàn héo úa<br />\nSương lại về trên cành lá chơi vơi<br />\nRun run se lạnh bình minh đến<br />\nĐông sang, sẽ qua, nắng xuân về&#8230;</p>\n",
@@ -1732,12 +1830,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_80_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 23"
   },
   {
     "id": 77,
     "slug": "vo-de-22",
-    "title": "Vô Đề 22",
+    "title": "Một mình thân ốc lang thang",
     "date": "2015-01-15T09:11:03",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Một mình thân ốc lang thang<br />\nTìm đâu chốn nghỉ thế gian bộn bề<br />\nGiữa đời còn lắm u mê<br />\nTrốn trong thân ốc tỉ tê một mình!</p>\n<p>Người ăn vương chút sự tình<br />\nKhông ăn đừng nỡ đem tình vứt đi<br />\nSầu bi trong một kiếp đời<br />\nGởi trong thân ốc, nhồi nơi nhân tình</p>\n",
@@ -1749,12 +1848,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_77_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 22"
   },
   {
     "id": 74,
     "slug": "vo-de-21",
-    "title": "Vô Đề 21",
+    "title": "Tình như chiếc lá hững hờ",
     "date": "2015-01-15T09:06:43",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tình như chiếc lá hững hờ<br />\nBên cây rồi cũng có ngày biệt ly<br />\nSẽ là gì khi cây chẳng còn lá<br />\nLúc đông về nghe buốt giá con tim!</p>\n<p>Gió từ đâu mang đến muộn phiền<br />\nCuốn theo lá ngã nghiêng chốn nào<br />\nCây chỉ muốn ngã nhào về phía lá<br />\nNhưng chẳng thể dẫu là một chút</p>\n",
@@ -1766,12 +1866,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_74_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 21"
   },
   {
     "id": 71,
     "slug": "vo-de-20",
-    "title": "Vô Đề 20",
+    "title": "Cuộc đời có lắm đắng cay",
     "date": "2015-01-15T09:04:43",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Cuộc đời có lắm đắng cay<br />\nTình yêu rồi cũng có ngày hợp tan<br />\nMưa reo cùng gió trên ngàn<br />\nTrút cơn mưa xuống muôn vàn nỗi đau!</p>\n<p>Tình kia dẫu có đậm sâu<br />\nMột mai rồi cũng sầu đau một mình<br />\nLặng thinh nghe một chút tình<br />\nVang trong vô vọng đời mình sớm mai</p>\n<p>Đường tình còn lắm chông gai<br />\nChờ trong tiếng gió giọng ai gọi mình<br />\nĐường tình rồi lại đường tình<br />\nNghe trong vô vọng đời mình cô đơn</p>\n<p>Tình kia giờ đã dỗi hờn<br />\nBỏ ta đi mất chẳng mong đợi gì</p>\n",
@@ -1783,12 +1884,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_71_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 20"
   },
   {
     "id": 68,
     "slug": "vo-de-19",
-    "title": "Vô Đề 19",
+    "title": "Nhậu đi em cho đời hết sầu bi",
     "date": "2015-01-15T09:01:40",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Nhậu đi em cho đời hết sầu bi<br />\nĐường còn dài làm gì mà cứ khóc<br />\nLệ đã rơi đâu chắc sẽ qua mau<br />\nĐời muôn màu đâu chỉ màu đen mãi!<br />\nQua đêm tối thì mai trời sẽ sáng<br />\nSương sẽ tàn khi ánh nắng chói chang<br />\nĐời còn dài sẽ còn nhiều ngang trái<br />\nTrải lòng ra để ngày mai rồi sẽ khác<br />\nNắng màu vàng sẽ soi cuộc đời ta<br />\nNhững góc khuất rồi chỉ là quá khứ</p>\n",
@@ -1800,12 +1902,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_68_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 19"
   },
   {
     "id": 65,
     "slug": "vo-de-18",
-    "title": "Vô Đề 18",
+    "title": "Em&#8230;em là ai mà quay vội bước đi",
     "date": "2015-01-15T08:57:04",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Em&#8230;em là ai mà quay vội bước đi<br />\nĐể mình anh với vô vàn cảm xúc<br />\nKhi buồn vương có lúc lại sầu bi<br />\nVì đã gặp khi chẳng hề quen biết!<br />\nMà lòng anh cứ luyến tiếc mãi người đi<br />\nTrời có sai khi cho ta gặp mặt<br />\nĐày đọa thân anh với nỗi nhớ vô vàn</p>\n",
@@ -1817,12 +1920,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_65_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 18"
   },
   {
     "id": 62,
     "slug": "vo-de-17",
-    "title": "Vô Đề 17",
+    "title": "Trung Thu năm đó em có anh",
     "date": "2015-01-15T08:55:10",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Trung Thu năm đó em có anh<br />\nMà sao nay lại thấy lạnh đôi tay<br />\nBàn tay ai đã từng nắm lấy<br />\nGiờ đã buông vì hờ hững tim ai!</p>\n<p>Em đã sai hay cuộc đời là vậy<br />\nChữ vô tình sao cuốn lấy tim ai<br />\nĐể ngày mai chẳng còn ai đó nữa<br />\nLau nước mắt mỗi khi em buồn khổ</p>\n<p>Hay vô tình nắm lấy tay lạnh giá<br />\nLúc đông về bên từng ngã đường xưa<br />\nNhững ngày nắng hay mưa tầm tã<br />\nMột mình em vội vã bước đi</p>\n<p>Khi ngoảnh lại chẳng thấy anh ở đó<br />\nChỉ còn sương với gió lạnh tim em<br />\nTrời nhá nhem dần buông mọi nẻo<br />\nBóng em buồn in dưới bóng trăng kia</p>\n<p>Một mình em cứ vội vã đi về<br />\nBuông chút buồn chút gió với trăng sao&#8230;</p>\n",
@@ -1834,12 +1938,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_62_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 17"
   },
   {
     "id": 59,
     "slug": "vo-de-16",
-    "title": "Vô Đề 16",
+    "title": "Nhớ chi những lúc đắng cay",
     "date": "2015-01-15T08:53:12",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Nhớ chi những lúc đắng cay<br />\nYêu chi những kẻ đọa đày con tim<br />\nSao ta cứ mãi kiếm tìm<br />\nCon tim của kẻ chẳng còn có ta!</p>\n<p>Hoàng hôn là lúc chiều tà<br />\nĐắng cay là lúc ta chia đôi đường<br />\nDẫu rằng còn chút vấn vương<br />\nLối kia không thể cùng đường nhau đi</p>\n<p>Tiếc chi một chút tình si<br />\nVương chi một chút lệ bi với sầu<br />\nMai sau có lúc gặp nhau<br />\nNgười như kẻ lạ chẳng đau chẳng buồn</p>\n",
@@ -1851,12 +1956,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_59_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 16"
   },
   {
     "id": 56,
     "slug": "vo-de-15",
-    "title": "Vô Đề 15",
+    "title": "Tôi nằm đó nhìn lên ô cửa sổ",
     "date": "2015-01-15T08:49:56",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tôi nằm đó nhìn lên ô cửa sổ<br />\nNơi ánh đèn lấp ló khẽ chen vào<br />\nNgoài kia gió vẫn cứ mãi rì rào<br />\nMưa từng cơn buốt cả vào tâm can!</p>\n<p>Người thấy lạnh nhưng lòng vẫn ấm áp<br />\nBởi xung quanh đầy áp những bức tường<br />\nNơi gió sương chẳng thể nào chạm đến<br />\nTấm thân gấy gò nhỏ bé mong manh</p>\n<p>Bởi những anh kỹ sư đã thiết kế<br />\nXây dựng nên mái ấm cho mọi người<br />\nMặc nắng mưa vẫn luôn mãi tươi cười<br />\nĐem tấm lòng vào từng trang giấy trắng<br />\nXây đắp nên ngay ngắn một mái nhà<br />\nNơi chúng ta luôn được chở che<br />\nNơi hạnh phúc san sẻ với mọi người<br />\nNơi tiếng cười luôn vang vọng mãi<br />\nVới tháng năm với những người xây dựng</p>\n",
@@ -1868,12 +1974,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_56_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 15"
   },
   {
     "id": 53,
     "slug": "vo-de-14",
-    "title": "Vô Đề 14",
+    "title": "Ai còn mẹ xin đừng làm mẹ khóc",
     "date": "2015-01-15T08:47:40",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Ai còn mẹ xin đừng làm mẹ khóc<br />\nĐể mẹ buồn hay mắt lệ tuôn rơi<br />\nĐã đi qua bao cay đắng cuộc đời<br />\nVẫn bên con dẫu bể đời giông tố!<br />\nMẹ thương con từ tiếng khóc chào đời<br />\nĐến khi cả cuộc đời mẹ xa khuất<br />\nNhớ những đêm khi gió lạnh ùa về<br />\nVẫn lặng lẽ giữa căn phòng khuya vắng<br />\nThắp lên bao ánh nắng của tình thương<br />\nĐôi vai gầy với sương gió tháng năm<br />\nChở che con qua năm dài tháng ngắn<br />\nDẫu biết rằng mai đây con xa vắng<br />\nLắng tình thương để sau này con bước tiếp<br />\nVào đường đời đầy xô ngã bon chen<br />\nKhi ánh đèn cũ hiu hắt đêm về<br />\nMột mình mẹ chỉ lặng lẽ nơi nào<br />\nChờ tin con mà con nào hay biết<br />\nChỉ những lúc giữa dòng đời nghiệt ngã<br />\nXô con xuống với sa ngã cuộc đời<br />\nChỉ mình con chơi vơi nơi xứ lạ<br />\nVẫn là mẹ, không phải bờ bến lạ<br />\nĐể con tìm về bên mái lá bình yên<br />\nNơi có mẹ, nơi không phải muộn phiền<br />\nSuốt đời con chẳng phải cứ kiếm tìm<br />\nNơi chốn ấy trong tim mẹ có con</p>\n",
@@ -1885,12 +1992,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_53_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 14"
   },
   {
     "id": 50,
     "slug": "vo-de-13",
-    "title": "Vô Đề 13",
+    "title": "Con tim là tim của anh",
     "date": "2015-01-15T08:46:15",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Con tim là tim của anh<br />\nMà sao nó mãi chạy quanh chốn nào<br />\nGặp em thì nó hồng hào<br />\nKhông em như nó rơi vào hư không</p>\n",
@@ -1902,12 +2010,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_50_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 13"
   },
   {
     "id": 47,
     "slug": "vo-de-12",
-    "title": "Vô Đề 12",
+    "title": "Giữa đêm mưa gió bão bùng",
     "date": "2015-01-15T08:45:14",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Giữa đêm mưa gió bão bùng<br />\nChui ra khỏi mùng, đắp mền làm thơ<br />\nNào đâu ai biết chữ ngờ<br />\nMuỗi đâu bay đến văng thơ với tình!<br />\nRồi đâu lại bất thình lình<br />\nChui vô rồi lại một mình làm thơ</p>\n",
@@ -1919,12 +2028,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_47_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 12"
   },
   {
     "id": 44,
     "slug": "vo-de-11",
-    "title": "Vô Đề 11",
+    "title": "Tôi như một kẻ không nhà",
     "date": "2015-01-15T08:42:07",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tôi như một kẻ không nhà<br />\nLang thang phố xá, la cà công viên<br />\nLâu lâu lại cũng bị điên<br />\nXách con wave chiến ngó nghiêng phố phường!</p>\n<p>Một hôm lại chẳng bị thương<br />\nMà sao đau nhói nơi đường máu ra<br />\nPhía xa xa sau một mái nhà<br />\nCó cô em gái mắt hoa đang cười</p>\n<p>Dáng người nhỏ bé xinh xinh<br />\nMắt như biết hát môi xinh má hồng<br />\nNhìn em má đỏ hồng hồng<br />\nTim anh cũng thấy nao lòng quá đi</p>\n<p>Tìm quanh chẳng có cây si<br />\nĐể anh đem đến trồng ngay nhà nàng<br />\nNgày ngày sẽ chẳng vội vàng<br />\nNgồi ngay cây ấy tặng nàng bài thơ</p>\n<p>Tim anh đã trót dại khờ<br />\nYêu ngay ánh mắt ngây thơ mơ màng<br />\nƯớc gì anh cưới được nàng<br />\nĐể hai đứa mãi mơ màng làm thơ</p>\n",
@@ -1936,12 +2046,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_44_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 11"
   },
   {
     "id": 41,
     "slug": "vo-de-10",
-    "title": "Vô Đề 10",
+    "title": "Có khi nào trên đường đời tấp nập",
     "date": "2015-01-15T08:38:29",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Có khi nào trên đường đời tấp nập<br />\nTa vô tình khẽ bước qua nhau<br />\nBiết mai sau sẽ không còn nữa<br />\nCái ôm nồng giữa gió mùa đông!</p>\n<p>Lạc mất vòng tay giữa dòng đời vô tận<br />\nNuối tiếc nhìn sầu hận mấy ai hay<br />\nTa cứ say để đời chẳng bao giờ tỉnh<br />\nMen rượu nồng làm bạn với trăng sao</p>\n<p>Trăng trên cao trăng nào hay biết<br />\nKẻ dưới này vẫn lẻ chiếc một mình<br />\nGió từ đâu gió mang sầu đến<br />\nMưa chốn vắng trút sầu đắng xuống ta</p>\n<p>Ánh chiều mang một chút tà<br />\nBiển xa sóng đánh gọi ta một mình<br />\nThuyền kia đã mãi xa bờ<br />\nBến đây sẽ lại bơ vơ một mình</p>\n<p>Cuộc đời sẽ tỉnh hay mê<br />\nĐường về có mãi lê thê một mình<br />\nTrời sinh chi một chữ tình<br />\nĐể ngàn người mãi thất tình trời ơi</p>\n",
@@ -1953,12 +2064,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_41_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 10"
   },
   {
     "id": 38,
     "slug": "vo-de-9",
-    "title": "Vô Đề 9",
+    "title": "Anh tìm em giữa đời thanh vắng",
     "date": "2015-01-15T08:36:04",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Anh tìm em giữa đời thanh vắng<br />\nNhư gắng tìm mây trắng giữa bão giông<br />\nGiữa dòng đời cứ mãi quay cuồng<br />\nNhư kiếm tìm một vòng tay nắm lấy!<br />\nChợt nhận ra, ồ sao khó quá vậy<br />\nNắm được rồi cũng dễ mấy buông tay</p>\n",
@@ -1970,12 +2082,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_38_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 9"
   },
   {
     "id": 35,
     "slug": "vo-de-8",
-    "title": "Vô Đề 8",
+    "title": "Tôi đi dưới ánh trăng tà",
     "date": "2015-01-15T08:34:46",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tôi đi dưới ánh trăng tà<br />\nĐể quên đi chút mặn mà đầu môi<br />\nNgười vội đến rồi vội đi<br />\nĐem theo chút lệ vương mi nghẹn ngào!</p>\n<p>Đêm đêm nghe gió dạt dào<br />\nNỗi sầu cô quạnh nơi nao tìm về<br />\nDưới trăng nơi đã hẹn thề<br />\nSông kia đã cuốn lời thề theo trăng</p>\n<p>Bâng khuâng mang chút nặng lòng<br />\nTrút vào nỗi nhớ chờ mong đợi gì<br />\nTrách chi một phút tình si<br />\nBiết mình rồi sẽ sầu bi một đời</p>\n<p>Gió yên cho trời thêm lặng<br />\nĐêm càng dài càng đè nặng tim ta<br />\nDẫu rằng rất khó phôi pha<br />\nQuên đi từng chút để ta đỡ buồn.</p>\n",
@@ -1987,12 +2100,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_35_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 8"
   },
   {
     "id": 32,
     "slug": "vo-de-7",
-    "title": "Vô Đề 7",
+    "title": "Giọt lệ sầu lăn trên khóe mi cay",
     "date": "2015-01-15T08:33:19",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Giọt lệ sầu lăn trên khóe mi cay<br />\nKỷ niệm buồn đeo theo nỗi nhớ thương<br />\nSầu vấn vương trên môi hồng phai nhạt<br />\nHồn lạc bước vào một cõi cô liêu</p>\n",
@@ -2004,12 +2118,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_32_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 7"
   },
   {
     "id": 29,
     "slug": "vo-de-6",
-    "title": "Vô Đề 6",
+    "title": "Những kỷ niệm chôn vào trong dĩ vãng",
     "date": "2015-01-15T08:32:15",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Những kỷ niệm chôn vào trong dĩ vãng<br />\nBỗng ùa về khi gió thoảng qua đây<br />\nNgười đã đến phút giây đầu bỡ ngỡ<br />\nRồi lại đi sau những thuở yêu đương!<br />\nMang chút sầu vương trên khoé mắt<br />\nGieo chút tình thắt chặt tim ta</p>\n",
@@ -2021,12 +2136,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_29_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 6"
   },
   {
     "id": 26,
     "slug": "vo-de-5",
-    "title": "Vô Đề 5",
+    "title": "Tôi đi tìm lại vần thơ",
     "date": "2015-01-15T08:30:45",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tôi đi tìm lại vần thơ<br />\nBỏ quên trong mắt mộng mơ thuở nào<br />\nHỏi rằng em có thấy không?<br />\nHay là bão tố mưa giông cuốn rồi&#8230;.</p>\n<p>Đi tìm nửa mảnh tình côi<br />\nNgày xưa anh gởi trên môi má nàng<br />\nThế mà em nỡ sang ngang<br />\nCầu Ô gãy nhịp lỡ làng duyên tơ&#8230;</p>\n<p>Tìm về lúc tuổi mộng mơ<br />\nGặp em sao cứ ngẩn ngơ trong lòng<br />\nGhét lây má thắm tươi hồng<br />\nĐôi môi chúm chím mi cong, liễu gầy&#8230;</p>\n<p>Đâu rồi cô bé thơ ngây<br />\nChiều chiều hai đứa nhảy dây, trốn tìm<br />\nĐưa tay ngắt đóa hoa sim<br />\nCài lên mái tóc để tim lạc hồn&#8230;</p>\n<p>Tính em nũng nịu dỗi hờn<br />\nTình xưa nghĩa cũ vùi chôn hết rồi?<br />\nChỉ cần chút nhớ thương thôi<br />\nVậy mà chẳng có để tôi tìm về&#8230;</p>\n",
@@ -2038,12 +2154,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_26_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 5"
   },
   {
     "id": 23,
     "slug": "vo-de-4",
-    "title": "Vô Đề 4",
+    "title": "Người đã đi cho lòng ta hiu quạnh",
     "date": "2015-01-15T08:29:07",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Người đã đi cho lòng ta hiu quạnh<br />\nRồi đêm dài sẽ đón lạnh mình ta<br />\nGió thoảng qua bên người ta đó<br />\nThấy rét lòng do thiếu một vòng tay!</p>\n<p>Ta đã say hay vì đời nghiêng ngã<br />\nĐưa ta vào giữa muôn ngả bể dâu<br />\nSẽ về đâu khi cơn đau là bạn<br />\nChén muộn phiền ta rót cạn từng đêm</p>\n<p>Trăng thêm sáng nhưng lòng ta vẫn tối<br />\nBiết về đâu khi lối cũ không còn<br />\nChút bâng khuâng từ lần đầu gặp gỡ<br />\nNay đã thành vụn vỡ nhói con tim</p>\n<p>Gửi cho kẻ từng đêm là nỗi nhớ<br />\nGiờ chẳng còn một góc nhỏ trong tim<br />\nDù chỉ biết đó là điều chưa thể<br />\nNhưng mặc kệ vẫn đang hoài cố gắng</p>\n",
@@ -2055,12 +2172,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_23_img_0.jpeg"
-    ]
+    ],
+    "code_title": "Vô Đề 4"
   },
   {
     "id": 20,
     "slug": "vo-de-3",
-    "title": "Vô Đề 3",
+    "title": "Gió lại gió, giữa dòng đời êm ả",
     "date": "2015-01-15T08:26:51",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Gió lại gió, giữa dòng đời êm ả<br />\nNắng lại nắng, giữa phố vắng trưa hè<br />\nMưa lại mưa, giữa đêm hè oi bức<br />\nMây lại mây, giữa đong đầy nỗi nhớ!</p>\n<p>Gió thổi nắng đi cho mây mang mưa lại<br />\nĐời nóng như trưa hè vắng nỗi nhớ thương<br />\nDừng chân, nghiêng mình, trời nghiêng ngả<br />\nNgửa đầu, ngước mắt, gió xôn xao</p>\n<p>Tình như giọt sương rơi trên lá<br />\nGió mát ru tình trôi tựa mây<br />\nMột phút lỡ yêu như trưa hè không gió<br />\nNỗi nhớ xôn xao như gió thoảng đêm hè</p>\n<p>Mặt trăng non như tình yêu con trẻ<br />\nKhúc khích cười khẽ lay động lòng ai<br />\nNgười là ai để mai này lưu luyến<br />\nÔm giấc nồng như hòa quyện trong mơ</p>\n<p>Chợt tỉnh giấc khi tuổi thơ òa về<br />\nGiữ bóng hình để ta mãi mộng mơ</p>\n",
@@ -2072,12 +2190,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_20_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 3"
   },
   {
     "id": 17,
     "slug": "vo-de-2",
-    "title": "Vô Đề 2",
+    "title": "Gửi tới em người con gái tôi yêu",
     "date": "2015-01-15T08:25:11",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Gửi tới em người con gái tôi yêu<br />\nDù chẳng biết vì sao yêu nhiều thế<br />\nThề với em giữa gió đông se lạnh<br />\nNhớ đến em lòng không còn cô quạnh!<br />\nGom nỗi nhớ thành vô vàn tia nắng<br />\nGửi đến em một trưa nắng yêu thương<br />\nKhông oi ả như nắng trưa thường thấy<br />\nĐủ sưởi ấm lòng vì nơi ấy có anh<br />\nCỏ vẫn xanh khi nắng vàng còn chiếu<br />\nLòng vẫn yêu mặc đời thiếu tình yêu</p>\n",
@@ -2089,12 +2208,13 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_17_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 2"
   },
   {
     "id": 275,
     "slug": "vo-de-1",
-    "title": "Vô Đề 1",
+    "title": "Tôi vẫn yêu cái loài hoa ban trắng",
     "date": "2015-01-15T08:20:02",
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Tôi vẫn yêu cái loài hoa ban trắng<br />\nGiữa trưa hè dù nắng vẫn tươi cười<br />\nNhớ đến ai hay nhớ đến nụ cười<br />\nChút xao xuyến cho đời thêm mơ mộng!<br />\nMở cõi lòng cho gió lạnh ùa về<br />\nXóa cõi lòng cho vơi hoài nỗi nhớ<br />\nLưu luyến tình dù chỉ còn mơ mộng<br />\nKhóa cõi lòng để giữ chặt trong tim<br />\nTình đã yên hãy chôn vào giấc ngủ<br />\nVùi thật sâu cho chẳng nói thành lời!</p>\n",
@@ -2106,6 +2226,7 @@ window.POEMS_DATA = [
     ],
     "local_images": [
       "images/poem_275_img_0.jpg"
-    ]
+    ],
+    "code_title": "Vô Đề 1"
   }
 ];
