@@ -183,10 +183,11 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="auto-mood-wrapper" style="padding: 8px 12px 4px; border-top: 1px solid var(--border-color); margin-top: 6px;">
-                            <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);">
-                                <input type="checkbox" id="autoMoodSoundCheck" checked style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
-                                <span>🎵 Phối nhạc theo Mood thơ</span>
+                        <div class="auto-mood-wrapper" style="padding: 8px 12px 4px; border-top: 1px solid var(--border-color); margin-top: 6px; display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-size: 11.5px; color: var(--text-secondary);">🎵 Phối nhạc theo Mood thơ</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="autoMoodSoundCheck" checked>
+                                <span class="slider round"></span>
                             </label>
                         </div>
                         <div class="sleep-timer-wrapper" style="padding: 6px 12px 8px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
@@ -198,16 +199,18 @@
                                 <option value="45">45 phút</option>
                             </select>
                         </div>
-                        <div class="spatial-8d-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px;">
-                            <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);" title="Âm thanh xoay tròn 360° qua tai nghe">
-                                <input type="checkbox" id="spatial8dCheck" style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
-                                <span>🎧 Âm Thanh 8D Không Gian</span>
+                        <div class="spatial-8d-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-size: 11.5px; color: var(--text-secondary);" title="Âm thanh xoay tròn 360° qua tai nghe">🎧 Âm Thanh 8D Không Gian</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="spatial8dCheck">
+                                <span class="slider round"></span>
                             </label>
                         </div>
-                        <div class="nightlight-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px;">
-                            <label style="display: flex; align-items: center; gap: 8px; font-size: 11.5px; cursor: pointer; color: var(--text-secondary);" title="Ánh sáng cam dịu xung nhịp thở thư giãn">
-                                <input type="checkbox" id="nightlightCheck" style="accent-color: var(--accent-primary); width: 14px; height: 14px;">
-                                <span>🕯️ Đèn Ngủ Nhịp Thở Thư Giãn</span>
+                        <div class="nightlight-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-size: 11.5px; color: var(--text-secondary);" title="Ánh sáng cam dịu xung nhịp thở thư giãn">🕯️ Đèn Ngủ Nhịp Thở Thư Giãn</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="nightlightCheck">
+                                <span class="slider round"></span>
                             </label>
                         </div>
                     </div>
@@ -619,17 +622,19 @@
                     <label class="control-label" style="margin-top:12px;">Khắc Tên / Chữ Ký Tặng:</label>
                     <input type="text" id="quoteSignatureInput" class="form-input" placeholder="VD: Gửi tặng em... / Antigravity" maxlength="35">
 
-                    <div class="checkbox-wrapper" style="margin-top:10px; margin-bottom:6px;">
-                        <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13.5px; color:var(--text-secondary);">
-                            <input type="checkbox" id="quoteQrCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-primary);">
-                            <span><i class="ri-qr-code-line"></i> Đính kèm mã QR Code bài thơ</span>
+                    <div class="checkbox-wrapper" style="margin-top:10px; margin-bottom:6px; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size:13.5px; color:var(--text-secondary);"><i class="ri-qr-code-line"></i> Đính kèm mã QR Code bài thơ</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="quoteQrCheckbox" checked>
+                            <span class="slider round"></span>
                         </label>
                     </div>
 
-                    <div class="checkbox-wrapper" style="margin-top:4px; margin-bottom:16px;">
-                        <label class="checkbox-label" style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13.5px; color:var(--text-secondary);">
-                            <input type="checkbox" id="quoteWaxSealCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-primary);">
-                            <span>📜 Đính kèm con dấu đổ nến đỏ (Wax Seal)</span>
+                    <div class="checkbox-wrapper" style="margin-top:4px; margin-bottom:16px; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size:13.5px; color:var(--text-secondary);">📜 Đính kèm con dấu đổ nến đỏ (Wax Seal)</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="quoteWaxSealCheckbox" checked>
+                            <span class="slider round"></span>
                         </label>
                     </div>
 
