@@ -652,7 +652,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // Modal Reader Logic
     // ----------------------------------------------------------------------
+    // Picker-only fonts (Cormorant/Dancing/Merriweather) are NOT in the initial page load.
+    // Inject them the first time the reader opens so the font-picker + any saved choice render.
+    let pickerFontsLoaded = false;
+    function ensurePickerFonts() {
+        if (pickerFontsLoaded) return;
+        pickerFontsLoaded = true;
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap';
+        document.head.appendChild(link);
+    }
+
     function openReaderModal(target) {
+        ensurePickerFonts();
         if (!filteredPoemsList || filteredPoemsList.length === 0) {
             filteredPoemsList = getFilteredPoems();
         }
