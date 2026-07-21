@@ -1767,107 +1767,160 @@ dialog::backdrop {
     }
 
     /* Reader Modal (Full Screen View on Mobile) */
+    body.modal-open,
+    dialog.poem-modal,
+    #poemModal {
+        overflow-x: hidden !important;
+    }
+
     .poem-modal {
-        width: 100vw;
-        max-width: 100vw;
-        height: 100dvh;
-        max-height: 100dvh;
-        margin: 0;
-        border-radius: 0;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        overflow-x: hidden !important;
     }
 
     dialog[open] {
         padding: 0 !important;
+        max-width: 100vw !important;
     }
 
     .modal-card {
-        height: 100dvh;
-        max-height: 100dvh;
-        border-radius: 0;
-        border: none;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
 
-    /* ---- Modal Header: ultra-compact ---- */
+    /* ---- Modal Header: ultra-compact & zero horizontal overflow ---- */
     .modal-header {
-        padding: 10px 12px 8px 12px;
-        gap: 6px;
+        padding: 8px 10px 6px 10px !important;
+        gap: 4px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
 
     /* Title row: title + close button side by side */
     .modal-header-top {
-        gap: 8px;
-        align-items: center;
+        gap: 6px !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     .modal-title-area {
-        min-width: 0;
+        min-width: 0 !important;
+        flex: 1 !important;
+        overflow: hidden !important;
     }
     .modal-poem-title {
-        font-size: 18px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        margin-bottom: 0 !important;
     }
     .modal-poem-date {
-        font-size: 11px;
+        font-size: 10.5px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
     .modal-category-badge {
-        font-size: 9.5px;
-        letter-spacing: 0.5px;
+        font-size: 9px !important;
+        letter-spacing: 0.5px !important;
+        margin-bottom: 1px !important;
     }
-    .modal-header-top .modal-close-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+    .modal-top-btns {
+        gap: 3px !important;
+        flex-shrink: 0 !important;
+    }
+    .modal-top-btns .nav-icon-btn,
+    .modal-top-btns .modal-close-btn,
+    .modal-top-btns .tool-btn,
+    .modal-top-btns .modal-actions-toggle-btn {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 14px !important;
+    }
+    .modal-top-btns .poem-counter-badge {
+        font-size: 10px !important;
+        padding: 2px 5px !important;
+    }
+    .modal-top-btns .header-divider-v {
+        display: none !important;
     }
 
-    /* Quick actions: compact single row of 5 icons */
-    .quick-actions-group {
-        justify-content: center !important;
-        gap: 2px !important;
-        padding: 3px 6px !important;
-        border-radius: 20px !important;
-    }
-    .quick-actions-group .icon-badge-btn {
-        width: 34px;
-        height: 34px;
-        font-size: 15px;
-    }
-
-    /* ---- Modal Collapsible Action Toolbars ---- */
-    .quick-actions-group,
+    /* ---- Modal Action Toolbar: single horizontal scrolling bar ---- */
     .modal-header-actions {
-        transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin 0.3s ease, padding 0.3s ease, transform 0.3s ease;
-        max-height: 300px;
-        opacity: 1;
-        transform: translateY(0);
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2px 0 2px 0 !important;
+        margin-top: 2px !important;
+        gap: 5px !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .modal-header-actions::-webkit-scrollbar {
+        display: none;
+    }
+    .modal-header-actions .hdr-dd {
+        flex-shrink: 0 !important;
+    }
+    .modal-header-actions .md-dd-btn {
+        padding: 4px 9px !important;
+        font-size: 11.5px !important;
+        height: 28px !important;
+        white-space: nowrap !important;
+        border-radius: 14px !important;
     }
 
-    .modal-header.actions-collapsed .quick-actions-group,
-    .modal-header.actions-collapsed .modal-header-actions {
-        max-height: 0 !important;
-        opacity: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        transform: translateY(-8px) !important;
-        overflow: hidden !important;
-        pointer-events: none !important;
-        border: none !important;
+    /* Dropdown Panels on Mobile: fixed position centered popup */
+    .md-dd-panel {
+        position: fixed !important;
+        top: 80px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-width: calc(100vw - 20px) !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
     }
 
-    .modal-header.actions-collapsed {
-        padding-bottom: 8px;
+    /* ---- Modal Body: 100vw zero horizontal overflow ---- */
+    .modal-body {
+        padding: 12px 10px 20px 10px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
-
-    /* ---- TTS & Typography toolbar groups ---- */
-    .modal-header-actions {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        gap: 4px;
-        padding-top: 4px;
-        margin-top: 2px;
+    .poem-body-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        padding: 6px 2px !important;
     }
 
     .action-toolbar-group {
@@ -3647,6 +3700,12 @@ input[type="checkbox"]:checked::before {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hdr-menu[hidden],
+.ambient-menu[hidden],
+.md-dd-panel[hidden] {
+    display: none !important;
 }
 
 /* Grouped Tools Menu Layout */

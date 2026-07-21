@@ -2730,41 +2730,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!commandPaletteModal || !cmdInput || !cmdResultsList) return;
 
             const commands = [
-                { title: '🇻🇳 Hiệu Ứng Cờ Việt Nam Tung Bay Phất Phới', action: () => { window.testVietnamFlag(); } },
-                { title: '📱 Đọc Thơ Vertical Reel Story (Reels UX)', action: () => { document.getElementById('verticalReelBtn')?.click(); } },
-                { title: '🖌️ Con Trỏ Bút Lông & Bụi Sao Thư Pháp', action: () => { document.getElementById('cursorTrailBtn')?.click(); } },
-                { title: '🏛️ Viện Bảo Tàng Xem Tranh Minh Họa 4K', action: () => { document.getElementById('museumLightboxBtn')?.click(); } },
-                { title: '🌸 Đổi Giao Diện 4 Mùa (Spring, Summer...)', action: () => { document.getElementById('seasonMorphBtn')?.click(); } },
-                { title: '🌀 Thưởng Thức Thơ 3D Parallax Depth', action: () => { document.getElementById('parallaxReaderBtn')?.click(); } },
-                { title: '💎 Studio Thiết Kế Thẻ Thơ Glassmorphism', action: () => { document.getElementById('glassStudioBtn')?.click(); } },
                 { title: '🌙 Đọc Đêm OLED True-Black & Amber Shift', action: () => { document.getElementById('oledNightBtn')?.click(); } },
-                { title: '🎛️ Bảng Phối Âm Thanh Đa Tầng (Mixer)', action: () => { document.getElementById('multiTrackMixerBtn')?.click(); } },
-                { title: '✨ Thi Ca Vũ Trụ & Đêm Sao Ngân Hà 3D', action: () => { document.getElementById('stargazingBtn')?.click(); } },
-                { title: '🎻 Góc Trải Nghiệm Nhạc Cụ Dân Tộc Việt Nam', action: () => { document.getElementById('folkInstrumentsBtn')?.click(); } },
-                { title: '🔥 Góc Đọc Thơ Bên Bếp Lửa Mùa Đông', action: () => { document.getElementById('fireplaceBtn')?.click(); } },
-                { title: '🏮 Đêm Rằm Hội An - Thả Hoa Đăng Cầu Nguyện', action: () => { document.getElementById('hoiAnLanternBtn')?.click(); } },
-                { title: '✨ Cung Hoàng Đạo & Chiêm Tinh Thơ Ca', action: () => { document.getElementById('zodiacPoetryBtn')?.click(); } },
-                { title: '🖌️ Thi Phòng Thư Pháp Việt 3D', action: () => { document.getElementById('calligraphyBtn')?.click(); } },
-                { title: '🌌 Thi Ca Vũ Điệu Ánh Sáng 3D', action: () => { document.getElementById('audioVisualizerBtn')?.click(); } },
                 { title: '🌐 Thơ Song Ngữ Anh - Việt (Bilingual)', action: () => { document.getElementById('bilingualPoetryBtn')?.click(); } },
-                { title: '🍵 Trà Đạo Thi Ca & Quán Trà Cổ Việt Nam', action: () => { document.getElementById('teaCeremonyBtn')?.click(); } },
-                { title: '🧘 Thi Thiền Định Tâm & Nhịp Thở', action: () => { document.getElementById('mindfulnessBtn')?.click(); } },
-                { title: '✉️ Thiết Kế Thiệp Thư 3D Niêm Phong Sáp', action: () => { document.getElementById('waxSealCardBtn')?.click(); } },
-                { title: '⏳ Dòng Thời Gian Sáng Tác Tác Giả', action: () => { document.getElementById('authorTimelineBtn')?.click(); } },
-                { title: '🎨 Triển Lãm Tranh Thơ Thủy Mặc', action: () => { document.getElementById('artGalleryBtn')?.click(); } },
-                { title: '✍️ Studio Sáng Tác & Hiệp Vần Thơ', action: () => { document.getElementById('rhymeStudioBtn')?.click(); } },
-                { title: '📖 Thi Tập Bìa Da Cổ Điển 3D Flipbook', action: () => { document.getElementById('flipbookBtn')?.click(); } },
-                { title: '🗺️ Bản Đồ Địa Danh & Hành Trình Thơ Ca', action: () => { document.getElementById('poetryMapBtn')?.click(); } },
-                { title: '🌧️ Thi Ca Vũ Trụ - Thơ Theo Thời Tiết Real-Time', action: () => { document.getElementById('weatherPoetryBtn')?.click(); } },
+                { title: '🎲 Đọc Bài Thơ Ngẫu Nhiên', action: () => { document.getElementById('randomPoemBtn')?.click(); } },
+                { title: '📄 Xuất Tập Thơ PDF / E-Book', action: exportPoetryEBookPdf },
+                { title: '🤖 Trợ Lý Thơ AI Antigravity', action: () => { document.getElementById('headerBotBtn')?.click(); } },
                 { title: '🌌 Đổi Theme: Midnight Glow', action: () => applyTheme('theme-midnight') },
                 { title: '🕯️ Đổi Theme: Charcoal Dark', action: () => applyTheme('theme-dark') },
                 { title: '📜 Đổi Theme: Warm Paper Sepia', action: () => applyTheme('theme-paper') },
                 { title: '❄️ Đổi Theme: Nordic Light', action: () => applyTheme('theme-nordic') },
-                { title: '🎛️ Chế Độ Tập Trung (Zen Mode)', action: () => { const p = filteredPoemsList[0]; if (p) openReaderModal(0); enableZenMode(); } },
-                { title: '📄 Xuất Tập Thơ PDF / E-Book', action: exportPoetryEBookPdf },
-                { title: '⏳ Hộp Thư Gửi Thơ Tới Tương Lai', action: () => { document.getElementById('timeCapsuleBtn')?.click(); } },
-                { title: '📈 Xem Thống Kê Cảm Xúc Cá Nhân', action: () => { document.getElementById('emotionStatsBtn')?.click(); } },
-                { title: '🎴 Khám Phá Thơ Thẻ Bài 3D', action: () => { document.getElementById('cardSwiperBtn')?.click(); } }
+                { title: '🎛️ Chế Độ Tập Trung (Zen Mode)', action: () => { const p = filteredPoemsList[0]; if (p) openReaderModal(0); enableZenMode(); } }
             ];
 
             function renderCmdList(filterQuery = '') {
