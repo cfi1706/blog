@@ -6,3 +6,22 @@ config
 Thumbs.db
 *.swp
 node_modules/
+# Added by code-review-graph
+.code-review-graph/
+/.mcp.json
+/.gemini/
+/.codebuddy/
+/.cursorrules
+/.github/
+/.cursor/
+/.vscode/
+/AGENTS.md
+/.qoder/
+/.kiro/
+/.windsurfrules
+/.code-review-graph/
+/CODEBUDDY.md
+/GEMINI.md
+/CLAUDE.md
+/opencode.jsonc
+/QODER.md
