@@ -2315,9 +2315,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (poemModal) {
+            // Bind once on the outermost element only — touchend bubbles up from
+            // inner nodes, so binding on .modal-card / .modal-body too would fire
+            // the handler 3× per swipe and jump 3 poems at once.
             bindSwipe(poemModal);
-            bindSwipe(poemModal.querySelector('.modal-card'));
-            bindSwipe(poemModal.querySelector('.modal-body'));
         }
 
         // ------------------------------------------------------------------
