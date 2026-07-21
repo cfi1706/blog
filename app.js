@@ -909,52 +909,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // Reactions & Personal Notes Logic
+    // Personal Notes Logic
     // ----------------------------------------------------------------------
     function loadPoemReactionsAndNote(poemId) {
-        const pReactions = reactionsData[poemId] || { love: 0, cozy: 0, moon: 0, wind: 0 };
-        document.getElementById('reactCountLove').textContent = pReactions.love || 0;
-        document.getElementById('reactCountCozy').textContent = pReactions.cozy || 0;
-        document.getElementById('reactCountMoon').textContent = pReactions.moon || 0;
-        document.getElementById('reactCountWind').textContent = pReactions.wind || 0;
-
-        const userReacted = readJson(`zzcfizz_user_react_${poemId}`, {});
-        reactionBtns.forEach(btn => {
-            const rType = btn.dataset.reaction;
-            btn.classList.toggle('active', !!userReacted[rType]);
-        });
-
         if (poemNoteInput) {
             poemNoteInput.value = notesData[poemId] || '';
         }
     }
-
-    reactionBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const poem = filteredPoemsList[activePoemIndex];
-            if (!poem) return;
-
-            const rType = btn.dataset.reaction;
-            const pId = poem.id;
-
-            if (!reactionsData[pId]) reactionsData[pId] = { love: 0, cozy: 0, moon: 0, wind: 0 };
-            const userReacted = readJson(`zzcfizz_user_react_${pId}`, {});
-
-            if (userReacted[rType]) {
-                userReacted[rType] = false;
-                reactionsData[pId][rType] = Math.max(0, (reactionsData[pId][rType] || 1) - 1);
-            } else {
-                userReacted[rType] = true;
-                reactionsData[pId][rType] = (reactionsData[pId][rType] || 0) + 1;
-                showToast('✨ Đã gửi cảm xúc của bạn!');
-            }
-
-            localStorage.setItem(`zzcfizz_user_react_${pId}`, JSON.stringify(userReacted));
-            localStorage.setItem('zzcfizz_reactions', JSON.stringify(reactionsData));
-
-            loadPoemReactionsAndNote(pId);
-        });
-    });
 
     if (saveNoteBtn && poemNoteInput) {
         saveNoteBtn.addEventListener('click', () => {
@@ -5541,41 +5502,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['weatherPoetryModal', 'teaCeremonyModal', 'hoiAnLanternModal', 'fireplaceModal', 'multiTrackMixerModal']
             .forEach(id => document.getElementById(id)?.addEventListener('close', stopAmbientSound));
 
-        // ------------------------------------------------------------------
-        // PROPOSAL V6 FEATURE 5: MOOD MATRIX SLIDER SEARCH
-        // ------------------------------------------------------------------
-        function initMoodMatrixSlider() {
-            const slider = document.getElementById('moodMatrixSlider');
-            const label = document.getElementById('moodMatrixLabel');
 
-            if (!slider || !label) return;
-
-            slider.addEventListener('input', (e) => {
-                const val = parseInt(e.target.value);
-                let moodName = '🌱 Bình Yên';
-                let moodKey = 'mood-peace';
-
-                if (val < 25) {
-                    moodName = '🌙 Trầm Lắng';
-                    moodKey = 'mood-deep';
-                } else if (val < 50) {
-                    moodName = '🌱 Bình Yên';
-                    moodKey = 'mood-peace';
-                } else if (val < 75) {
-                    moodName = '🌧️ Hoài Niệm';
-                    moodKey = 'mood-nostalgia';
-                } else {
-                    moodName = '✨ Hi Vọng';
-                    moodKey = 'mood-hope';
-                }
-
-                label.textContent = moodName;
-
-                const targetBtn = document.querySelector(`.pill-btn[data-filter="${moodKey}"]`);
-                if (targetBtn) targetBtn.click();
-            });
-        }
-        initMoodMatrixSlider();
 
         // ------------------------------------------------------------------
         // PROPOSAL V7 FEATURE 1: VERTICAL REEL STORY

@@ -246,15 +246,6 @@
             </button>
         </div>
 
-        <!-- Feature 5: Interactive Mood Matrix Slider Search -->
-        <div id="moodMatrixSliderBox" style="margin-bottom: 20px; padding: 14px 20px; background: var(--bg-surface-solid); border: 1px solid var(--border-color); border-radius: 16px; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-            <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; color: var(--accent-primary); white-space: nowrap;">
-                <i class="ri-equalizer-line"></i> Slider Cảm Xúc:
-            </div>
-            <input type="range" id="moodMatrixSlider" min="0" max="100" value="50" step="1" style="flex: 1; accent-color: var(--accent-primary); cursor: pointer;" title="Lướt qua các dải cảm xúc thơ ca">
-            <span id="moodMatrixLabel" style="font-size: 13px; font-weight: 700; color: var(--text-primary); min-width: 100px; text-align: right;">🌙 Trầm Lắng</span>
-        </div>
-
         <!-- Filter & View Bar -->
         <section class="controls-bar">
             <!-- Filter Category Pills -->
@@ -264,24 +255,6 @@
                 </button>
                 <button class="pill-btn" data-filter="favorites">
                     <i class="ri-heart-3-fill text-rose"></i> Yêu Thích (<span id="countFav">0</span>)
-                </button>
-                
-                <!-- Mood Filters -->
-                <span class="mood-divider"></span>
-                <button class="pill-btn mood-pill" data-filter="mood-peace" title="Thơ Bình Yên">
-                    🌱 Bình Yên
-                </button>
-                <button class="pill-btn mood-pill" data-filter="mood-deep" title="Thơ Trầm Tư">
-                    🌙 Trầm Tư
-                </button>
-                <button class="pill-btn mood-pill" data-filter="mood-nostalgia" title="Thơ Hoài Niệm">
-                    🌧️ Hoài Niệm
-                </button>
-                <button class="pill-btn mood-pill" data-filter="mood-lonely" title="Thơ Cô Đơn">
-                    ☕ Cô Đơn
-                </button>
-                <button class="pill-btn mood-pill" data-filter="mood-hope" title="Thơ Hi Vọng">
-                    ✨ Hi Vọng
                 </button>
             </div>
 
@@ -507,23 +480,8 @@
                     <!-- Images embedded here -->
                 </div>
 
-                <!-- Reactions & Personal Notes Section -->
+                <!-- Personal Notes Section -->
                 <div class="poem-interactive-section">
-                    <div class="reactions-bar">
-                        <span class="reactions-title">Cảm xúc:</span>
-                        <button class="reaction-btn" data-reaction="love" title="Bày tỏ Yêu thích">
-                            ❤️ <span class="react-count" id="reactCountLove">0</span>
-                        </button>
-                        <button class="reaction-btn" data-reaction="cozy" title="Cảm giác Bình yên">
-                            ☕ <span class="react-count" id="reactCountCozy">0</span>
-                        </button>
-                        <button class="reaction-btn" data-reaction="moon" title="Cảm giác Trầm tư">
-                            🌙 <span class="react-count" id="reactCountMoon">0</span>
-                        </button>
-                        <button class="reaction-btn" data-reaction="wind" title="Cảm giác Hoài niệm">
-                            🍃 <span class="react-count" id="reactCountWind">0</span>
-                        </button>
-                    </div>
 
                     <!-- Personal Note Expandable Box -->
                     <details class="personal-note-details">
