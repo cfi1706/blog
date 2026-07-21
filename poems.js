@@ -1,6 +1,23 @@
 // Auto-generated poem database
 window.POEMS_DATA = [
   {
+    "id": 2011,
+    "slug": "bai-tho-2011",
+    "title": "Khi Cánh Hoa Cuối Cùng Nở",
+    "date": "2026-07-21T04:13:41.985Z",
+    "date_formatted": "21 tháng 7, 2026",
+    "content_html": "\n<p class=\"wp-block-paragraph\">Khi cánh hoa cuối cùng nở<br>Lá biết cây sẽ tàn<br>Khi hạ vội vàng sang<br>Mùa đông vừa chợt đến</p>\n<p class=\"wp-block-paragraph\">Ta thấy đời gian nan<br>Viết vội vàng hạnh phúc<br>Gom vần thơ ngả nghiêng<br>Trải giữa lòng thực đục.</p>\n<p class=\"wp-block-paragraph\">Đường vạn lý thênh thang<br>Bụi mờ lên mắt trẻ<br>Gặp nhau chốn nhân gian<br>Níu làm sao tay nhẹ?</p>\n<p class=\"wp-block-paragraph\">Chờ vạt nắng cuối chiều<br>Hong mảnh hồn buốt giá<br>Người đi qua thương yêu<br>Đã thành người xa lạ.</p>\n<p class=\"wp-block-paragraph\">Mai này hoa lại nở<br>Lá lại xanh trên cành<br>Chỉ có nỗi giông bão<br>Đã nằm yên khép manh.</p>\n",
+    "content_text": "Khi cánh hoa cuối cùng nở\nLá biết cây sẽ tàn\nKhi hạ vội vàng sang\nMùa đông vừa chợt đến\n\nTa thấy đời gian nan\nViết vội vàng hạnh phúc\nGom vần thơ ngả nghiêng\nTrải giữa lòng thực đục.\n\nĐường vạn lý thênh thang\nBụi mờ lên mắt trẻ\nGặp nhau chốn nhân gian\nNíu làm sao tay nhẹ?\n\nChờ vạt nắng cuối chiều\nHong mảnh hồn buốt giá\nNgười đi qua thương yêu\nĐã thành người xa lạ.\n\nMai này hoa lại nở\nLá lại xanh trên cành\nChỉ có nỗi giông bão\nĐã nằm yên khép manh.",
+    "featured_image": "images/poem_2011_img_0.webp",
+    "inline_images": [],
+    "all_images": [
+      "images/poem_2011_img_0.webp"
+    ],
+    "local_images": [
+      "images/poem_2011_img_0.webp"
+    ]
+  },
+  {
     "id": 2010,
     "slug": "muoi-nam-chua-lan-gap",
     "title": "Mười Năm Chưa Lần Gặp",
@@ -8,13 +25,13 @@ window.POEMS_DATA = [
     "date_formatted": "20 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Mười năm chưa lần gặp<br>Sao ta vẫn đợi chờ<br>Một bóng hình đã lỡ<br>Chưa gặp lại trong mơ<br><br>Mọi thứ đã phai mờ<br>Chỉ in hằn lên cát<br>Dấu chân kẻ tình si<br>Từng bước đi từng đi<br><br>Luẩn quẩn trong tâm trí<br>Kẻ si chẳng bóng hình<br>Nhân gian thật vô tình<br>Đến hay đi chẳng tỏ...</p>",
     "content_text": "Mười năm chưa lần gặp\nSao ta vẫn đợi chờ\nMột bóng hình đã lỡ\nChưa gặp lại trong mơ\n\nMọi thứ đã phai mờ\nChỉ in hằn lên cát\nDấu chân kẻ tình si\nTừng bước đi từng đi\n\nLuẩn quẩn trong tâm trí\nKẻ si chẳng bóng hình\nNhân gian thật vô tình\nĐến hay đi chẳng tỏ...",
-    "featured_image": "images/poem_2010_img_0.jpg",
+    "featured_image": "images/poem_2010_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2010_img_0.jpg"
+      "images/poem_2010_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2010_img_0.jpg"
+      "images/poem_2010_img_0.webp"
     ]
   },
   {
@@ -25,13 +42,13 @@ window.POEMS_DATA = [
     "date_formatted": "20 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Yêu em tóc đã bạc rồi<br>Trái tim không biết nói lời mộng mơ<br>Ngày ngày chỉ biết trông chờ<br>Trăng lên gửi áng vầng thơ tới nàng<br><br>Bóng trăng in khuyết gối nàng<br>Gió xuân vội khẽ thì thầm bên tai<br>Hai ta xa tận góc trời<br>Nhờ lời của gió gởi lời yêu thương<br><br>Dặm trường dạo bước nhớ thương<br>Xa xôi muôn dặm còn thương nhớ về</p>",
     "content_text": "Yêu em tóc đã bạc rồi\nTrái tim không biết nói lời mộng mơ\nNgày ngày chỉ biết trông chờ\nTrăng lên gửi áng vầng thơ tới nàng\n\nBóng trăng in khuyết gối nàng\nGió xuân vội khẽ thì thầm bên tai\nHai ta xa tận góc trời\nNhờ lời của gió gởi lời yêu thương\n\nDặm trường dạo bước nhớ thương\nXa xôi muôn dặm còn thương nhớ về",
-    "featured_image": "images/poem_2009_img_0.jpg",
+    "featured_image": "images/poem_2009_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2009_img_0.jpg"
+      "images/poem_2009_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2009_img_0.jpg"
+      "images/poem_2009_img_0.webp"
     ]
   },
   {
@@ -42,13 +59,13 @@ window.POEMS_DATA = [
     "date_formatted": "20 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Tôi đi giữa chốn nhân gian<br>Muốn mang gửi lại bên hàng dương xanh<br>Oanh vàng cất tiếng líu lo<br>Mộng vàng chưa tỏ, nắng vàng vội phai<br><br>Hỡi ai gieo chút nhớ thương<br>Còn vương sợi nhớ bên hàng thông reo<br>Trăng treo trong gió dỗi hờn<br>Gieo chi một nửa vấn vương tơ lòng<br><br>Hỏi rằng người có nhớ không<br>Ánh hồng rẽ nước chia đôi<br>Nửa mang thương nhớ trôi theo ngược dòng<br>Bóng hồng tựa nhánh liễu đào<br>Gieo tương tư ấy vào trong cõi trần</p>",
     "content_text": "Tôi đi giữa chốn nhân gian\nMuốn mang gửi lại bên hàng dương xanh\nOanh vàng cất tiếng líu lo\nMộng vàng chưa tỏ, nắng vàng vội phai\n\nHỡi ai gieo chút nhớ thương\nCòn vương sợi nhớ bên hàng thông reo\nTrăng treo trong gió dỗi hờn\nGieo chi một nửa vấn vương tơ lòng\n\nHỏi rằng người có nhớ không\nÁnh hồng rẽ nước chia đôi\nNửa mang thương nhớ trôi theo ngược dòng\nBóng hồng tựa nhánh liễu đào\nGieo tương tư ấy vào trong cõi trần",
-    "featured_image": "images/poem_2008_img_0.jpg",
+    "featured_image": "images/poem_2008_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2008_img_0.jpg"
+      "images/poem_2008_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2008_img_0.jpg"
+      "images/poem_2008_img_0.webp"
     ]
   },
   {
@@ -59,13 +76,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Lững lờ giữa chốn gian trần,<br>Gửi trao kỷ niệm bên phần dương liễu.<br>Tiếng chim vang đượm khúc chiều,<br>Giấc mơ vàng úa, nắng xiêu mịt mờ.<br><br>Ai gieo chi sợi thương nhớ,<br>Thông reo gió bấc, trăng treo bên trời.<br>Rối bời một dải tơ đời,<br>Nửa lòng vương vấn, nửa lời thở than.<br><br>Người ơi, có nhớ chăng ngàn?<br>Dòng sông ánh hồng, đôi hàng mộng mơ.<br>Thương nhớ trôi bến bờ xa,<br>Bóng hồng đào liễu, mênh mông tình si.</p>",
     "content_text": "Lững lờ giữa chốn gian trần,\nGửi trao kỷ niệm bên phần dương liễu.\nTiếng chim vang đượm khúc chiều,\nGiấc mơ vàng úa, nắng xiêu mịt mờ.\n\nAi gieo chi sợi thương nhớ,\nThông reo gió bấc, trăng treo bên trời.\nRối bời một dải tơ đời,\nNửa lòng vương vấn, nửa lời thở than.\n\nNgười ơi, có nhớ chăng ngàn?\nDòng sông ánh hồng, đôi hàng mộng mơ.\nThương nhớ trôi bến bờ xa,\nBóng hồng đào liễu, mênh mông tình si.",
-    "featured_image": "images/poem_2007_img_0.jpg",
+    "featured_image": "images/poem_2007_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2007_img_0.jpg"
+      "images/poem_2007_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2007_img_0.jpg"
+      "images/poem_2007_img_0.webp"
     ]
   },
   {
@@ -76,13 +93,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Gió đông heo hắt bên thềm<br>Rêu phong cảnh cũ, sau thềm lá rơi<br>Phong sương tuyết phủ ngập trời<br>Bếp nhỏ hiu hắt đưa người về đâu<br>Giọt sương pha với giọt sầu<br>Áo nâu xếp lại, bạc màu nắng mưa<br>Vườn xưa vắng bóng người xưa<br>Hàng cau đứng lặng như vừa ngóng ai<br>Khói trầm lãng đãng sương mai<br>Hương quen phảng phất, trang đài bỏ không.</p>",
     "content_text": "Gió đông heo hắt bên thềm\nRêu phong cảnh cũ, sau thềm lá rơi\nPhong sương tuyết phủ ngập trời\nBếp nhỏ hiu hắt đưa người về đâu\nGiọt sương pha với giọt sầu\nÁo nâu xếp lại, bạc màu nắng mưa\nVườn xưa vắng bóng người xưa\nHàng cau đứng lặng như vừa ngóng ai\nKhói trầm lãng đãng sương mai\nHương quen phảng phất, trang đài bỏ không.",
-    "featured_image": "images/poem_2006_img_0.jpg",
+    "featured_image": "images/poem_2006_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2006_img_0.jpg"
+      "images/poem_2006_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2006_img_0.jpg"
+      "images/poem_2006_img_0.webp"
     ]
   },
   {
@@ -93,13 +110,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Bếp nhà lửa vẫn nhóm mỗi đêm<br>Củi hồng vẫn cháy, tro tàn vẫn rơi<br>Người ngồi hong lại khoảng đời<br>Mà tim lạnh giá như thời lập đông.<br><br>Bình hoa nằm ở góc phòng<br>Vẹn nguyên không vết rạn ngoài<br>Nhưng nguồn nước bên trong đành chịu lỗi<br>Chẳng thể nuôi nổi một nhành hoa phai<br><br>Hai chiếc lá như chung một cội<br>Nương vào nhau qua giông gió cuộc đời<br>Nhưng nhựa sống bên trong đã mỏi<br>Chẳng buồn xanh, cũng chẳng muốn rơi.</p>",
     "content_text": "Bếp nhà lửa vẫn nhóm mỗi đêm\nCủi hồng vẫn cháy, tro tàn vẫn rơi\nNgười ngồi hong lại khoảng đời\nMà tim lạnh giá như thời lập đông.\n\nBình hoa nằm ở góc phòng\nVẹn nguyên không vết rạn ngoài\nNhưng nguồn nước bên trong đành chịu lỗi\nChẳng thể nuôi nổi một nhành hoa phai\n\nHai chiếc lá như chung một cội\nNương vào nhau qua giông gió cuộc đời\nNhưng nhựa sống bên trong đã mỏi\nChẳng buồn xanh, cũng chẳng muốn rơi.",
-    "featured_image": "images/poem_2005_img_0.jpg",
+    "featured_image": "images/poem_2005_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2005_img_0.jpg"
+      "images/poem_2005_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2005_img_0.jpg"
+      "images/poem_2005_img_0.webp"
     ]
   },
   {
@@ -110,13 +127,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Một đời nhớ nhớ thương thương<br>Cười vui thì ít mà nhớ thương thì nhiều<br>Hoàng hôn bớt rán bóng chiều<br>Tương tư trải cạnh một chiều yêu đương</p>",
     "content_text": "Một đời nhớ nhớ thương thương\nCười vui thì ít mà nhớ thương thì nhiều\nHoàng hôn bớt rán bóng chiều\nTương tư trải cạnh một chiều yêu đương",
-    "featured_image": "images/poem_2004_img_0.jpg",
+    "featured_image": "images/poem_2004_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2004_img_0.jpg"
+      "images/poem_2004_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2004_img_0.jpg"
+      "images/poem_2004_img_0.webp"
     ]
   },
   {
@@ -127,13 +144,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Em hỡi em, ta còn gì cho nhau?<br>Là nhung nhớ hay những điều vụn vỡ?<br>Là chút bình yên sau tro tàn còn sót,<br>Hay muộn phiền quẩn quanh miền ký ức?<br><br>Ta thấy lòng như lửa đốt, rã rời,<br>Giữa đêm lạnh chẳng vòng tay ấm áp.<br>Những giấc mơ trôi dạt tận phương nào,<br>Tuổi thanh xuân – một lần từng ảo vọng.<br><br>Ám ảnh theo ta đến tận chiều tàn,<br>Khóe mắt cay, lòng chẳng còn bình lặng.<br>Chỉ muốn say, để mãi mãi ngủ quên,<br>Dẫu bước gần, sao vẫn xa trọn kiếp…</p>",
     "content_text": "Em hỡi em, ta còn gì cho nhau?\nLà nhung nhớ hay những điều vụn vỡ?\nLà chút bình yên sau tro tàn còn sót,\nHay muộn phiền quẩn quanh miền ký ức?\n\nTa thấy lòng như lửa đốt, rã rời,\nGiữa đêm lạnh chẳng vòng tay ấm áp.\nNhững giấc mơ trôi dạt tận phương nào,\nTuổi thanh xuân – một lần từng ảo vọng.\n\nÁm ảnh theo ta đến tận chiều tàn,\nKhóe mắt cay, lòng chẳng còn bình lặng.\nChỉ muốn say, để mãi mãi ngủ quên,\nDẫu bước gần, sao vẫn xa trọn kiếp…",
-    "featured_image": "images/poem_2003_img_0.jpg",
+    "featured_image": "images/poem_2003_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2003_img_0.jpg"
+      "images/poem_2003_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2003_img_0.jpg"
+      "images/poem_2003_img_0.webp"
     ]
   },
   {
@@ -144,13 +161,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Cố gắng chăm vườn, vườn vẫn sâu,<br>Cố gắng không sầu, sầu vẫn vương.<br>Cố gắng không khóc, lệ vẫn tuôn,<br>Cố gắng quên người, dạ vẫn thương.<br><br>Cố gắng gượng cười, môi héo hắt,<br>Cố gắng thản nhiên, lòng vẫn đau.<br>Cố gắng tìm quên, sầu lại thắt,<br>Cố gắng trăm lần, vẫn mất nhau.</p>",
     "content_text": "Cố gắng chăm vườn, vườn vẫn sâu,\nCố gắng không sầu, sầu vẫn vương.\nCố gắng không khóc, lệ vẫn tuôn,\nCố gắng quên người, dạ vẫn thương.\n\nCố gắng gượng cười, môi héo hắt,\nCố gắng thản nhiên, lòng vẫn đau.\nCố gắng tìm quên, sầu lại thắt,\nCố gắng trăm lần, vẫn mất nhau.",
-    "featured_image": "images/poem_2002_img_0.jpg",
+    "featured_image": "images/poem_2002_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2002_img_0.jpg"
+      "images/poem_2002_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2002_img_0.jpg"
+      "images/poem_2002_img_0.webp"
     ]
   },
   {
@@ -161,13 +178,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Ngày ấy,<br>Tre vẫn xanh, gió vẫn reo<br>Nhưng bình yên đã không còn nữa<br>Chim vẫn hót, mây vẫn bay<br>Tay đã không còn nắm<br><br>Và rồi,<br>Người mỉm cười, chân vẫn bước<br>Gió cũng im, lá đã ngừng<br>Sóng ngoài xa đã thôi rì rào<br>Lòng ta đã chôn vào hư không!</p>",
     "content_text": "Ngày ấy,\nTre vẫn xanh, gió vẫn reo\nNhưng bình yên đã không còn nữa\nChim vẫn hót, mây vẫn bay\nTay đã không còn nắm\n\nVà rồi,\nNgười mỉm cười, chân vẫn bước\nGió cũng im, lá đã ngừng\nSóng ngoài xa đã thôi rì rào\nLòng ta đã chôn vào hư không!",
-    "featured_image": "images/poem_2001_img_0.jpg",
+    "featured_image": "images/poem_2001_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2001_img_0.jpg"
+      "images/poem_2001_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2001_img_0.jpg"
+      "images/poem_2001_img_0.webp"
     ]
   },
   {
@@ -178,13 +195,13 @@ window.POEMS_DATA = [
     "date_formatted": "18 tháng 7, 2026",
     "content_html": "<p class=\"wp-block-paragraph\">Tôi đã dốc thanh xuân qua trăm ngả,<br>Nhìn hoa tàn lặng phủ lối xưa,<br>Nhìn nắng sớm vừa chạm bên trời,<br>Mà chẳng thể sưởi tan hồ băng giá.<br><br>Cứ ngỡ chung thuyền, cùng vượt sóng,<br>Nào hay lạc giữa cõi dửng dưng.<br>Lửa nơi vách lòng ta âm thầm đỏ rực,<br>Người lặng im, mặc kệ hóa tro than.<br><br>Gần gang tấc... mà cách trùng khơi.</p>",
     "content_text": "Tôi đã dốc thanh xuân qua trăm ngả,\nNhìn hoa tàn lặng phủ lối xưa,\nNhìn nắng sớm vừa chạm bên trời,\nMà chẳng thể sưởi tan hồ băng giá.\n\nCứ ngỡ chung thuyền, cùng vượt sóng,\nNào hay lạc giữa cõi dửng dưng.\nLửa nơi vách lòng ta âm thầm đỏ rực,\nNgười lặng im, mặc kệ hóa tro than.\n\nGần gang tấc... mà cách trùng khơi.",
-    "featured_image": "images/poem_2000_img_0.jpg",
+    "featured_image": "images/poem_2000_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_2000_img_0.jpg"
+      "images/poem_2000_img_0.webp"
     ],
     "local_images": [
-      "images/poem_2000_img_0.jpg"
+      "images/poem_2000_img_0.webp"
     ]
   },
   {
@@ -195,13 +212,13 @@ window.POEMS_DATA = [
     "date_formatted": "5 tháng 9, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Người mơ về chốn xa xôi<br>Ta chỉ thèm một mái nhà bình yên<br>Người vui với những muộn phiền<br>Ta gom nhặt chút an nhiên cho mình!<br>Người nhìn bằng ánh bình minh<br>Thấy danh vọng, thấy cuộc tình hơn thua<br>Ta nhìn đời lúc đổ mưa<br>Thấy vai gầy gánh nắng trưa mệt nhoài.<br>Câu chuyện cứ mỗi ngày dài<br>Mà tâm hồn lại cách hai phương trời<br>Người buông những tiếng buông lơi<br>Ta nghe chỉ thấy một đời lặng câm.<br>Nhiều khi cay đắng âm thầm<br>Muốn buông tay để lạc lầm một phen<br>Chẳng chung một giấc mơ hồng<br>Chẳng chung lối bước, giấc nồng đêm say.</p>\n",
     "content_text": "Người mơ về chốn xa xôi\nTa chỉ thèm một mái nhà bình yên\nNgười vui với những muộn phiền\nTa gom nhặt chút an nhiên cho mình!\nNgười nhìn bằng ánh bình minh\nThấy danh vọng, thấy cuộc tình hơn thua\nTa nhìn đời lúc đổ mưa\nThấy vai gầy gánh nắng trưa mệt nhoài.\nCâu chuyện cứ mỗi ngày dài\nMà tâm hồn lại cách hai phương trời\nNgười buông những tiếng buông lơi\nTa nghe chỉ thấy một đời lặng câm.\nNhiều khi cay đắng âm thầm\nMuốn buông tay để lạc lầm một phen\nChẳng chung một giấc mơ hồng\nChẳng chung lối bước, giấc nồng đêm say.",
-    "featured_image": "images/poem_1353_img_0.jpg",
+    "featured_image": "images/poem_1353_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_1353_img_0.jpg"
+      "images/poem_1353_img_0.webp"
     ],
     "local_images": [
-      "images/poem_1353_img_0.jpg"
+      "images/poem_1353_img_0.webp"
     ]
   },
   {
@@ -212,13 +229,13 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.<br>Cô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.<br>Nỗi buồn là hạt cát, lấp đầy cả đại dương.<br>Muốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.</p>\n",
     "content_text": "Phiền muộn chỉ là một giọt nước, nhưng ta lại đong đầy cả đại dương.\nCô đơn chỉ là làn khói mỏng, nhưng lại che mờ cả nhân gian.\nNỗi buồn là hạt cát, lấp đầy cả đại dương.\nMuốn nhận tia nắng ấm, lại phải hứng chịu cả cơn mưa.",
-    "featured_image": "images/poem_1338_img_0.jpg",
+    "featured_image": "images/poem_1338_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_1338_img_0.jpg"
+      "images/poem_1338_img_0.webp"
     ],
     "local_images": [
-      "images/poem_1338_img_0.jpg"
+      "images/poem_1338_img_0.webp"
     ]
   },
   {
@@ -229,13 +246,13 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Em thấy gì trong buổi chiều lạc lõng!<br>Đôi vai gầy không cõng hết cô đơn.<br>Bóng hoàng hôn in dấu chân lạc mất,<br>Cõi cô đơn dài đến cạn ưu phiền.</p>\n",
     "content_text": "Em thấy gì trong buổi chiều lạc lõng!\nĐôi vai gầy không cõng hết cô đơn.\nBóng hoàng hôn in dấu chân lạc mất,\nCõi cô đơn dài đến cạn ưu phiền.",
-    "featured_image": "images/poem_1335_img_0.jpg",
+    "featured_image": "images/poem_1335_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_1335_img_0.jpg"
+      "images/poem_1335_img_0.webp"
     ],
     "local_images": [
-      "images/poem_1335_img_0.jpg"
+      "images/poem_1335_img_0.webp"
     ]
   },
   {
@@ -246,13 +263,13 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Có những nơi gọi là nhà<br>Có những phút giây gọi là hạnh phúc<br>Không thiên đường cũng chẳng là địa ngục<br>Nơi chôn vùi những hạnh phúc từng qua…</p>\n",
     "content_text": "Có những nơi gọi là nhà\nCó những phút giây gọi là hạnh phúc\nKhông thiên đường cũng chẳng là địa ngục\nNơi chôn vùi những hạnh phúc từng qua…",
-    "featured_image": "images/poem_1332_img_0.jpg",
+    "featured_image": "images/poem_1332_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_1332_img_0.jpg"
+      "images/poem_1332_img_0.webp"
     ],
     "local_images": [
-      "images/poem_1332_img_0.jpg"
+      "images/poem_1332_img_0.webp"
     ]
   },
   {
@@ -263,13 +280,13 @@ window.POEMS_DATA = [
     "date_formatted": "28 tháng 8, 2025",
     "content_html": "\n<p class=\"wp-block-paragraph\">Nắng rớt bên thềm nhà<br>Một cánh hoa tàn phai<br>Gió reo trên ngọn cỏ<br>Hoàng hôn của ngày mai!</p>\n\n\n\n<p class=\"wp-block-paragraph\">Chiều xuống nhẹ như kéo<br>Sau những tháng ngày dài<br>Đầy sương và sỏi đá<br>Ướt đẫm cả tương lai</p>\n\n\n\n<p class=\"wp-block-paragraph\">Sau cùng chỉ còn có<br>Đêm và bóng hình ai<br>In dài trên cát trắng<br>Một nốt trầm ngân dài</p>\n",
     "content_text": "Nắng rớt bên thềm nhà\nMột cánh hoa tàn phai\nGió reo trên ngọn cỏ\nHoàng hôn của ngày mai!\n\n\n\n\n\nChiều xuống nhẹ như kéo\nSau những tháng ngày dài\nĐầy sương và sỏi đá\nƯớt đẫm cả tương lai\n\n\n\n\n\nSau cùng chỉ còn có\nĐêm và bóng hình ai\nIn dài trên cát trắng\nMột nốt trầm ngân dài",
-    "featured_image": "images/poem_1329_img_0.jpg",
+    "featured_image": "images/poem_1329_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_1329_img_0.jpg"
+      "images/poem_1329_img_0.webp"
     ],
     "local_images": [
-      "images/poem_1329_img_0.jpg"
+      "images/poem_1329_img_0.webp"
     ]
   },
   {
@@ -507,7 +524,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/12/hoa-phuong-tieng-anh-la-gi-1.png"
     ],
     "local_images": [
-      "images/poem_1216_img_0.png"
+      "images/poem_1216_img_0.webp"
     ]
   },
   {
@@ -575,7 +592,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/98.jpeg"
     ],
     "local_images": [
-      "images/poem_1188_img_0.jpeg"
+      "images/poem_1188_img_0.webp"
     ]
   },
   {
@@ -592,7 +609,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/07/97.jpg"
     ],
     "local_images": [
-      "images/poem_1184_img_0.jpg"
+      "images/poem_1184_img_0.webp"
     ]
   },
   {
@@ -609,7 +626,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/04/96.jpg"
     ],
     "local_images": [
-      "images/poem_1177_img_0.jpg"
+      "images/poem_1177_img_0.webp"
     ]
   },
   {
@@ -626,7 +643,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/03/95.jpg"
     ],
     "local_images": [
-      "images/poem_1174_img_0.jpg"
+      "images/poem_1174_img_0.webp"
     ]
   },
   {
@@ -643,7 +660,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/03/94.jpg"
     ],
     "local_images": [
-      "images/poem_1171_img_0.jpg"
+      "images/poem_1171_img_0.webp"
     ]
   },
   {
@@ -660,7 +677,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/93.jpg"
     ],
     "local_images": [
-      "images/poem_1168_img_0.jpg"
+      "images/poem_1168_img_0.webp"
     ]
   },
   {
@@ -677,7 +694,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/92.png"
     ],
     "local_images": [
-      "images/poem_1165_img_0.png"
+      "images/poem_1165_img_0.webp"
     ]
   },
   {
@@ -694,7 +711,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/91.jpg"
     ],
     "local_images": [
-      "images/poem_1162_img_0.jpg"
+      "images/poem_1162_img_0.webp"
     ]
   },
   {
@@ -711,7 +728,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/90.jpeg"
     ],
     "local_images": [
-      "images/poem_1159_img_0.jpeg"
+      "images/poem_1159_img_0.webp"
     ]
   },
   {
@@ -728,7 +745,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/89.jpg"
     ],
     "local_images": [
-      "images/poem_1156_img_0.jpg"
+      "images/poem_1156_img_0.webp"
     ]
   },
   {
@@ -745,7 +762,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/88.jpg"
     ],
     "local_images": [
-      "images/poem_1154_img_0.jpg"
+      "images/poem_1154_img_0.webp"
     ]
   },
   {
@@ -762,7 +779,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2023/02/87.jpg"
     ],
     "local_images": [
-      "images/poem_1150_img_0.jpg"
+      "images/poem_1150_img_0.webp"
     ]
   },
   {
@@ -779,7 +796,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/86.jpg"
     ],
     "local_images": [
-      "images/poem_1140_img_0.jpg"
+      "images/poem_1140_img_0.webp"
     ]
   },
   {
@@ -796,7 +813,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/85.jpg"
     ],
     "local_images": [
-      "images/poem_1137_img_0.jpg"
+      "images/poem_1137_img_0.webp"
     ]
   },
   {
@@ -813,7 +830,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/12/84.jpg"
     ],
     "local_images": [
-      "images/poem_1132_img_0.jpg"
+      "images/poem_1132_img_0.webp"
     ]
   },
   {
@@ -830,7 +847,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/05/bai-tho-dat-nuoc.jpg"
     ],
     "local_images": [
-      "images/poem_1121_img_0.jpg"
+      "images/poem_1121_img_0.webp"
     ]
   },
   {
@@ -847,7 +864,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/cung-oan-ngam-khuc.jpg"
     ],
     "local_images": [
-      "images/poem_1101_img_0.jpg"
+      "images/poem_1101_img_0.webp"
     ]
   },
   {
@@ -864,7 +881,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/MT2012_Divest_468023426_1200.jpg"
     ],
     "local_images": [
-      "images/poem_1088_img_0.jpg"
+      "images/poem_1088_img_0.webp"
     ]
   },
   {
@@ -881,7 +898,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/0172.jpg_wh860.jpg"
     ],
     "local_images": [
-      "images/poem_1086_img_0.jpg"
+      "images/poem_1086_img_0.webp"
     ]
   },
   {
@@ -898,7 +915,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2022/01/bai-tho-song.jpg"
     ],
     "local_images": [
-      "images/poem_1083_img_0.jpg"
+      "images/poem_1083_img_0.webp"
     ]
   },
   {
@@ -915,7 +932,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/12/8a.jpg"
     ],
     "local_images": [
-      "images/poem_1055_img_0.jpg"
+      "images/poem_1055_img_0.webp"
     ]
   },
   {
@@ -932,7 +949,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/12/28-silhouette-father-child-pohotogprahy.jpg"
     ],
     "local_images": [
-      "images/poem_1049_img_0.jpg"
+      "images/poem_1049_img_0.webp"
     ]
   },
   {
@@ -949,7 +966,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/08/cha-va-con-gai-5.png"
     ],
     "local_images": [
-      "images/poem_1027_img_0.png"
+      "images/poem_1027_img_0.webp"
     ]
   },
   {
@@ -966,7 +983,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/48d326ab0636b4902d16f0a216385380.jpg"
     ],
     "local_images": [
-      "images/poem_887_img_0.jpg"
+      "images/poem_887_img_0.webp"
     ]
   },
   {
@@ -983,7 +1000,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/unnamed.jpg"
     ],
     "local_images": [
-      "images/poem_885_img_0.jpg"
+      "images/poem_885_img_0.webp"
     ]
   },
   {
@@ -1000,7 +1017,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/6086_hue_thanh_pho_cua_nhung_sac_hoa_12015327052019.jpg"
     ],
     "local_images": [
-      "images/poem_880_img_0.jpg"
+      "images/poem_880_img_0.webp"
     ]
   },
   {
@@ -1017,7 +1034,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/02/trekking-bidoup-9.jpg"
     ],
     "local_images": [
-      "images/poem_809_img_0.jpg"
+      "images/poem_809_img_0.webp"
     ]
   },
   {
@@ -1034,7 +1051,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/uMrF2LM.jpg"
     ],
     "local_images": [
-      "images/poem_783_img_0.jpg"
+      "images/poem_783_img_0.webp"
     ]
   },
   {
@@ -1051,7 +1068,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/unnamed.jpg"
     ],
     "local_images": [
-      "images/poem_780_img_0.jpg"
+      "images/poem_780_img_0.webp"
     ]
   },
   {
@@ -1068,7 +1085,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2021/01/unnamed.jpeg"
     ],
     "local_images": [
-      "images/poem_773_img_0.jpeg"
+      "images/poem_773_img_0.webp"
     ]
   },
   {
@@ -1085,7 +1102,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2020/09/5822457_vieclam24h_1580464823.png"
     ],
     "local_images": [
-      "images/poem_765_img_0.png"
+      "images/poem_765_img_0.webp"
     ]
   },
   {
@@ -1102,7 +1119,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2020/01/kinh-te-viet-nam-khoi-sac-nam-2018-va-trien-vong-nam-2019-4223e8.jpg"
     ],
     "local_images": [
-      "images/poem_726_img_0.jpg"
+      "images/poem_726_img_0.webp"
     ]
   },
   {
@@ -1119,7 +1136,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/2016-07-19_sujWj5Nywc.yeu_.jpg"
     ],
     "local_images": [
-      "images/poem_700_img_0.jpg"
+      "images/poem_700_img_0.webp"
     ]
   },
   {
@@ -1136,7 +1153,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/foody-mobile-33-jpg-329-635621214647515856.jpg"
     ],
     "local_images": [
-      "images/poem_697_img_0.jpg"
+      "images/poem_697_img_0.webp"
     ]
   },
   {
@@ -1153,7 +1170,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/yentu2.jpg"
     ],
     "local_images": [
-      "images/poem_694_img_0.jpg"
+      "images/poem_694_img_0.webp"
     ]
   },
   {
@@ -1170,7 +1187,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/co-don.jpg"
     ],
     "local_images": [
-      "images/poem_691_img_0.jpg"
+      "images/poem_691_img_0.webp"
     ]
   },
   {
@@ -1187,7 +1204,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/hqdefault.jpg"
     ],
     "local_images": [
-      "images/poem_688_img_0.jpg"
+      "images/poem_688_img_0.webp"
     ]
   },
   {
@@ -1204,7 +1221,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/Suy-tuong-moi-ngay-nature-barley.jpg"
     ],
     "local_images": [
-      "images/poem_685_img_0.jpg"
+      "images/poem_685_img_0.webp"
     ]
   },
   {
@@ -1221,7 +1238,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/12.jpg"
     ],
     "local_images": [
-      "images/poem_682_img_0.jpg"
+      "images/poem_682_img_0.webp"
     ]
   },
   {
@@ -1238,7 +1255,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/636509963792992766_y.jpg"
     ],
     "local_images": [
-      "images/poem_679_img_0.jpg"
+      "images/poem_679_img_0.webp"
     ]
   },
   {
@@ -1255,7 +1272,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/binh-giang-doan-dau-bai-tho-voi-vang.jpg"
     ],
     "local_images": [
-      "images/poem_676_img_0.jpg"
+      "images/poem_676_img_0.webp"
     ]
   },
   {
@@ -1272,7 +1289,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2019/10/sóng-gió.jpg"
     ],
     "local_images": [
-      "images/poem_673_img_0.jpg"
+      "images/poem_673_img_0.webp"
     ]
   },
   {
@@ -1289,7 +1306,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2018/04/R10171_image1.jpeg"
     ],
     "local_images": [
-      "images/poem_513_img_0.jpeg"
+      "images/poem_513_img_0.webp"
     ]
   },
   {
@@ -1323,7 +1340,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2017/05/thoi-tiet-hom-nay-14-3-khong-khi-lanh-gay-mua-cho-cac-tinh-mien-bac-dshn.jpg"
     ],
     "local_images": [
-      "images/poem_484_img_0.jpg"
+      "images/poem_484_img_0.webp"
     ]
   },
   {
@@ -1340,7 +1357,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/thang_10.jpg"
     ],
     "local_images": [
-      "images/poem_419_img_0.jpg"
+      "images/poem_419_img_0.webp"
     ]
   },
   {
@@ -1357,7 +1374,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/1347871093-hoang-vang-1.jpg"
     ],
     "local_images": [
-      "images/poem_415_img_0.jpg"
+      "images/poem_415_img_0.webp"
     ]
   },
   {
@@ -1374,7 +1391,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/giả-mã-giấc-mơ.jpg"
     ],
     "local_images": [
-      "images/poem_406_img_0.jpg"
+      "images/poem_406_img_0.webp"
     ]
   },
   {
@@ -1391,7 +1408,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/10/images.jpeg"
     ],
     "local_images": [
-      "images/poem_403_img_0.jpeg"
+      "images/poem_403_img_0.webp"
     ]
   },
   {
@@ -1408,7 +1425,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/09/maxresdefault-2.jpg"
     ],
     "local_images": [
-      "images/poem_396_img_0.jpg"
+      "images/poem_396_img_0.webp"
     ]
   },
   {
@@ -1425,7 +1442,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/hay-chung-minh-chia-xa-1-1024x536.png"
     ],
     "local_images": [
-      "images/poem_389_img_0.png"
+      "images/poem_389_img_0.webp"
     ]
   },
   {
@@ -1442,7 +1459,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/photo-1-1554260091077555526490.jpg"
     ],
     "local_images": [
-      "images/poem_385_img_0.jpg"
+      "images/poem_385_img_0.webp"
     ]
   },
   {
@@ -1459,7 +1476,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2016/07/quay-lung.jpg"
     ],
     "local_images": [
-      "images/poem_382_img_0.jpg"
+      "images/poem_382_img_0.webp"
     ]
   },
   {
@@ -1476,7 +1493,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/12/5.jpg"
     ],
     "local_images": [
-      "images/poem_375_img_0.jpg"
+      "images/poem_375_img_0.webp"
     ]
   },
   {
@@ -1493,7 +1510,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/07/hinh-nen-hinh-anh-hoa-bo-cong-anh-dep-nhat-25.jpg"
     ],
     "local_images": [
-      "images/poem_367_img_0.jpg"
+      "images/poem_367_img_0.webp"
     ]
   },
   {
@@ -1510,7 +1527,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/06/Giot-suong-ky-dieu-1.jpg"
     ],
     "local_images": [
-      "images/poem_363_img_0.jpg"
+      "images/poem_363_img_0.webp"
     ]
   },
   {
@@ -1527,7 +1544,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/03/5-300x190.jpg"
     ],
     "local_images": [
-      "images/poem_346_img_0.jpg"
+      "images/poem_346_img_0.webp"
     ]
   },
   {
@@ -1544,7 +1561,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/03/04687-namxua.jpg"
     ],
     "local_images": [
-      "images/poem_342_img_0.jpg"
+      "images/poem_342_img_0.webp"
     ]
   },
   {
@@ -1561,7 +1578,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/flower-2306239_960_720.jpg"
     ],
     "local_images": [
-      "images/poem_337_img_0.jpg"
+      "images/poem_337_img_0.webp"
     ]
   },
   {
@@ -1578,7 +1595,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/xot-xa-1-320x214.jpg"
     ],
     "local_images": [
-      "images/poem_333_img_0.jpg"
+      "images/poem_333_img_0.webp"
     ]
   },
   {
@@ -1595,7 +1612,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/02/29485.png"
     ],
     "local_images": [
-      "images/poem_331_img_0.png"
+      "images/poem_331_img_0.webp"
     ]
   },
   {
@@ -1612,7 +1629,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/A46W75W7.jpg"
     ],
     "local_images": [
-      "images/poem_297_img_0.jpg"
+      "images/poem_297_img_0.webp"
     ]
   },
   {
@@ -1629,7 +1646,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/danh-ngon-cuoc-song-bang-tieng-anh-ve-niem-vui.jpg"
     ],
     "local_images": [
-      "images/poem_295_img_0.jpg"
+      "images/poem_295_img_0.webp"
     ]
   },
   {
@@ -1646,7 +1663,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/giac-mo-la-gi-tai-sao-chung-ta-hay-mo.jpg"
     ],
     "local_images": [
-      "images/poem_160_img_0.jpg"
+      "images/poem_160_img_0.webp"
     ]
   },
   {
@@ -1663,7 +1680,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/mm.jpg"
     ],
     "local_images": [
-      "images/poem_122_img_0.jpg"
+      "images/poem_122_img_0.webp"
     ]
   },
   {
@@ -1680,7 +1697,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1422680102-cnzvle_dang_1_evtl.jpg"
     ],
     "local_images": [
-      "images/poem_119_img_0.jpg"
+      "images/poem_119_img_0.webp"
     ]
   },
   {
@@ -1697,7 +1714,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Ruou-sau.jpg"
     ],
     "local_images": [
-      "images/poem_116_img_0.jpg"
+      "images/poem_116_img_0.webp"
     ]
   },
   {
@@ -1714,7 +1731,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/20180111-050833-i-miss-you.jpg"
     ],
     "local_images": [
-      "images/poem_113_img_0.jpg"
+      "images/poem_113_img_0.webp"
     ]
   },
   {
@@ -1731,7 +1748,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/shutterstock_552102910-796x531.jpg"
     ],
     "local_images": [
-      "images/poem_110_img_0.jpg"
+      "images/poem_110_img_0.webp"
     ]
   },
   {
@@ -1748,7 +1765,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-mua-dep_015458859.jpg"
     ],
     "local_images": [
-      "images/poem_107_img_0.jpg"
+      "images/poem_107_img_0.webp"
     ]
   },
   {
@@ -1765,7 +1782,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Long-nguoi.png"
     ],
     "local_images": [
-      "images/poem_104_img_0.png"
+      "images/poem_104_img_0.webp"
     ]
   },
   {
@@ -1782,7 +1799,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/153b6604a92105.img_.jpg"
     ],
     "local_images": [
-      "images/poem_101_img_0.jpg"
+      "images/poem_101_img_0.webp"
     ]
   },
   {
@@ -1799,7 +1816,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-mua-dong-buon-nhat.jpg"
     ],
     "local_images": [
-      "images/poem_98_img_0.jpg"
+      "images/poem_98_img_0.webp"
     ]
   },
   {
@@ -1816,7 +1833,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/31188467774_6a57f2a4c9_b.jpg"
     ],
     "local_images": [
-      "images/poem_95_img_0.jpg"
+      "images/poem_95_img_0.webp"
     ]
   },
   {
@@ -1833,7 +1850,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/degiocuondi3.jpg"
     ],
     "local_images": [
-      "images/poem_92_img_0.jpg"
+      "images/poem_92_img_0.webp"
     ]
   },
   {
@@ -1850,7 +1867,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/khong-ai-doi-me-bao-gio.jpg"
     ],
     "local_images": [
-      "images/poem_89_img_0.jpg"
+      "images/poem_89_img_0.webp"
     ]
   },
   {
@@ -1867,7 +1884,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/25bc98bd1bd9b1img-1433.jpg"
     ],
     "local_images": [
-      "images/poem_86_img_0.jpg"
+      "images/poem_86_img_0.webp"
     ]
   },
   {
@@ -1884,7 +1901,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/5cd532e51db395b2234ef00e78aeef48ff9be83e.jpg"
     ],
     "local_images": [
-      "images/poem_83_img_0.jpg"
+      "images/poem_83_img_0.webp"
     ]
   },
   {
@@ -1901,7 +1918,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/PnH0o7pKCgV1D_1560305558.jpg"
     ],
     "local_images": [
-      "images/poem_80_img_0.jpg"
+      "images/poem_80_img_0.webp"
     ]
   },
   {
@@ -1918,7 +1935,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1_ikgz.jpg"
     ],
     "local_images": [
-      "images/poem_77_img_0.jpg"
+      "images/poem_77_img_0.webp"
     ]
   },
   {
@@ -1935,7 +1952,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/chiec-la-cuoi-cung-van-8.jpg"
     ],
     "local_images": [
-      "images/poem_74_img_0.jpg"
+      "images/poem_74_img_0.webp"
     ]
   },
   {
@@ -1952,7 +1969,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/71e3549c6fe6ed431295071de3f48f63a83d642c.jpg"
     ],
     "local_images": [
-      "images/poem_71_img_0.jpg"
+      "images/poem_71_img_0.webp"
     ]
   },
   {
@@ -1969,7 +1986,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/khi-canh-vat-cung-biet-buon_13.jpg"
     ],
     "local_images": [
-      "images/poem_68_img_0.jpg"
+      "images/poem_68_img_0.webp"
     ]
   },
   {
@@ -1986,7 +2003,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/mua-cua-noi-nho.jpg"
     ],
     "local_images": [
-      "images/poem_65_img_0.jpg"
+      "images/poem_65_img_0.webp"
     ]
   },
   {
@@ -2003,7 +2020,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/taylanhJPG1423731135.jpg"
     ],
     "local_images": [
-      "images/poem_62_img_0.jpg"
+      "images/poem_62_img_0.webp"
     ]
   },
   {
@@ -2020,7 +2037,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/sunset10.jpg"
     ],
     "local_images": [
-      "images/poem_59_img_0.jpg"
+      "images/poem_59_img_0.webp"
     ]
   },
   {
@@ -2037,7 +2054,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/Bridge-river-buildings-illumination-lights-city-night_m.jpg"
     ],
     "local_images": [
-      "images/poem_56_img_0.jpg"
+      "images/poem_56_img_0.webp"
     ]
   },
   {
@@ -2054,7 +2071,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/1111_281626244.jpg"
     ],
     "local_images": [
-      "images/poem_53_img_0.jpg"
+      "images/poem_53_img_0.webp"
     ]
   },
   {
@@ -2065,13 +2082,13 @@ window.POEMS_DATA = [
     "date_formatted": "15 tháng 1, 2015",
     "content_html": "<p>Con tim là tim của anh<br />\nMà sao nó mãi chạy quanh chốn nào<br />\nGặp em thì nó hồng hào<br />\nKhông em như nó rơi vào hư không</p>\n",
     "content_text": "Con tim là tim của anh\n\nMà sao nó mãi chạy quanh chốn nào\n\nGặp em thì nó hồng hào\n\nKhông em như nó rơi vào hư không",
-    "featured_image": "images/poem_50_img_0.jpg",
+    "featured_image": "images/poem_50_img_0.webp",
     "inline_images": [],
     "all_images": [
-      "images/poem_50_img_0.jpg"
+      "images/poem_50_img_0.webp"
     ],
     "local_images": [
-      "images/poem_50_img_0.jpg"
+      "images/poem_50_img_0.webp"
     ]
   },
   {
@@ -2088,7 +2105,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/chi-con-tieng-mua-roi.jpg"
     ],
     "local_images": [
-      "images/poem_47_img_0.jpg"
+      "images/poem_47_img_0.webp"
     ]
   },
   {
@@ -2105,7 +2122,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/design-sem-nome-31.jpg"
     ],
     "local_images": [
-      "images/poem_44_img_0.jpg"
+      "images/poem_44_img_0.webp"
     ]
   },
   {
@@ -2122,7 +2139,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/tram-cam-sau-chia-tay-e1535874235961.jpg"
     ],
     "local_images": [
-      "images/poem_41_img_0.jpg"
+      "images/poem_41_img_0.webp"
     ]
   },
   {
@@ -2139,7 +2156,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/88c8b077f737c9f25b37389935b1f0d33ade3350.jpg"
     ],
     "local_images": [
-      "images/poem_38_img_0.jpg"
+      "images/poem_38_img_0.webp"
     ]
   },
   {
@@ -2156,7 +2173,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/anh-baiviet-1579-f930f747-17e5-440c-b03c-95a8de641ef9.jpg"
     ],
     "local_images": [
-      "images/poem_35_img_0.jpg"
+      "images/poem_35_img_0.webp"
     ]
   },
   {
@@ -2173,7 +2190,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/jjUL7.jpg"
     ],
     "local_images": [
-      "images/poem_32_img_0.jpg"
+      "images/poem_32_img_0.webp"
     ]
   },
   {
@@ -2190,7 +2207,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/tumblr_nggzxuWSM71riqbu7o1_640.jpg"
     ],
     "local_images": [
-      "images/poem_29_img_0.jpg"
+      "images/poem_29_img_0.webp"
     ]
   },
   {
@@ -2207,7 +2224,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/nhung-tuyet-pham-game-ios-cua-the-gioi-mong-mo-5.jpeg"
     ],
     "local_images": [
-      "images/poem_26_img_0.jpeg"
+      "images/poem_26_img_0.webp"
     ]
   },
   {
@@ -2224,7 +2241,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/84709111552014196809.large_.jpeg"
     ],
     "local_images": [
-      "images/poem_23_img_0.jpeg"
+      "images/poem_23_img_0.webp"
     ]
   },
   {
@@ -2241,7 +2258,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/stt-gio-lanh-dau-mua-9.jpg"
     ],
     "local_images": [
-      "images/poem_20_img_0.jpg"
+      "images/poem_20_img_0.webp"
     ]
   },
   {
@@ -2258,7 +2275,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/maxresdefault.jpg"
     ],
     "local_images": [
-      "images/poem_17_img_0.jpg"
+      "images/poem_17_img_0.webp"
     ]
   },
   {
@@ -2275,7 +2292,7 @@ window.POEMS_DATA = [
       "https://cfi1706.lovestoblog.com/wp-content/uploads/2015/01/hoa-ban.jpg"
     ],
     "local_images": [
-      "images/poem_275_img_0.jpg"
+      "images/poem_275_img_0.webp"
     ]
   }
 ];

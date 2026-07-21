@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 
 // Helper script to add new poems directly into poems_data.json and update poems.js
-// Usage: node add_poem.js "Tên Bài Thơ" "Nội dung bài thơ (mỗi câu một dòng)"
+// Usage: node add_poem.js "Tên Bài Thơ" "Nội dung bài thơ (mỗi câu một dòng)" "images/xxx.webp"
+//
+// IMAGES: always pass a WebP path (never jpg/png). After placing the source in images/,
+// run `node convert_to_webp.js` then `node gen_thumbnails.js` so both the full .webp and
+// its .thumb.webp exist (cards use the thumb, the reader uses the full). See CLAUDE.md.
 
 function addPoem(title, contentText, imageUrl = '') {
     if (!contentText || !contentText.trim()) {

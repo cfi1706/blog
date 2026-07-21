@@ -2,11 +2,19 @@
    ZzCFIzZ Modern Poetry Website - Application JavaScript Logic
    ========================================================================== */
 
+// Register the service worker after first paint so it never competes with the
+// initial render. It caches the app shell + assets for near-instant repeat visits.
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => { /* offline cache is best-effort */ });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // State Management
     // ----------------------------------------------------------------------
-    let currentFilter = 'all'; // 'all', 'vo-de', 'others', 'favorites', 'mood-*'
+    let currentFilter = 'all'; // 'all', 'vo-de', 'others', 'favorites'
     let currentSort = 'newest'; // 'newest', 'oldest', 'title-asc'
     let currentView = 'grid'; // 'grid', 'list'
     let searchQuery = '';
@@ -21,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     let favorites = readJson('zzcfizz_favorites', []);
-    let reactionsData = readJson('zzcfizz_reactions', {});
     let notesData = readJson('zzcfizz_notes', {});
     let recentlyViewed = readJson('zzcfizz_recents', []);
     let activePoemIndex = 0;
@@ -61,9 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const countAllEl = document.getElementById('countAll');
     const countFavEl = document.getElementById('countFav');
 
-    // Hero Daily Poem
-    const dailyPoemTitle = document.getElementById('dailyPoemTitle');
-    const dailyPoemReadBtn = document.getElementById('dailyPoemReadBtn');
 
     // Reader Modal Elements
     const poemModal = document.getElementById('poemModal');
@@ -120,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Interactive elements inside modal
     const poemNoteInput = document.getElementById('poemNoteInput');
     const saveNoteBtn = document.getElementById('saveNoteBtn');
-    const reactionBtns = document.querySelectorAll('.reaction-btn');
 
     // AI Poetry Bot Elements
     const headerBotBtn = document.getElementById('headerBotBtn');
@@ -138,8 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxGoToPoemBtn = document.getElementById('lightboxGoToPoemBtn');
-    const toast = document.getElementById('toast');
-    const toastMessage = document.getElementById('toastMessage');
     const backToTopBtn = document.getElementById('backToTopBtn');
     const modalBody = document.getElementById('modalBody');
     const readingProgressBar = document.getElementById('readingProgressBar');
@@ -151,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(currentTheme);
         setupScrollObserver();
         updateCategoryCounts();
-        setupPoemOfTheDay();
         renderPoems();
         setupEventListeners();
         setupKeyboardShortcuts();
@@ -162,26 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('visibilitychange', () => {
             document.body.classList.toggle('bg-paused', document.hidden);
         });
-    }
-
-    // ----------------------------------------------------------------------
-    // Poem of the Day (Deterministic Date Seed)
-    // ----------------------------------------------------------------------
-    let dailyPoemObject = null;
-    function setupPoemOfTheDay() {
-        const poems = getPoemsData();
-        if (!poems || poems.length === 0) return;
-
-        const todayStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-        let seed = 0;
-        for (let i = 0; i < todayStr.length; i++) {
-            seed = (seed * 31 + todayStr.charCodeAt(i)) % poems.length;
-        }
-
-        dailyPoemObject = poems[seed] || poems[0];
-        if (dailyPoemTitle) {
-            dailyPoemTitle.textContent = dailyPoemObject.title;
-        }
     }
 
     // ----------------------------------------------------------------------
@@ -316,23 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // Mood-Based Keyword Classification
-    // ----------------------------------------------------------------------
-    const MOOD_KEYWORDS = {
-        'mood-peace': ['bình yên', 'nhẹ', 'sáng', 'mây', 'hoa', 'nắng', 'nghe', 'xanh', 'gió', 'yên', 'ru'],
-        'mood-deep': ['đêm', 'sâu', 'mơ', 'lời', 'tâm', 'ngẫm', 'trầm', 'bóng', 'trăng', 'lặng', 'vô đề'],
-        'mood-nostalgia': ['hoài niệm', 'nhớ', 'xưa', 'qua', 'thời', 'kỷ niệm', 'chiều', 'thu', 'xa', 'về'],
-        'mood-lonely': ['cô đơn', 'lẻ loi', 'mưa', 'lạnh', 'buồn', 'vắng', 'một mình', 'sương', 'tan'],
-        'mood-hope': ['hi vọng', 'tương lai', 'sống', 'yêu', 'ấm', 'mặt trời', 'ngày mai', 'vui', 'xanh']
-    };
-
-    function matchesMood(poem, moodKey) {
-        const keywords = MOOD_KEYWORDS[moodKey] || [];
-        const text = ((poem.title || '') + ' ' + (poem.content_text || '')).toLowerCase();
-        return keywords.some(kw => text.includes(kw));
-    }
-
-    // ----------------------------------------------------------------------
     // Semantic Emotion Search Logic
     // ----------------------------------------------------------------------
     const EMOTION_SYNONYMS = {
@@ -385,8 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Filter category
         if (currentFilter === 'favorites') {
             list = list.filter(p => favorites.includes(p.id));
-        } else if (currentFilter.startsWith('mood-')) {
-            list = list.filter(p => matchesMood(p, currentFilter));
         }
 
         // Semantic Emotion & Keyword Search Filter
@@ -484,11 +445,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const hasImg = poem.local_images && poem.local_images.length > 0;
         const imgSrc = hasImg ? poem.local_images[0] : null;
+        // Cards show a lightweight thumbnail; the full-size image loads only in the
+        // reader/lightbox. Every .webp has a matching .thumb.webp (see gen_thumbnails.js).
+        const cardImgSrc = imgSrc && imgSrc.endsWith('.webp')
+            ? imgSrc.replace(/\.webp$/, '.thumb.webp')
+            : imgSrc;
 
         card.innerHTML = `
             ${hasImg ? `
                 <div class="card-media">
-                    <img src="${imgSrc}" alt="${poem.title}" loading="lazy" class="img-lazy">
+                    <img src="${cardImgSrc}" alt="${poem.title}" loading="lazy" decoding="async" class="img-lazy">
                     <div class="card-media-overlay"></div>
                     <button class="card-fav-btn ${isFav ? 'active' : ''}" data-id="${poem.id}" title="${isFav ? 'Bỏ yêu thích' : 'Yêu thích'}">
                         <i class="${isFav ? 'ri-heart-fill' : 'ri-heart-line'}"></i>
@@ -516,6 +482,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgEl = card.querySelector('img');
         if (imgEl) {
             imgEl.onerror = () => {
+                // Thumb missing? fall back to the full image before the placeholder.
+                if (imgSrc && imgEl.src.includes('.thumb.webp')) {
+                    imgEl.src = imgSrc;
+                    return;
+                }
                 imgEl.src = 'test_img.webp';
                 imgEl.classList.add('img-loaded');
             };
@@ -715,14 +686,6 @@ document.addEventListener('DOMContentLoaded', () => {
         addRecentlyViewed(poem.id);
         updateUrlHash(poem.id);
 
-        const modalCard = poemModal ? poemModal.querySelector('.modal-card') : null;
-        if (modalCard) {
-            modalCard.classList.remove('page-flip-anim');
-            void modalCard.offsetWidth;
-            modalCard.classList.add('page-flip-anim');
-            setTimeout(() => modalCard.classList.remove('page-flip-anim'), 500);
-        }
-
         if (modalTitle) {
             modalTitle.textContent = poem.title;
             modalTitle.classList.add('calligraphy-3d-text');
@@ -786,6 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     img.src = imgSrc;
                     img.alt = poem.title;
                     img.loading = 'lazy';
+                    img.decoding = 'async';
                     img.className = 'img-lazy';
                     img.title = 'Nhấp để xem ảnh phóng to';
                     img.onerror = () => {
@@ -833,16 +797,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (modalPoemText) {
             modalPoemText.style.fontFamily = savedFontFamily;
-        }
-
-        // 3D Book Page Flip Animation Trigger
-        if (poemModal) {
-            const modalCard = poemModal.querySelector('.modal-card');
-            if (modalCard) {
-                modalCard.classList.remove('page-flip-anim');
-                void modalCard.offsetWidth;
-                modalCard.classList.add('page-flip-anim');
-            }
         }
 
         // Reset header actions collapse state
@@ -1145,6 +1099,20 @@ document.addEventListener('DOMContentLoaded', () => {
             ambientNodes.push(guzhengFilter);
             showToast('🪕 Đã bật tiếng Đàn Tranh Hoài Cổ' + (isSpatial ? ' (8D Spatial)' : ''));
         }
+    }
+
+    const MOOD_KEYWORDS = {
+        'mood-peace': ['bình yên', 'nhẹ', 'sáng', 'mây', 'hoa', 'nắng', 'nghe', 'xanh', 'gió', 'yên', 'ru'],
+        'mood-deep': ['đêm', 'sâu', 'mơ', 'lời', 'tâm', 'ngẫm', 'trầm', 'bóng', 'trăng', 'lặng', 'vô đề'],
+        'mood-nostalgia': ['hoài niệm', 'nhớ', 'xưa', 'qua', 'thời', 'kỷ niệm', 'chiều', 'thu', 'xa', 'về'],
+        'mood-lonely': ['cô đơn', 'lẻ loi', 'mưa', 'lạnh', 'buồn', 'vắng', 'một mình', 'sương', 'tan'],
+        'mood-hope': ['hi vọng', 'tương lai', 'sống', 'yêu', 'ấm', 'mặt trời', 'ngày mai', 'vui', 'xanh']
+    };
+
+    function matchesMood(poem, moodKey) {
+        const keywords = MOOD_KEYWORDS[moodKey] || [];
+        const text = ((poem.title || '') + ' ' + (poem.content_text || '')).toLowerCase();
+        return keywords.some(kw => text.includes(kw));
     }
 
     function autoPlayMoodSoundForPoem(poem) {
@@ -1736,7 +1704,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (title.includes(q)) score += 25;
             keywords.forEach(kw => {
                 if (title.includes(kw)) score += 10;
-                const matches = (content.match(new RegExp(kw, 'g')) || []).length;
+                // Count occurrences without a RegExp: raw user input as a regex can throw
+                // on special chars (e.g. "(", "["), and split avoids per-poem regex compiles.
+                const matches = content.split(kw).length - 1;
                 score += matches * 3;
             });
 
@@ -1850,11 +1820,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let toastTimeout = null;
     function showToast(msg) {
-        toastMessage.textContent = msg;
-        toast.hidden = false;
+        // The toast element isn't in index.html, so create it lazily (and reuse it).
+        let toastEl = document.getElementById('toast');
+        if (!toastEl) {
+            toastEl = document.createElement('div');
+            toastEl.id = 'toast';
+            toastEl.className = 'toast-container';
+            toastEl.setAttribute('role', 'status');
+            toastEl.setAttribute('aria-live', 'polite');
+            document.body.appendChild(toastEl);
+        }
+        toastEl.textContent = msg;
+        // Use display (not [hidden]) — the .toast-container rule sets display:flex and would win over [hidden].
+        toastEl.style.display = 'flex';
         clearTimeout(toastTimeout);
         toastTimeout = setTimeout(() => {
-            toast.hidden = true;
+            toastEl.style.display = 'none';
         }, 3000);
     }
 
@@ -1932,23 +1913,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Daily Poem Read Button
-        if (dailyPoemReadBtn) {
-            dailyPoemReadBtn.addEventListener('click', () => {
-                if (dailyPoemObject) {
-                    const idx = filteredPoemsList.findIndex(p => p.id === dailyPoemObject.id);
-                    if (idx !== -1) {
-                        openReaderModal(idx);
-                    } else {
-                        currentFilter = 'all';
-                        document.querySelectorAll('.pill-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
-                        renderPoems();
-                        const newIdx = filteredPoemsList.findIndex(p => p.id === dailyPoemObject.id);
-                        if (newIdx !== -1) openReaderModal(newIdx);
-                    }
-                }
-            });
-        }
 
         // Header dropdown menus (Công cụ / Âm thanh / Cài đặt) — mutually exclusive
         const toolsToggleBtn = document.getElementById('toolsToggleBtn');
@@ -2745,130 +2709,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initCommandPalette();
-
-        // ------------------------------------------------------------------
-        // Poetry Card Discovery Swiper 3D
-        // ------------------------------------------------------------------
-        function initCardSwiper() {
-            const cardSwiperBtn = document.getElementById('cardSwiperBtn');
-            const cardSwiperModal = document.getElementById('cardSwiperModal');
-            const closeSwiperBtn = document.getElementById('closeSwiperBtn');
-            const cardSwiperBox = document.getElementById('cardSwiperBox');
-            const swiperPrevBtn = document.getElementById('swiperPrevBtn');
-            const swiperNextBtn = document.getElementById('swiperNextBtn');
-
-            if (!cardSwiperModal || !cardSwiperBox) return;
-
-            let swiperIndex = 0;
-
-            function renderSwiperCard() {
-                const poems = getPoemsData();
-                if (poems.length === 0) return;
-
-                const poem = poems[swiperIndex % poems.length];
-                cardSwiperBox.innerHTML = `
-                    <div class="swiper-card-item">
-                        <span class="modal-category-badge" style="margin-bottom:8px; display:inline-block;">✨ Khám Phá Thơ</span>
-                        <h3>${poem.title}</h3>
-                        <p>${poem.content_text}</p>
-                        <button class="btn btn-primary btn-sm" onclick="window.openPoemById('${poem.id}')">
-                            <i class="ri-book-read-line"></i> Đọc Toàn Bài & Nghe AI
-                        </button>
-                    </div>
-                `;
-            }
-
-            window.openPoemById = (id) => {
-                cardSwiperModal.close();
-                const idx = filteredPoemsList.findIndex(p => p.id === id);
-                if (idx !== -1) openReaderModal(idx);
-            };
-
-            if (cardSwiperBtn) {
-                cardSwiperBtn.addEventListener('click', () => {
-                    swiperIndex = Math.floor(Math.random() * getPoemsData().length);
-                    renderSwiperCard();
-                    cardSwiperModal.showModal();
-                });
-            }
-
-            if (closeSwiperBtn) closeSwiperBtn.onclick = () => cardSwiperModal.close();
-
-            if (swiperNextBtn) {
-                swiperNextBtn.onclick = () => {
-                    swiperIndex++;
-                    renderSwiperCard();
-                };
-            }
-
-            if (swiperPrevBtn) {
-                swiperPrevBtn.onclick = () => {
-                    swiperIndex = Math.max(0, swiperIndex - 1);
-                    renderSwiperCard();
-                };
-            }
-        }
-        initCardSwiper();
-
-        // ------------------------------------------------------------------
-        // Personal Emotion Stats Insights
-        // ------------------------------------------------------------------
-        function initEmotionStats() {
-            const emotionStatsBtn = document.getElementById('emotionStatsBtn');
-            const emotionStatsModal = document.getElementById('emotionStatsModal');
-            const closeStatsBtn = document.getElementById('closeStatsBtn');
-            const statsReadCount = document.getElementById('statsReadCount');
-            const statsFavCount = document.getElementById('statsFavCount');
-            const statsMoodBarsList = document.getElementById('statsMoodBarsList');
-
-            if (!emotionStatsModal) return;
-
-            function renderStats() {
-                if (statsReadCount) statsReadCount.textContent = recentlyViewed.length;
-                if (statsFavCount) statsFavCount.textContent = favorites.length;
-
-                if (!statsMoodBarsList) return;
-                const poems = getPoemsData();
-                const favPoems = poems.filter(p => favorites.includes(p.id));
-
-                const moodCounts = {
-                    '🌱 Bình Yên': favPoems.filter(p => matchesMood(p, 'mood-peace')).length,
-                    '🌙 Trầm Tư': favPoems.filter(p => matchesMood(p, 'mood-deep')).length,
-                    '🌧️ Hoài Niệm': favPoems.filter(p => matchesMood(p, 'mood-nostalgia')).length,
-                    '☕ Cô Đơn': favPoems.filter(p => matchesMood(p, 'mood-lonely')).length,
-                    '✨ Hi Vọng': favPoems.filter(p => matchesMood(p, 'mood-hope')).length
-                };
-
-                const totalFav = favPoems.length || 1;
-
-                statsMoodBarsList.innerHTML = Object.entries(moodCounts).map(([label, count]) => {
-                    const pct = Math.round((count / totalFav) * 100);
-                    return `
-                        <div class="mood-bar-wrapper">
-                            <div class="mood-bar-label">
-                                <span>${label}</span>
-                                <span>${pct}% (${count})</span>
-                            </div>
-                            <div class="mood-bar-track">
-                                <div class="mood-bar-fill" style="width: ${pct}%;"></div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            if (emotionStatsBtn) {
-                emotionStatsBtn.addEventListener('click', () => {
-                    renderStats();
-                    emotionStatsModal.showModal();
-                });
-            }
-
-            if (closeStatsBtn) closeStatsBtn.onclick = () => emotionStatsModal.close();
-        }
-        initEmotionStats();
-
-        // ------------------------------------------------------------------
         // Poetry Radio (Chill Stream) Logic
         // ------------------------------------------------------------------
         function initPoetryRadio() {
@@ -2962,70 +2802,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initBackdropPresets();
-
-        // ------------------------------------------------------------------
-        // Daily Poetry Calendar 365 Days
-        // ------------------------------------------------------------------
-        function initDailyPoetryCalendar() {
-            const dailyCalendarBtn = document.getElementById('dailyCalendarBtn');
-            const dailyCalendarModal = document.getElementById('dailyCalendarModal');
-            const closeDailyCalendarBtn = document.getElementById('closeDailyCalendarBtn');
-            const readDailyPoemBtn = document.getElementById('readDailyPoemBtn');
-
-            const calMonthYear = document.getElementById('calMonthYear');
-            const calDayNum = document.getElementById('calDayNum');
-            const calWeekday = document.getElementById('calWeekday');
-            const calPoemTitle = document.getElementById('calPoemTitle');
-            const calPoemSnippet = document.getElementById('calPoemSnippet');
-
-            if (!dailyCalendarModal) return;
-
-            const now = new Date();
-            const weekdays = ['CHỦ NHẬT', 'THỨ HAI', 'THỨ BA', 'THỨ TƯ', 'THỨ NĂM', 'THỨ SÁU', 'THỨ BẢY'];
-
-            const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-            const allPoems = getPoemsData();
-            const dailyPoem = allPoems[dayOfYear % allPoems.length] || allPoems[0];
-
-            function updateCalendarCard() {
-                if (calMonthYear) calMonthYear.textContent = `THÁNG ${now.getMonth() + 1} • ${now.getFullYear()}`;
-                if (calDayNum) calDayNum.textContent = now.getDate();
-                if (calWeekday) calWeekday.textContent = weekdays[now.getDay()];
-
-                if (dailyPoem) {
-                    if (calPoemTitle) calPoemTitle.textContent = dailyPoem.title;
-                    const lines = dailyPoem.content_text ? dailyPoem.content_text.split('\n').filter(l => l.trim()) : [];
-                    const snippet = lines.slice(0, 2).join(' / ');
-                    if (calPoemSnippet) calPoemSnippet.textContent = `"${snippet}..."`;
-                }
-            }
-
-            if (dailyCalendarBtn) {
-                dailyCalendarBtn.addEventListener('click', () => {
-                    updateCalendarCard();
-                    dailyCalendarModal.showModal();
-                });
-            }
-
-            if (closeDailyCalendarBtn) closeDailyCalendarBtn.onclick = () => dailyCalendarModal.close();
-
-            if (readDailyPoemBtn) {
-                readDailyPoemBtn.onclick = () => {
-                    dailyCalendarModal.close();
-                    const idx = filteredPoemsList.findIndex(p => p.id === dailyPoem.id);
-                    if (idx !== -1) {
-                        openReaderModal(idx);
-                    } else {
-                        currentFilter = 'all';
-                        renderPoems();
-                        const newIdx = filteredPoemsList.findIndex(p => p.id === dailyPoem.id);
-                        if (newIdx !== -1) openReaderModal(newIdx);
-                    }
-                };
-            }
-        }
-        initDailyPoetryCalendar();
-
         // ------------------------------------------------------------------
         // Mouse Cursor Trail Canvas
         // ------------------------------------------------------------------
@@ -3189,31 +2965,6 @@ document.addEventListener('DOMContentLoaded', () => {
             renderRain();
         }
         initWeatherFx();
-
-        // ------------------------------------------------------------------
-        // Custom Accent Color Theme Picker
-        // ------------------------------------------------------------------
-        function initAccentPicker() {
-            const accentBtns = document.querySelectorAll('.accent-dot-btn');
-            const savedAccent = localStorage.getItem('zzcfizz_accent_color');
-
-            if (savedAccent) {
-                document.documentElement.style.setProperty('--accent-primary', savedAccent);
-                document.documentElement.style.setProperty('--accent-gradient', `linear-gradient(135deg, ${savedAccent}, #ec4899)`);
-            }
-
-            accentBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const color = btn.dataset.accent;
-                    document.documentElement.style.setProperty('--accent-primary', color);
-                    document.documentElement.style.setProperty('--accent-gradient', `linear-gradient(135deg, ${color}, #ec4899)`);
-                    localStorage.setItem('zzcfizz_accent_color', color);
-                    showToast('🎨 Đã cập nhật màu điểm nhấn cá nhân!');
-                });
-            });
-        }
-        initAccentPicker();
-
         // Spacebar shortcut for Hands-Free TTS & Auto-Scroll
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space' && poemModal && poemModal.open && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
@@ -3296,117 +3047,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         checkBedtimeGreeting();
-
-        function initQuickDock() {
-            const quickDockBtn = document.getElementById('quickDockBtn');
-            const quickDockMenu = document.getElementById('quickDockMenu');
-            const dockThemeBtn = document.getElementById('dockThemeBtn');
-            const dockAudioBtn = document.getElementById('dockAudioBtn');
-            const dockCmdBtn = document.getElementById('dockCmdBtn');
-            const dockSwiperBtn = document.getElementById('dockSwiperBtn');
-
-            if (!quickDockBtn || !quickDockMenu) return;
-
-            quickDockBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                quickDockMenu.hidden = !quickDockMenu.hidden;
-            });
-
-            document.addEventListener('click', (e) => {
-                if (quickDockMenu && !e.target.closest('#quickDockContainer')) {
-                    quickDockMenu.hidden = true;
-                }
-            });
-
-            // Theme Switcher for Floating Quick Dock
-            const themesList = [
-                { id: 'theme-midnight', name: 'Đêm Huyền Diệu (Midnight)' },
-                { id: 'theme-dark', name: 'Than Tối (Charcoal)' },
-                { id: 'theme-paper', name: 'Giấy Cổ Điển (Warm Paper)' },
-                { id: 'theme-nordic', name: 'Sáng Thanh Lịch (Nordic)' }
-            ];
-
-            if (dockThemeBtn) {
-                dockThemeBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    let currentIdx = themesList.findIndex(t => document.body.classList.contains(t.id));
-                    if (currentIdx === -1) currentIdx = 0;
-                    let nextIdx = (currentIdx + 1) % themesList.length;
-                    let nextTheme = themesList[nextIdx];
-                    applyTheme(nextTheme.id);
-                    showToast('🎨 Đã chuyển giao diện: ' + nextTheme.name);
-                };
-            }
-
-            // Background Ambient Audio Switcher/Toggle for Floating Quick Dock
-            const soundsList = [
-                { id: 'rain', name: 'Tiếng Mưa Rơi' },
-                { id: 'waves', name: 'Sóng Biển Vỗ' },
-                { id: 'piano', name: 'Piano Trầm Lắng' },
-                { id: 'lofi', name: 'Chill Lo-Fi Synth' },
-                { id: 'guzheng', name: 'Tiếng Đàn Tranh' },
-                { id: 'pad', name: 'Gió Trầm Lắng' }
-            ];
-
-            if (dockAudioBtn) {
-                dockAudioBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    if (!activeAmbientSound) {
-                        playAmbientSound('rain');
-                        showToast('🎵 Bật nhạc nền: Tiếng Mưa Rơi');
-                    } else {
-                        let currentIdx = soundsList.findIndex(s => s.id === activeAmbientSound);
-                        if (currentIdx === -1 || currentIdx === soundsList.length - 1) {
-                            stopAmbientSound();
-                            showToast('🔇 Đã tắt nhạc nền thư giãn');
-                        } else {
-                            let nextSound = soundsList[currentIdx + 1];
-                            playAmbientSound(nextSound.id);
-                            showToast('🎵 Đã chuyển nhạc nền: ' + nextSound.name);
-                        }
-                    }
-                };
-            }
-
-            if (dockCmdBtn) {
-                dockCmdBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    document.getElementById('cmdPaletteBtn')?.click();
-                };
-            }
-
-            if (dockSwiperBtn) {
-                dockSwiperBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    document.getElementById('cardSwiperBtn')?.click();
-                };
-            }
-
-            // Floating Mini Player Control Buttons
-            const miniPlayerPlayBtn = document.getElementById('miniPlayerPlayBtn');
-            const miniPlayerCloseBtn = document.getElementById('miniPlayerCloseBtn');
-            if (miniPlayerPlayBtn) {
-                miniPlayerPlayBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    if (activeAmbientSound) {
-                        stopAmbientSound();
-                        showToast('🔇 Đã tạm dừng nhạc nền');
-                    } else {
-                        playAmbientSound('rain');
-                        showToast('🎵 Đã bật nhạc nền thư giãn');
-                    }
-                };
-            }
-            if (miniPlayerCloseBtn) {
-                miniPlayerCloseBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    stopAmbientSound();
-                    showToast('🔇 Đã tắt nhạc nền');
-                };
-            }
-        }
-        initQuickDock();
-
         // ------------------------------------------------------------------
         // Poetry Glossary & Literary Terms
         // ------------------------------------------------------------------
@@ -3455,109 +3095,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initPoetryGlossary();
-
-        // ------------------------------------------------------------------
-        // Poetry Memory Quiz Game
-        // ------------------------------------------------------------------
-        function initPoetryQuiz() {
-            const poetryQuizBtn = document.getElementById('poetryQuizBtn');
-            const poetryQuizModal = document.getElementById('poetryQuizModal');
-            const closeQuizBtn = document.getElementById('closeQuizBtn');
-            const quizContainer = document.getElementById('quizContainer');
-            const quizResult = document.getElementById('quizResult');
-            const quizQuestion = document.getElementById('quizQuestion');
-            const quizOptionsGrid = document.getElementById('quizOptionsGrid');
-            const quizScoreText = document.getElementById('quizScoreText');
-            const restartQuizBtn = document.getElementById('restartQuizBtn');
-
-            if (!poetryQuizModal || !quizQuestion || !quizOptionsGrid) return;
-
-            const questions = [
-                {
-                    q: 'Điền từ còn thiếu: "Trầm tư nghe tiếng... qua thềm"',
-                    options: ['Mưa rơi', 'Lá bay', 'Gió lùa', 'Nắng hạ'],
-                    ans: 0
-                },
-                {
-                    q: 'Cảm xúc chính trong các bài thơ chủ đề hoài niệm là gì?',
-                    options: ['Sôi nổi', 'Sâu lắng, nhớ thương', 'Vui tươi', 'Hào hùng'],
-                    ans: 1
-                },
-                {
-                    q: 'Bài thơ "Trống Trắng Hư Không" gửi gắm tâm sự gì?',
-                    options: ['Sự tấp nập phố thị', 'Sự buông bỏ tĩnh lặng', 'Sự vội vã thời gian', 'Cảnh hoang sơ'],
-                    ans: 1
-                },
-                {
-                    q: 'Khổ thơ "Ta đi qua những mùa vàng..." gợi nhắc đến mùa nào?',
-                    options: ['Mùa Xuân', 'Mùa Hè', 'Mùa Thu', 'Mùa Đông'],
-                    ans: 2
-                },
-                {
-                    q: 'Điền câu tiếp theo: "Lặng lẽ đêm dài câu thơ hát..."',
-                    options: ['Gió thổi miên man nhẹ tiếng đàn', 'Mưa giăng mờ lối bước lang thang', 'Trả lại bình yên góc dịu dàng', 'Sóng vỗ bờ xa ánh sao tan'],
-                    ans: 2
-                }
-            ];
-
-            let currentQIndex = 0;
-            let score = 0;
-
-            function renderQuestion() {
-                if (currentQIndex >= questions.length) {
-                    quizContainer.hidden = true;
-                    quizResult.hidden = false;
-                    quizScoreText.textContent = `Bạn đạt ${score}/${questions.length} Điểm Thi Sĩ!`;
-                    return;
-                }
-
-                quizContainer.hidden = false;
-                quizResult.hidden = true;
-
-                const item = questions[currentQIndex];
-                quizQuestion.textContent = `Câu ${currentQIndex + 1}/${questions.length}: ${item.q}`;
-                quizOptionsGrid.innerHTML = '';
-
-                item.options.forEach((opt, idx) => {
-                    const btn = document.createElement('button');
-                    btn.className = 'btn btn-outline';
-                    btn.style.textAlign = 'left';
-                    btn.textContent = `${idx + 1}. ${opt}`;
-                    btn.onclick = () => {
-                        if (idx === item.ans) {
-                            score++;
-                            showToast('✨ Chính xác! +1 Điểm Thi Sĩ');
-                        } else {
-                            showToast('❌ Chưa đúng rồi! Hãy thử lại câu sau nhé.');
-                        }
-                        currentQIndex++;
-                        renderQuestion();
-                    };
-                    quizOptionsGrid.appendChild(btn);
-                });
-            }
-
-            if (poetryQuizBtn) {
-                poetryQuizBtn.addEventListener('click', () => {
-                    currentQIndex = 0;
-                    score = 0;
-                    renderQuestion();
-                    poetryQuizModal.showModal();
-                });
-            }
-
-            if (closeQuizBtn) closeQuizBtn.onclick = () => poetryQuizModal.close();
-
-            if (restartQuizBtn) {
-                restartQuizBtn.onclick = () => {
-                    currentQIndex = 0;
-                    score = 0;
-                    renderQuestion();
-                };
-            }
-        }
-        initPoetryQuiz();
-
         // ------------------------------------------------------------------
         // Parchment Paper Texture & Print Poem Layout
         // ------------------------------------------------------------------
@@ -3690,259 +3227,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         // ------------------------------------------------------------------
-        // VIETNAM HOLIDAYS & AUTHOR BIRTHDAY (17/06) CELEBRATION ENGINE
-        // ------------------------------------------------------------------
-        function initVietnamHolidaysAndAuthorBirthday() {
-            const flagCanvas = document.getElementById('vietnamFlagCanvas');
-            const confettiCanvas = document.getElementById('confettiCanvas');
-            const greetingModal = document.getElementById('holidayGreetingModal');
-            const closeHolidayModalBtn = document.getElementById('closeHolidayModalBtn');
-            const holidayEmoji = document.getElementById('holidayEmoji');
-            const holidayTitle = document.getElementById('holidayTitle');
-            const holidayMessage = document.getElementById('holidayMessage');
-
-            if (!flagCanvas || !confettiCanvas) return;
-
-            let flagAnimId = null;
-            let confettiAnimId = null;
-            let flagTime = 0;
-
-            // Resize canvas to full viewport
-            function resizeHolidayCanvases() {
-                flagCanvas.width = window.innerWidth;
-                flagCanvas.height = window.innerHeight;
-                confettiCanvas.width = window.innerWidth;
-                confettiCanvas.height = window.innerHeight;
-            }
-            resizeHolidayCanvases();
-            window.addEventListener('resize', resizeHolidayCanvases);
-
-            // Helper to draw a mathematically perfect 5-pointed golden star (Cờ Đỏ Sao Vàng)
-            function drawGoldenStar(ctx, cx, cy, spikes = 5, outerRadius, innerRadius) {
-                let rot = -Math.PI / 2; // Pointing straight UP
-                let step = Math.PI / spikes;
-
-                ctx.beginPath();
-                for (let i = 0; i < spikes; i++) {
-                    let x = cx + Math.cos(rot) * outerRadius;
-                    let y = cy + Math.sin(rot) * outerRadius;
-                    if (i === 0) {
-                        ctx.moveTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
-                    rot += step;
-
-                    x = cx + Math.cos(rot) * innerRadius;
-                    y = cy + Math.sin(rot) * innerRadius;
-                    ctx.lineTo(x, y);
-                    rot += step;
-                }
-                ctx.closePath();
-                ctx.fillStyle = '#ffde00';
-                ctx.shadowColor = 'rgba(251, 191, 36, 0.6)';
-                ctx.shadowBlur = 12;
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
-
-            // Render Waving Vietnam Flag Animation
-            function startWavingVietnamFlag() {
-                flagCanvas.hidden = false;
-                const ctx = flagCanvas.getContext('2d');
-                let flags = [
-                    { x: Math.max(20, window.innerWidth * 0.75), y: 80, width: 240, height: 160, waveOffset: 0 },
-                    { x: 40, y: Math.max(100, window.innerHeight - 240), width: 210, height: 140, waveOffset: 2.2 }
-                ];
-
-                function renderFlagFrame() {
-                    ctx.clearRect(0, 0, flagCanvas.width, flagCanvas.height);
-                    flagTime += 0.06;
-
-                    flags.forEach(f => {
-                        ctx.save();
-                        ctx.translate(f.x, f.y);
-
-                        // Draw flagpole
-                        ctx.fillStyle = '#cbd5e1';
-                        ctx.fillRect(-8, -10, 10, f.height + 70);
-
-                        // Draw flag body with sine wave ripple
-                        const cols = 28;
-                        const colWidth = f.width / cols;
-
-                        for (let c = 0; c < cols; c++) {
-                            const wave = Math.sin(c * 0.22 + flagTime + f.waveOffset) * 9;
-                            const nextWave = Math.sin((c + 1) * 0.22 + flagTime + f.waveOffset) * 9;
-
-                            ctx.fillStyle = '#da251d'; // Standard Red
-                            ctx.beginPath();
-                            ctx.moveTo(c * colWidth, wave);
-                            ctx.lineTo((c + 1) * colWidth, nextWave);
-                            ctx.lineTo((c + 1) * colWidth, f.height + nextWave);
-                            ctx.lineTo(c * colWidth, f.height + wave);
-                            ctx.closePath();
-                            ctx.fill();
-
-                            // Shading overlay for 3D silk wave realism
-                            const shade = Math.cos(c * 0.22 + flagTime + f.waveOffset) * 0.16;
-                            ctx.fillStyle = shade > 0 ? `rgba(255,255,255,${shade})` : `rgba(0,0,0,${-shade})`;
-                            ctx.fill();
-                        }
-
-                        // Draw golden star at center of flag
-                        const starWave = Math.sin((cols / 2) * 0.22 + flagTime + f.waveOffset) * 9;
-                        const starOuterR = f.height * 0.28;
-                        const starInnerR = starOuterR * 0.382;
-                        drawGoldenStar(ctx, f.width / 2, f.height / 2 + starWave, 5, starOuterR, starInnerR);
-
-                        ctx.restore();
-                    });
-
-                    flagAnimId = requestAnimationFrame(renderFlagFrame);
-                }
-
-                if (flagAnimId) cancelAnimationFrame(flagAnimId);
-                renderFlagFrame();
-            }
-
-            // Render Birthday Balloons & Confetti Fireworks
-            function startBirthdayConfetti() {
-                confettiCanvas.hidden = false;
-                const ctx = confettiCanvas.getContext('2d');
-                let particles = [];
-                const colors = ['#f43f5e', '#a855f7', '#3b82f6', '#10b981', '#f59e0b', '#ec4899'];
-
-                for (let i = 0; i < 120; i++) {
-                    particles.push({
-                        x: Math.random() * confettiCanvas.width,
-                        y: Math.random() * confettiCanvas.height - confettiCanvas.height,
-                        size: Math.random() * 8 + 4,
-                        color: colors[Math.floor(Math.random() * colors.length)],
-                        vy: Math.random() * 3 + 2,
-                        vx: Math.random() * 2 - 1,
-                        rotation: Math.random() * 360,
-                        vRot: Math.random() * 6 - 3
-                    });
-                }
-
-                function renderConfettiFrame() {
-                    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-
-                    particles.forEach(p => {
-                        p.y += p.vy;
-                        p.x += p.vx;
-                        p.rotation += p.vRot;
-
-                        if (p.y > confettiCanvas.height) {
-                            p.y = -20;
-                            p.x = Math.random() * confettiCanvas.width;
-                        }
-
-                        ctx.save();
-                        ctx.translate(p.x, p.y);
-                        ctx.rotate((p.rotation * Math.PI) / 180);
-                        ctx.fillStyle = p.color;
-                        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-                        ctx.restore();
-                    });
-
-                    confettiAnimId = requestAnimationFrame(renderConfettiFrame);
-                }
-
-                if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
-                renderConfettiFrame();
-            }
-
-            // Check current date
-            const now = new Date();
-            const month = now.getMonth() + 1; // 1 - 12
-            const date = now.getDate(); // 1 - 31
-
-            // 1. Author Birthday: 17/06 (June 17)
-            if (month === 6 && date === 17) {
-                if (holidayEmoji) holidayEmoji.textContent = '🎂';
-                if (holidayTitle) holidayTitle.textContent = '🎉 CHÚC MỪNG SINH NHẬT TÁC GIẢ VÕ HOÀNG THẮNG!';
-                if (holidayMessage) holidayMessage.textContent = 'Kính chúc tác giả Võ Hoàng Thắng (17/06) một ngày sinh nhật ngập tràn niềm vui, sức khỏe dồi dào và luôn tràn đầy cảm hứng thi phúng để sáng tác thêm muôn vàn tác phẩm bất hủ!';
-                startBirthdayConfetti();
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            }
-            // 2. Vietnam National Day: 02/09 (September 2)
-            else if (month === 9 && date === 2) {
-                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
-                if (holidayTitle) holidayTitle.textContent = '🇻🇳 QUỐC KHÁNH NƯỚC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM (2/9)!';
-                if (holidayMessage) holidayMessage.textContent = 'Nhiệt liệt chào mừng Kỷ niệm Ngày Quốc Khánh 2/9! Tự hào lá cờ đỏ sao vàng tung bay phất phới trên khắp mọi miền Tổ Quốc!';
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            }
-            // 3. Reunification Day: 30/04 (April 30)
-            else if (month === 4 && date === 30) {
-                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
-                if (holidayTitle) holidayTitle.textContent = '🇻🇳 CHÚC MỪNG NGÀY GIẢI PHÓNG MIỀN NAM THỐNG NHẤT ĐẤT NƯỚC (30/4)!';
-                if (holidayMessage) holidayMessage.textContent = 'Chào mừng kỷ niệm ngày 30/4 - Ngày Miền Nam hoàn toàn giải phóng, đất nước trọn niềm vui!';
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            }
-            // 4. International Workers' Day: 01/05 (May 1)
-            else if (month === 5 && date === 1) {
-                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
-                if (holidayTitle) holidayTitle.textContent = '🇻🇳 CHÚC MỪNG NGÀY QUỐC TẾ LAO ĐỘNG (1/5)!';
-                if (holidayMessage) holidayMessage.textContent = 'Tôn vinh những đóng góp cao quý của giai cấp công nhân và người lao động trên toàn cõi Việt Nam!';
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            }
-            // 5. New Year: 01/01 (January 1)
-            else if (month === 1 && date === 1) {
-                if (holidayEmoji) holidayEmoji.textContent = '🎆';
-                if (holidayTitle) holidayTitle.textContent = '🎉 CHÚC MỪNG NĂM MỚI (TẾT DƯƠNG LỊCH)!';
-                if (holidayMessage) holidayMessage.textContent = 'Kính chúc quý độc giả thi ca một năm mới An Khang Thịnh Vượng - Vạn Sự Như Ý - Tràn Đầy Hạnh Phúc!';
-                startBirthdayConfetti();
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            }
-            // 6. People's Army Day: 22/12 (December 22)
-            else if (month === 12 && date === 22) {
-                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
-                if (holidayTitle) holidayTitle.textContent = '🇻🇳 CHÚC MỪNG NGÀY THÀNH LẬP QUÂN ĐỘI NHÂN DÂN VIỆT NAM (22/12)!';
-                if (holidayMessage) holidayMessage.textContent = 'Nhiệt liệt tôn vinh và tri ân các cán bộ, chiến sĩ Quân Đội Nhân Dân Việt Nam anh hùng!';
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            }
-
-            if (closeHolidayModalBtn && greetingModal) {
-                closeHolidayModalBtn.onclick = () => {
-                    greetingModal.close();
-                    // Stop the celebration overlays too — otherwise both canvases
-                    // keep animating full-screen at 60fps for the rest of the day.
-                    if (flagAnimId) { cancelAnimationFrame(flagAnimId); flagAnimId = null; }
-                    if (confettiAnimId) { cancelAnimationFrame(confettiAnimId); confettiAnimId = null; }
-                    flagCanvas.hidden = true;
-                    confettiCanvas.hidden = true;
-                };
-            }
-
-            // Public simulation test functions for manual preview
-            window.testVietnamFlag = function () {
-                if (holidayEmoji) holidayEmoji.textContent = '🇻🇳';
-                if (holidayTitle) holidayTitle.textContent = '🇻🇳 HIỆU ỨNG CỜ VIỆT NAM TUNG BAY PHẤT PHỚI';
-                if (holidayMessage) holidayMessage.textContent = 'Tự hào lá cờ đỏ sao vàng tung bay trên nền trời Việt Nam!';
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            };
-
-            window.testAuthorBirthday = function () {
-                if (holidayEmoji) holidayEmoji.textContent = '🎂';
-                if (holidayTitle) holidayTitle.textContent = '🎉 CHÚC MỪNG SINH NHẬT TÁC GIẢ VÕ HOÀNG THẮNG (17/06)!';
-                if (holidayMessage) holidayMessage.textContent = 'Chúc mừng sinh nhật tác giả Võ Hoàng Thắng! Kính chúc tác giả dồi dào sức khỏe, tràn ngập niềm vui và sáng tác thêm nhiều bài thơ hay!';
-                startBirthdayConfetti();
-                startWavingVietnamFlag();
-                if (greetingModal) greetingModal.showModal();
-            };
-        }
-        initVietnamHolidaysAndAuthorBirthday();
-
-        // ------------------------------------------------------------------
         // FEATURE 1: THI CỤ CHIẾU TRÚC ZEN READER & SÁO TRÚC
         // ------------------------------------------------------------------
         function initZenBambooReader() {
@@ -3952,69 +3236,10 @@ document.addEventListener('DOMContentLoaded', () => {
             zenBambooBtn.addEventListener('click', () => {
                 document.body.classList.toggle('theme-paper');
                 showToast('🎋 Đã kích hoạt không gian Thi Cụ Chiếu Trúc Zen Reader!');
-                playAmbientPreset('waves'); // Plays calming flute/wave background sound
+                playAmbientSound('waves'); // Plays calming flute/wave background sound
             });
         }
         initZenBambooReader();
-
-        // ------------------------------------------------------------------
-        // FEATURE 3: QUẺ THƠ ĐẦU NGÀY (POETRY ORACLE)
-        // ------------------------------------------------------------------
-        function initPoetryOracle() {
-            const oracleBtn = document.getElementById('poetryOracleBtn');
-            const oracleModal = document.getElementById('poetryOracleModal');
-            const drawOracleBtn = document.getElementById('drawOracleBtn');
-            const closeOracleBtn = document.getElementById('closeOracleBtn');
-            const oracleStickContainer = document.getElementById('oracleStickContainer');
-            const oracleResultBox = document.getElementById('oracleResultBox');
-            const oraclePoemTitle = document.getElementById('oraclePoemTitle');
-            const oraclePoemText = document.getElementById('oraclePoemText');
-            const oracleAdvice = document.getElementById('oracleAdvice');
-
-            if (!oracleModal) return;
-
-            const fortuneAdvices = [
-                '✨ Thi Quẻ Cát Tường: Tâm an nhiên, vạn sự hanh thông, tình cảm thêm đong đầy.',
-                '🌸 Thi Quẻ Bình An: Giữ vững niềm tin, sóng gió qua đi, mây xanh lại sáng rạng.',
-                '💖 Thi Quẻ Duyên Lành: Tình cảm thăng hoa, gặp người tri kỷ cùng chung nhịp đập.',
-                '💡 Thi Quẻ Trí Tuệ: Ý tưởng dồi dào, thăng tiến thuận lợi, vầng thơ đong đầy cảm hứng.',
-                '🍀 Thi Quẻ May Mắn: Lộc tài gõ cửa, công việc hanh thông, gia đạo êm ấm.'
-            ];
-
-            function drawOracle() {
-                if (oracleStickContainer) {
-                    oracleStickContainer.style.transform = 'rotate(20deg) scale(1.2)';
-                    setTimeout(() => { oracleStickContainer.style.transform = 'rotate(-20deg) scale(1.2)'; }, 150);
-                    setTimeout(() => { oracleStickContainer.style.transform = 'rotate(0deg) scale(1)'; }, 350);
-                }
-
-                const allPoems = getPoemsData();
-                if (allPoems.length === 0) return;
-                const randomPoem = allPoems[Math.floor(Math.random() * allPoems.length)];
-                const lines = randomPoem.content_text ? randomPoem.content_text.split('\n').filter(l => l.trim().length > 0).slice(0, 4) : [];
-                const randomAdvice = fortuneAdvices[Math.floor(Math.random() * fortuneAdvices.length)];
-
-                if (oraclePoemTitle) oraclePoemTitle.textContent = randomPoem.title;
-                if (oraclePoemText) oraclePoemText.textContent = lines.join('\n');
-                if (oracleAdvice) oracleAdvice.textContent = randomAdvice;
-                if (oracleResultBox) oracleResultBox.hidden = false;
-
-                showToast('🔮 Đã rút được Quẻ Thơ Cảm Xúc Đầu Ngày!');
-            }
-
-            if (oracleBtn) {
-                oracleBtn.addEventListener('click', () => {
-                    oracleModal.showModal();
-                    drawOracle();
-                });
-            }
-
-            if (drawOracleBtn) drawOracleBtn.addEventListener('click', drawOracle);
-            if (oracleStickContainer) oracleStickContainer.addEventListener('click', drawOracle);
-            if (closeOracleBtn) closeOracleBtn.addEventListener('click', () => oracleModal.close());
-        }
-        initPoetryOracle();
-
         // ------------------------------------------------------------------
         // FEATURE 5: TẠO VIDEO SHORT 9:16 (AUTO POETRY SHORT GENERATOR)
         // ------------------------------------------------------------------
@@ -4143,83 +3368,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
         // ------------------------------------------------------------------
-        // FEATURE 1: AI POETRY STUDIO & RHYME ASSISTANT
-        // ------------------------------------------------------------------
-        function initAiPoetryStudio() {
-            const btn = document.getElementById('aiPoetryStudioBtn');
-            const modal = document.getElementById('aiPoetryStudioModal');
-            const closeBtn = document.getElementById('closeAiStudioBtn');
-            const input = document.getElementById('aiInputLine');
-            const generateBtn = document.getElementById('generateRhymeBtn');
-            const box = document.getElementById('aiRhymeResultBox');
-            const rhymeText = document.getElementById('aiRhymeText');
-
-            if (!modal) return;
-
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (generateBtn) {
-                generateBtn.addEventListener('click', () => {
-                    const userLine = input ? input.value.trim() : '';
-                    if (!userLine) {
-                        showToast('✍️ Vui lòng nhập một câu thơ hoặc ý thơ!');
-                        return;
-                    }
-
-                    const sampleContinuations = [
-                        `Vầng trăng vút ngọn dải ngàn xanh,\nGió lùa qua lá rụng hiên cành.\nTình ta như suối ngàn năm chảy,\nTrọn kiếp bên nhau mộng mới thành.`,
-                        `Một mai tựa cửa bóng hoàng hôn,\nNhớ bước chân ai vọng suối nguồn.\nSương giăng lối mộng thời hoa mộng,\nGửi lại người thương vạn nét buồn.`,
-                        `Sương rơi lạnh lẽo bóng đêm sâu,\nTri kỷ tìm nhau giữa bạc đầu.\nCâu thơ để lại dòng thương nhớ,\nGói trọn tình thu quyện mối sầu.`
-                    ];
-
-                    const randomResult = sampleContinuations[Math.floor(Math.random() * sampleContinuations.length)];
-                    if (rhymeText) rhymeText.textContent = `${userLine}\n${randomResult}`;
-                    if (box) box.hidden = false;
-                    showToast('✨ AI đã gợi ý câu nối vần mượt mà!');
-                });
-            }
-        }
-        initAiPoetryStudio();
-
-        // ------------------------------------------------------------------
-        // FEATURE 2: AUTO TIME-OF-DAY AMBIENT ENGINE
-        // ------------------------------------------------------------------
-        function initTimeOfDayAmbientEngine() {
-            const hour = new Date().getHours();
-            let autoPreset = 'waves';
-            let timeLabel = 'Chiều Hoàng Hôn';
-
-            if (hour >= 5 && hour < 12) {
-                autoPreset = 'birds';
-                timeLabel = 'Sáng Bình Minh';
-            } else if (hour >= 18 || hour < 5) {
-                autoPreset = 'rain';
-                timeLabel = 'Đêm Thiền Định';
-            }
-
-            window.triggerTimeOfDayAmbiance = () => {
-                playAmbientPreset(autoPreset);
-                showToast(`🎼 Đã phát nhạc thư giãn theo thời gian: ${timeLabel}`);
-            };
-        }
-        initTimeOfDayAmbientEngine();
-
-        // ------------------------------------------------------------------
-        // FEATURE 4: POETRY READER ACHIEVEMENTS & BADGES
-        // ------------------------------------------------------------------
-        function initPoetryBadges() {
-            const btn = document.getElementById('poetryBadgesBtn');
-            const modal = document.getElementById('poetryBadgesModal');
-            const closeBtn = document.getElementById('closeBadgesBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-        }
-        // ------------------------------------------------------------------
-        // FEATURE 1: PERSONAL VOICE RECORDER
-        // ------------------------------------------------------------------
         function initVoiceRecorder() {
             const btn = document.getElementById('voiceRecordBtn');
             const modal = document.getElementById('voiceRecordModal');
@@ -4279,30 +3427,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initVoiceRecorder();
-
-        // ------------------------------------------------------------------
-        // FEATURE 2: CUSTOM AMBIENT MIXER
-        // ------------------------------------------------------------------
-        function initAmbientMixer() {
-            const btn = document.getElementById('ambientMixerBtn');
-            const modal = document.getElementById('ambientMixerModal');
-            const closeBtn = document.getElementById('closeMixerBtn');
-            const playBtn = document.getElementById('playMixerBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (playBtn) {
-                playBtn.addEventListener('click', () => {
-                    playAmbientPreset('waves');
-                    showToast('🎼 Đã hòa trộn bản nhạc Ambient thư giãn!');
-                    modal.close();
-                });
-            }
-        }
-        initAmbientMixer();
-
         // ------------------------------------------------------------------
         // FEATURE 3: DUAL-PAGE BOOK READER MODE
         // ------------------------------------------------------------------
@@ -4320,641 +3444,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initDualPageMode();
-
         // ------------------------------------------------------------------
-        // FEATURE 4: ANONYMOUS LETTER BOX TO AUTHOR
-        // ------------------------------------------------------------------
-        function initAuthorLetterBox() {
-            const btn = document.getElementById('authorLetterBtn');
-            const modal = document.getElementById('authorLetterModal');
-            const closeBtn = document.getElementById('closeAuthorLetterBtn');
-            const sendBtn = document.getElementById('sendAuthorLetterBtn');
-            const input = document.getElementById('authorLetterInput');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (sendBtn) {
-                sendBtn.addEventListener('click', () => {
-                    const text = input ? input.value.trim() : '';
-                    if (!text) {
-                        showToast('✍️ Vui lòng nhập nội dung lời nhắn!');
-                        return;
-                    }
-                    const letters = readJson('zzcfizz_author_letters', []);
-                    letters.push({ text, date: new Date().toISOString() });
-                    localStorage.setItem('zzcfizz_author_letters', JSON.stringify(letters));
-
-                    if (input) input.value = '';
-                    modal.close();
-                    showToast('💌 Lời nhắn của bạn đã được niêm phong gửi tác giả Võ Hoàng Thắng 🇻🇳!');
-                });
-            }
-        }
-        initAuthorLetterBox();
-
-        // ------------------------------------------------------------------
-        // FEATURE 5: SLEEP SANCTUARY & NIGHTFALL TIMER
-        // ------------------------------------------------------------------
-        function initSleepSanctuary() {
-            const btn = document.getElementById('sleepSanctuaryBtn');
-            const modal = document.getElementById('sleepSanctuaryModal');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-
-            const startSleep = (mins) => {
-                playAmbientPreset('rain');
-                showToast(`🌙 Đã kích hoạt Đài Thơ Thiền Ngủ Ngon (${mins} Phút)!`);
-                modal.close();
-                setTimeout(() => {
-                    stopAmbientSound();
-                    stopTts();
-                    showToast('💤 Chúc bạn giấc ngủ an lành!');
-                }, mins * 60 * 1000);
-            };
-
-            const s15 = document.getElementById('sleep15Btn');
-            const s30 = document.getElementById('sleep30Btn');
-            const s60 = document.getElementById('sleep60Btn');
-
-            if (s15) s15.onclick = () => startSleep(15);
-            if (s30) s30.onclick = () => startSleep(30);
-            if (s60) s60.onclick = () => startSleep(60);
-        }
-        // ------------------------------------------------------------------
-        // FEATURE 1: THI ĐÀN ĐỐI HỌA & STUDIO HIỆP VẦN
-        // ------------------------------------------------------------------
-        function initRhymeStudio() {
-            const btn = document.getElementById('rhymeStudioBtn');
-            const modal = document.getElementById('rhymeStudioModal');
-            const closeBtn = document.getElementById('closeRhymeStudioBtn');
-            const analyzeBtn = document.getElementById('analyzeRhymeBtn');
-            const input = document.getElementById('rhymeInputText');
-            const meterSelect = document.getElementById('rhymeMeterSelect');
-            const box = document.getElementById('rhymeAnalysisBox');
-            const tonePatternEl = document.getElementById('rhymeTonePattern');
-            const suggestionsTagsEl = document.getElementById('rhymeSuggestionsTags');
-            const generatedNextLineEl = document.getElementById('rhymeGeneratedNextLine');
-            const copyBtn = document.getElementById('copyNextLineBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const isTrac = (char) => /[áảãạắẳẵặấẩẫậéẻẽẹếểễệíỉĩịóỏõọốổỗộớởỡợúủũụứửữựýỷỹỵ]/i.test(char);
-
-            if (analyzeBtn) {
-                analyzeBtn.addEventListener('click', () => {
-                    const text = input ? input.value.trim() : '';
-                    if (!text) {
-                        showToast('✍️ Vui lòng nhập câu thơ đầu tiên!');
-                        return;
-                    }
-
-                    const words = text.split(/\s+/);
-                    const tones = words.map(w => isTrac(w) ? '🔴 T' : '🟢 B');
-                    if (tonePatternEl) {
-                        tonePatternEl.innerHTML = tones.map((t, idx) => `<span style="padding: 2px 6px; background: var(--bg-hover); border-radius: 4px;">Từ ${idx+1}: ${t}</span>`).join(' ');
-                    }
-
-                    const lastWord = words[words.length - 1].toLowerCase();
-                    const rhymesMap = {
-                        'nhỏ': ['cỏ', 'gió', 'đó', 'ngõ', 'rõ', 'mở', 'tỏ'],
-                        'anh': ['xanh', 'cành', 'mong mong', 'mong mỏng', 'lành', 'tranh'],
-                        'em': ['xem', 'thêm', 'đêm', 'êm', 'mềm'],
-                        'mây': ['đây', 'bay', 'say', 'gặp may', 'bàn tay'],
-                        'mưa': ['xưa', 'vừa', 'trưa', 'chưa', 'thừa'],
-                        'thu': ['ru', 'mù', 'phủ', 'ngủ', 'vi vu']
-                    };
-
-                    const fallbackRhymes = ['xanh', 'đêm', 'mây', 'ru', 'bình yên', 'mê hăng'];
-                    const matchedRhymes = rhymesMap[lastWord] || fallbackRhymes;
-
-                    if (suggestionsTagsEl) {
-                        suggestionsTagsEl.innerHTML = matchedRhymes.map(r => `<span style="padding: 3px 8px; background: var(--accent-primary); color: #fff; border-radius: 12px; font-size: 12px;">${r}</span>`).join(' ');
-                    }
-
-                    const meter = meterSelect ? meterSelect.value : 'lucbat';
-                    const nextLineTemplates = {
-                        lucbat: `Ta ngồi đếm giọt sương rơi đầu cành...`,
-                        thatngon: `Gió lạnh chiều thu ru bóng ngả...`,
-                        tangon: `Dệt ước mơ xanh giữa lòng thành phố rộng...`,
-                        tuxuat: `Nhớ một khoảng trời xa khuất vắng em...`
-                    };
-
-                    const generatedText = nextLineTemplates[meter] || nextLineTemplates.lucbat;
-                    if (generatedNextLineEl) generatedNextLineEl.textContent = `"${generatedText}"`;
-                    if (box) box.hidden = false;
-
-                    showToast('✨ Đã phân tích thanh điệu & gợi ý vần thơ!');
-                });
-            }
-
-            if (copyBtn) {
-                copyBtn.addEventListener('click', () => {
-                    const text = generatedNextLineEl ? generatedNextLineEl.textContent.replace(/"/g, '') : '';
-                    if (text) {
-                        navigator.clipboard.writeText(text);
-                        showToast('📋 Đã sao chép câu thơ họa!');
-                    }
-                });
-            }
-        }
-        initRhymeStudio();
-
-        // ------------------------------------------------------------------
-        // FEATURE 2: THI TẬP BÌA DA 3D FLIPBOOK
-        // ------------------------------------------------------------------
-        function initFlipbook() {
-            const btn = document.getElementById('flipbookBtn');
-            const modal = document.getElementById('flipbookModal');
-            const closeBtn = document.getElementById('closeFlipbookBtn');
-            const leftPage = document.getElementById('flipbookLeftPage');
-            const rightPage = document.getElementById('flipbookRightPage');
-            const prevBtn = document.getElementById('flipPrevBtn');
-            const nextBtn = document.getElementById('flipNextBtn');
-            const indicator = document.getElementById('flipPageIndicator');
-            const quickSelect = document.getElementById('flipQuickSelect');
-
-            let flipIdx = 0;
-            if (!modal) return;
-
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    renderFlipbookPages();
-                    populateQuickSelect();
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            function populateQuickSelect() {
-                if (!quickSelect || !allPoems) return;
-                quickSelect.innerHTML = allPoems.map((p, idx) => `<option value="${idx}">Bài ${idx+1}: ${p.title}</option>`).join('');
-                quickSelect.value = flipIdx;
-                quickSelect.onchange = (e) => {
-                    flipIdx = parseInt(e.target.value);
-                    renderFlipbookPages();
-                };
-            }
-
-            function renderFlipbookPages() {
-                if (!allPoems || allPoems.length === 0) return;
-                const pLeft = allPoems[flipIdx];
-                const pRight = allPoems[flipIdx + 1] || null;
-
-                if (leftPage && pLeft) {
-                    leftPage.innerHTML = `
-                        <div style="font-size: 11px; font-weight: 700; color: #b45309; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">📜 Trang ${flipIdx + 1}</div>
-                        <h3 style="font-size: 18px; color: #451a03; margin-bottom: 12px; font-weight: 700;">${pLeft.title}</h3>
-                        <div style="font-size: 13.5px; line-height: 1.6; white-space: pre-line; color: #78350f;">${pLeft.content_text || ''}</div>
-                    `;
-                }
-
-                if (rightPage) {
-                    if (pRight) {
-                        rightPage.innerHTML = `
-                            <div style="font-size: 11px; font-weight: 700; color: #b45309; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">📜 Trang ${flipIdx + 2}</div>
-                            <h3 style="font-size: 18px; color: #451a03; margin-bottom: 12px; font-weight: 700;">${pRight.title}</h3>
-                            <div style="font-size: 13.5px; line-height: 1.6; white-space: pre-line; color: #78350f;">${pRight.content_text || ''}</div>
-                        `;
-                    } else {
-                        rightPage.innerHTML = `<div style="display: flex; height: 100%; align-items: center; justify-content: center; color: #b45309; font-style: italic;">✨ Hết tập thơ</div>`;
-                    }
-                }
-
-                if (indicator) indicator.textContent = `Trang ${flipIdx + 1} / ${allPoems.length}`;
-                if (quickSelect) quickSelect.value = flipIdx;
-            }
-
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    if (flipIdx > 0) {
-                        flipIdx -= 2;
-                        if (flipIdx < 0) flipIdx = 0;
-                        renderFlipbookPages();
-                    }
-                });
-            }
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    if (allPoems && flipIdx + 2 < allPoems.length) {
-                        flipIdx += 2;
-                        renderFlipbookPages();
-                    }
-                });
-            }
-        }
-        initFlipbook();
-
-        // ------------------------------------------------------------------
-        // FEATURE 4: BẢN ĐỒ ĐỊA DANH THƠ CA
-        // ------------------------------------------------------------------
-        function initPoetryMap() {
-            const btn = document.getElementById('poetryMapBtn');
-            const modal = document.getElementById('poetryMapModal');
-            const closeBtn = document.getElementById('closePoetryMapBtn');
-            const listEl = document.getElementById('regionPoemList');
-            const filterBtns = document.querySelectorAll('.map-region-btn');
-
-            if (!modal) return;
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    renderRegionPoems('all');
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const regionKeywords = {
-                hanoi: ['hà nội', 'hà thành', 'tràng an', 'hồ tây', 'tây bắc', 'việt bắc', 'thái nguyên', 'quảng ninh'],
-                hue: ['huế', 'hương giang', 'cố đô', 'đà nẵng', 'quảng nam', 'hải vân'],
-                dalat: ['đà lạt', 'tây nguyên', 'sương mờ', 'ngàn hoa', 'langbiang', 'pleiku'],
-                saigon: ['sài gòn', 'bến thành', 'gia định', 'đồng nai', 'vũng tàu', 'phương nam'],
-                mientay: ['miền tây', 'bến tre', 'cần thơ', 'sông tiền', 'sông hậu', 'cà mau', 'an giang']
-            };
-
-            function renderRegionPoems(regionKey) {
-                if (!listEl || !allPoems) return;
-
-                let filtered = allPoems;
-                if (regionKey !== 'all' && regionKeywords[regionKey]) {
-                    const kwList = regionKeywords[regionKey];
-                    filtered = allPoems.filter(p => {
-                        const txt = (p.title + ' ' + p.content_text).toLowerCase();
-                        return kwList.some(kw => txt.includes(kw));
-                    });
-                }
-
-                if (filtered.length === 0) filtered = allPoems.slice(0, 8);
-
-                listEl.innerHTML = filtered.slice(0, 16).map(p => `
-                    <div style="padding: 12px; background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px;">
-                        <div>
-                            <span style="font-size: 10px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase;">📍 ${regionKey.toUpperCase()}</span>
-                            <h4 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 4px 0;">${p.title}</h4>
-                            <p style="font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.4; max-height: 48px; overflow: hidden;">"${(p.content_text || '').slice(0, 80)}..."</p>
-                        </div>
-                        <button class="btn btn-sm btn-outline read-region-poem-btn" data-id="${p.id}" style="font-size: 12px;"><i class="ri-book-open-line"></i> Đọc Bài Thơ</button>
-                    </div>
-                `).join('');
-
-                listEl.querySelectorAll('.read-region-poem-btn').forEach(b => {
-                    b.addEventListener('click', () => {
-                        const pid = parseInt(b.dataset.id);
-                        modal.close();
-                        openPoemModal(pid);
-                    });
-                });
-            }
-
-            filterBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    filterBtns.forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    renderRegionPoems(b.dataset.region);
-                });
-            });
-        }
-        initPoetryMap();
-
-        // ------------------------------------------------------------------
-        // FEATURE 5: THI CA VŨ TRỤ & THỜI TIẾT REAL-TIME
-        // ------------------------------------------------------------------
-        function initWeatherPoetry() {
-            const btn = document.getElementById('weatherPoetryBtn');
-            const modal = document.getElementById('weatherPoetryModal');
-            const closeBtn = document.getElementById('closeWeatherPoetryBtn');
-            const weatherBtns = document.querySelectorAll('.weather-opt-btn');
-            const listEl = document.getElementById('weatherPoemList');
-
-            if (!modal) return;
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    renderWeatherPoems('rain');
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const weatherAudioMap = {
-                rain: 'rain',
-                wind: 'pad',
-                sun: 'piano',
-                mist: 'lofi',
-                night: 'waves',
-                snow: 'piano'
-            };
-
-            function renderWeatherPoems(wType) {
-                if (!listEl || !allPoems) return;
-                const samplePoems = allPoems.slice(0, 5);
-
-                listEl.innerHTML = samplePoems.map(p => `
-                    <div style="padding: 10px 14px; background: var(--bg-hover); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                        <div>
-                            <div style="font-size: 13.5px; font-weight: 700; color: var(--text-primary);">${p.title}</div>
-                            <div style="font-size: 11.5px; color: var(--text-muted); font-style: italic;">"${(p.content_text || '').slice(0, 50)}..."</div>
-                        </div>
-                        <button class="btn btn-sm btn-primary read-weather-poem-btn" data-id="${p.id}" style="font-size: 11.5px; white-space: nowrap;"><i class="ri-book-open-line"></i> Đọc ngay</button>
-                    </div>
-                `).join('');
-
-                listEl.querySelectorAll('.read-weather-poem-btn').forEach(b => {
-                    b.addEventListener('click', () => {
-                        modal.close();
-                        openPoemModal(parseInt(b.dataset.id));
-                    });
-                });
-            }
-
-            weatherBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    weatherBtns.forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    const wType = b.dataset.weather;
-                    renderWeatherPoems(wType);
-
-                    const soundType = weatherAudioMap[wType] || 'rain';
-                    playAmbientSound(soundType);
-                    showToast(`🌧️ Đã chuyển không khí thời tiết & phối nhạc Ambient tương ứng!`);
-                });
-            });
-        }
-        initWeatherPoetry();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V2 FEATURE 1: THI THIỀN ĐỊNH TÂM (ZEN BREATHING)
-        // ------------------------------------------------------------------
-        function initMindfulness() {
-            const btn = document.getElementById('mindfulnessBtn');
-            const modal = document.getElementById('mindfulnessModal');
-            const closeBtn = document.getElementById('closeMindfulnessBtn');
-            const startBtn = document.getElementById('startZenSessionBtn');
-            const ringBox = document.getElementById('breathingRingBox');
-            const phaseText = document.getElementById('breathPhaseText');
-            const timerNum = document.getElementById('breathTimerNum');
-            const zenText = document.getElementById('zenPoemSnippetText');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            let isBreathing = false;
-            let breathInterval = null;
-
-            // ponytail: closing (Esc or button) while breathing left the 1s interval + audio running forever.
-            modal.addEventListener('close', () => {
-                if (!isBreathing) return;
-                isBreathing = false;
-                clearInterval(breathInterval);
-                stopAmbientSound();
-                if (startBtn) startBtn.innerHTML = '<i class="ri-play-circle-line"></i> Bắt Đầu Thiền 3 Phút';
-            });
-
-            const zenSnippets = [
-                '"Rủ bỏ muộn phiền nơi gót chân\nTrả lại tâm thanh tựa mây trôi..."',
-                '"Nhẹ nhàng thở ra buông lo lắng\nMỉm cười chào đón nốt bình yên..."',
-                '"Giữa dòng đời cuộn xoay hối hả\nGiữ một góc riêng lẳng lặng ngắm trời..."',
-                '"Một chén trà thơm, một khoảng trời\nTâm không vướng bận, đời tự do..."'
-            ];
-
-            if (startBtn) {
-                startBtn.addEventListener('click', () => {
-                    isBreathing = !isBreathing;
-                    if (isBreathing) {
-                        startBtn.innerHTML = '<i class="ri-pause-circle-line"></i> Dừng Buổi Thiền';
-                        playAmbientSound('pad');
-                        showToast('🧘 Đã bắt đầu Buổi Thiền Định Tâm & Nhịp Thở!');
-                        
-                        let step = 0;
-                        breathInterval = setInterval(() => {
-                            step = (step + 1) % 12;
-                            if (step < 4) {
-                                if (phaseText) phaseText.textContent = 'Hít Vào...';
-                                if (timerNum) timerNum.textContent = 4 - step;
-                                if (ringBox) ringBox.style.transform = 'scale(1.35)';
-                            } else if (step < 8) {
-                                if (phaseText) phaseText.textContent = 'Giữ Nhịp...';
-                                if (timerNum) timerNum.textContent = 8 - step;
-                                if (ringBox) ringBox.style.transform = 'scale(1.35)';
-                            } else {
-                                if (phaseText) phaseText.textContent = 'Thở Ra...';
-                                if (timerNum) timerNum.textContent = 12 - step;
-                                if (ringBox) ringBox.style.transform = 'scale(0.95)';
-                            }
-
-                            if (step === 0 && zenText) {
-                                zenText.innerHTML = zenSnippets[Math.floor(Math.random() * zenSnippets.length)].replace(/\n/g, '<br>');
-                            }
-                        }, 1000);
-                    } else {
-                        startBtn.innerHTML = '<i class="ri-play-circle-line"></i> Bắt Đầu Thiền 3 Phút';
-                        clearInterval(breathInterval);
-                        if (ringBox) ringBox.style.transform = 'scale(1)';
-                        if (phaseText) phaseText.textContent = 'Bình Yên';
-                        stopAmbientSound();
-                        showToast('🌱 Đã hoàn thành Buổi Thiền Định Tâm!');
-                    }
-                });
-            }
-        }
-        initMindfulness();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V2 FEATURE 3: THIỆP THƯ 3D NIÊM PHONG SÁP
-        // ------------------------------------------------------------------
-        function initWaxSealCard() {
-            const btn = document.getElementById('waxSealCardBtn');
-            const modal = document.getElementById('waxSealCardModal');
-            const closeBtn = document.getElementById('closeWaxSealCardBtn');
-            const paperSelect = document.getElementById('cardPaperSelect');
-            const waxColorSelect = document.getElementById('waxColorSelect');
-            const senderInput = document.getElementById('waxSenderGreeting');
-            const previewBox = document.getElementById('waxCardPreviewBox');
-            const badgeIcon = document.getElementById('waxSealBadgeIcon');
-            const previewGreeting = document.getElementById('waxPreviewGreeting');
-            const copyLinkBtn = document.getElementById('copyWaxCardLinkBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (waxColorSelect) {
-                waxColorSelect.addEventListener('change', (e) => {
-                    if (badgeIcon) badgeIcon.style.background = e.target.value;
-                });
-            }
-
-            if (senderInput) {
-                senderInput.addEventListener('input', (e) => {
-                    if (previewGreeting) previewGreeting.textContent = `"${e.target.value || 'Gửi tặng người bạn thân thương...'}"`;
-                });
-            }
-
-            if (copyLinkBtn) {
-                copyLinkBtn.addEventListener('click', () => {
-                    navigator.clipboard.writeText(window.location.href);
-                    showToast('💌 Đã sao chép liên kết Thiệp Thư 3D Niêm Phong Sáp!');
-                });
-            }
-        }
-        initWaxSealCard();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V2 FEATURE 4: DÒNG THỜI GIAN TÁC GIẢ
-        // ------------------------------------------------------------------
-        function initAuthorTimeline() {
-            const btn = document.getElementById('authorTimelineBtn');
-            const modal = document.getElementById('authorTimelineModal');
-            const closeBtn = document.getElementById('closeAuthorTimelineBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-        }
-        initAuthorTimeline();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V2 FEATURE 5: TRIỂN LÃM TRANH THƠ THỦY MẶC
-        // ------------------------------------------------------------------
-        function initArtGallery() {
-            const btn = document.getElementById('artGalleryBtn');
-            const modal = document.getElementById('artGalleryModal');
-            const closeBtn = document.getElementById('closeArtGalleryBtn');
-            const gridEl = document.getElementById('galleryArtGrid');
-
-            if (!modal) return;
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    renderGalleryGrid();
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            function renderGalleryGrid() {
-                if (!gridEl || !allPoems) return;
-                const artPoems = allPoems.filter(p => p.local_images && p.local_images.length > 0).concat(allPoems.slice(0, 6)).slice(0, 8);
-
-                gridEl.innerHTML = artPoems.map((p, idx) => {
-                    const imgSrc = (p.local_images && p.local_images[0]) ? p.local_images[0] : 'https://picsum.photos/400/300?random=' + idx;
-                    return `
-                        <div style="background: var(--bg-hover); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
-                            <img src="${imgSrc}" alt="${p.title}" style="width: 100%; height: 160px; object-fit: cover;">
-                            <div style="padding: 12px; display: flex; flex-direction: column; gap: 6px; flex: 1;">
-                                <span style="font-size: 10px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase;">🎨 Tranh Thủy Mặc #0${idx+1}</span>
-                                <h4 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">${p.title}</h4>
-                                <button class="btn btn-sm btn-outline read-art-poem-btn" data-id="${p.id}" style="margin-top: auto; font-size: 12px;"><i class="ri-eye-line"></i> Thưởng Tranh & Đọc Thơ</button>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-                gridEl.querySelectorAll('.read-art-poem-btn').forEach(b => {
-                    b.addEventListener('click', () => {
-                        modal.close();
-                        openPoemModal(parseInt(b.dataset.id));
-                    });
-                });
-            }
-        }
-        initArtGallery();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V3 FEATURE 1: THI CA VŨ ĐIỆU ÁNH SÁNG 3D
-        // ------------------------------------------------------------------
-        function initAudioVisualizer() {
-            const btn = document.getElementById('audioVisualizerBtn');
-            const modal = document.getElementById('audioVisualizerModal');
-            const closeBtn = document.getElementById('closeAudioVisualizerBtn');
-            const canvas = document.getElementById('visualizerCanvas');
-            const togglePlayBtn = document.getElementById('toggleVisualizerPlayBtn');
-
-            if (!modal || !canvas) return;
-
-            let isAnim = false;
-            let animId = null;
-
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    modal.close();
-                    if (isAnim) stopAnim();
-                });
-            }
-            // ponytail: Esc/backdrop close bypasses the button handler — stop the rAF loop + audio here too.
-            modal.addEventListener('close', () => { if (isAnim) stopAnim(); });
-
-            const ctx = canvas.getContext('2d');
-
-            function startAnim() {
-                isAnim = true;
-                playAmbientSound('lofi');
-                let phase = 0;
-                // ponytail: size the backing store once, not every frame (per-frame reset reallocs the canvas).
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-
-                function draw() {
-                    if (!isAnim) return;
-                    const width = canvas.width, height = canvas.height;
-                    ctx.clearRect(0, 0, width, height);
-                    phase += 0.05;
-
-                    // Draw Aurora Wave
-                    ctx.beginPath();
-                    ctx.moveTo(0, height / 2);
-                    for (let x = 0; x < width; x += 10) {
-                        const y = height / 2 + Math.sin(x * 0.02 + phase) * 40 + Math.cos(x * 0.01 + phase) * 20;
-                        ctx.lineTo(x, y);
-                    }
-                    ctx.strokeStyle = '#a855f7';
-                    ctx.lineWidth = 4;
-                    ctx.shadowBlur = 15;
-                    ctx.shadowColor = '#a855f7';
-                    ctx.stroke();
-
-                    // Draw Secondary Spectrum Bars
-                    const bars = 24;
-                    const barWidth = width / bars;
-                    for (let i = 0; i < bars; i++) {
-                        const barHeight = Math.abs(Math.sin(phase + i * 0.3)) * (height * 0.6);
-                        ctx.fillStyle = i % 2 === 0 ? 'rgba(168, 85, 247, 0.4)' : 'rgba(59, 130, 246, 0.4)';
-                        ctx.fillRect(i * barWidth + 2, height - barHeight, barWidth - 4, barHeight);
-                    }
-
-                    animId = requestAnimationFrame(draw);
-                }
-                draw();
-            }
-
-            function stopAnim() {
-                isAnim = false;
-                if (animId) cancelAnimationFrame(animId);
-                stopAmbientSound();
-            }
-
-            if (togglePlayBtn) {
-                togglePlayBtn.addEventListener('click', () => {
-                    if (isAnim) {
-                        stopAnim();
-                        togglePlayBtn.innerHTML = '<i class="ri-play-circle-line"></i> Bật Vũ Điệu Ánh Sáng & Nhạc Ambient';
-                        showToast('🔇 Đã dừng Vũ Điệu Ánh Sáng');
-                    } else {
-                        startAnim();
-                        togglePlayBtn.innerHTML = '<i class="ri-pause-circle-line"></i> Tạm Dừng Vũ Điệu Ánh Sáng';
-                        showToast('🌌 Đã bật Vũ Điệu Ánh Sáng 3D & Nhạc Ambient!');
-                    }
-                });
-            }
-        }
-        initAudioVisualizer();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V3 FEATURE 3: THƠ SONG NGỮ ANH - VIỆT DUAL SCREEN
+        // FEATURE: BILINGUAL POETRY (VI/EN)
         // ------------------------------------------------------------------
         function initBilingualPoetry() {
             const btn = document.getElementById('bilingualPoetryBtn');
@@ -5006,409 +3497,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         initBilingualPoetry();
-
         // ------------------------------------------------------------------
-        // PROPOSAL V3 FEATURE 5: TRÀ ĐẠO THI CA & QUÁN TRÀ CỔ
-        // ------------------------------------------------------------------
-        function initTeaCeremony() {
-            const btn = document.getElementById('teaCeremonyBtn');
-            const modal = document.getElementById('teaCeremonyModal');
-            const closeBtn = document.getElementById('closeTeaCeremonyBtn');
-            const teaBtns = document.querySelectorAll('.tea-opt-btn');
-            const snippetText = document.getElementById('teaPoemTextSnippet');
-            const startBtn = document.getElementById('startTeaSessionBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const teaSnippets = {
-                sen: '"Hương hoa sen quyện làn trà ấm\nTĩnh lặng lòng ta giữa nắng chiều..."',
-                nhai: '"Trà nhài đượm ngát không gian rộng\nRút bớt lo âu chốn bụi trần..."',
-                cuc: '"Sắc cúc vàng ươm chiều thu lắng\nThưởng tách trà thơm ngẫm sự đời..."',
-                oolong: '"Vị trà thanh khiết vờn qua lưỡi\nNhẹ bước hồn thơ cõi hư không..."'
-            };
-
-            teaBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    teaBtns.forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    const teaType = b.dataset.tea;
-                    if (snippetText) snippetText.innerHTML = teaSnippets[teaType] || teaSnippets.sen;
-                });
-            });
-
-            if (startBtn) {
-                startBtn.addEventListener('click', () => {
-                    playAmbientSound('rain');
-                    showToast('🍵 Đã kích hoạt Không Gian Trà Đạo & Tiếng Mưa Rơi!');
-                    modal.close();
-                });
-            }
-        }
-        initTeaCeremony();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V4 FEATURE 1: THI ĐÈN LỒNG HỘI AN & THẢ HOA ĐĂNG
-        // ------------------------------------------------------------------
-        function initHoiAnLantern() {
-            const btn = document.getElementById('hoiAnLanternBtn');
-            const modal = document.getElementById('hoiAnLanternModal');
-            const closeBtn = document.getElementById('closeHoiAnLanternBtn');
-            const releaseBtn = document.getElementById('releaseLanternBtn');
-            const wishInput = document.getElementById('lanternWishInput');
-            const visual = document.getElementById('floatingLanternVisual');
-            const display = document.getElementById('lanternWishDisplay');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (releaseBtn) {
-                releaseBtn.addEventListener('click', () => {
-                    const text = wishInput ? wishInput.value.trim() : '';
-                    const wish = text || 'Cầu chúc gia đình luôn bình an & hạnh phúc...';
-                    
-                    if (display) {
-                        display.textContent = `"${wish}"`;
-                        display.style.opacity = '1';
-                    }
-                    if (visual) {
-                        visual.style.opacity = '1';
-                        visual.style.transform = 'translateY(-30px)';
-                    }
-                    playAmbientSound('guzheng');
-                    showToast('🪷 Lời ước nguyện của bạn đã được thả trôi trên dòng sông Hoài đêm rằm Hội An!');
-                });
-            }
-        }
-        initHoiAnLantern();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V4 FEATURE 3: CUNG HOÀNG ĐẠO & CHIÊM TINH THƠ CA
-        // ------------------------------------------------------------------
-        function initZodiacPoetry() {
-            const btn = document.getElementById('zodiacPoetryBtn');
-            const modal = document.getElementById('zodiacPoetryModal');
-            const closeBtn = document.getElementById('closeZodiacBtn');
-            const zBtns = document.querySelectorAll('.zodiac-btn');
-            const badge = document.getElementById('zodiacBadge');
-            const titleEl = document.getElementById('zodiacPoemTitle');
-            const snippetEl = document.getElementById('zodiacPoemSnippet');
-
-            if (!modal) return;
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    renderZodiacPoem('aries');
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const zodiacMap = {
-                aries: { name: 'BẠCH DƯƠNG', trait: 'TẦN SỐ RỰC RỠ & NHIỆT HUYẾT' },
-                taurus: { name: 'KIM NGƯU', trait: 'TẦN SỐ BÌNH YÊN & KIÊN ĐỊNH' },
-                gemini: { name: 'SONG TỬ', trait: 'TẦN SỐ LÔI CUỐN & TỰ DO' },
-                cancer: { name: 'CỰ GIẢI', trait: 'TẦN SỐ DỊU DÀNG & GIÀU CẢM XÚC' },
-                leo: { name: 'SƯ TỬ', trait: 'TẦN SỐ KIÊU HÃNH & TỎA SÁNG' },
-                virgo: { name: 'XỬ NỮ', trait: 'TẦN SỐ TINH TẾ & THUẦN KHẢO' },
-                libra: { name: 'THIÊN BÌNH', trait: 'TẦN SỐ CÂN BẰNG & LÃNG MẠN' },
-                scorpio: { name: 'BỌ CẠP', trait: 'TẦN SỐ BÍ ẨN & SÂU SẮC' },
-                sagittarius: { name: 'NHÂN MÃ', trait: 'TẦN SỐ PHÓNG KHÓANG & PHIÊU LƯU' },
-                capricorn: { name: 'MA KẾT', trait: 'TẦN SỐ TRẦM TĨNH & BẢN LĨNH' },
-                aquarius: { name: 'BẢO BÌNH', trait: 'TẦN SỐ ĐỘC ĐÁO & MƠ HỒ' },
-                pisces: { name: 'SONG NGƯ', trait: 'TẦN SỐ MƠ MỘNG & THƠ MỘNG' }
-            };
-
-            function renderZodiacPoem(key) {
-                const info = zodiacMap[key] || zodiacMap.aries;
-                if (badge) badge.textContent = `${info.name} • ${info.trait}`;
-                if (allPoems && allPoems.length > 0) {
-                    const sample = allPoems[Math.floor(Math.random() * allPoems.length)];
-                    if (titleEl) titleEl.textContent = sample.title;
-                    if (snippetEl) snippetEl.textContent = `"${(sample.content_text || '').slice(0, 70)}..."`;
-                }
-            }
-
-            zBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    zBtns.forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    renderZodiacPoem(b.dataset.zodiac);
-                    showToast(`✨ Đã giải mã bài thơ chiêm tinh cho chòm sao ${b.textContent}!`);
-                });
-            });
-        }
-        initZodiacPoetry();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V4 FEATURE 4: THI PHÒNG THƯ PHÁP VIỆT 3D
-        // ------------------------------------------------------------------
-        function initCalligraphy() {
-            const btn = document.getElementById('calligraphyBtn');
-            const modal = document.getElementById('calligraphyModal');
-            const closeBtn = document.getElementById('closeCalligraphyBtn');
-            const input = document.getElementById('calligraphyInput');
-            const outputText = document.getElementById('calligraphyOutputText');
-            const copyBtn = document.getElementById('copyCalligraphyBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (input) {
-                input.addEventListener('input', (e) => {
-                    if (outputText) outputText.textContent = `"${e.target.value || 'Bình yên tựa mây trôi'}"`;
-                });
-            }
-
-            if (copyBtn) {
-                copyBtn.addEventListener('click', () => {
-                    const txt = outputText ? outputText.textContent : '';
-                    navigator.clipboard.writeText(txt);
-                    showToast('📜 Đã sao chép bức thư pháp dập nổi Võ Hoàng Thắng 🇻🇳!');
-                });
-            }
-        }
-        initCalligraphy();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V5 FEATURE 1: THI CA V VŨ TRỤ & ĐÊM SAO NGÂN HÀ 3D
-        // ------------------------------------------------------------------
-        function initStargazing() {
-            const btn = document.getElementById('stargazingBtn');
-            const modal = document.getElementById('stargazingModal');
-            const closeBtn = document.getElementById('closeStargazingBtn');
-            const canvas = document.getElementById('stargazingCanvas');
-            const display = document.getElementById('cosmicPoemDisplay');
-
-            if (!modal || !canvas) return;
-
-            let isAnim = false;
-            let animId = null;
-
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    modal.showModal();
-                    startStargazing();
-                });
-            }
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    modal.close();
-                    stopStargazing();
-                });
-            }
-            // ponytail: Esc/backdrop close bypasses the button handler — stop the rAF loop + audio here too.
-            modal.addEventListener('close', stopStargazing);
-
-            const cosmicVerses = [
-                '"Giữa khoảng trời sao ngàn vạn hốt<br>Hồn ta trôi dạt chốn vô cùng..."',
-                '"Dải Ngân Hà uốn mình qua khe cửa<br>Thắp sáng đêm dài một khúc thơ..."',
-                '"Ngôi sao nhỏ giữa vạn ngàn tinh tú<br>Cũng dịu dàng soi tỏ ánh tình yêu..."'
-            ];
-
-            canvas.addEventListener('click', () => {
-                const verse = cosmicVerses[Math.floor(Math.random() * cosmicVerses.length)];
-                if (display) display.innerHTML = verse;
-                showToast('✨ Đã mở khóa một câu thơ vũ trị mới!');
-            });
-
-            const ctx = canvas.getContext('2d');
-
-            function startStargazing() {
-                isAnim = true;
-                playAmbientSound('pad');
-                const stars = [];
-                for (let i = 0; i < 60; i++) {
-                    stars.push({
-                        x: Math.random() * 600,
-                        y: Math.random() * 260,
-                        r: Math.random() * 2 + 1,
-                        alpha: Math.random()
-                    });
-                }
-                // ponytail: size the backing store once, not every frame (per-frame reset reallocs the canvas).
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-
-                function draw() {
-                    if (!isAnim) return;
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                    stars.forEach(s => {
-                        s.alpha += (Math.random() - 0.5) * 0.05;
-                        if (s.alpha < 0.2) s.alpha = 0.2;
-                        if (s.alpha > 1) s.alpha = 1;
-
-                        ctx.beginPath();
-                        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(199, 210, 254, ${s.alpha})`;
-                        ctx.shadowBlur = 8;
-                        ctx.shadowColor = '#818cf8';
-                        ctx.fill();
-                    });
-
-                    animId = requestAnimationFrame(draw);
-                }
-                draw();
-            }
-
-            function stopStargazing() {
-                isAnim = false;
-                if (animId) cancelAnimationFrame(animId);
-                stopAmbientSound();
-            }
-        }
-        initStargazing();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V5 FEATURE 3: NHẠC CỤ DÂN TỘC TƯƠNG TÁC
-        // ------------------------------------------------------------------
-        function initFolkInstruments() {
-            const btn = document.getElementById('folkInstrumentsBtn');
-            const modal = document.getElementById('folkInstrumentsModal');
-            const closeBtn = document.getElementById('closeFolkInstrumentsBtn');
-            const noteBtns = document.querySelectorAll('.folk-note-btn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const instFreqMap = {
-                'dan-bau': 261.63, // C4
-                'dan-tranh': 329.63, // E4
-                'sao-truc': 440.00, // A4
-                'dan-trong': 130.81  // C3
-            };
-
-            noteBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    const inst = b.dataset.inst;
-                    const freq = instFreqMap[inst] || 440;
-                    playSynthTone(freq);
-                    showToast(`🎵 Đã ngân nốt nhạc cụ dân tộc ${b.textContent}!`);
-                });
-            });
-
-            function playSynthTone(freq) {
-                try {
-                    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.start();
-                    osc.stop(audioCtx.currentTime + 1.2);
-                } catch (e) {
-                    console.log('Synth unsupported');
-                }
-            }
-        }
-        initFolkInstruments();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V5 FEATURE 4: GÓC ĐỌC THƠ BÊN BẾP LỬA MÙA ĐÔNG
-        // ------------------------------------------------------------------
-        function initFireplace() {
-            const btn = document.getElementById('fireplaceBtn');
-            const modal = document.getElementById('fireplaceModal');
-            const closeBtn = document.getElementById('closeFireplaceBtn');
-            const toggleSoundBtn = document.getElementById('toggleFireplaceSoundBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (toggleSoundBtn) {
-                toggleSoundBtn.addEventListener('click', () => {
-                    playAmbientSound('rain');
-                    showToast('🔥 Đã kích hoạt Âm Thanh Bếp Lửa Mùa Đông Bập Bùng!');
-                    modal.close();
-                });
-            }
-        }
-        initFireplace();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V6 FEATURE 1: 3D PARALLAX DEPTH READER
-        // ------------------------------------------------------------------
-        function initParallaxReader() {
-            const btn = document.getElementById('parallaxReaderBtn');
-            const modal = document.getElementById('parallaxReaderModal');
-            const closeBtn = document.getElementById('closeParallaxBtn');
-            const stage = document.getElementById('parallaxStageCard');
-
-            if (!modal || !stage) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            stage.addEventListener('mousemove', (e) => {
-                const rect = stage.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                const rotX = (-y / rect.height) * 20;
-                const rotY = (x / rect.width) * 20;
-                stage.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-            });
-
-            stage.addEventListener('mouseleave', () => {
-                stage.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        }
-        initParallaxReader();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V6 FEATURE 2: GLASSMORPHISM DESIGNER STUDIO
-        // ------------------------------------------------------------------
-        function initGlassStudio() {
-            const btn = document.getElementById('glassStudioBtn');
-            const modal = document.getElementById('glassStudioModal');
-            const closeBtn = document.getElementById('closeGlassStudioBtn');
-            const card = document.getElementById('glassPreviewCard');
-            const styleBtns = document.querySelectorAll('.glass-style-btn');
-            const copyBtn = document.getElementById('copyGlassCardBtn');
-
-            if (!modal || !card) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            styleBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    styleBtns.forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    const style = b.dataset.style;
-                    if (style === 'glass') {
-                        card.style.background = 'rgba(255, 255, 255, 0.1)';
-                        card.style.border = '1px solid rgba(255,255,255,0.2)';
-                        card.style.boxShadow = '0 8px 32px rgba(0,0,0,0.2)';
-                    } else if (style === 'leather') {
-                        card.style.background = '#451a03';
-                        card.style.border = '2px solid #b45309';
-                        card.style.boxShadow = '0 10px 30px rgba(69, 26, 3, 0.5)';
-                    } else if (style === 'neon') {
-                        card.style.background = '#09090b';
-                        card.style.border = '2px solid #a855f7';
-                        card.style.boxShadow = '0 0 25px rgba(168, 85, 247, 0.6)';
-                    }
-                });
-            });
-
-            if (copyBtn) {
-                copyBtn.addEventListener('click', () => {
-                    navigator.clipboard.writeText(card.innerText);
-                    showToast('💎 Đã sao chép thẻ thơ thiết kế Glassmorphism!');
-                });
-            }
-        }
-        initGlassStudio();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V6 FEATURE 3: CHẾ ĐỘ ĐỌC ĐÊM OLED TRUE-BLACK & AMBER
+        // FEATURE: OLED NIGHT MODE (TRUE-BLACK)
         // ------------------------------------------------------------------
         function initOledNightMode() {
             const btn = document.getElementById('oledNightBtn');
@@ -5429,239 +3519,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initOledNightMode();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V6 FEATURE 4: MULTI-TRACK AUDIO MIXER DECK
-        // ------------------------------------------------------------------
-        function initMultiTrackMixer() {
-            const btn = document.getElementById('multiTrackMixerBtn');
-            const modal = document.getElementById('multiTrackMixerModal');
-            const closeBtn = document.getElementById('closeMultiTrackMixerBtn');
-            const rSlider = document.getElementById('mixRainSlider');
-            const wSlider = document.getElementById('mixWavesSlider');
-            const fSlider = document.getElementById('mixFireSlider');
-            const rVal = document.getElementById('mixRainVal');
-            const wVal = document.getElementById('mixWavesVal');
-            const fVal = document.getElementById('mixFireVal');
-            const applyBtn = document.getElementById('applyMixerBtn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (rSlider && rVal) rSlider.addEventListener('input', (e) => rVal.textContent = e.target.value + '%');
-            if (wSlider && wVal) wSlider.addEventListener('input', (e) => wVal.textContent = e.target.value + '%');
-            if (fSlider && fVal) fSlider.addEventListener('input', (e) => fVal.textContent = e.target.value + '%');
-
-            if (applyBtn) {
-                applyBtn.addEventListener('click', () => {
-                    playAmbientSound('rain');
-                    showToast('🎛️ Đã kích hoạt bản phối âm đa tầng cá nhân hóa!');
-                    modal.close();
-                });
-            }
-        }
-        initMultiTrackMixer();
-
-        // ponytail: these feature-modals start ambient audio but their close-button never stopped it,
+        // These feature-modals start ambient audio but their close-button never stopped it,
         // and Esc/backdrop closes bypass any handler. Stop audio on the native 'close' event (fires for all paths).
-        ['weatherPoetryModal', 'teaCeremonyModal', 'hoiAnLanternModal', 'fireplaceModal', 'multiTrackMixerModal']
-            .forEach(id => document.getElementById(id)?.addEventListener('close', stopAmbientSound));
 
-
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V7 FEATURE 1: VERTICAL REEL STORY
-        // ------------------------------------------------------------------
-        function initVerticalReel() {
-            const btn = document.getElementById('verticalReelBtn');
-            const modal = document.getElementById('verticalReelModal');
-            const closeBtn = document.getElementById('closeVerticalReelBtn');
-            const nextBtn = document.getElementById('nextReelBtn');
-            const card = document.getElementById('verticalReelCard');
-            const titleEl = document.getElementById('reelPoemTitle');
-            const textEl = document.getElementById('reelPoemText');
-
-            if (!modal) return;
-            let currentIdx = 0;
-
-            function renderReel(idx) {
-                if (!allPoems || allPoems.length === 0) return;
-                const p = allPoems[idx % allPoems.length];
-                const imgSrc = (p.local_images && p.local_images[0]) ? p.local_images[0] : 'https://picsum.photos/600/1000?random=' + idx;
-
-                if (card) card.style.backgroundImage = `url('${imgSrc}')`;
-                if (titleEl) titleEl.textContent = p.title;
-                if (textEl) textEl.textContent = p.content_text || '';
-            }
-
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    renderReel(0);
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    currentIdx++;
-                    renderReel(currentIdx);
-                    showToast('📱 Đã chuyển bài thơ Reel Story tiếp theo!');
-                });
-            }
-        }
-        initVerticalReel();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V7 FEATURE 2: CALLIGRAPHY CURSOR TRAIL
-        // ------------------------------------------------------------------
-        function initCalligraphyCursor() {
-            const btn = document.getElementById('cursorTrailBtn');
-            const canvas = document.getElementById('calligraphyCursorCanvas');
-            if (!canvas) return;
-
-            let isEnabled = false;
-            let ctx = canvas.getContext('2d');
-            let particles = [];
-
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    isEnabled = !isEnabled;
-                    canvas.style.display = isEnabled ? 'block' : 'none';
-                    if (isEnabled) {
-                        showToast('🖌️ Đã bật vệt con trỏ Bút Lông & Bụi Sao Thư Pháp!');
-                        canvas.width = window.innerWidth;
-                        canvas.height = window.innerHeight;
-                        draw();
-                    } else {
-                        showToast('🚫 Đã tắt vệt con trỏ Bút Lông');
-                    }
-                });
-            }
-
-            window.addEventListener('mousemove', (e) => {
-                if (!isEnabled) return;
-                particles.push({
-                    x: e.clientX,
-                    y: e.clientY,
-                    r: Math.random() * 4 + 2,
-                    alpha: 1
-                });
-            });
-
-            function draw() {
-                if (!isEnabled) return;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                particles.forEach((p, idx) => {
-                    p.alpha -= 0.03;
-                    p.y += 0.5;
-                    if (p.alpha <= 0) particles.splice(idx, 1);
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(168, 85, 247, ${p.alpha})`;
-                    ctx.shadowBlur = 10;
-                    ctx.shadowColor = '#a855f7';
-                    ctx.fill();
-                });
-
-                requestAnimationFrame(draw);
-            }
-        }
-        initCalligraphyCursor();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V7 FEATURE 3: MUSEUM LIGHTBOX GALLERY
-        // ------------------------------------------------------------------
-        function initMuseumLightbox() {
-            const btn = document.getElementById('museumLightboxBtn');
-            const modal = document.getElementById('museumLightboxModal');
-            const closeBtn = document.getElementById('closeMuseumLightboxBtn');
-            const imgEl = document.getElementById('museumLightboxImg');
-
-            if (!modal) return;
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    if (imgEl && allPoems && allPoems[0]) {
-                        imgEl.src = (allPoems[0].local_images && allPoems[0].local_images[0]) ? allPoems[0].local_images[0] : 'https://picsum.photos/1200/800';
-                    }
-                    modal.showModal();
-                });
-            }
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            document.addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG' && e.target.classList.contains('poem-card-image')) {
-                    if (imgEl) imgEl.src = e.target.src;
-                    if (modal) modal.showModal();
-                }
-            });
-        }
-        initMuseumLightbox();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V7 FEATURE 4: VINTAGE RED THREAD RIBBON
-        // ------------------------------------------------------------------
-        function initVintageRedRibbon() {
-            const ribbon = document.getElementById('vintageRedRibbon');
-            if (!ribbon) return;
-
-            window.addEventListener('scroll', () => {
-                const totalH = document.documentElement.scrollHeight - window.innerHeight;
-                if (totalH <= 0) return;
-                const pct = (window.scrollY / totalH) * 100;
-                ribbon.style.height = `${pct}%`;
-            });
-        }
-        initVintageRedRibbon();
-
-        // ------------------------------------------------------------------
-        // PROPOSAL V7 FEATURE 5: DYNAMIC SEASONAL UI MORPHING
-        // ------------------------------------------------------------------
-        function initSeasonMorph() {
-            const btn = document.getElementById('seasonMorphBtn');
-            const modal = document.getElementById('seasonMorphModal');
-            const closeBtn = document.getElementById('closeSeasonMorphBtn');
-            const seasonBtns = document.querySelectorAll('.season-opt-btn');
-
-            if (!modal) return;
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            const seasonToastMap = {
-                spring: '🌸 Đã chuyển sang Giao Diện Mùa Xuân Rực Rỡ!',
-                summer: '🌿 Đã chuyển sang Giao Diện Mùa Hạ Xanh Mát!',
-                autumn: '🍁 Đã chuyển sang Giao Diện Mùa Thu Hoài Niệm!',
-                winter: '❄️ Đã chuyển sang Giao Diện Mùa Đông Tuyết Trắng!'
-            };
-
-            const seasonAccentMap = {
-                spring: '#ec4899',
-                summer: '#10b981',
-                autumn: '#f59e0b',
-                winter: '#3b82f6'
-            };
-
-            seasonBtns.forEach(b => {
-                b.addEventListener('click', () => {
-                    seasonBtns.forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    const season = b.dataset.season;
-                    const accent = seasonAccentMap[season] || '#a855f7';
-                    document.documentElement.style.setProperty('--accent-primary', accent);
-                    showToast(seasonToastMap[season] || '🌸 Đã đổi giao diện mùa!');
-                });
-            });
-        }
-        initSeasonMorph();
-
+        // Pinned-poem banner + System-settings modal: both are built in index.html but their
+        // init calls were dropped during a feature-cleanup refactor, leaving the UI dead. Re-wire.
         initPinnedPoem();
-        initPoetryBadges();
-
-        initSleepSanctuary();
-
         initSystemSettings();
 
     // Run
