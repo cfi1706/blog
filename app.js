@@ -1314,12 +1314,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return getSelectedTtsStyle().rateMul * speedVal;
     }
 
-    let isPoetryRadioActive = false;
-
     function handleTtsFinished() {
         stopTts();
-        if ((isPoetryRadioActive || (ttsAutoplayCheck && ttsAutoplayCheck.checked)) && activePoemIndex < filteredPoemsList.length - 1) {
-            showToast('📻 Đài Thơ Đêm: Đang phát bài tiếp theo...');
+        if (ttsAutoplayCheck && ttsAutoplayCheck.checked && activePoemIndex < filteredPoemsList.length - 1) {
+            showToast('▶️ Tự động phát bài tiếp theo...');
             setTimeout(() => {
                 openReaderModal(activePoemIndex + 1);
                 startTts();
@@ -2029,15 +2027,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast('📋 Đã sao chép toàn bộ bài thơ!');
             });
         }
-        if (modalShareBtn) {
-            modalShareBtn.addEventListener('click', () => {
-                const poem = filteredPoemsList[activePoemIndex];
-                if (!poem) return;
-                const shareUrl = `${window.location.origin}${window.location.pathname}?poem=${poem.id}`;
-                navigator.clipboard.writeText(shareUrl);
-                showToast('🔗 Đã sao chép liên kết bài thơ!');
-            });
-        }
         if (printPoemBtn) {
             printPoemBtn.addEventListener('click', () => {
                 window.print();
@@ -2147,13 +2136,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (exitZenBtn) exitZenBtn.addEventListener('click', disableZenMode);
 
         if (modalShareBtn) {
-            modalShareBtn.addEventListener('click', () => {
+            modalShareBtn.addEventListener('click', async () => {
                 const poem = filteredPoemsList[activePoemIndex];
                 if (!poem) return;
+                // #poem-<id> is the format checkUrlHashForPoem() opens on load.
                 const shareUrl = `${location.origin}${location.pathname}#poem-${poem.id}`;
-                navigator.clipboard.writeText(shareUrl).then(() => {
-                    showToast('🔗 Đã sao chép liên kết trực tiếp bài thơ!');
-                });
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        await navigator.clipboard.writeText(shareUrl);
+                    } else {
+                        throw new Error('clipboard API unavailable');
+                    }
+                    showToast('🔗 Đã sao chép liên kết bài thơ!');
+                } catch (err) {
+                    // Fallback for insecure contexts (e.g. plain http): legacy execCommand copy.
+                    const ta = document.createElement('textarea');
+                    ta.value = shareUrl;
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    let ok = false;
+                    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+                    document.body.removeChild(ta);
+                    showToast(ok ? '🔗 Đã sao chép liên kết bài thơ!' : `🔗 Liên kết: ${shareUrl}`);
+                }
             });
         }
 
@@ -2709,32 +2716,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initCommandPalette();
-        // Poetry Radio (Chill Stream) Logic
-        // ------------------------------------------------------------------
-        function initPoetryRadio() {
-            const poetryRadioBtn = document.getElementById('poetryRadioBtn');
-            const togglePoetryRadioBtn = document.getElementById('togglePoetryRadioBtn');
-
-            function toggleRadio() {
-                isPoetryRadioActive = !isPoetryRadioActive;
-                if (poetryRadioBtn) poetryRadioBtn.classList.toggle('active', isPoetryRadioActive);
-                if (togglePoetryRadioBtn) togglePoetryRadioBtn.classList.toggle('active', isPoetryRadioActive);
-
-                if (isPoetryRadioActive) {
-                    showToast('📻 Đã mở Kênh Đài Thơ Đêm ZzCFIzZ (Chill Stream)');
-                    if (!poemModal.open) openReaderModal(0);
-                    playAmbientSound('rain');
-                    startTts();
-                } else {
-                    showToast('📻 Đã tắt Kênh Đài Thơ Đêm');
-                    stopTts();
-                }
-            }
-
-            if (poetryRadioBtn) poetryRadioBtn.addEventListener('click', toggleRadio);
-            if (togglePoetryRadioBtn) togglePoetryRadioBtn.addEventListener('click', toggleRadio);
-        }
-        initPoetryRadio();
 
         // ------------------------------------------------------------------
         // Amber Night Filter Logic
@@ -3218,51 +3199,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initZenBambooReader();
-        // ------------------------------------------------------------------
-        // FEATURE 5: TẠO VIDEO SHORT 9:16 (AUTO POETRY SHORT GENERATOR)
-        // ------------------------------------------------------------------
-        function initPoetryShortGenerator() {
-            const shortBtn = document.getElementById('poetryShortBtn');
-            const shortModal = document.getElementById('poetryShortModal');
-            const closeShortBtn = document.getElementById('closePoetryShortBtn');
-            const shortPoemTitle = document.getElementById('shortPoemTitle');
-            const shortPoemText = document.getElementById('shortPoemText');
-            const playShortPreviewBtn = document.getElementById('playShortPreviewBtn');
-            const copyShortTextBtn = document.getElementById('copyShortTextBtn');
-
-            if (!shortModal) return;
-
-            if (shortBtn) {
-                shortBtn.addEventListener('click', () => {
-                    const poem = filteredPoemsList[activePoemIndex];
-                    if (!poem) return;
-
-                    if (shortPoemTitle) shortPoemTitle.textContent = poem.title;
-                    if (shortPoemText) shortPoemText.textContent = poem.content_text;
-                    shortModal.showModal();
-                });
-            }
-
-            if (playShortPreviewBtn) {
-                playShortPreviewBtn.addEventListener('click', () => {
-                    startTts();
-                    showToast('🎬 Đang xem trước Video Short 9:16 kèm nhạc nền...');
-                });
-            }
-
-            if (copyShortTextBtn) {
-                copyShortTextBtn.addEventListener('click', () => {
-                    const poem = filteredPoemsList[activePoemIndex];
-                    if (!poem) return;
-                    const textToCopy = `🎬 ZzCFIzZ Poetry Reel:\n📌 ${poem.title}\n\n${poem.content_text}\n\n🇻🇳 Sáng tác bởi Võ Hoàng Thắng`;
-                    navigator.clipboard.writeText(textToCopy);
-                    showToast('📋 Đã sao chép kịch bản Video Short 9:16!');
-                });
-            }
-
-            if (closeShortBtn) closeShortBtn.addEventListener('click', () => shortModal.close());
-        }
-        initPoetryShortGenerator();
 
         // ------------------------------------------------------------------
         // FEATURE 1: DYNAMIC EMOTION AURA BACKGROUND
@@ -3345,83 +3281,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast('📌 Đã ghim bài thơ lên đầu trang chủ!');
             };
         }
-        // ------------------------------------------------------------------
-        function initVoiceRecorder() {
-            const btn = document.getElementById('voiceRecordBtn');
-            const modal = document.getElementById('voiceRecordModal');
-            const closeBtn = document.getElementById('closeVoiceModalBtn');
-            const startBtn = document.getElementById('startRecordBtn');
-            const stopBtn = document.getElementById('stopRecordBtn');
-            const audioPlayer = document.getElementById('recordedAudioPlayer');
-            const statusText = document.getElementById('recordingStatusText');
-            const micStatus = document.getElementById('recordingMicStatus');
-
-            if (!modal) return;
-            let mediaRecorder = null;
-            let audioChunks = [];
-
-            if (btn) btn.addEventListener('click', () => modal.showModal());
-            if (closeBtn) closeBtn.addEventListener('click', () => modal.close());
-
-            if (startBtn) {
-                startBtn.addEventListener('click', async () => {
-                    try {
-                        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                        mediaRecorder = new MediaRecorder(stream);
-                        audioChunks = [];
-
-                        mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
-                        mediaRecorder.onstop = () => {
-                            const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-                            const audioUrl = URL.createObjectURL(audioBlob);
-                            if (audioPlayer) {
-                                audioPlayer.src = audioUrl;
-                                audioPlayer.hidden = false;
-                            }
-                            if (statusText) statusText.textContent = '🎉 Đã thu âm xong! Bấm Play bên dưới để nghe lại.';
-                            if (micStatus) micStatus.style.transform = 'scale(1)';
-                            showToast('🎙️ Đã lưu bản thu âm giọng đọc thơ của bạn!');
-                        };
-
-                        mediaRecorder.start();
-                        startBtn.disabled = true;
-                        if (stopBtn) stopBtn.disabled = false;
-                        if (statusText) statusText.textContent = '🔴 Đang thu âm... Hãy ngâm bài thơ bằng giọng của bạn!';
-                        if (micStatus) micStatus.style.transform = 'scale(1.3)';
-                    } catch (e) {
-                        showToast('⚠️ Vui lòng cấp quyền Micro trên trình duyệt để thu âm!');
-                    }
-                });
-            }
-
-            if (stopBtn) {
-                stopBtn.addEventListener('click', () => {
-                    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-                        mediaRecorder.stop();
-                        if (startBtn) startBtn.disabled = false;
-                        stopBtn.disabled = true;
-                    }
-                });
-            }
-        }
-        initVoiceRecorder();
-        // ------------------------------------------------------------------
-        // FEATURE 3: DUAL-PAGE BOOK READER MODE
-        // ------------------------------------------------------------------
-        function initDualPageMode() {
-            const btn = document.getElementById('dualPageToggleBtn');
-            let isDualPage = false;
-
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    isDualPage = !isDualPage;
-                    const card = document.querySelector('#poemModal .modal-card');
-                    if (card) card.classList.toggle('dual-page-active', isDualPage);
-                    showToast(`📖 Đã ${isDualPage ? 'bật' : 'tắt'} Chế độ Mở Sách Đôi Dual-Page!`);
-                });
-            }
-        }
-        initDualPageMode();
         // ------------------------------------------------------------------
         // FEATURE: BILINGUAL POETRY (VI/EN)
         // ------------------------------------------------------------------

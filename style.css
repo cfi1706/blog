@@ -3217,7 +3217,6 @@ body.zen-mode-active #poemModal .poem-body-text {
 #cmdPaletteBtn    { --btn-accent: #a855f7; }
 #cardSwiperBtn    { --btn-accent: #ec4899; }
 #emotionStatsBtn  { --btn-accent: #10b981; }
-#poetryRadioBtn   { --btn-accent: #f59e0b; }
 #amberFilterBtn   { --btn-accent: #fbbf24; }
 #dailyCalendarBtn { --btn-accent: #eab308; }
 #theaterModeBtn   { --btn-accent: #f43f5e; }
@@ -3226,7 +3225,7 @@ body.zen-mode-active #poemModal .poem-body-text {
 #parchmentToggleBtn{ --btn-accent: #8b5cf6; }
 #systemSettingsBtn{ --btn-accent: #a855f7; }
 
-#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #poetryQuizBtn i, #printPoemBtn i, #parchmentToggleBtn i, #systemSettingsBtn i {
+#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #poetryQuizBtn i, #printPoemBtn i, #parchmentToggleBtn i, #systemSettingsBtn i {
     color: var(--btn-accent);
 }
 
