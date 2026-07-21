@@ -2121,7 +2121,7 @@ dialog::backdrop {
     accent-color: var(--accent-primary);
 }
 
-#ambientToggleBtn.playing {
+#ambientToggleBtn.playing, #dockAudioBtn.playing {
     color: var(--accent-primary);
     animation: pulseGlow 2s infinite alternate;
 }
@@ -3545,6 +3545,49 @@ body.bg-paused .light-orb { animation-play-state: paused; }
     transform: translateX(20px);
 }
 
+/* Universal Custom Toggle Switch Styling for all checkboxes */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 42px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 22px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translateX(20px);
+}
+
+.toggle-switch input {
+    display: none !important;
+}
+
 /* Nightlight Breathing Pulse Animation */
 .nightlight-breathing-overlay:not([hidden]) {
     animation: breathingPulse 8s ease-in-out infinite alternate;
@@ -3604,6 +3647,65 @@ body.bg-paused .light-orb { animation-play-state: paused; }
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Grouped Tools Menu Layout */
+.tools-grouped-menu {
+    width: 680px !important;
+    max-width: 94vw !important;
+    max-height: 82vh !important;
+    overflow-y: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 14px !important;
+}
+
+.tools-group {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.tools-group-full {
+    grid-column: span 2;
+}
+
+.tools-group-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent-primary);
+    padding: 4px 8px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tools-group-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+}
+
+@media (max-width: 680px) {
+    .tools-grouped-menu {
+        grid-template-columns: 1fr !important;
+        width: 330px !important;
+    }
+    .tools-group-full {
+        grid-column: span 1;
+    }
+    .tools-group-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .hdr-menu-item {
