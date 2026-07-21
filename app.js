@@ -2042,21 +2042,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Backdrop Presets
         const backdropPresetSelect = document.getElementById('backdropPresetSelect');
-        const customBackdropInput = document.getElementById('customBackdropInput');
         if (backdropPresetSelect) {
             backdropPresetSelect.addEventListener('change', (e) => {
                 const val = e.target.value;
-                if (val === 'custom' && customBackdropInput) {
-                    customBackdropInput.click();
-                } else if (val !== 'default') {
+                if (val !== 'default') {
                     showToast('🖼️ Đã áp dụng phông nền nghệ thuật!');
-                }
-            });
-        }
-        if (customBackdropInput) {
-            customBackdropInput.addEventListener('change', (e) => {
-                if (e.target.files && e.target.files[0]) {
-                    showToast('🖼️ Đã tải lên phông nền cá nhân thành công!');
                 }
             });
         }
@@ -2943,11 +2933,10 @@ document.addEventListener('DOMContentLoaded', () => {
         initAmberFilter();
 
         // ------------------------------------------------------------------
-        // Backdrop Library & Custom Upload Logic
+        // Backdrop Library Presets
         // ------------------------------------------------------------------
         function initBackdropPresets() {
             const backdropPresetSelect = document.getElementById('backdropPresetSelect');
-            const customBackdropInput = document.getElementById('customBackdropInput');
             const modalCard = poemModal ? poemModal.querySelector('.modal-card') : null;
 
             if (!backdropPresetSelect || !modalCard) return;
@@ -2958,13 +2947,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 rain: 'https://images.unsplash.com/photo-1519692933481-e162a57d6721?q=80&w=1200'
             };
 
-            function applyBackdrop(val, customUrl = null) {
+            function applyBackdrop(val) {
                 if (val === 'default') {
                     modalCard.style.backgroundImage = '';
-                } else if (customUrl) {
-                    modalCard.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("${customUrl}")`;
-                    modalCard.style.backgroundSize = 'cover';
-                    modalCard.style.backgroundPosition = 'center';
                 } else if (presetUrls[val]) {
                     modalCard.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("${presetUrls[val]}")`;
                     modalCard.style.backgroundSize = 'cover';
@@ -2973,27 +2958,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             backdropPresetSelect.addEventListener('change', (e) => {
-                const val = e.target.value;
-                if (val === 'custom') {
-                    if (customBackdropInput) customBackdropInput.click();
-                } else {
-                    applyBackdrop(val);
-                }
+                applyBackdrop(e.target.value);
             });
-
-            if (customBackdropInput) {
-                customBackdropInput.addEventListener('change', (e) => {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            applyBackdrop('custom', event.target.result);
-                            showToast('🖼️ Đã áp dụng hình nền cá nhân của bạn!');
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-            }
         }
         initBackdropPresets();
 
