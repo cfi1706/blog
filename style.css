@@ -1093,6 +1093,13 @@ dialog::backdrop {
     justify-content: flex-end;
 }
 
+/* Show/hide-tools toggle (equalizer button) collapses the reader toolbar row.
+   JS toggles .actions-collapsed on .modal-header; this is the rule that hides it.
+   High specificity + !important to beat the display:flex !important on mobile. */
+.modal-header.actions-collapsed .modal-header-actions {
+    display: none !important;
+}
+
 .font-size-group, .align-group {
     display: inline-flex;
     align-items: center;
@@ -3214,13 +3221,12 @@ body.zen-mode-active #poemModal .poem-body-text {
 #amberFilterBtn   { --btn-accent: #fbbf24; }
 #dailyCalendarBtn { --btn-accent: #eab308; }
 #theaterModeBtn   { --btn-accent: #f43f5e; }
-#glossaryToggleBtn{ --btn-accent: #10b981; }
 #poetryQuizBtn    { --btn-accent: #f43f5e; }
 #printPoemBtn     { --btn-accent: #f59e0b; }
 #parchmentToggleBtn{ --btn-accent: #8b5cf6; }
 #systemSettingsBtn{ --btn-accent: #a855f7; }
 
-#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #glossaryToggleBtn i, #poetryQuizBtn i, #printPoemBtn i, #parchmentToggleBtn i, #systemSettingsBtn i {
+#cmdPaletteBtn i, #cardSwiperBtn i, #emotionStatsBtn i, #poetryRadioBtn i, #amberFilterBtn i, #dailyCalendarBtn i, #theaterModeBtn i, #poetryQuizBtn i, #printPoemBtn i, #parchmentToggleBtn i, #systemSettingsBtn i {
     color: var(--btn-accent);
 }
 
@@ -3275,18 +3281,32 @@ body.zen-mode-active #poemModal .poem-body-text {
     letter-spacing: 0.2px;
 }
 
-.poetry-glossary-highlight {
-    background: rgba(16, 185, 129, 0.15);
-    border-bottom: 1.5px dashed #10b981;
-    color: var(--accent-primary);
-    cursor: help;
-    padding: 0 3px;
-    border-radius: 3px;
-    transition: background 0.2s;
+/* Floating "exit theater" button — only visible while theater mode is active. */
+.exit-theater-btn {
+    display: none;
 }
-
-.poetry-glossary-highlight:hover {
-    background: rgba(16, 185, 129, 0.3);
+.theater-mode-active .exit-theater-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100000;
+    padding: 10px 16px;
+    border-radius: var(--radius-full);
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border-highlight);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-elevated);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+.theater-mode-active .exit-theater-btn:hover {
+    background: var(--bg-hover);
+    transform: scale(1.04);
 }
 
 /* Borderless Theater Mode */

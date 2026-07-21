@@ -3006,13 +3006,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const theaterModeBtn = document.getElementById('theaterModeBtn');
             if (!theaterModeBtn || !poemModal) return;
 
+            function exitTheater() {
+                if (!poemModal.classList.contains('theater-mode-active')) return;
+                poemModal.classList.remove('theater-mode-active');
+                theaterModeBtn.classList.remove('active');
+                showToast('🎭 Đã thoát Chế Độ Rạp Chiếu Thơ');
+            }
+
+            // Theater mode hides the toolbar (incl. this button), so add a floating
+            // exit button — otherwise there's no way back without closing the reader.
+            let exitBtn = poemModal.querySelector('#exitTheaterBtn');
+            if (!exitBtn) {
+                exitBtn = document.createElement('button');
+                exitBtn.id = 'exitTheaterBtn';
+                exitBtn.className = 'exit-theater-btn';
+                exitBtn.title = 'Thoát rạp chiếu thơ (Esc)';
+                exitBtn.innerHTML = '<i class="ri-close-line"></i> Thoát rạp chiếu';
+                exitBtn.addEventListener('click', exitTheater);
+                poemModal.appendChild(exitBtn);
+            }
+
             theaterModeBtn.addEventListener('click', () => {
                 const isTheater = poemModal.classList.toggle('theater-mode-active');
                 theaterModeBtn.classList.toggle('active', isTheater);
-                if (isTheater) {
-                    showToast('🎭 Đã mở Chế Độ Rạp Chiếu Thơ Tràn Màn Hình');
-                } else {
-                    showToast('🎭 Đã thoát Chế Độ Rạp Chiếu Thơ');
+                showToast(isTheater
+                    ? '🎭 Đã mở Chế Độ Rạp Chiếu Thơ Tràn Màn Hình (Esc để thoát)'
+                    : '🎭 Đã thoát Chế Độ Rạp Chiếu Thơ');
+            });
+
+            // In theater mode, Esc exits theater instead of closing the whole reader.
+            poemModal.addEventListener('cancel', (e) => {
+                if (poemModal.classList.contains('theater-mode-active')) {
+                    e.preventDefault();
+                    exitTheater();
                 }
             });
         }
@@ -3047,54 +3073,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         checkBedtimeGreeting();
-        // ------------------------------------------------------------------
-        // Poetry Glossary & Literary Terms
-        // ------------------------------------------------------------------
-        function initPoetryGlossary() {
-            const glossaryToggleBtn = document.getElementById('glossaryToggleBtn');
-            const modalPoemText = document.getElementById('modalPoemText');
-
-            if (!glossaryToggleBtn || !modalPoemText) return;
-
-            const dictionary = {
-                'sương khói': 'Chú giải: Hình ảnh gợi vẻ mơ hồ, hoài niệm và mong manh của không gian thời gian.',
-                'hư không': 'Chú giải: Cõi tĩnh lặng, buông bỏ mọi muộn phiền nơi tâm hồn.',
-                'trùng khơi': 'Chú giải: Biển rộng mênh mông hoặc không gian xa xăm cách trở.',
-                'hoài niệm': 'Chú giải: Cảm xúc nhớ nhung ký ức đẹp trong quá khứ.',
-                'bình yên': 'Chú giải: Trạng thái tâm thanh thản, không gợn sóng lo âu.',
-                'mênh mang': 'Chú giải: Rộng lớn vô cùng, trải dài đến tận chân trời.',
-                'tuổi trẻ': 'Chú giải: Quãng thời gian nhiệt huyết, rực rỡ và đầy hoài bão.'
-            };
-
-            let isGlossaryActive = false;
-
-            glossaryToggleBtn.addEventListener('click', () => {
-                isGlossaryActive = !isGlossaryActive;
-                glossaryToggleBtn.classList.toggle('active', isGlossaryActive);
-
-                if (isGlossaryActive) {
-                    showToast('📜 Đã bật Chú Giải Từ Vựng Thơ (Nhấp từ được gạch chân để xem)');
-                    let textHtml = modalPoemText.innerHTML;
-                    Object.keys(dictionary).forEach(term => {
-                        const regex = new RegExp(`(${term})`, 'gi');
-                        textHtml = textHtml.replace(regex, `<span class="poetry-glossary-highlight" title="${dictionary[term]}">$1</span>`);
-                    });
-                    modalPoemText.innerHTML = textHtml;
-
-                    modalPoemText.querySelectorAll('.poetry-glossary-highlight').forEach(el => {
-                        el.onclick = (e) => {
-                            e.stopPropagation();
-                            showToast(el.title);
-                        };
-                    });
-                } else {
-                    showToast('📜 Đã tắt Chú Giải Từ Vựng Thơ');
-                    const poem = filteredPoemsList[activePoemIndex];
-                    if (poem) openReaderModal(activePoemIndex);
-                }
-            });
-        }
-        initPoetryGlossary();
         // ------------------------------------------------------------------
         // Parchment Paper Texture & Print Poem Layout
         // ------------------------------------------------------------------
