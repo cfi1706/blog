@@ -1,0 +1,15 @@
+node_modules
+venv
+.git
+.github
+.vscode
+.idea
+.cursor
+.gemini
+.qoder
+.kiro
+.codebuddy
+.code-review-graph
+.remember
+.ai
+*.py
