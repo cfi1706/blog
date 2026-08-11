@@ -801,11 +801,12 @@ document.addEventListener('DOMContentLoaded', () => {
             modalPoemText.style.fontFamily = savedFontFamily;
         }
 
-        // Reset header actions collapse state
+        // Apply saved header actions collapse preference
         const modalHeader = document.querySelector('.modal-header');
         const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
-        if (modalHeader) modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
-        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
+        const isHeaderCollapsed = localStorage.getItem('zzcfizz_reader_header_collapsed') === 'true';
+        if (modalHeader) modalHeader.classList.toggle('actions-collapsed', isHeaderCollapsed);
+        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.toggle('active', isHeaderCollapsed);
 
         if (poemModal) {
             if (typeof poemModal.showModal === 'function') {
@@ -2258,6 +2259,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 if (siteHeader) siteHeader.classList.remove('is-condensed');
+                
+                // On Mobile: Condense controlsBar into the floating action button when scrolling down
+                if (currentY > 150 && currentY > lastWinScrollY + 12) {
+                    if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
+                        controlsBar.classList.add('is-collapsed');
+                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.add('is-visible');
+                    }
+                } else if (currentY < lastWinScrollY - 12 || currentY <= 50) {
+                    if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
+                        controlsBar.classList.remove('is-collapsed');
+                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.remove('is-visible');
+                    }
+                }
             }
             lastWinScrollY = currentY;
         }, { passive: true });
@@ -2293,6 +2307,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalHeader.classList.add('actions-manual-toggled');
                 const isCollapsed = modalHeader.classList.toggle('actions-collapsed');
                 toggleModalActionsBtn.classList.toggle('active', isCollapsed);
+                localStorage.setItem('zzcfizz_reader_header_collapsed', isCollapsed ? 'true' : 'false');
+                if (isCollapsed) {
+                    showToast('📐 Đã thu gọn thanh công cụ đọc thơ');
+                } else {
+                    showToast('📖 Đã mở rộng thanh công cụ đọc thơ');
+                }
             });
         }
 
