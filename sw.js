@@ -9,8 +9,8 @@
  * Bump CACHE_VERSION only when the caching logic here changes — content freshness is
  * handled by the strategies above, not by the version string.
  */
-// v5: fixed modalHeader ReferenceError in setupEventListeners.
-const CACHE_VERSION = 'v5';
+// v6: keep poem title and info visible when collapsing header actions.
+const CACHE_VERSION = 'v6';
 const SHELL_CACHE = `zzcfizz-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `zzcfizz-runtime-${CACHE_VERSION}`;
 
