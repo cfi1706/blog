@@ -9,8 +9,8 @@
  * Bump CACHE_VERSION only when the caching logic here changes — content freshness is
  * handled by the strategies above, not by the version string.
  */
-// v4: updated app.js and style.css for keyboard shortcuts, back to top button, and collapse/expand action button.
-const CACHE_VERSION = 'v4';
+// v5: fixed modalHeader ReferenceError in setupEventListeners.
+const CACHE_VERSION = 'v5';
 const SHELL_CACHE = `zzcfizz-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `zzcfizz-runtime-${CACHE_VERSION}`;
 
