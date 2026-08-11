@@ -29,21 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     let favorites = readJson('zzcfizz_favorites', []);
-    let notesData = readJson('zzcfizz_notes', {});
-    let recentlyViewed = readJson('zzcfizz_recents', []);
     let activePoemIndex = 0;
     let filteredPoemsList = [];
     let fontSizePercentage = 100;
     let isTtsPlaying = false;
     let ttsUtterance = null;
+    let ttsHeartbeat = null;
     let isZenMode = false;
     let currentCardStyle = 'midnight';
-
-    // Ambient Audio Synthesizer State
-    let audioCtx = null;
-    let ambientGainNode = null;
-    let ambientNodes = [];
-    let activeAmbientSound = null;
 
     // ----------------------------------------------------------------------
     // DOM Element References
@@ -87,8 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const zenModeBtn = document.getElementById('zenModeBtn');
     const exitZenBtn = document.getElementById('exitZenBtn');
     const quoteCardBtn = document.getElementById('quoteCardBtn');
+    const firstPoemBtn = document.getElementById('firstPoemBtn');
     const prevPoemBtn = document.getElementById('prevPoemBtn');
     const nextPoemBtn = document.getElementById('nextPoemBtn');
+    const lastPoemBtn = document.getElementById('lastPoemBtn');
     const poemCounterText = document.getElementById('poemCounterText');
     const fontFamilySelect = document.getElementById('fontFamilySelect');
     const btnAutoScroll = document.getElementById('btnAutoScroll');
@@ -102,28 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const ttsSpeedSelect = document.getElementById('ttsSpeedSelect');
     const ttsAutoplayCheck = document.getElementById('ttsAutoplayCheck');
 
-    // Ambient Sound Elements
-    const ambientToggleBtn = document.getElementById('ambientToggleBtn');
-    const ambientMenu = document.getElementById('ambientMenu');
-    const ambientStopBtn = document.getElementById('ambientStopBtn');
-    const ambientVolInput = document.getElementById('ambientVolInput');
-
-    // Recently Viewed & Quote Card Modals
-    const recentPoemsBtn = document.getElementById('recentPoemsBtn');
-    const recentModal = document.getElementById('recentModal');
-    const closeRecentModalBtn = document.getElementById('closeRecentModalBtn');
-    const recentListBody = document.getElementById('recentListBody');
-
+    // Quote Card Modal
     const quoteCardModal = document.getElementById('quoteCardModal');
     const closeQuoteModalBtn = document.getElementById('closeQuoteModalBtn');
     const quoteCanvas = document.getElementById('quoteCanvas');
     const quoteLinesSelect = document.getElementById('quoteLinesSelect');
     const downloadCardBtn = document.getElementById('downloadCardBtn');
     const cardThemeGrid = document.getElementById('cardThemeGrid');
-
-    // Interactive elements inside modal
-    const poemNoteInput = document.getElementById('poemNoteInput');
-    const saveNoteBtn = document.getElementById('saveNoteBtn');
 
     // AI Poetry Bot Elements
     const headerBotBtn = document.getElementById('headerBotBtn');
@@ -192,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme Switcher
     // ----------------------------------------------------------------------
     function applyTheme(themeName) {
-        [...document.body.classList].forEach(c => {
+        Array.from(document.body.classList).forEach(c => {
             if (c.startsWith('theme-')) document.body.classList.remove(c);
         });
         document.body.classList.add(themeName);
@@ -278,13 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return [];
     }
 
-    function isVoDePoem(p) {
-        if (!p) return false;
-        if (p.slug && p.slug.startsWith('vo-de')) return true;
-        if (p.title && p.title.toLowerCase().includes('vô đề')) return true;
-        return false;
-    }
-
     function updateCategoryCounts() {
         const poems = getPoemsData();
         if (!poems || poems.length === 0) return;
@@ -361,11 +334,14 @@ document.addEventListener('DOMContentLoaded', () => {
             scoredList.sort((a, b) => b.score - a.score);
             list = scoredList.map(item => item.poem);
         } else {
-            // Default Sort when no search query
+            // Default Sort when no search query.
+            // Cache each poem's parsed timestamp — sorting parses O(n log n)
+            // date strings otherwise, on every filter/render.
+            const ts = (p) => p._ts !== undefined ? p._ts : (p._ts = Date.parse(p.date) || 0);
             if (currentSort === 'newest') {
-                list.sort((a, b) => new Date(b.date) - new Date(a.date));
+                list.sort((a, b) => ts(b) - ts(a));
             } else if (currentSort === 'oldest') {
-                list.sort((a, b) => new Date(a.date) - new Date(b.date));
+                list.sort((a, b) => ts(a) - ts(b));
             } else if (currentSort === 'title-asc') {
                 list.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'vi'));
             }
@@ -381,14 +357,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (poemsSection) poemsSection.hidden = false;
 
         filteredPoemsList = getFilteredPoems();
+        // Guard once: the batch renderer below appends to poemsGrid, so a
+        // half-guarded null would still throw at appendChild time.
+        if (!poemsGrid) return;
         poemsGrid.className = `poems-grid ${currentView}-view`;
         poemsGrid.innerHTML = '';
 
         if (filteredPoemsList.length === 0) {
-            emptyState.hidden = false;
+            if (emptyState) emptyState.hidden = false;
             return;
         }
-        emptyState.hidden = true;
+        if (emptyState) emptyState.hidden = true;
 
         // Render initial batch (12 cards) immediately for instantaneous LCP (<0.3s)
         const INITIAL_BATCH = 12;
@@ -482,13 +461,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgEl = card.querySelector('img');
         if (imgEl) {
             imgEl.onerror = () => {
-                // Thumb missing? fall back to the full image before the placeholder.
+                // Thumb missing? fall back to the full image, then hide the media
+                // box entirely (no placeholder file exists to substitute).
                 if (imgSrc && imgEl.src.includes('.thumb.webp')) {
                     imgEl.src = imgSrc;
                     return;
                 }
-                imgEl.src = 'test_img.webp';
-                imgEl.classList.add('img-loaded');
+                const media = imgEl.closest('.card-media');
+                if (media) media.style.display = 'none';
             };
             if (imgEl.complete) {
                 imgEl.classList.add('img-loaded');
@@ -497,13 +477,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const verseCount = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0).length : 0;
-        const estSeconds = Math.max(20, Math.round(verseCount * 4));
-        const estText = estSeconds < 60 ? `⚡ ${estSeconds}s` : `📜 ${Math.round(estSeconds / 60)} phút`;
-        const timeBadge = card.querySelector('.card-date');
-        if (timeBadge) {
-            timeBadge.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; ${estText} (${verseCount} câu)`;
-        }
         const favBtn = card.querySelector('.card-fav-btn');
         if (favBtn) {
             favBtn.addEventListener('click', (e) => {
@@ -555,53 +528,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalFavBtn.querySelector('i').className = isFav ? 'ri-heart-fill' : 'ri-heart-line';
             }
         }
-    }
-
-    // ----------------------------------------------------------------------
-    // Recently Viewed History
-    // ----------------------------------------------------------------------
-    function addRecentlyViewed(poemId) {
-        recentlyViewed = recentlyViewed.filter(id => id !== poemId);
-        recentlyViewed.unshift(poemId);
-        if (recentlyViewed.length > 15) recentlyViewed = recentlyViewed.slice(0, 15);
-        localStorage.setItem('zzcfizz_recents', JSON.stringify(recentlyViewed));
-    }
-
-    function renderRecentlyViewedModal() {
-        recentListBody.innerHTML = '';
-        const allPoems = getPoemsData();
-        const recentPoems = recentlyViewed.map(id => allPoems.find(p => p.id === id)).filter(Boolean);
-
-        if (recentPoems.length === 0) {
-            recentListBody.innerHTML = '<p style="text-align:center; color:var(--text-muted); padding:20px;">Bạn chưa đọc bài thơ nào gần đây.</p>';
-            return;
-        }
-
-        recentPoems.forEach(poem => {
-            const item = document.createElement('div');
-            item.className = 'recent-poem-item';
-            item.innerHTML = `
-                <div>
-                    <h4 class="recent-item-title">${poem.title}</h4>
-                    <span class="recent-item-date">${poem.date_formatted}</span>
-                </div>
-                <i class="ri-arrow-right-s-line" style="color:var(--accent-primary);"></i>
-            `;
-            item.addEventListener('click', () => {
-                recentModal.close();
-                const idx = filteredPoemsList.findIndex(p => p.id === poem.id);
-                if (idx !== -1) {
-                    openReaderModal(idx);
-                } else {
-                    currentFilter = 'all';
-                    document.querySelectorAll('.pill-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
-                    renderPoems();
-                    const newIdx = filteredPoemsList.findIndex(p => p.id === poem.id);
-                    if (newIdx !== -1) openReaderModal(newIdx);
-                }
-            });
-            recentListBody.appendChild(item);
-        });
     }
 
     // ----------------------------------------------------------------------
@@ -696,7 +622,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!poem) return;
         activePoemIndex = index;
 
-        addRecentlyViewed(poem.id);
         updateUrlHash(poem.id);
 
         if (modalTitle) {
@@ -766,8 +691,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     img.className = 'img-lazy';
                     img.title = 'Nhấp để xem ảnh phóng to';
                     img.onerror = () => {
-                        img.src = 'test_img.webp';
-                        img.classList.add('img-loaded');
+                        // No placeholder file exists — hide the broken image instead.
+                        img.style.display = 'none';
                     };
                     if (img.complete) {
                         img.classList.add('img-loaded');
@@ -791,16 +716,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (poemCounterText) poemCounterText.textContent = `${index + 1} / ${filteredPoemsList.length}`;
+        if (firstPoemBtn) firstPoemBtn.disabled = index <= 0;
         if (prevPoemBtn) prevPoemBtn.disabled = index <= 0;
         if (nextPoemBtn) nextPoemBtn.disabled = index >= filteredPoemsList.length - 1;
-
-        // Load Reactions & Notes for this poem
-        loadPoemReactionsAndNote(poem.id);
+        if (lastPoemBtn) lastPoemBtn.disabled = index >= filteredPoemsList.length - 1;
 
         stopTts();
         stopAutoScroll();
         populateTtsVoices();
-        autoPlayMoodSoundForPoem(poem);
         updateEmotionAura(poem);
 
         // Restore saved font family
@@ -829,9 +752,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function closeReaderModal() {
+    // All teardown lives here (idempotent) and is bound to the dialog's 'close'
+    // event, so every close path runs it — close button, backdrop click AND Esc,
+    // which previously bypassed cleanup and left TTS playing + the #poem- hash set.
+    function onReaderModalClosed() {
         stopTts();
-        stopAmbientSound(); // Auto-stop background music on modal close
         stopAutoScroll();
         disableZenMode();
         updateUrlHash(null);
@@ -840,15 +765,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
         if (modalHeader) modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
         if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
+    }
+    if (poemModal) poemModal.addEventListener('close', onReaderModalClosed);
 
-        if (poemModal) {
-            try {
-                if (typeof poemModal.close === 'function') {
-                    poemModal.close();
-                }
-            } catch (e) {}
-            poemModal.removeAttribute('open');
-        }
+    function closeReaderModal() {
+        if (!poemModal) return;
+        try {
+            if (typeof poemModal.close === 'function' && poemModal.open) {
+                poemModal.close(); // fires 'close' -> onReaderModalClosed
+                return;
+            }
+        } catch (e) {}
+        // Fallback for browsers without <dialog> support.
+        poemModal.removeAttribute('open');
+        onReaderModalClosed();
     }
 
     // ----------------------------------------------------------------------
@@ -876,284 +806,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // Personal Notes Logic
-    // ----------------------------------------------------------------------
-    function loadPoemReactionsAndNote(poemId) {
-        if (poemNoteInput) {
-            poemNoteInput.value = notesData[poemId] || '';
-        }
-    }
 
-    if (saveNoteBtn && poemNoteInput) {
-        saveNoteBtn.addEventListener('click', () => {
-            const poem = filteredPoemsList[activePoemIndex];
-            if (!poem) return;
-
-            notesData[poem.id] = poemNoteInput.value;
-            localStorage.setItem('zzcfizz_notes', JSON.stringify(notesData));
-            showToast('💾 Đã lưu ghi chú cá nhân của bạn!');
-        });
-    }
-
-    // ----------------------------------------------------------------------
-    // Web Audio API Synth Ambient Sound Engine
-    // ----------------------------------------------------------------------
-    function initAudioContext() {
-        if (!audioCtx) {
-            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-            audioCtx = new AudioContextClass();
-            ambientGainNode = audioCtx.createGain();
-            const vol = ambientVolInput ? parseFloat(ambientVolInput.value) : 0.4;
-            ambientGainNode.gain.setValueAtTime(vol, audioCtx.currentTime);
-            ambientGainNode.connect(audioCtx.destination);
-        }
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-    }
-
-    function stopAmbientSound() {
-        ambientNodes.forEach(node => {
-            try {
-                if (node.stop) node.stop();
-                if (node.disconnect) node.disconnect();
-            } catch (e) {}
-        });
-        ambientNodes = [];
-        activeAmbientSound = null;
-        if (ambientToggleBtn) ambientToggleBtn.classList.remove('playing');
-        const dockAudioBtn = document.getElementById('dockAudioBtn');
-        if (dockAudioBtn) dockAudioBtn.classList.remove('playing');
-        const miniPlayer = document.getElementById('floatingAudioMiniPlayer');
-        if (miniPlayer) miniPlayer.hidden = true;
-        document.querySelectorAll('.ambient-option').forEach(b => b.classList.remove('active'));
-    }
-
-    function playAmbientSound(type) {
-        if (activeAmbientSound === type) {
-            stopAmbientSound();
-            showToast('🔇 Đã tắt âm thanh thư giãn');
-            return;
-        }
-        initAudioContext();
-        stopAmbientSound();
-
-        activeAmbientSound = type;
-        if (ambientToggleBtn) ambientToggleBtn.classList.add('playing');
-        const dockAudioBtn = document.getElementById('dockAudioBtn');
-        if (dockAudioBtn) dockAudioBtn.classList.add('playing');
-
-        const ambientNames = {
-            'rain': '🌧️ Tiếng Mưa Rơi',
-            'waves': '🌊 Sóng Biển Vỗ',
-            'pad': '🍃 Gió Trầm Lắng',
-            'lofi': '🎧 Chill Lo-Fi Synth',
-            'piano': '🎹 Piano Trầm Lắng',
-            'guzheng': '🎼 Tiếng Đàn Tranh'
-        };
-
-        const miniPlayer = document.getElementById('floatingAudioMiniPlayer');
-        const miniPlayerTitle = document.getElementById('miniPlayerTitle');
-        if (miniPlayer) {
-            miniPlayer.hidden = false;
-            if (miniPlayerTitle) miniPlayerTitle.textContent = ambientNames[type] || 'Đang phát âm thanh...';
-        }
-
-        const optBtn = document.querySelector(`.ambient-option[data-sound="${type}"]`);
-        if (optBtn) optBtn.classList.add('active');
-
-        // Check 8D Spatial Audio mode
-        const isSpatial = document.getElementById('spatial8dCheck')?.checked;
-        let destNode = ambientGainNode;
-
-        if (isSpatial && ('createStereoPanner' in audioCtx)) {
-            const panner = audioCtx.createStereoPanner();
-            const lfo = audioCtx.createOscillator();
-            const lfoGain = audioCtx.createGain();
-
-            lfo.frequency.setValueAtTime(0.08, audioCtx.currentTime); // 8D swirl
-            lfoGain.gain.setValueAtTime(0.85, audioCtx.currentTime);
-
-            lfo.connect(lfoGain);
-            lfoGain.connect(panner.pan);
-
-            panner.connect(ambientGainNode);
-            lfo.start();
-            ambientNodes.push(lfo, lfoGain, panner);
-            destNode = panner;
-        }
-
-        const bufferSize = audioCtx.sampleRate * 2;
-        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-            output[i] = Math.random() * 2 - 1;
-        }
-
-        const whiteNoise = audioCtx.createBufferSource();
-        whiteNoise.buffer = noiseBuffer;
-        whiteNoise.loop = true;
-
-        if (type === 'rain') {
-            const filter = audioCtx.createBiquadFilter();
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(1000, audioCtx.currentTime);
-
-            whiteNoise.connect(filter);
-            filter.connect(destNode);
-            whiteNoise.start();
-            ambientNodes.push(whiteNoise, filter);
-            showToast('🌧️ Đã bật âm thanh tiếng mưa rơi' + (isSpatial ? ' (8D Spatial)' : ''));
-        } else if (type === 'waves') {
-            const filter = audioCtx.createBiquadFilter();
-            filter.type = 'lowpass';
-            filter.frequency.setValueAtTime(400, audioCtx.currentTime);
-
-            const lfo = audioCtx.createOscillator();
-            lfo.frequency.setValueAtTime(0.15, audioCtx.currentTime);
-            const lfoGain = audioCtx.createGain();
-            lfoGain.gain.setValueAtTime(300, audioCtx.currentTime);
-
-            lfo.connect(lfoGain);
-            lfoGain.connect(filter.frequency);
-
-            whiteNoise.connect(filter);
-            filter.connect(destNode);
-            whiteNoise.start();
-            lfo.start();
-            ambientNodes.push(whiteNoise, filter, lfo, lfoGain);
-            showToast('🌊 Đã bật âm thanh sóng biển vỗ' + (isSpatial ? ' (8D Spatial)' : ''));
-        } else if (type === 'pad') {
-            const osc1 = audioCtx.createOscillator();
-            const osc2 = audioCtx.createOscillator();
-            const padFilter = audioCtx.createBiquadFilter();
-
-            osc1.type = 'sine';
-            osc1.frequency.setValueAtTime(220, audioCtx.currentTime);
-
-            osc2.type = 'sine';
-            osc2.frequency.setValueAtTime(329.63, audioCtx.currentTime);
-
-            padFilter.type = 'lowpass';
-            padFilter.frequency.setValueAtTime(600, audioCtx.currentTime);
-
-            osc1.connect(padFilter);
-            osc2.connect(padFilter);
-            padFilter.connect(destNode);
-
-            osc1.start();
-            osc2.start();
-            ambientNodes.push(osc1, osc2, padFilter);
-            showToast('🍃 Đã bật âm thanh gió trầm lắng' + (isSpatial ? ' (8D Spatial)' : ''));
-        } else if (type === 'lofi') {
-            const freqs = [130.81, 164.81, 196.00, 246.94];
-            const lofiFilter = audioCtx.createBiquadFilter();
-            lofiFilter.type = 'lowpass';
-            lofiFilter.frequency.setValueAtTime(450, audioCtx.currentTime);
-
-            freqs.forEach(f => {
-                const osc = audioCtx.createOscillator();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
-                osc.connect(lofiFilter);
-                osc.start();
-                ambientNodes.push(osc);
-            });
-
-            lofiFilter.connect(destNode);
-            ambientNodes.push(lofiFilter);
-            showToast('🎹 Đã bật nhạc nền Chill Lo-Fi Synth' + (isSpatial ? ' (8D Spatial)' : ''));
-        } else if (type === 'piano') {
-            const pianoNotes = [261.63, 329.63, 392.00, 493.88];
-            const pianoFilter = audioCtx.createBiquadFilter();
-            pianoFilter.type = 'lowpass';
-            pianoFilter.frequency.setValueAtTime(800, audioCtx.currentTime);
-
-            pianoNotes.forEach((f, idx) => {
-                const osc = audioCtx.createOscillator();
-                const noteGain = audioCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
-
-                noteGain.gain.setValueAtTime(0.15, audioCtx.currentTime + idx * 0.2);
-                noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 3.0 + idx * 0.2);
-
-                osc.connect(noteGain);
-                noteGain.connect(pianoFilter);
-                osc.start();
-                ambientNodes.push(osc, noteGain);
-            });
-
-            pianoFilter.connect(destNode);
-            ambientNodes.push(pianoFilter);
-            showToast('🎼 Đã bật giai điệu Đàn Piano Trầm Lắng' + (isSpatial ? ' (8D Spatial)' : ''));
-        } else if (type === 'guzheng') {
-            const guzhengNotes = [293.66, 329.63, 392.00, 440.00, 493.88];
-            const guzhengFilter = audioCtx.createBiquadFilter();
-            guzhengFilter.type = 'bandpass';
-            guzhengFilter.frequency.setValueAtTime(1200, audioCtx.currentTime);
-
-            guzhengNotes.forEach((f, idx) => {
-                const osc = audioCtx.createOscillator();
-                const noteGain = audioCtx.createGain();
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
-
-                noteGain.gain.setValueAtTime(0.12, audioCtx.currentTime + idx * 0.3);
-                noteGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5 + idx * 0.3);
-
-                osc.connect(noteGain);
-                noteGain.connect(guzhengFilter);
-                osc.start();
-                ambientNodes.push(osc, noteGain);
-            });
-
-            guzhengFilter.connect(destNode);
-            ambientNodes.push(guzhengFilter);
-            showToast('🪕 Đã bật tiếng Đàn Tranh Hoài Cổ' + (isSpatial ? ' (8D Spatial)' : ''));
-        }
-    }
-
-    const MOOD_KEYWORDS = {
-        'mood-peace': ['bình yên', 'nhẹ', 'sáng', 'mây', 'hoa', 'nắng', 'nghe', 'xanh', 'gió', 'yên', 'ru'],
-        'mood-deep': ['đêm', 'sâu', 'mơ', 'lời', 'tâm', 'ngẫm', 'trầm', 'bóng', 'trăng', 'lặng', 'vô đề'],
-        'mood-nostalgia': ['hoài niệm', 'nhớ', 'xưa', 'qua', 'thời', 'kỷ niệm', 'chiều', 'thu', 'xa', 'về'],
-        'mood-lonely': ['cô đơn', 'lẻ loi', 'mưa', 'lạnh', 'buồn', 'vắng', 'một mình', 'sương', 'tan'],
-        'mood-hope': ['hi vọng', 'tương lai', 'sống', 'yêu', 'ấm', 'mặt trời', 'ngày mai', 'vui', 'xanh']
-    };
-
-    function matchesMood(poem, moodKey) {
-        const keywords = MOOD_KEYWORDS[moodKey] || [];
-        const text = ((poem.title || '') + ' ' + (poem.content_text || '')).toLowerCase();
-        return keywords.some(kw => text.includes(kw));
-    }
-
-    function autoPlayMoodSoundForPoem(poem) {
-        const autoCheck = document.getElementById('autoMoodSoundCheck');
-        if (autoCheck && !autoCheck.checked) return;
-
-        let soundType = 'pad';
-        let soundName = 'Gió Trầm Lắng';
-
-        if (matchesMood(poem, 'mood-nostalgia')) {
-            soundType = 'rain';
-            soundName = 'Tiếng Mưa Rơi';
-        } else if (matchesMood(poem, 'mood-lonely')) {
-            soundType = 'waves';
-            soundName = 'Sóng Biển Vỗ';
-        } else if (matchesMood(poem, 'mood-deep')) {
-            soundType = 'pad';
-            soundName = 'Nhạc Nhè Nhẹ';
-        } else if (matchesMood(poem, 'mood-peace')) {
-            soundType = 'pad';
-            soundName = 'Gió Trầm Lắng';
-        }
-
-        if (activeAmbientSound !== soundType) {
-            playAmbientSound(soundType);
-            showToast(`🎵 Đã phối âm thanh [${soundName}] phù hợp với bài thơ`);
-        }
-    }
 
     // ----------------------------------------------------------------------
     // Seamless Expressive Poetry TTS Engine with Speed & Autoplay
@@ -1161,7 +814,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let ttsQueue = [];
     let ttsQueueIndex = 0;
     let ttsAudioInstance = null;
-    let ttsPreloadedAudio = null;
 
     function cleanTextForTts(text) {
         if (!text) return '';
@@ -1303,6 +955,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (selectedVoice) {
             showToast(`🔊 Đọc bài thơ bằng giọng ${selectedVoice.name}...`);
+            // Chrome watchdog silently stops speechSynthesis after ~15s.
+            // Nudge it alive with a periodic pause/resume while speaking.
+            if (ttsHeartbeat) clearInterval(ttsHeartbeat);
+            ttsHeartbeat = setInterval(() => {
+                if (!isTtsPlaying) return;
+                if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.pause();
+                    window.speechSynthesis.resume();
+                }
+            }, 10000);
             speakNextWebSpeech(selectedVoice);
         } else {
             showToast('🔊 Đọc bài thơ bằng Giọng Nói AI Tiếng Việt...');
@@ -1339,7 +1001,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function speakNextWebSpeech(viVoice) {
-        if (!isTtsPlaying || ttsQueueIndex >= ttsQueue.length) {
+        // Stopped by the user (e.g. between onend and the deferred setTimeout
+        // below): bail silently. Only a naturally exhausted queue may reach
+        // handleTtsFinished(), which can autoplay the next poem.
+        if (!isTtsPlaying) return;
+        if (ttsQueueIndex >= ttsQueue.length) {
             handleTtsFinished();
             return;
         }
@@ -1361,7 +1027,9 @@ document.addEventListener('DOMContentLoaded', () => {
         ttsUtterance.onend = () => {
             if (!isTtsPlaying) return;
             ttsQueueIndex++;
-            speakNextWebSpeech(viVoice);
+            // Defer out of onend: calling speak() synchronously inside onend
+            // makes Chrome's engine stall after a few utterances.
+            setTimeout(() => speakNextWebSpeech(viVoice), 0);
         };
 
         ttsUtterance.onerror = (e) => {
@@ -1382,7 +1050,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playNextAudioStream() {
-        if (!isTtsPlaying || ttsQueueIndex >= ttsQueue.length) {
+        if (!isTtsPlaying) return; // stopped by the user — no autoplay
+        if (ttsQueueIndex >= ttsQueue.length) {
             handleTtsFinished();
             return;
         }
@@ -1429,6 +1098,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function stopTts() {
+        if (ttsHeartbeat) {
+            clearInterval(ttsHeartbeat);
+            ttsHeartbeat = null;
+        }
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
         }
@@ -1437,11 +1110,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ttsAudioInstance.currentTime = 0;
             ttsAudioInstance = null;
         }
-        if (ttsPreloadedAudio) {
-            ttsPreloadedAudio.pause();
-            ttsPreloadedAudio = null;
-        }
-
         highlightActiveLine(-1);
 
         isTtsPlaying = false;
@@ -1856,44 +1524,54 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupEventListeners() {
         // Search Input (debounced render; button state stays instant)
         let searchDebounce = null;
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value;
-            clearSearchBtn.hidden = searchQuery.length === 0;
-            clearTimeout(searchDebounce);
-            searchDebounce = setTimeout(renderPoems, 150);
-        });
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                if (clearSearchBtn) clearSearchBtn.hidden = searchQuery.length === 0;
+                clearTimeout(searchDebounce);
+                searchDebounce = setTimeout(renderPoems, 150);
+            });
+        }
 
-        clearSearchBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            searchQuery = '';
-            clearSearchBtn.hidden = true;
-            renderPoems();
-        });
+        if (clearSearchBtn) {
+            clearSearchBtn.addEventListener('click', () => {
+                if (searchInput) searchInput.value = '';
+                searchQuery = '';
+                clearSearchBtn.hidden = true;
+                renderPoems();
+            });
+        }
 
-        resetFilterBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            searchQuery = '';
-            currentFilter = 'all';
-            document.querySelectorAll('.pill-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
-            clearSearchBtn.hidden = true;
-            renderPoems();
-        });
+        if (resetFilterBtn) {
+            resetFilterBtn.addEventListener('click', () => {
+                if (searchInput) searchInput.value = '';
+                searchQuery = '';
+                currentFilter = 'all';
+                document.querySelectorAll('.pill-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+                if (clearSearchBtn) clearSearchBtn.hidden = true;
+                renderPoems();
+            });
+        }
 
         // Category Pills & Mood Filters
-        categoryPills.addEventListener('click', (e) => {
-            const btn = e.target.closest('.pill-btn');
-            if (!btn) return;
-            document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentFilter = btn.dataset.filter;
-            renderPoems();
-        });
+        if (categoryPills) {
+            categoryPills.addEventListener('click', (e) => {
+                const btn = e.target.closest('.pill-btn');
+                if (!btn) return;
+                document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderPoems();
+            });
+        }
 
         // Sort Select
-        sortSelect.addEventListener('change', (e) => {
-            currentSort = e.target.value;
-            renderPoems();
-        });
+        if (sortSelect) {
+            sortSelect.addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                renderPoems();
+            });
+        }
 
         // View Mode Switcher
         viewButtons.forEach(btn => {
@@ -1930,7 +1608,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const toolsMenu = document.getElementById('toolsMenu');
         const headerMenus = [
             [toolsToggleBtn, toolsMenu],
-            [ambientToggleBtn, ambientMenu],
             [themeToggleBtn, themeMenu],
         ];
         function syncMenuAria() {
@@ -1953,7 +1630,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Theme / Settings Dropdown
-        themeToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(themeMenu); });
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(themeMenu); });
+        }
 
         themeOptions.forEach(opt => {
             opt.addEventListener('click', (e) => {
@@ -1963,11 +1642,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 syncMenuAria();
             });
         });
-
-        // Ambient Sound Controls
-        if (ambientToggleBtn) {
-            ambientToggleBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleHeaderMenu(ambientMenu); });
-        }
 
         // Generic dropdowns for the poem-detail toolbar (data-dd="panelId").
         // Mutually exclusive; closes on outside-click or after an action item.
@@ -2004,80 +1678,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // (mode*Btn, fontAlign*, btnFont*) don't exist in HTML. Live controls use
         // .align-btn (data-align), #fontIncBtn/#fontDecBtn, and the amber filter btn.
 
-        // Font Family Select
-        const fontFamilySelect = document.getElementById('fontFamilySelect');
-        if (fontFamilySelect && modalPoemText) {
-            fontFamilySelect.addEventListener('change', (e) => {
-                const font = e.target.value;
-                modalPoemText.style.fontFamily = font;
-                localStorage.setItem('zzcfizz_font_family', font);
-                showToast(`🔤 Đã đổi phông chữ!`);
-            });
-        }
 
-        // Backdrop Presets
-        const backdropPresetSelect = document.getElementById('backdropPresetSelect');
-        if (backdropPresetSelect) {
-            backdropPresetSelect.addEventListener('change', (e) => {
-                const val = e.target.value;
-                if (val !== 'default') {
-                    showToast('🖼️ Đã áp dụng phông nền nghệ thuật!');
-                }
-            });
-        }
-
-        // Copy, Share, Print Actions
-        const modalCopyBtn = document.getElementById('modalCopyBtn');
-        const modalShareBtn = document.getElementById('modalShareBtn');
-        const printPoemBtn = document.getElementById('printPoemBtn');
-
-        if (modalCopyBtn) {
-            modalCopyBtn.addEventListener('click', () => {
-                const poem = filteredPoemsList[activePoemIndex];
-                if (!poem) return;
-                const fullContent = `${poem.title}\n\n${poem.content_text}\n\n— Võ Hoàng Thắng (ZzCFIzZ)`;
-                navigator.clipboard.writeText(fullContent);
-                showToast('📋 Đã sao chép toàn bộ bài thơ!');
-            });
-        }
-        if (printPoemBtn) {
-            printPoemBtn.addEventListener('click', () => {
-                window.print();
-            });
-        }
-
-        if (ambientStopBtn) {
-            ambientStopBtn.addEventListener('click', () => {
-                stopAmbientSound();
-                showToast('🔇 Đã tắt âm thanh thư giãn');
-            });
-        }
-
-        document.querySelectorAll('.ambient-option').forEach(opt => {
-            opt.addEventListener('click', () => {
-                const soundType = opt.dataset.sound;
-                playAmbientSound(soundType);
-            });
-        });
-
-        if (ambientVolInput) {
-            ambientVolInput.addEventListener('input', (e) => {
-                if (ambientGainNode && audioCtx) {
-                    ambientGainNode.gain.setValueAtTime(parseFloat(e.target.value), audioCtx.currentTime);
-                }
-            });
-        }
-
-        // Recently Viewed Modal Events
-        if (recentPoemsBtn) {
-            recentPoemsBtn.addEventListener('click', () => {
-                renderRecentlyViewedModal();
-                if (recentModal && !recentModal.open) recentModal.showModal();
-            });
-        }
-        if (closeRecentModalBtn) {
-            closeRecentModalBtn.addEventListener('click', () => recentModal.close());
-        }
 
         // Quote Card Modal Events
         if (quoteCardBtn) {
@@ -2202,9 +1803,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (themeMenu && !e.target.closest('.theme-dropdown-container')) {
                 themeMenu.hidden = true;
             }
-            if (ambientMenu && !e.target.closest('.ambient-dropdown-container')) {
-                ambientMenu.hidden = true;
-            }
             if (toolsMenu && !e.target.closest('.hdr-dd')) {
                 toolsMenu.hidden = true;
             }
@@ -2219,49 +1817,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeReaderModal();
             });
         }
-        poemModal.addEventListener('click', (e) => {
-            if (e.target === poemModal) closeReaderModal();
-        });
+        if (poemModal) {
+            poemModal.addEventListener('click', (e) => {
+                if (e.target === poemModal) closeReaderModal();
+            });
+        }
 
-        fontDecBtn.addEventListener('click', () => {
-            if (fontSizePercentage > 70) {
-                fontSizePercentage -= 10;
-                modalPoemText.style.fontSize = `${fontSizePercentage}%`;
-                fontSizeDisplay.textContent = `${fontSizePercentage}%`;
-            }
-        });
+        if (fontDecBtn) {
+            fontDecBtn.addEventListener('click', () => {
+                if (fontSizePercentage > 70) {
+                    fontSizePercentage -= 10;
+                    if (modalPoemText) modalPoemText.style.fontSize = `${fontSizePercentage}%`;
+                    if (fontSizeDisplay) fontSizeDisplay.textContent = `${fontSizePercentage}%`;
+                }
+            });
+        }
 
-        fontIncBtn.addEventListener('click', () => {
-            if (fontSizePercentage < 160) {
-                fontSizePercentage += 10;
-                modalPoemText.style.fontSize = `${fontSizePercentage}%`;
-                fontSizeDisplay.textContent = `${fontSizePercentage}%`;
-            }
-        });
+        if (fontIncBtn) {
+            fontIncBtn.addEventListener('click', () => {
+                if (fontSizePercentage < 160) {
+                    fontSizePercentage += 10;
+                    if (modalPoemText) modalPoemText.style.fontSize = `${fontSizePercentage}%`;
+                    if (fontSizeDisplay) fontSizeDisplay.textContent = `${fontSizePercentage}%`;
+                }
+            });
+        }
 
         alignBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 alignBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                modalPoemText.className = `poem-body-text align-${btn.dataset.align}`;
+                if (modalPoemText) modalPoemText.className = `poem-body-text align-${btn.dataset.align}`;
             });
         });
 
-        modalFavBtn.addEventListener('click', (e) => {
-            const poem = filteredPoemsList[activePoemIndex];
-            if (poem) toggleFavorite(poem.id, e);
-        });
-
-        modalCopyBtn.addEventListener('click', () => {
-            const poem = filteredPoemsList[activePoemIndex];
-            if (!poem) return;
-            const copyText = `« ${poem.title} »\n\n${poem.content_text}\n\n— Nguồn: https://zzcfizz.blog/#poem-${poem.id}`;
-            navigator.clipboard.writeText(copyText).then(() => {
-                showToast('📋 Đã sao chép bài thơ kèm định dạng!');
+        if (modalFavBtn) {
+            modalFavBtn.addEventListener('click', (e) => {
+                const poem = filteredPoemsList[activePoemIndex];
+                if (poem) toggleFavorite(poem.id, e);
             });
-        });
+        }
 
-        ttsPlayBtn.addEventListener('click', toggleTts);
+        if (modalCopyBtn) {
+            modalCopyBtn.addEventListener('click', () => {
+                const poem = filteredPoemsList[activePoemIndex];
+                if (!poem) return;
+                const copyText = `« ${poem.title} »\n\n${poem.content_text}\n\n— Võ Hoàng Thắng (ZzCFIzZ)\nhttps://zzcfizz.blog/#poem-${poem.id}`;
+                navigator.clipboard.writeText(copyText).then(() => {
+                    showToast('📋 Đã sao chép toàn bộ bài thơ!');
+                });
+            });
+        }
+
+        if (ttsPlayBtn) {
+            ttsPlayBtn.addEventListener('click', toggleTts);
+        }
 
         if (ttsVoiceSelect) {
             ttsVoiceSelect.addEventListener('change', (e) => {
@@ -2278,13 +1888,31 @@ document.addEventListener('DOMContentLoaded', () => {
             window.speechSynthesis.onvoiceschanged = populateTtsVoices;
         }
 
-        prevPoemBtn.addEventListener('click', () => {
-            openReaderModal(activePoemIndex - 1);
-        });
+        if (firstPoemBtn) {
+            firstPoemBtn.addEventListener('click', () => {
+                openReaderModal(0);
+                showToast('⏮️ Bài thơ đầu tiên');
+            });
+        }
 
-        nextPoemBtn.addEventListener('click', () => {
-            openReaderModal(activePoemIndex + 1);
-        });
+        if (prevPoemBtn) {
+            prevPoemBtn.addEventListener('click', () => {
+                openReaderModal(activePoemIndex - 1);
+            });
+        }
+
+        if (nextPoemBtn) {
+            nextPoemBtn.addEventListener('click', () => {
+                openReaderModal(activePoemIndex + 1);
+            });
+        }
+
+        if (lastPoemBtn) {
+            lastPoemBtn.addEventListener('click', () => {
+                openReaderModal(filteredPoemsList.length - 1);
+                showToast('⏭️ Bài thơ cuối cùng');
+            });
+        }
 
         // ------------------------------------------------------------------
         // Touch Swipe Left / Right Gesture Navigation for Mobile Reader
@@ -2335,43 +1963,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // ------------------------------------------------------------------
-        // Sleep Timer Logic & Continue Reading Check
+        // Continue Reading Check
         // ------------------------------------------------------------------
-        let sleepTimerInterval = null;
-
-        function startSleepTimer(minutes) {
-            if (sleepTimerInterval) clearInterval(sleepTimerInterval);
-            if (minutes <= 0) {
-                showToast('⏰ Đã tắt hẹn giờ');
-                return;
-            }
-
-            const targetTime = Date.now() + minutes * 60 * 1000;
-            showToast(`⏰ Đã hẹn giờ tắt sau ${minutes} phút`);
-
-            sleepTimerInterval = setInterval(() => {
-                const remaining = targetTime - Date.now();
-                if (remaining <= 0) {
-                    clearInterval(sleepTimerInterval);
-                    sleepTimerInterval = null;
-                    stopTts();
-                    stopAmbientSound();
-                    showToast('⏰ Đã hết giờ hẹn giờ! Chúc bạn ngủ ngon 🌙');
-                    const timerSel = document.getElementById('sleepTimerSelect');
-                    if (timerSel) timerSel.value = '0';
-                }
-            }, 5000);
-        }
-
-        const sleepTimerSelect = document.getElementById('sleepTimerSelect');
-        if (sleepTimerSelect) {
-            sleepTimerSelect.addEventListener('change', (e) => {
-                startSleepTimer(parseInt(e.target.value, 10));
-            });
-        }
-
         function checkContinueReadingBanner() {
-            const lastId = localStorage.getItem('zzcfizz_last_read_poem_id');
+            // localStorage stores strings; poem ids are numbers — parse before comparing.
+            const lastId = parseInt(localStorage.getItem('zzcfizz_last_read_poem_id'), 10);
             const continueBanner = document.getElementById('continueReadingBanner');
             const continueTitle = document.getElementById('continuePoemTitle');
             const continueBtn = document.getElementById('continueReadingBtn');
@@ -2485,10 +2081,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Lightbox Close
-        closeLightboxBtn.addEventListener('click', () => lightboxModal.close());
-        lightboxModal.addEventListener('click', (e) => {
-            if (e.target === lightboxModal) lightboxModal.close();
-        });
+        if (closeLightboxBtn && lightboxModal) {
+            closeLightboxBtn.addEventListener('click', () => lightboxModal.close());
+        }
+        if (lightboxModal) {
+            lightboxModal.addEventListener('click', (e) => {
+                if (e.target === lightboxModal) lightboxModal.close();
+            });
+        }
     }
 
     // ----------------------------------------------------------------------
@@ -2496,20 +2096,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     function setupKeyboardShortcuts() {
         document.addEventListener('keydown', (e) => {
-            // Ctrl+K to search
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                searchInput.focus();
-            }
+            // Ctrl+K opens the command palette (handled in initCommandPalette).
 
             // Esc to exit Zen mode
             if (e.key === 'Escape' && isZenMode) {
                 disableZenMode();
             }
 
-            // Keyboard navigation inside poem modal
-            if (poemModal.open && !isZenMode) {
-                if (e.key === 'ArrowLeft' && activePoemIndex > 0) {
+            // Keyboard navigation inside poem modal.
+            // Skip keys aimed at form controls (voice/speed/font selects,
+            // sliders): Home/End/arrows must keep their native behavior there.
+            const inFormControl = e.target && e.target.closest
+                && e.target.closest('input, textarea, select');
+            if (poemModal.open && !isZenMode && !inFormControl) {
+                if (e.key === 'Home' || (e.shiftKey && e.key === 'ArrowLeft')) {
+                    e.preventDefault();
+                    openReaderModal(0);
+                    showToast('⏮️ Bài thơ đầu tiên');
+                } else if (e.key === 'End' || (e.shiftKey && e.key === 'ArrowRight')) {
+                    e.preventDefault();
+                    openReaderModal(filteredPoemsList.length - 1);
+                    showToast('⏭️ Bài thơ cuối cùng');
+                } else if (e.key === 'ArrowLeft' && activePoemIndex > 0) {
                     openReaderModal(activePoemIndex - 1);
                 } else if (e.key === 'ArrowRight' && activePoemIndex < filteredPoemsList.length - 1) {
                     openReaderModal(activePoemIndex + 1);
@@ -2519,14 +2127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
         // ------------------------------------------------------------------
-        // E-Book PDF Exporter & Time Capsule Logic
+        // E-Book PDF Exporter
         // ------------------------------------------------------------------
         const exportPdfBtn = document.getElementById('exportPdfBtn');
         if (exportPdfBtn) {
             exportPdfBtn.addEventListener('click', exportPoetryEBookPdf);
         }
-
-        initTimeCapsule();
 
         function exportPoetryEBookPdf() {
             const allPoems = getPoemsData();
@@ -2603,62 +2209,10 @@ document.addEventListener('DOMContentLoaded', () => {
             printWin.document.close();
         }
 
-        function initTimeCapsule() {
-            const timeCapsuleBtn = document.getElementById('timeCapsuleBtn');
-            const timeCapsuleModal = document.getElementById('timeCapsuleModal');
-            const closeTimeCapsuleBtn = document.getElementById('closeTimeCapsuleBtn');
-            const saveCapsuleBtn = document.getElementById('saveCapsuleBtn');
-            const capsulePoemSelect = document.getElementById('capsulePoemSelect');
-            const capsuleNoteInput = document.getElementById('capsuleNoteInput');
-            const capsuleDurationSelect = document.getElementById('capsuleDurationSelect');
-
-            if (!timeCapsuleModal) return;
-
-            if (timeCapsuleBtn) {
-                timeCapsuleBtn.addEventListener('click', () => {
-                    const allPoems = getPoemsData();
-                    if (capsulePoemSelect) {
-                        capsulePoemSelect.innerHTML = allPoems.map(p => `<option value="${p.id}">${p.title}</option>`).join('');
-                    }
-                    if (timeCapsuleModal && !timeCapsuleModal.open) timeCapsuleModal.showModal();
-                });
-            }
-
-            if (closeTimeCapsuleBtn) {
-                closeTimeCapsuleBtn.addEventListener('click', () => timeCapsuleModal.close());
-            }
-
-            if (saveCapsuleBtn) {
-                saveCapsuleBtn.addEventListener('click', () => {
-                    const poemId = capsulePoemSelect.value;
-                    const note = capsuleNoteInput.value.trim();
-                    const months = parseInt(capsuleDurationSelect.value, 10) || 6;
-                    const targetDate = Date.now() + (months * 30 * 24 * 3600 * 1000);
-
-                    const capsules = readJson('zzcfizz_time_capsules', []);
-                    capsules.push({ poemId, note, targetDate, createdAt: Date.now() });
-                    localStorage.setItem('zzcfizz_time_capsules', JSON.stringify(capsules));
-
-                    timeCapsuleModal.close();
-                    showToast(`💌 Hộp thư tương lai đã được niêm phong! Hẹn gặp lại bạn sau ${months} tháng.`);
-                });
-            }
-
-            // Check matured time capsules
-            const capsules = readJson('zzcfizz_time_capsules', []);
-            const matured = capsules.filter(c => Date.now() >= c.targetDate && !c.opened);
-            if (matured.length > 0) {
-                setTimeout(() => {
-                    showToast(`💌 Bạn có ${matured.length} Hộp Thư Tương Lai đã đến thời gian mở!`);
-                }, 2000);
-            }
-        }
-
         // ------------------------------------------------------------------
         // Command Palette (Ctrl + K)
         // ------------------------------------------------------------------
         function initCommandPalette() {
-            const cmdPaletteBtn = document.getElementById('cmdPaletteBtn');
             const commandPaletteModal = document.getElementById('commandPaletteModal');
             const cmdInput = document.getElementById('cmdInput');
             const cmdResultsList = document.getElementById('cmdResultsList');
@@ -2707,14 +2261,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (idx !== -1) openReaderModal(idx);
                     };
                     cmdResultsList.appendChild(div);
-                });
-            }
-
-            if (cmdPaletteBtn) {
-                cmdPaletteBtn.addEventListener('click', () => {
-                    renderCmdList('');
-                    commandPaletteModal.showModal();
-                    cmdInput.focus();
                 });
             }
 
@@ -2797,65 +2343,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initBackdropPresets();
-        // ------------------------------------------------------------------
-        // Mouse Cursor Trail Canvas
-        // ------------------------------------------------------------------
-        // Only on hover-capable (desktop) devices with motion enabled — a
-        // cursor trail is pointless on touch and wastes battery.
-        const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-        const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function initMouseCursorTrail() {
-            const canvas = document.getElementById('cursorTrailCanvas');
-            if (!canvas || !canHover || !motionOK) return;
-            const ctx = canvas.getContext('2d');
-            let width = canvas.width = window.innerWidth;
-            let height = canvas.height = window.innerHeight;
-
-            window.addEventListener('resize', () => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            }, { passive: true });
-
-            const particles = [];
-            let rafId = null;
-
-            function renderTrail() {
-                ctx.clearRect(0, 0, width, height);
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color + p.life + ')';
-                    ctx.fill();
-
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.life -= 0.03;
-
-                    if (p.life <= 0) particles.splice(i, 1);
-                }
-                // Idle the loop when nothing to draw — no wasted frames.
-                rafId = particles.length ? requestAnimationFrame(renderTrail) : null;
-            }
-
-            window.addEventListener('mousemove', (e) => {
-                if (canvas.hidden) return; // trail toggled off in Settings — no particles, loop idles
-                for (let i = 0; i < 2; i++) {
-                    particles.push({
-                        x: e.clientX,
-                        y: e.clientY,
-                        r: Math.random() * 3 + 1,
-                        vx: (Math.random() - 0.5) * 1.5,
-                        vy: (Math.random() - 0.5) * 1.5,
-                        life: 1.0,
-                        color: `hsla(${Math.random() * 60 + 260}, 80%, 70%, `
-                    });
-                }
-                if (!rafId) rafId = requestAnimationFrame(renderTrail);
-            }, { passive: true });
-        }
-        initMouseCursorTrail();
 
         // ------------------------------------------------------------------
         // Top Reading Progress Bar Logic
@@ -2907,59 +2394,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initTimeOfDayAmbiance();
 
-        // ------------------------------------------------------------------
-        // Window Raindrop Visual FX
-        // ------------------------------------------------------------------
-        function initWeatherFx() {
-            const canvas = document.getElementById('weatherFxCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let width = canvas.width = window.innerWidth;
-            let height = canvas.height = window.innerHeight;
-
-            const drops = Array.from({ length: 40 }, () => ({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                len: Math.random() * 20 + 10,
-                speed: Math.random() * 8 + 4,
-                opacity: Math.random() * 0.4 + 0.1
-            }));
-
-            function renderRain() {
-                if (activeAmbientSound === 'rain') {
-                    canvas.hidden = false;
-                    ctx.clearRect(0, 0, width, height);
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-                    ctx.lineWidth = 1;
-
-                    drops.forEach(d => {
-                        ctx.beginPath();
-                        ctx.moveTo(d.x, d.y);
-                        ctx.lineTo(d.x - 2, d.y + d.len);
-                        ctx.stroke();
-
-                        d.y += d.speed;
-                        d.x -= 0.5;
-
-                        if (d.y > height) {
-                            d.y = -d.len;
-                            d.x = Math.random() * width;
-                        }
-                    });
-                    requestAnimationFrame(renderRain);
-                } else {
-                    // Rain off: clear once, hide, and poll cheaply instead of
-                    // burning a full-screen canvas clear at 60fps forever.
-                    if (!canvas.hidden) {
-                        ctx.clearRect(0, 0, width, height);
-                        canvas.hidden = true;
-                    }
-                    setTimeout(renderRain, 500);
-                }
-            }
-            renderRain();
-        }
-        initWeatherFx();
         // Spacebar shortcut for Hands-Free TTS & Auto-Scroll
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space' && poemModal && poemModal.open && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
@@ -2970,32 +2404,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // ------------------------------------------------------------------
-        // 3D Card Parallax Tilt & Theater Mode Logic
+        // Theater Mode Logic
         // ------------------------------------------------------------------
-        function initCardParallaxTilt() {
-            if (!canHover || !motionOK) return; // no tilt on touch / reduced-motion
-            let tiltTicking = false;
-            let lastCard = null;
-            document.addEventListener('mousemove', (e) => {
-                if (tiltTicking) return;
-                tiltTicking = true;
-                requestAnimationFrame(() => {   // one layout read per frame, not per pixel
-                    const card = e.target.closest && e.target.closest('.poem-card');
-                    if (card) {
-                        const rect = card.getBoundingClientRect();
-                        const x = e.clientX - rect.left - rect.width / 2;
-                        const y = e.clientY - rect.top - rect.height / 2;
-                        card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) scale(1.02)`;
-                        lastCard = card;
-                    } else if (lastCard) {
-                        lastCard.style.transform = ''; // reset when cursor leaves any card
-                        lastCard = null;
-                    }
-                    tiltTicking = false;
-                });
-            }, { passive: true });
-        }
-        initCardParallaxTilt();
 
         function initTheaterMode() {
             const theaterModeBtn = document.getElementById('theaterModeBtn');
@@ -3040,25 +2450,8 @@ document.addEventListener('DOMContentLoaded', () => {
         initTheaterMode();
 
         // ------------------------------------------------------------------
-        // Nightlight Breathing Mode, Bedtime Greeting & Quick Dock
+        // Bedtime Greeting
         // ------------------------------------------------------------------
-        function initNightlightMode() {
-            const nightlightCheck = document.getElementById('nightlightCheck');
-            const nightlightOverlay = document.getElementById('nightlightOverlay');
-
-            if (!nightlightCheck || !nightlightOverlay) return;
-
-            nightlightCheck.addEventListener('change', (e) => {
-                nightlightOverlay.hidden = !e.target.checked;
-                if (e.target.checked) {
-                    showToast('🕯️ Đã bật Chế Độ Đèn Ngủ Nhịp Thở Thư Giãn');
-                } else {
-                    showToast('☀️ Đã tắt Chế Độ Đèn Ngủ');
-                }
-            });
-        }
-        initNightlightMode();
-
         function checkBedtimeGreeting() {
             const hour = new Date().getHours();
             if (hour >= 22 || hour < 5) {
@@ -3141,17 +2534,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         el.style.display = isEnabled ? '' : 'none';
                     });
                 }
-
-                if (key === 'quick_dock') {
-                    const dock = document.getElementById('quickDockContainer');
-                    if (dock) dock.style.display = isEnabled ? '' : 'none';
-                } else if (key === 'cursor_trail') {
-                    const canvas = document.getElementById('cursorTrailCanvas');
-                    if (canvas) canvas.hidden = !isEnabled;
-                } else if (key === 'weather_fx') {
-                    const canvas = document.getElementById('weatherFxCanvas');
-                    if (canvas && !isEnabled) canvas.hidden = true;
-                }
             }
 
             if (systemSettingsBtn) {
@@ -3200,21 +2582,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         // ------------------------------------------------------------------
-        // FEATURE 1: THI CỤ CHIẾU TRÚC ZEN READER & SÁO TRÚC
-        // ------------------------------------------------------------------
-        function initZenBambooReader() {
-            const zenBambooBtn = document.getElementById('zenBambooBtn');
-            if (!zenBambooBtn) return;
-
-            zenBambooBtn.addEventListener('click', () => {
-                document.body.classList.toggle('theme-paper');
-                showToast('🎋 Đã kích hoạt không gian Thi Cụ Chiếu Trúc Zen Reader!');
-                playAmbientSound('waves'); // Plays calming flute/wave background sound
-            });
-        }
-        initZenBambooReader();
-
-        // ------------------------------------------------------------------
         // FEATURE 1: DYNAMIC EMOTION AURA BACKGROUND
         // ------------------------------------------------------------------
         function updateEmotionAura(poem) {
@@ -3259,7 +2626,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const unpinBtn = document.getElementById('unpinPoemBtn');
 
             function renderPinnedBanner() {
-                const pinnedId = localStorage.getItem('zzcfizz_pinned_poem_id');
+                // localStorage stores strings; poem ids are numbers — parse before comparing.
+                const pinnedId = parseInt(localStorage.getItem('zzcfizz_pinned_poem_id'), 10);
                 if (!pinnedId || !banner) {
                     if (banner) banner.hidden = true;
                     return;
@@ -3370,11 +2738,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         initOledNightMode();
-        // These feature-modals start ambient audio but their close-button never stopped it,
-        // and Esc/backdrop closes bypass any handler. Stop audio on the native 'close' event (fires for all paths).
 
-        // Pinned-poem banner + System-settings modal: both are built in index.html but their
-        // init calls were dropped during a feature-cleanup refactor, leaving the UI dead. Re-wire.
         initPinnedPoem();
         initSystemSettings();
 

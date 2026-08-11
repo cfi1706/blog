@@ -1,0 +1,18 @@
+{
+  "scanned": "2026-08-11",
+  "framework": "vanilla HTML/CSS/JS (Cloudflare Workers static assets)",
+  "fonts": {
+    "body_serif": "Lora (+ Cormorant Garamond, Playfair Display fallbacks)",
+    "heading": "Playfair Display",
+    "sans": "Plus Jakarta Sans",
+    "loading": "Google Fonts, split critical/lazy (index.html L15-27); reader picker fonts lazy-injected (app.js ensurePickerFonts)"
+  },
+  "palette": {
+    "format": "hex + color-mix(oklab) custom properties",
+    "themes": ["theme-midnight (default)", "theme-dark", "theme-paper", "theme-nordic", "+ oled true-black override"],
+    "location": "style.css :root + per-theme blocks"
+  },
+  "motion": "motion-cut (no motion library; hand-rolled CSS transitions with named cubic-beziers incl. one bounce)",
+  "spacing": "no --space-* scale; radii tokens only (--radius-sm..full); paddings hard-coded",
+  "notes": "10-theme engine, accent-hued shadows, SW-cached PWA, 169 poems, Vietnamese content"
+}

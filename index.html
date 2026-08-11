@@ -27,20 +27,13 @@
     <noscript><link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"></noscript>
     
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="tokens.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-midnight">
-    <!-- Nightlight Breathing Overlay -->
-    <div id="nightlightOverlay" class="nightlight-breathing-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99997; background: rgba(245, 158, 11, 0.12); backdrop-filter: sepia(0.2);" hidden></div>
-
-    <!-- Weather Raindrop FX Canvas -->
-    <canvas id="weatherFxCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99998;" hidden></canvas>
-
     <!-- Top Gradient Reading Progress Bar -->
-    <div id="topReadingProgressBar" class="top-gradient-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3.5px; background: linear-gradient(90deg, #a855f7, #f59e0b, #ec4899); z-index: 100000; transition: width 0.1s ease-out; box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);"></div>
+    <div id="topReadingProgressBar" class="top-gradient-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent-primary); z-index: 600; transition: width 0.1s linear;"></div>
 
-    <!-- Mouse Cursor Trail Canvas -->
-    <canvas id="cursorTrailCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99999;"></canvas>
 
     <script>
         // Apply saved theme before paint to avoid flash (FOUC).
@@ -75,7 +68,6 @@
                 <button id="clearSearchBtn" class="clear-search-btn" title="Xóa tìm kiếm" hidden>
                     <i class="ri-close-line"></i>
                 </button>
-                <kbd class="search-kbd">Ctrl K</kbd>
             </div>
 
             <!-- Header Right Controls -->
@@ -94,91 +86,6 @@
                     </div>
                 </div>
 
-                <!-- Ambient Sound Dropdown -->
-                <div class="ambient-dropdown-container">
-                    <button id="ambientToggleBtn" class="btn btn-outline hdr-dd-btn" aria-expanded="false" title="Âm thanh thư giãn (Ambient Sounds)">
-                        <i class="ri-sound-module-line"></i> <span class="hdr-dd-label">Âm thanh</span> <i class="ri-arrow-down-s-line dd-caret"></i>
-                    </button>
-                    <div id="ambientMenu" class="ambient-menu" hidden>
-                        <div class="ambient-menu-header">
-                            <span><i class="ri-headphone-line"></i> Âm Thanh Thư Giãn</span>
-                            <button id="ambientStopBtn" class="btn-sm-text">Tắt</button>
-                        </div>
-                        <div class="ambient-options">
-                            <button data-sound="rain" class="ambient-option">
-                                <i class="ri-rainy-line"></i> Tiếng Mưa Rơi
-                            </button>
-                            <button data-sound="waves" class="ambient-option">
-                                <i class="ri-water-flash-line"></i> Sóng Biển Vỗ
-                            </button>
-                            <button data-sound="pad" class="ambient-option">
-                                <i class="ri-space-ship-line"></i> Gió Trầm Lắng
-                            </button>
-                            <button data-sound="lofi" class="ambient-option">
-                                <i class="ri-music-2-line"></i> Chill Lo-Fi Synth
-                            </button>
-                            <button data-sound="piano" class="ambient-option">
-                                <i class="ri-music-fill"></i> Đàn Piano Trầm Lắng
-                            </button>
-                            <button data-sound="guzheng" class="ambient-option">
-                                <i class="ri-music-2-fill"></i> Tiếng Đàn Tranh
-                            </button>
-                        </div>
-                        <div class="ambient-vol-control">
-                            <i class="ri-volume-down-line"></i>
-                            <input type="range" id="ambientVolInput" min="0" max="1" step="0.05" value="0.4" title="Âm lượng">
-                            <i class="ri-volume-up-line"></i>
-                        </div>
-                        <div class="multi-mixer-container" style="padding: 8px 12px; border-top: 1px solid var(--border-color); margin-top: 6px;">
-                            <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">🎛️ Bộ Trộn Âm Ambient</span>
-                            <div style="margin-top: 6px; display: flex; flex-direction: column; gap: 4px;">
-                                <label style="font-size: 11px; display: flex; align-items: center; justify-content: space-between; color: var(--text-muted);">
-                                    <span>🌧️ Mưa</span>
-                                    <input type="range" id="volRainInput" min="0" max="1" step="0.05" value="0.5" style="width: 80px; accent-color: var(--accent-primary);">
-                                </label>
-                                <label style="font-size: 11px; display: flex; align-items: center; justify-content: space-between; color: var(--text-muted);">
-                                    <span>🌊 Sóng</span>
-                                    <input type="range" id="volWavesInput" min="0" max="1" step="0.05" value="0.3" style="width: 80px; accent-color: var(--accent-primary);">
-                                </label>
-                                <label style="font-size: 11px; display: flex; align-items: center; justify-content: space-between; color: var(--text-muted);">
-                                    <span>🍃 Gió</span>
-                                    <input type="range" id="volPadInput" min="0" max="1" step="0.05" value="0.2" style="width: 80px; accent-color: var(--accent-primary);">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="auto-mood-wrapper" style="padding: 8px 12px 4px; border-top: 1px solid var(--border-color); margin-top: 6px; display: flex; align-items: center; justify-content: space-between;">
-                            <span style="font-size: 11.5px; color: var(--text-secondary);">🎵 Phối nhạc theo Mood thơ</span>
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="autoMoodSoundCheck" checked>
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-                        <div class="sleep-timer-wrapper" style="padding: 6px 12px 8px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
-                            <span style="font-size: 11.5px; color: var(--text-secondary);"><i class="ri-timer-flash-line"></i> Hẹn giờ tắt:</span>
-                            <select id="sleepTimerSelect" class="custom-styled-select" style="padding: 2px 20px 2px 6px; font-size: 11px;">
-                                <option value="0">Tắt</option>
-                                <option value="15">15 phút</option>
-                                <option value="30">30 phút</option>
-                                <option value="45">45 phút</option>
-                            </select>
-                        </div>
-                        <div class="spatial-8d-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
-                            <span style="font-size: 11.5px; color: var(--text-secondary);" title="Âm thanh xoay tròn 360° qua tai nghe">🎧 Âm Thanh 8D Không Gian</span>
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="spatial8dCheck">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-                        <div class="nightlight-wrapper" style="padding: 4px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 4px; display: flex; align-items: center; justify-content: space-between;">
-                            <span style="font-size: 11.5px; color: var(--text-secondary);" title="Ánh sáng cam dịu xung nhịp thở thư giãn">🕯️ Đèn Ngủ Nhịp Thở Thư Giãn</span>
-                            <label class="toggle-switch">
-                                <input type="checkbox" id="nightlightCheck">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="theme-dropdown-container">
                     <button id="themeToggleBtn" class="btn btn-outline hdr-dd-btn" aria-expanded="false" title="Giao diện & Cài đặt">
                         <i class="ri-settings-4-line"></i> <span class="hdr-dd-label">Cài đặt</span> <i class="ri-arrow-down-s-line dd-caret"></i>
@@ -187,12 +94,30 @@
                         <button id="systemSettingsBtn" class="hdr-menu-item"><i class="ri-settings-4-line"></i> Cài đặt hệ thống</button>
                         <button id="amberFilterBtn" class="hdr-menu-item"><i class="ri-contrast-drop-line"></i> Bộ lọc đêm dịu mắt</button>
                         <div style="border-top: 1px solid var(--border-color); margin: 6px 0;"></div>
-                        <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 4px 6px; display: block;">🎨 Giao diện</span>
+                        <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 4px 6px; display: block;">🎨 Giao diện & Chủ đề</span>
                         <button data-set-theme="theme-midnight" class="theme-option active">
                             <span class="theme-dot midnight"></span> Đêm Huyền Diệu (Midnight)
                         </button>
                         <button data-set-theme="theme-dark" class="theme-option">
                             <span class="theme-dot dark"></span> Than Tối (Charcoal)
+                        </button>
+                        <button data-set-theme="theme-emerald" class="theme-option">
+                            <span class="theme-dot emerald" style="background: #10b981;"></span> Mộng Ngọc Bích (Emerald)
+                        </button>
+                        <button data-set-theme="theme-rose" class="theme-option">
+                            <span class="theme-dot rose" style="background: #f43f5e;"></span> Midnight Rose (Tím Hồng)
+                        </button>
+                        <button data-set-theme="theme-sunset" class="theme-option">
+                            <span class="theme-dot sunset" style="background: #f59e0b;"></span> Sunset Amber (Hổ Phách)
+                        </button>
+                        <button data-set-theme="theme-sepia" class="theme-option">
+                            <span class="theme-dot sepia" style="background: #b45309;"></span> Sách Cổ Sepia (Vintage)
+                        </button>
+                        <button data-set-theme="theme-cyber" class="theme-option">
+                            <span class="theme-dot cyber" style="background: #06b6d4;"></span> Neon Cyber (Indigo)
+                        </button>
+                        <button data-set-theme="theme-cypress" class="theme-option">
+                            <span class="theme-dot cypress" style="background: #84cc16;"></span> Zen Cypress (Trầm Trà)
                         </button>
                         <button data-set-theme="theme-paper" class="theme-option">
                             <span class="theme-dot paper"></span> Giấy Cổ Điển (Warm Paper)
@@ -200,15 +125,6 @@
                         <button data-set-theme="theme-nordic" class="theme-option">
                             <span class="theme-dot nordic"></span> Sáng Thanh Lịch (Nordic)
                         </button>
-                        <div class="accent-picker-wrapper" style="padding: 8px 12px 6px; border-top: 1px solid var(--border-color); margin-top: 6px;">
-                            <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">🎨 Màu Điểm Nhấn Accent</span>
-                            <div class="accent-dots-grid" style="display: flex; gap: 8px; margin-top: 6px; justify-content: space-around;">
-                                <button class="accent-dot-btn" data-accent="#a855f7" style="background: #a855f7; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Tím Thơ Mộng"></button>
-                                <button class="accent-dot-btn" data-accent="#f59e0b" style="background: #f59e0b; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Vàng Hổ Phách"></button>
-                                <button class="accent-dot-btn" data-accent="#10b981" style="background: #10b981; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Xanh Ngọc Bích"></button>
-                                <button class="accent-dot-btn" data-accent="#ec4899" style="background: #ec4899; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer;" title="Hồng Anh Đào"></button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -229,6 +145,12 @@
             <button id="continueReadingBtn" class="btn btn-sm btn-primary">
                 <i class="ri-arrow-right-line"></i> Đọc Tiếp
             </button>
+        </div>
+
+        <!-- Collection head — the grid is the page; the head is one honest line -->
+        <div class="collection-head">
+            <h1 class="collection-title">Thơ Võ Hoàng Thắng</h1>
+            <p class="collection-meta">169 bài thơ · 2015 – 2026 · viết và tự thiết kế</p>
         </div>
 
         <!-- Filter & View Bar -->
@@ -297,18 +219,12 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <i class="ri-quill-pen-line"></i> ZzCFIzZ Poetry Collection
-            </div>
-            <p class="footer-credit" style="font-size: 14.5px; font-weight: 600; color: var(--text-primary); margin-top: 6px;">
-                🇻🇳 Tác giả: Võ Hoàng Thắng
-            </p>
-            <p class="footer-credit" style="font-size: 12.5px; color: var(--text-secondary); margin-top: 4px;">
-                Sáng tác & Thiết kế giao diện • Trải nghiệm đọc thơ nghệ thuật tối ưu
-            </p>
+    <!-- Footer — Ft5 Statement: closes with the author's own line -->
+    <footer class="site-footer foot-stmt">
+        <p class="foot-stmt__line">“Bình yên tìm thấy giữa hư không.”</p>
+        <div class="foot-stmt__meta">
+            <span class="foot-stmt__wordmark">ZzCFIzZ — Võ Hoàng Thắng</span>
+            <span class="foot-stmt__muted">© 2026 · 169 bài thơ</span>
         </div>
     </footer>
 
@@ -335,21 +251,27 @@
 
                     <!-- Header Top Buttons Group -->
                     <div class="modal-top-btns">
-                        <button id="prevPoemBtn" class="nav-icon-btn" title="Bài trước (Mũi tên trái ◄)">
+                        <button id="firstPoemBtn" class="nav-icon-btn first-btn" title="Bài đầu tiên (Home / Shift + ◄)">
+                            <i class="ri-skip-back-line"></i>
+                        </button>
+                        <button id="prevPoemBtn" class="nav-icon-btn prev-btn" title="Bài trước (Mũi tên trái ◄)">
                             <i class="ri-arrow-left-s-line"></i>
                         </button>
-                        <span id="poemCounterText" class="poem-counter-badge">1 / 124</span>
-                        <button id="nextPoemBtn" class="nav-icon-btn" title="Bài tiếp theo (Mũi tên phải ►)">
+                        <span id="poemCounterText" class="poem-counter-badge">1 / 169</span>
+                        <button id="nextPoemBtn" class="nav-icon-btn next-btn" title="Bài tiếp theo (Mũi tên phải ►)">
                             <i class="ri-arrow-right-s-line"></i>
                         </button>
+                        <button id="lastPoemBtn" class="nav-icon-btn last-btn" title="Bài cuối cùng (End / Shift + ►)">
+                            <i class="ri-skip-forward-line"></i>
+                        </button>
                         <div class="header-divider-v"></div>
-                        <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="❤️ Yêu Thích: Lưu bài thơ vào bộ sưu tập yêu thích">
+                        <button id="modalFavBtn" class="tool-btn icon-badge-btn fav-btn" title="❤️ Yêu Thích">
                             <i class="ri-heart-line"></i>
                         </button>
-                        <button id="toggleModalActionsBtn" class="modal-actions-toggle-btn" title="Hiện/Ẩn công cụ">
+                        <button id="toggleModalActionsBtn" class="modal-actions-toggle-btn settings-btn" title="🎛️ Công cụ & Tùy chỉnh">
                             <i class="ri-equalizer-line"></i>
                         </button>
-                        <button id="closeModalBtn" class="modal-close-btn" title="Đóng cửa sổ (Esc)">
+                        <button id="closeModalBtn" class="modal-close-btn close-btn" title="✕ Đóng cửa sổ (Esc)">
                             <i class="ri-close-line"></i>
                         </button>
                     </div>
@@ -457,21 +379,6 @@
                 <div class="modal-images-container" id="modalImagesContainer">
                     <!-- Images embedded here -->
                 </div>
-
-                <!-- Personal Notes Section -->
-                <div class="poem-interactive-section">
-
-                    <!-- Personal Note Expandable Box -->
-                    <details class="personal-note-details">
-                        <summary class="personal-note-summary">
-                            <i class="ri-edit-line"></i> Ghi chú & Cảm nhận cá nhân
-                        </summary>
-                        <div class="personal-note-box">
-                            <textarea id="poemNoteInput" placeholder="Viết vài dòng cảm nghĩ hoặc ghi chú của bạn cho bài thơ này..." rows="3"></textarea>
-                            <button id="saveNoteBtn" class="btn btn-sm btn-primary">Lưu Ghi Chú</button>
-                        </div>
-                    </details>
-                </div>
             </div>
 
 
@@ -543,20 +450,6 @@
         </div>
     </dialog>
 
-    <!-- RECENTLY VIEWED MODAL -->
-    <dialog id="recentModal" class="recent-modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-card recent-dialog">
-            <header class="modal-header">
-                <h3><i class="ri-history-line"></i> Bài Thơ Vừa Đọc Gần Đây</h3>
-                <button id="closeRecentModalBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
-            </header>
-            <div class="recent-list-body" id="recentListBody">
-                <!-- Recent poem list items rendered here -->
-            </div>
-        </div>
-    </dialog>
-
     <!-- IMAGE LIGHTBOX MODAL -->
     <dialog id="lightboxModal" class="lightbox-modal">
         <div class="lightbox-content">
@@ -623,26 +516,6 @@
     <button id="backToTopBtn" class="back-to-top-btn" title="Về đầu trang" hidden>
         <i class="ri-arrow-up-line"></i>
     </button>
-
-    <!-- FLOATING GLASS MINI PLAYER DOCK -->
-    <div id="floatingAudioMiniPlayer" class="floating-mini-player" hidden>
-        <div class="equalizer-wave">
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-        </div>
-        <div class="mini-player-info">
-            <span id="miniPlayerTitle" class="mini-title">Đang phát âm thanh...</span>
-        </div>
-        <button id="miniPlayerPlayBtn" class="btn-mini-control" title="Phát/Tạm dừng">
-            <i class="ri-pause-circle-fill"></i>
-        </button>
-        <button id="miniPlayerCloseBtn" class="btn-mini-control" title="Tắt Mini Player">
-            <i class="ri-close-line"></i>
-        </button>
-    </div>
 
     <!-- COMMAND PALETTE MODAL (Ctrl + K) -->
     <dialog id="commandPaletteModal" class="recent-modal">

@@ -54,8 +54,9 @@ function addPoem(title, contentText, imageUrl = '') {
 
     fs.writeFileSync('poems_data.json', JSON.stringify(poems, null, 2));
 
-    // Update poems.js
-    const jsContent = `// Auto-generated poem database\nwindow.POEMS_DATA = ${JSON.stringify(poems, null, 2)};\n`;
+    // Update poems.js (JSON string parsing for ~2x faster V8 startup)
+    const jsonStr = JSON.stringify(poems);
+    const jsContent = `// Auto-generated poem database\nwindow.POEMS_DATA = JSON.parse(${JSON.stringify(jsonStr)});\n`;
     fs.writeFileSync('poems.js', jsContent);
 
     console.log(`✅ Đã thêm bài thơ mới thành công!`);

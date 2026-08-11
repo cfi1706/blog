@@ -9,7 +9,10 @@
  * Bump CACHE_VERSION only when the caching logic here changes — content freshness is
  * handled by the strategies above, not by the version string.
  */
-const CACHE_VERSION = 'v2';
+// v3: images/poem_2011_img_0.thumb.webp was replaced under the same filename, and images
+// are served cache-first — without a new cache name returning visitors keep the old art.
+// (The 2012-2046 illustrations are new files, so they were never cached under old names.)
+const CACHE_VERSION = 'v3';
 const SHELL_CACHE = `zzcfizz-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `zzcfizz-runtime-${CACHE_VERSION}`;
 
@@ -17,6 +20,7 @@ const RUNTIME_CACHE = `zzcfizz-runtime-${CACHE_VERSION}`;
 const SHELL_ASSETS = [
     './',
     './index.html',
+    './tokens.css',
     './style.css',
     './poems.js',
     './app.js',
