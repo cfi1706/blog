@@ -1,11 +1,6 @@
 /**
- * Cloudflare Worker script for ZzCFIzZ Poetry Blog (GitHub Pages Origin)
- * 
- * Features:
- * 1. Global Edge Caching for Static Assets (Images, WebP, Fonts, CSS, JS)
- * 2. Automatic Security Headers (NoSniff, Frame-Options, Referrer-Policy)
- * 3. Smart Cache-Control headers tailored for GitHub Pages
- * 4. Zero-latency Global Edge delivery across 300+ Edge locations
+ * Pure Cloudflare Worker deployment script for ZzCFIzZ Poetry Blog
+ * Serves static assets directly via env.ASSETS binding + Cloudflare Edge Caching
  */
 
 export default {
@@ -14,28 +9,32 @@ export default {
 
     // Only handle GET and HEAD requests
     if (request.method !== 'GET' && request.method !== 'HEAD') {
-      return fetch(request);
+      return new Response('Method Not Allowed', { status: 405 });
     }
 
-    // Try Cloudflare Edge Cache first
+    // Try Cloudflare Edge Cache first for maximum performance
     const cache = caches.default;
     let response = await cache.match(request);
 
     if (!response) {
-      // Fetch from GitHub Pages origin
-      response = await fetch(request);
+      // Serve static asset directly from Worker ASSETS binding or origin
+      if (env && env.ASSETS) {
+        response = await env.ASSETS.fetch(request);
+      } else {
+        response = await fetch(request);
+      }
 
-      // Clone response to modify headers
+      // Clone response to attach security & caching headers
       response = new Response(response.body, response);
 
-      // Add Security Headers
+      // Security Headers
       response.headers.set('X-Content-Type-Options', 'nosniff');
       response.headers.set('X-Frame-Options', 'SAMEORIGIN');
       response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
 
       const path = url.pathname.toLowerCase();
 
-      // Asset specific Caching Policies
+      // Cache Control Policies
       if (path.endsWith('.webp') || path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.svg') || path.endsWith('.woff2')) {
         // Immutable Images & Fonts: 1 Year Cache at Edge and Browser
         response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');

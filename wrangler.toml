@@ -1,0 +1,8 @@
+name = "zzcfizz-blog"
+main = "cloudflare_worker.js"
+compatibility_date = "2026-08-11"
+
+# Cloudflare Workers Static Assets Configuration
+[assets]
+directory = "."
+binding = "ASSETS"
