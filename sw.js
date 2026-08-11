@@ -9,8 +9,8 @@
  * Bump CACHE_VERSION only when the caching logic here changes — content freshness is
  * handled by the strategies above, not by the version string.
  */
-// v7: apply collapsed header style (hide date/category, shrink title) to both PC and Mobile.
-const CACHE_VERSION = 'v7';
+// v8: slimmed poems.js (-53%), render/scroll fixes, mobile+tablet popup anchoring.
+const CACHE_VERSION = 'v8';
 const SHELL_CACHE = `zzcfizz-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `zzcfizz-runtime-${CACHE_VERSION}`;
 
