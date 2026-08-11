@@ -1887,18 +1887,7 @@ dialog::backdrop {
     .modal-header.actions-collapsed .modal-header-actions {
         display: none !important;
     }
-    .modal-header.actions-collapsed .modal-poem-date,
-    .modal-header.actions-collapsed .modal-category-badge {
-        display: none !important;
-    }
-    .modal-header.actions-collapsed .modal-poem-title {
-        font-size: 14.5px !important;
-        margin-bottom: 0 !important;
-    }
-    .modal-header.actions-collapsed .modal-header-top {
-        gap: 2px !important;
-        padding-bottom: 2px !important;
-    }
+    /* Only hide the actions toolbar, keep title and poem info intact */
     .modal-header-actions::-webkit-scrollbar {
         display: none;
     }
