@@ -2313,8 +2313,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Poem Detail Modal Card Scroll for Auto Collapsing Actions (Removed auto-collapse on scroll to prevent lag)
-
+        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
+        const modalHeader = document.querySelector('.modal-header');
         if (toggleModalActionsBtn && modalHeader) {
             toggleModalActionsBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
