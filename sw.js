@@ -9,8 +9,8 @@
  * Bump CACHE_VERSION only when the caching logic here changes — content freshness is
  * handled by the strategies above, not by the version string.
  */
-// v6: keep poem title and info visible when collapsing header actions.
-const CACHE_VERSION = 'v6';
+// v7: apply collapsed header style (hide date/category, shrink title) to both PC and Mobile.
+const CACHE_VERSION = 'v7';
 const SHELL_CACHE = `zzcfizz-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `zzcfizz-runtime-${CACHE_VERSION}`;
 
