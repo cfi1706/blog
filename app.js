@@ -2002,11 +2002,30 @@ document.addEventListener('DOMContentLoaded', () => {
         let lastWinScrollY = 0;
         const controlsBar = document.querySelector('.controls-bar');
         const floatingExpandFilterBtn = document.getElementById('floatingExpandFilterBtn');
+        const siteHeader = document.querySelector('.site-header');
+        const navExpandBtn = document.getElementById('navExpandBtn');
+
+        // Don't condense the pill while the user is typing in search or has a
+        // header dropdown open.
+        const headerInUse = () => {
+            if (!siteHeader) return false;
+            if (document.activeElement && document.activeElement !== document.body &&
+                siteHeader.contains(document.activeElement)) return true;
+            return !!siteHeader.querySelector('.hdr-menu:not([hidden]), .theme-menu:not([hidden])');
+        };
 
         window.addEventListener('scroll', () => {
             const currentY = window.scrollY;
             if (backToTopBtn) {
                 backToTopBtn.hidden = currentY < 300;
+            }
+
+            if (siteHeader) {
+                if (currentY > 200 && currentY > lastWinScrollY + 12 && !headerInUse()) {
+                    siteHeader.classList.add('is-condensed');
+                } else if (currentY <= 80) {
+                    siteHeader.classList.remove('is-condensed');
+                }
             }
 
             if (window.innerWidth <= 768) {
@@ -2024,6 +2043,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             lastWinScrollY = currentY;
         }, { passive: true });
+
+        if (navExpandBtn && siteHeader) {
+            navExpandBtn.addEventListener('click', () => {
+                siteHeader.classList.remove('is-condensed');
+                lastWinScrollY = window.scrollY; // avoid instant re-condense
+            });
+        }
 
         if (floatingExpandFilterBtn) {
             floatingExpandFilterBtn.addEventListener('click', () => {

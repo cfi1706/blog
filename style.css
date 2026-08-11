@@ -397,6 +397,47 @@ a:hover {
     gap: var(--space-md);
 }
 
+/* Condensed nav: on scroll-down the pill shrinks to one round action pinned
+   top-right; clicking it (or scrolling back to the top) restores the pill. */
+.site-header.is-condensed {
+    width: 48px;
+    margin-left: auto;
+    margin-right: var(--space-md);
+    border-radius: var(--radius-full);
+    animation: nav-condense-in var(--dur-short) var(--ease-out);
+}
+
+.site-header.is-condensed .header-container {
+    display: none;
+}
+
+@keyframes nav-condense-in {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.nav-expand-btn {
+    display: none;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--accent-primary);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.site-header.is-condensed .nav-expand-btn {
+    display: flex;
+}
+
+.nav-expand-btn:hover {
+    color: var(--text-primary);
+}
+
 /* Logo */
 .brand-logo {
     display: flex;
