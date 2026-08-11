@@ -2260,15 +2260,15 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 if (siteHeader) siteHeader.classList.remove('is-condensed');
                 
-                // On Mobile: Condense controlsBar into the floating action button when scrolling down
-                if (currentY > 150 && currentY > lastWinScrollY + 12) {
+                // On Mobile: Condense controlsBar into the floating action button when scrolling down, expand on scroll up
+                if (currentY > 120 && currentY > lastWinScrollY + 6) {
                     if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
                         controlsBar.classList.add('is-collapsed');
                         if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.add('is-visible');
                     }
-                } else if (currentY < lastWinScrollY - 12 || currentY <= 50) {
-                    if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
-                        controlsBar.classList.remove('is-collapsed');
+                } else if (currentY < lastWinScrollY - 6 || currentY <= 50) {
+                    if (controlsBar) {
+                        controlsBar.classList.remove('is-collapsed', 'is-collapsed-by-user');
                         if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.remove('is-visible');
                     }
                 }
@@ -2350,7 +2350,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // sliders): Home/End/arrows must keep their native behavior there.
             const inFormControl = e.target && e.target.closest
                 && e.target.closest('input, textarea, select');
-            if (poemModal.open && !isZenMode && !inFormControl) {
+            if (poemModal.open && !inFormControl) {
                 if (e.key === 'Home' || (e.shiftKey && e.key === 'ArrowLeft')) {
                     e.preventDefault();
                     openReaderModal(0);
@@ -2360,8 +2360,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     openReaderModal(filteredPoemsList.length - 1);
                     showToast('⏭️ Bài thơ cuối cùng');
                 } else if (e.key === 'ArrowLeft' && activePoemIndex > 0) {
+                    e.preventDefault();
                     openReaderModal(activePoemIndex - 1);
                 } else if (e.key === 'ArrowRight' && activePoemIndex < filteredPoemsList.length - 1) {
+                    e.preventDefault();
                     openReaderModal(activePoemIndex + 1);
                 }
             }
