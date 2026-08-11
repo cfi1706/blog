@@ -629,6 +629,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(link);
     }
 
+    function updateToggleActionsIcon(isCollapsed) {
+        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
+        if (!toggleModalActionsBtn) return;
+        toggleModalActionsBtn.classList.toggle('active', isCollapsed);
+        const iconEl = toggleModalActionsBtn.querySelector('i');
+        if (iconEl) {
+            iconEl.className = isCollapsed ? 'ri-arrow-down-s-line' : 'ri-arrow-up-s-line';
+        }
+        toggleModalActionsBtn.title = isCollapsed ? '📖 Mở rộng thanh công cụ' : '📐 Thu gọn thanh công cụ';
+    }
+
     function openReaderModal(target) {
         ensurePickerFonts();
         if (!filteredPoemsList || filteredPoemsList.length === 0) {
@@ -638,15 +649,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let index = -1;
         let poem = null;
 
-        if (typeof target === 'number' && target >= 0 && target < filteredPoemsList.length) {
+        if (typeof target === 'number') {
             index = target;
+            if (index < 0) index = filteredPoemsList.length - 1;
+            if (index >= filteredPoemsList.length) index = 0;
             poem = filteredPoemsList[index];
-        }
-
-        if (!poem) {
-            index = filteredPoemsList.findIndex(p => p.id === target || p.id === Number(target));
-            if (index !== -1) {
-                poem = filteredPoemsList[index];
+        } else if (typeof target === 'string' || typeof target === 'number') {
+            const foundIdx = filteredPoemsList.findIndex(p => p.id === target || p.id === Number(target));
+            if (foundIdx !== -1) {
+                poem = filteredPoemsList[foundIdx];
+                index = foundIdx;
             } else {
                 const allData = getPoemsData();
                 const foundIdx = allData.findIndex(p => p.id === target || p.id === Number(target));
@@ -681,7 +693,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Tự do': '🖋️ Thể Thơ Tự Do'
             };
             rhythmType = genreMap[poem.genre] || `📜 Thể Thơ ${poem.genre}`;
-        } else {
             rhythmType = verseCount % 2 === 0 ? '📜 Thể Thơ Lục Bát / Thất Ngôn' : '🖋️ Thể Thơ Tự Do';
         }
 
@@ -2243,9 +2254,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         window.addEventListener('scroll', () => {
-            const currentY = window.scrollY;
+            const openModalCard = document.querySelector('dialog[open] .modal-card');
+            const modalY = openModalCard ? openModalCard.scrollTop : 0;
+            const winY = window.scrollY || (document.documentElement ? document.documentElement.scrollTop : 0) || (document.body ? document.body.scrollTop : 0) || 0;
+            const currentY = Math.max(winY, modalY);
+
             if (backToTopBtn) {
-                backToTopBtn.hidden = currentY < 300;
+                backToTopBtn.hidden = currentY < 180;
             }
 
             // Only condense header on desktop/tablet views to prevent lag on mobile scroll
@@ -2306,7 +2321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 modalHeader.classList.add('actions-manual-toggled');
                 const isCollapsed = modalHeader.classList.toggle('actions-collapsed');
-                toggleModalActionsBtn.classList.toggle('active', isCollapsed);
+                updateToggleActionsIcon(isCollapsed);
                 localStorage.setItem('zzcfizz_reader_header_collapsed', isCollapsed ? 'true' : 'false');
                 if (isCollapsed) {
                     showToast('📐 Đã thu gọn thanh công cụ đọc thơ');
@@ -2316,15 +2331,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        const poemModalCard = document.querySelector('#poemModal .modal-card');
+        if (poemModalCard) {
+            poemModalCard.addEventListener('scroll', () => {
+                if (backToTopBtn) {
+                    backToTopBtn.hidden = poemModalCard.scrollTop < 180;
+                }
+            }, { passive: true });
+        }
+
         if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', () => {
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 const openModalCard = document.querySelector('dialog[open] .modal-card');
                 if (openModalCard) {
                     openModalCard.scrollTo({ top: 0, behavior: 'smooth' });
+                    openModalCard.scrollTop = 0;
                 }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                if (document.documentElement) document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
-                if (document.body) document.body.scrollTo({ top: 0, behavior: 'smooth' });
+                if (document.documentElement) {
+                    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+                    document.documentElement.scrollTop = 0;
+                }
+                if (document.body) {
+                    document.body.scrollTo({ top: 0, behavior: 'smooth' });
+                    document.body.scrollTop = 0;
+                }
             });
         }
 
