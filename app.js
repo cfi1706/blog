@@ -689,11 +689,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Thất ngôn bát cú': '✒️ Thể Thơ Thất Ngôn Bát Cú',
                 'Thất ngôn tứ tuyệt': '✒️ Thể Thơ Thất Ngôn Tứ Tuyệt',
                 'Thất ngôn': '✒️ Thể Thơ Thất Ngôn',
-                'Ngũ ngôn': '🖋️ Thể Thơ Ngũ Ngôn',
+                'Ngũ ngôn': '✒️ Thể Thơ Ngũ Ngôn',
                 'Tự do': '🖋️ Thể Thơ Tự Do'
             };
             rhythmType = genreMap[poem.genre] || `📜 Thể Thơ ${poem.genre}`;
-            rhythmType = verseCount % 2 === 0 ? '📜 Thể Thơ Lục Bát / Thất Ngôn' : '🖋️ Thể Thơ Tự Do';
         }
 
         if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ &nbsp;•&nbsp; ${rhythmType}`;
