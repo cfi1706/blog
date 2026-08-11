@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { buildPoemsJs } = require('./convert_to_js');
 
 // Helper script to add new poems directly into poems_data.json and update poems.js
 // Usage: node add_poem.js "Tên Bài Thơ" "Nội dung bài thơ (mỗi câu một dòng)" "images/xxx.webp"
@@ -102,10 +103,8 @@ function addPoem(title, contentText, imageUrl = '') {
 
     fs.writeFileSync('poems_data.json', JSON.stringify(poems, null, 2));
 
-    // Update poems.js (JSON string parsing for ~2x faster V8 startup)
-    const jsonStr = JSON.stringify(poems);
-    const jsContent = `// Auto-generated poem database\nwindow.POEMS_DATA = JSON.parse(${JSON.stringify(jsonStr)});\n`;
-    fs.writeFileSync('poems.js', jsContent);
+    // Single emitter so the two writers can't drift apart.
+    buildPoemsJs(poems);
 
     console.log(`✅ Đã thêm bài thơ mới thành công!`);
     console.log(`- ID: ${newId}`);

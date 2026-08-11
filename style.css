@@ -806,6 +806,14 @@ a:hover {
    POEM CARDS & GRID
    -------------------------------------------------------------------------- */
 
+/* Cards stream in as idle batches and each one resizes when content-visibility
+   materialises it, so scroll anchoring keeps computing 0px adjustments until
+   Chrome gives up and logs "Scroll anchoring was disabled…". Nothing below the
+   fold is worth anchoring to — opt the grid out. */
+.poems-grid {
+    overflow-anchor: none;
+}
+
 .poems-grid.grid-view {
     display: grid;
     /* min(100%, …) so a 320px viewport never overflows the 340px floor */
@@ -2698,41 +2706,6 @@ body.zen-mode-active #poemModal .poem-body-text {
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35) !important;
 }
 
-/* Floating Filter Expand Button for Mobile */
-.floating-filter-btn {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px) scale(0.9);
-    z-index: 999;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 18px;
-    background: var(--accent-gradient);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-glow), 0 8px 24px rgba(0, 0, 0, 0.4);
-    font-size: 12.5px;
-    font-weight: 600;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
-}
-
-.floating-filter-btn.is-visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0) scale(1);
-}
-
-.floating-filter-btn:hover {
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(147, 51, 234, 0.5);
-}
-
 /* Custom Styled Select Dropdowns */
 .custom-styled-select {
     appearance: none;
@@ -3299,18 +3272,28 @@ input[type="checkbox"]:checked::before {
     .hdr-menu { min-width: 220px; }
 }
 
-/* Header "Công cụ" menu on mobile: it's a plain .hdr-menu (not .md-dd-panel) anchored
-   right:0 under the left-most header button, so it spilled ~84px off the left edge.
-   Open it leftward-anchored instead and cap width to the viewport. Kept absolute
-   (relative to its .hdr-dd button) — a fixed menu would anchor to the header's
-   backdrop-filter containing block, not the viewport. */
+/* Header menus ("Công cụ", "Cài đặt") on mobile: a 220–240px panel can't sit
+   beside its button on a phone — anchored right:0 it spilled off the left edge,
+   anchored left:0 it spilled off the right (measured: right edge at 552px in a
+   500px viewport). Drop them to the same viewport-anchored sheet the reader
+   toolbar panels already use, so neither edge can clip.
+   position:fixed is safe here: the ≤768px block above sets
+   `.site-header { backdrop-filter: none !important }`, so the header no longer
+   forms a containing block for fixed descendants. */
 @media (max-width: 768px) {
-    .hdr-menu:not(.md-dd-panel) {
-        left: 0;
-        right: auto;
+    .hdr-menu:not(.md-dd-panel),
+    .theme-menu {
+        position: fixed;
+        top: auto;
+        bottom: 16px;
+        left: 12px;
+        right: 12px;
+        width: auto;
         min-width: 0;
-        width: max-content;
-        max-width: calc(100vw - 32px);
+        max-width: none;
+        max-height: 74vh;
+        overflow-y: auto;
+        z-index: 9999;
     }
 }
 
@@ -3351,6 +3334,22 @@ input[type="checkbox"]:checked::before {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     animation: mdPanelIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Above the mobile sheet breakpoint each panel anchored to its own button, so
+   the left-most one (Âm thanh) hung 4px past the viewport at ~820px. Anchor to
+   the toolbar — which is centred in the card — instead of the button, restoring
+   the "panels open centred" intent above. margin-left rather than
+   translateX(-50%): the mdPanelIn keyframes below animate `transform`, which
+   would drop the centring for the length of the animation. */
+@media (min-width: 769px) {
+    .modal-header-actions { position: relative; }
+    .modal-header-actions .hdr-dd { position: static; }
+    .md-dd-panel {
+        left: 50%;
+        right: auto;
+        margin-left: -135px; /* half of the fixed 270px width */
+    }
 }
 
 @keyframes mdPanelIn {

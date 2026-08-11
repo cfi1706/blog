@@ -57,7 +57,9 @@ function staleWhileRevalidate(request) {
                     if (response && response.status === 200) cache.put(request, response.clone());
                     return response;
                 })
-                .catch(() => cached);
+                // Offline with nothing cached: hand back a real (failed) Response —
+                // respondWith(undefined) throws a TypeError instead.
+                .catch(() => cached || Response.error());
             return cached || network;
         })
     );

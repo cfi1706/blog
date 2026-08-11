@@ -140,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     function init() {
         applyTheme(currentTheme);
-        setupScrollObserver();
         updateCategoryCounts();
         renderPoems();
         setupEventListeners();
@@ -195,27 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // Scroll Reveal Observer
-    // ----------------------------------------------------------------------
-    let scrollObserver = null;
-
-    function setupScrollObserver() {
-        if ('IntersectionObserver' in window) {
-            scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        scrollObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.01,
-                rootMargin: '100px 0px 100px 0px'
-            });
-        }
-    }
-
-    // ----------------------------------------------------------------------
     // Heart Burst Particle Effect
     // ----------------------------------------------------------------------
     function createHeartBurst(x, y) {
@@ -241,24 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.body.appendChild(particle);
             setTimeout(() => particle.remove(), 800);
-        }
-    }
-
-    function observeElements() {
-        const elements = document.querySelectorAll('.reveal-on-scroll:not(.is-visible)');
-        if (scrollObserver) {
-            elements.forEach(el => {
-                scrollObserver.observe(el);
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight + 200) {
-                    el.classList.add('is-visible');
-                }
-            });
-            setTimeout(() => {
-                elements.forEach(el => el.classList.add('is-visible'));
-            }, 100);
-        } else {
-            elements.forEach(el => el.classList.add('is-visible'));
         }
     }
 
@@ -391,6 +351,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------------
     // Rendering Logic
     // ----------------------------------------------------------------------
+    // Bumped on every render. An in-flight idle batch chain compares its own
+    // token and bails once a newer render has cleared the grid — otherwise the
+    // stale chain keeps appending, reading the *new* list at *old* offsets
+    // (duplicate + missing cards when the user types/filters quickly).
+    let renderToken = 0;
+
     function renderPoems() {
         if (poemsSection) poemsSection.hidden = false;
 
@@ -407,47 +373,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (emptyState) emptyState.hidden = true;
 
+        const myToken = ++renderToken;
+        const list = filteredPoemsList;
+        // timeout: a busy page can starve requestIdleCallback indefinitely, leaving
+        // the grid stuck at the first batch — this caps the wait at 200ms.
+        const schedule = (fn) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 200 }) : setTimeout(fn, 16));
+
         // Render initial batch (12 cards) immediately for instantaneous LCP (<0.3s)
         const INITIAL_BATCH = 12;
-        const firstBatch = filteredPoemsList.slice(0, INITIAL_BATCH);
         const fragment = document.createDocumentFragment();
-
-        firstBatch.forEach((poem, index) => {
-            const card = createPoemCard(poem, index);
-            fragment.appendChild(card);
-        });
+        for (let i = 0; i < Math.min(INITIAL_BATCH, list.length); i++) {
+            fragment.appendChild(createPoemCard(list[i], i));
+        }
         poemsGrid.appendChild(fragment);
-        observeElements();
 
         // Batch render remaining cards asynchronously in idle time to keep Main Thread 100% responsive (0ms TBT)
-        if (filteredPoemsList.length > INITIAL_BATCH) {
+        if (list.length > INITIAL_BATCH) {
             let offset = INITIAL_BATCH;
             function renderNextBatch() {
-                if (offset >= filteredPoemsList.length) return;
-                const end = Math.min(offset + 16, filteredPoemsList.length);
+                if (myToken !== renderToken) return; // superseded by a newer render
+                const end = Math.min(offset + 16, list.length);
                 const batchFragment = document.createDocumentFragment();
                 for (let i = offset; i < end; i++) {
-                    const card = createPoemCard(filteredPoemsList[i], i);
-                    batchFragment.appendChild(card);
+                    batchFragment.appendChild(createPoemCard(list[i], i));
                 }
                 poemsGrid.appendChild(batchFragment);
                 offset = end;
-                if (offset < filteredPoemsList.length) {
-                    if ('requestIdleCallback' in window) {
-                        requestIdleCallback(renderNextBatch);
-                    } else {
-                        setTimeout(renderNextBatch, 16);
-                    }
-                } else {
-                    observeElements();
-                }
+                if (offset < list.length) schedule(renderNextBatch);
             }
-
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(renderNextBatch);
-            } else {
-                setTimeout(renderNextBatch, 16);
-            }
+            schedule(renderNextBatch);
         }
     }
 
@@ -468,10 +422,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ? imgSrc.replace(/\.webp$/, '.thumb.webp')
             : imgSrc;
 
+        // Poem text is author-supplied (add_poem.js takes free-form input), so a
+        // stray < or & would otherwise break the card markup — escape it.
         card.innerHTML = `
             ${hasImg ? `
                 <div class="card-media">
-                    <img src="${cardImgSrc}" alt="${poem.title}" loading="lazy" decoding="async" class="img-lazy">
+                    <img src="${escapeHtml(cardImgSrc)}" alt="${escapeHtml(poem.title)}" loading="lazy" decoding="async" class="img-lazy">
                     <div class="card-media-overlay"></div>
                     <button class="card-fav-btn ${isFav ? 'active' : ''}" data-id="${poem.id}" title="${isFav ? 'Bỏ yêu thích' : 'Yêu thích'}">
                         <i class="${isFav ? 'ri-heart-fill' : 'ri-heart-line'}"></i>
@@ -485,10 +441,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `}
             <div class="card-body">
-                <h3 class="card-title">${poem.title}</h3>
-                <p class="card-excerpt">${excerpt}</p>
+                <h3 class="card-title">${escapeHtml(poem.title)}</h3>
+                <p class="card-excerpt">${escapeHtml(excerpt)}</p>
                 <div class="card-footer">
-                    <span class="card-date-text"><i class="ri-calendar-line"></i> ${poem.date_formatted}</span>
+                    <span class="card-date-text"><i class="ri-calendar-line"></i> ${escapeHtml(poem.date_formatted)}</span>
                     <button class="card-read-btn" data-index="${index}" title="Đọc bài thơ">
                         <i class="ri-arrow-right-line"></i>
                     </button>
@@ -519,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (favBtn) {
             favBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                toggleFavorite(poem.id);
+                toggleFavorite(poem.id, e);
             });
         }
 
@@ -557,15 +513,25 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('zzcfizz_favorites', JSON.stringify(favorites));
         invalidateFilterCache();
         updateCategoryCounts();
-        renderPoems();
 
-        if (poemModal.open) {
+        const isFav = favorites.includes(poemId);
+        const paintFavBtn = (btn) => {
+            btn.classList.toggle('active', isFav);
+            btn.title = isFav ? 'Bỏ yêu thích' : 'Yêu thích';
+            const icon = btn.querySelector('i');
+            if (icon) icon.className = isFav ? 'ri-heart-fill' : 'ri-heart-line';
+        };
+
+        if (currentFilter === 'favorites') {
+            renderPoems(); // the card has to join/leave the list
+        } else {
+            // Rebuilding every card to flip one heart is pure waste — patch in place.
+            document.querySelectorAll(`.card-fav-btn[data-id="${poemId}"]`).forEach(paintFavBtn);
+        }
+
+        if (poemModal && poemModal.open && modalFavBtn) {
             const currentPoem = filteredPoemsList[activePoemIndex];
-            if (currentPoem && currentPoem.id === poemId) {
-                const isFav = favorites.includes(poemId);
-                modalFavBtn.classList.toggle('active', isFav);
-                modalFavBtn.querySelector('i').className = isFav ? 'ri-heart-fill' : 'ri-heart-line';
-            }
+            if (currentPoem && currentPoem.id === poemId) paintFavBtn(modalFavBtn);
         }
     }
 
@@ -698,23 +664,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ &nbsp;•&nbsp; ${rhythmType}`;
         if (modalCategory) modalCategory.textContent = 'Tác Phẩm Thơ';
 
-        // Dynamic Emotion Mood Lighting Filter
-        const orb1 = document.querySelector('.orb-1');
-        const orb2 = document.querySelector('.orb-2');
-        if (orb1 && poem.mood) {
-            if (poem.mood.includes('peace') || poem.mood.includes('calm')) {
-                orb1.style.background = 'radial-gradient(circle, rgba(16, 185, 129, 0.45), transparent 70%)';
-            } else if (poem.mood.includes('deep') || poem.mood.includes('nostalgia') || poem.mood.includes('sad')) {
-                orb1.style.background = 'radial-gradient(circle, rgba(168, 85, 247, 0.45), transparent 70%)';
-                if (orb2) orb2.style.background = 'radial-gradient(circle, rgba(236, 72, 153, 0.35), transparent 70%)';
-            } else if (poem.mood.includes('hope') || poem.mood.includes('warm') || poem.mood.includes('love')) {
-                orb1.style.background = 'radial-gradient(circle, rgba(245, 158, 11, 0.45), transparent 70%)';
-                if (orb2) orb2.style.background = 'radial-gradient(circle, rgba(251, 191, 36, 0.35), transparent 70%)';
-            } else {
-                orb1.style.background = 'radial-gradient(circle, rgba(59, 130, 246, 0.45), transparent 70%)';
-            }
-        }
-
         // Bookmark last read poem
         localStorage.setItem('zzcfizz_last_read_poem_id', poem.id);
 
@@ -813,10 +762,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Apply saved header actions collapse preference
         const modalHeader = document.querySelector('.modal-header');
-        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
         const isHeaderCollapsed = localStorage.getItem('zzcfizz_reader_header_collapsed') === 'true';
         if (modalHeader) modalHeader.classList.toggle('actions-collapsed', isHeaderCollapsed);
-        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.toggle('active', isHeaderCollapsed);
+        updateToggleActionsIcon(isHeaderCollapsed); // arrow + tooltip, not just the active class
 
         if (poemModal) {
             if (typeof poemModal.showModal === 'function') {
@@ -839,9 +787,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateUrlHash(null);
 
         const modalHeader = document.querySelector('.modal-header');
-        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
         if (modalHeader) modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
-        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
+        updateToggleActionsIcon(false);
     }
     if (poemModal) poemModal.addEventListener('close', onReaderModalClosed);
 
@@ -1779,7 +1726,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 viewButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentView = btn.dataset.view;
-                renderPoems();
+                // grid vs list is purely the wrapper class — no need to rebuild cards.
+                if (poemsGrid) poemsGrid.className = `poems-grid ${currentView}-view`;
             });
         });
 
@@ -2239,7 +2187,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Window Scroll for Back to Top Button & List View Controls Collapsing
         let lastWinScrollY = 0;
         const controlsBar = document.querySelector('.controls-bar');
-        const floatingExpandFilterBtn = document.getElementById('floatingExpandFilterBtn');
         const siteHeader = document.querySelector('.site-header');
         const navExpandBtn = document.getElementById('navExpandBtn');
 
@@ -2252,7 +2199,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return !!siteHeader.querySelector('.hdr-menu:not([hidden]), .theme-menu:not([hidden])');
         };
 
-        window.addEventListener('scroll', () => {
+        // scroll fires far more often than the page can paint, and this handler
+        // does DOM queries + class writes — coalesce it to one rAF tick.
+        let scrollTick = false;
+        const onWindowScroll = () => {
             const openModalCard = document.querySelector('dialog[open] .modal-card');
             const modalY = openModalCard ? openModalCard.scrollTop : 0;
             const winY = window.scrollY || (document.documentElement ? document.documentElement.scrollTop : 0) || (document.body ? document.body.scrollTop : 0) || 0;
@@ -2262,54 +2212,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 backToTopBtn.hidden = currentY < 180;
             }
 
-            // Only condense header on desktop/tablet views to prevent lag on mobile scroll
-            if (window.innerWidth > 768) {
-                if (siteHeader) {
-                    if (currentY > 200 && currentY > lastWinScrollY + 12 && !headerInUse()) {
-                        siteHeader.classList.add('is-condensed');
-                    } else if (currentY <= 80) {
-                        siteHeader.classList.remove('is-condensed');
-                    }
+            // Condense the header pill into its floating round button on every
+            // width. Mobile used to be excluded to avoid scroll lag — the handler
+            // is rAF-throttled now, so that trade-off no longer applies.
+            if (siteHeader) {
+                if (currentY > 200 && currentY > lastWinScrollY + 12 && !headerInUse()) {
+                    siteHeader.classList.add('is-condensed');
+                } else if (currentY <= 80 || currentY < lastWinScrollY - 12) {
+                    siteHeader.classList.remove('is-condensed');
                 }
-            } else {
-                if (siteHeader) siteHeader.classList.remove('is-condensed');
-                
-                // On Mobile: Condense controlsBar into the floating action button when scrolling down, expand on scroll up
+            }
+
+            // On Mobile: fold the controls bar away on scroll-down, bring it back
+            // on scroll-up (that gesture is the only way back — no floating pill).
+            if (window.innerWidth <= 768 && controlsBar) {
                 if (currentY > 120 && currentY > lastWinScrollY + 6) {
-                    if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
-                        controlsBar.classList.add('is-collapsed');
-                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.add('is-visible');
-                    }
+                    controlsBar.classList.add('is-collapsed');
                 } else if (currentY < lastWinScrollY - 6 || currentY <= 50) {
-                    if (controlsBar) {
-                        controlsBar.classList.remove('is-collapsed', 'is-collapsed-by-user');
-                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.remove('is-visible');
-                    }
+                    controlsBar.classList.remove('is-collapsed');
                 }
             }
             lastWinScrollY = currentY;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (scrollTick) return;
+            scrollTick = true;
+            requestAnimationFrame(() => { scrollTick = false; onWindowScroll(); });
         }, { passive: true });
 
         if (navExpandBtn && siteHeader) {
             navExpandBtn.addEventListener('click', () => {
                 siteHeader.classList.remove('is-condensed');
                 lastWinScrollY = window.scrollY; // avoid instant re-condense
-            });
-        }
-
-        if (floatingExpandFilterBtn) {
-            floatingExpandFilterBtn.addEventListener('click', () => {
-                if (controlsBar) {
-                    const isCollapsed = controlsBar.classList.contains('is-collapsed');
-                    if (isCollapsed) {
-                        controlsBar.classList.remove('is-collapsed', 'is-collapsed-by-user');
-                        floatingExpandFilterBtn.classList.remove('is-visible');
-                    } else {
-                        controlsBar.classList.add('is-collapsed');
-                        controlsBar.classList.add('is-collapsed-by-user');
-                        floatingExpandFilterBtn.classList.add('is-visible');
-                    }
-                }
             });
         }
 
@@ -2639,50 +2574,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!topBar) return;
 
-            window.addEventListener('scroll', () => {
-                if (!poemModal || !poemModal.open) {
-                    const scrollTop = window.scrollY;
-                    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-                    topBar.style.width = `${pct}%`;
-                }
-            }, { passive: true });
+            // Both sources read layout (scrollHeight) to compute the percentage —
+            // one rAF-throttled updater instead of forcing layout on every event.
+            let tick = false;
+            const update = () => {
+                tick = false;
+                const inModal = !!(poemModal && poemModal.open && modalBody);
+                const scrollTop = inModal ? modalBody.scrollTop : window.scrollY;
+                const scrollHeight = inModal
+                    ? modalBody.scrollHeight - modalBody.clientHeight
+                    : document.documentElement.scrollHeight - window.innerHeight;
+                const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : (inModal ? 100 : 0);
+                topBar.style.width = `${pct}%`;
+            };
+            const onScroll = () => {
+                if (tick) return;
+                tick = true;
+                requestAnimationFrame(update);
+            };
 
-            if (modalBody) {
-                modalBody.addEventListener('scroll', () => {
-                    if (poemModal && poemModal.open) {
-                        const scrollTop = modalBody.scrollTop;
-                        const scrollHeight = modalBody.scrollHeight - modalBody.clientHeight;
-                        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 100;
-                        topBar.style.width = `${pct}%`;
-                    }
-                }, { passive: true });
-            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            if (modalBody) modalBody.addEventListener('scroll', onScroll, { passive: true });
         }
         initTopReadingProgressBar();
 
         // ------------------------------------------------------------------
         // Time-of-Day Sky Ambiance
         // ------------------------------------------------------------------
+        // Recolours through the same --orb-* custom props updateEmotionAura() uses.
+        // Writing .style.background on the orb directly (as this did) permanently
+        // out-specifies the stylesheet's `background: radial-gradient(var(--orb-1)…)`,
+        // so the per-poem emotion aura could never show through.
         function initTimeOfDayAmbiance() {
             const hour = new Date().getHours();
-            const orb1 = document.querySelector('.orb-1');
-            const orb2 = document.querySelector('.orb-2');
+            const body = document.body;
 
             if (hour >= 6 && hour < 12) {
-                if (orb1) orb1.style.background = 'radial-gradient(circle, rgba(251, 191, 36, 0.4), transparent 70%)';
+                body.style.setProperty('--orb-1', 'rgba(251, 191, 36, 0.4)');
             } else if (hour >= 17 && hour < 20) {
-                if (orb1) orb1.style.background = 'radial-gradient(circle, rgba(244, 63, 94, 0.45), transparent 70%)';
-                if (orb2) orb2.style.background = 'radial-gradient(circle, rgba(217, 70, 239, 0.35), transparent 70%)';
+                body.style.setProperty('--orb-1', 'rgba(244, 63, 94, 0.45)');
+                body.style.setProperty('--orb-2', 'rgba(217, 70, 239, 0.35)');
             } else {
-                if (orb1) orb1.style.background = 'radial-gradient(circle, rgba(168, 85, 247, 0.45), transparent 70%)';
+                body.style.setProperty('--orb-1', 'rgba(168, 85, 247, 0.45)');
             }
         }
         initTimeOfDayAmbiance();
 
         // Spacebar shortcut for Hands-Free TTS & Auto-Scroll
         document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space' && poemModal && poemModal.open && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+            const focusTag = document.activeElement ? document.activeElement.tagName : '';
+            if (e.code === 'Space' && poemModal && poemModal.open && !['INPUT', 'TEXTAREA', 'SELECT'].includes(focusTag)) {
                 e.preventDefault();
                 toggleTts();
                 toggleAutoScroll();
