@@ -105,6 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadCardBtn = document.getElementById('downloadCardBtn');
     const cardThemeGrid = document.getElementById('cardThemeGrid');
 
+    // QR Badge Modal
+    const qrBadgeModal = document.getElementById('qrBadgeModal');
+    const closeQrBadgeModalBtn = document.getElementById('closeQrBadgeModalBtn');
+    const qrBadgeCanvas = document.getElementById('qrBadgeCanvas');
+    const downloadQrBadgeBtn = document.getElementById('downloadQrBadgeBtn');
+    const modalQrBadgeBtn = document.getElementById('modalQrBadgeBtn');
+    const qrStyleMidnight = document.getElementById('qrStyleMidnight');
+    const qrStylePaper = document.getElementById('qrStylePaper');
+    let currentQrStyle = 'midnight';
+
     // AI Poetry Bot Elements
     const headerBotBtn = document.getElementById('headerBotBtn');
     const botToggleBtn = document.getElementById('botToggleBtn');
@@ -281,11 +291,31 @@ document.addEventListener('DOMContentLoaded', () => {
         'hi vọng': ['hi vọng', 'sống', 'ngày mai', 'tương lai', 'ấm', 'mặt trời', 'ước', 'vui']
     };
 
-    function calculateEmotionRelevance(poem, rawQuery) {
-        if (!rawQuery) return 0;
+    function prepareQueryContext(rawQuery) {
+        if (!rawQuery) return null;
         const stopWords = ['tìm', 'bài', 'thơ', 'những', 'của', 'cho', 'về', 'nào', 'với', 'trong', 'lại', 'rồi', 'người', 'một'];
         const words = rawQuery.toLowerCase().trim().split(/\s+/).filter(w => !stopWords.includes(w));
         const cleanQuery = (words.length > 0 ? words : [rawQuery.toLowerCase().trim()]).join(' ');
+
+        const synonymsSet = new Set();
+        words.forEach(w => {
+            if (w.length < 2) return;
+            Object.keys(EMOTION_SYNONYMS).forEach(key => {
+                if (key.includes(w) || w.includes(key)) {
+                    EMOTION_SYNONYMS[key].forEach(syn => synonymsSet.add(syn));
+                }
+            });
+        });
+
+        return {
+            words: words.filter(w => w.length >= 2),
+            cleanQuery,
+            synonyms: Array.from(synonymsSet)
+        };
+    }
+
+    function calculateEmotionRelevance(poem, ctx) {
+        if (!ctx) return 0;
 
         const title = (poem.title || '').toLowerCase();
         const content = (poem.content_text || '').toLowerCase();
@@ -293,29 +323,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let score = 0;
 
-        if (title.includes(cleanQuery)) score += 60;
-        if (content.includes(cleanQuery)) score += 40;
+        if (title.includes(ctx.cleanQuery)) score += 60;
+        if (content.includes(ctx.cleanQuery)) score += 40;
 
-        words.forEach(w => {
-            if (w.length < 2) return;
+        ctx.words.forEach(w => {
             if (title.includes(w)) score += 15;
             if (content.includes(w)) score += 10;
+        });
 
-            Object.keys(EMOTION_SYNONYMS).forEach(key => {
-                if (key.includes(w) || w.includes(key)) {
-                    EMOTION_SYNONYMS[key].forEach(syn => {
-                        if (fullText.includes(syn)) score += 5;
-                    });
-                }
-            });
+        ctx.synonyms.forEach(syn => {
+            if (fullText.includes(syn)) score += 5;
         });
 
         return score;
     }
 
+    const filterMemoCache = new Map();
+
+    function invalidateFilterCache() {
+        filterMemoCache.clear();
+    }
+
     function getFilteredPoems() {
         const poems = getPoemsData();
         if (!poems || poems.length === 0) return [];
+
+        const cacheKey = `${currentFilter}|${currentSort}|${searchQuery.trim()}|${favorites.join(',')}`;
+        if (filterMemoCache.has(cacheKey)) {
+            return filterMemoCache.get(cacheKey);
+        }
+
         let list = [...poems];
 
         // Filter category
@@ -325,9 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Semantic Emotion & Keyword Search Filter
         if (searchQuery.trim() !== '') {
-            const q = searchQuery.trim();
+            const ctx = prepareQueryContext(searchQuery);
             const scoredList = list.map(p => {
-                const score = calculateEmotionRelevance(p, q);
+                const score = calculateEmotionRelevance(p, ctx);
                 return { poem: p, score };
             }).filter(item => item.score > 0);
 
@@ -347,6 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        filterMemoCache.set(cacheKey, list);
         return list;
     }
 
@@ -517,6 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         localStorage.setItem('zzcfizz_favorites', JSON.stringify(favorites));
+        invalidateFilterCache();
         updateCategoryCounts();
         renderPoems();
 
@@ -629,7 +668,23 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTitle.classList.add('calligraphy-3d-text');
         }
         const verseCount = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0).length : 0;
-        const rhythmType = verseCount % 2 === 0 ? '📜 Thể Thơ Lục Bát / Thất Ngôn' : '🖋️ Thể Thơ Tự Do';
+        
+        let rhythmType = '🖋️ Thể Thơ Tự Do';
+        if (poem.genre) {
+            const genreMap = {
+                'Lục bát': '📜 Thể Thơ Lục Bát',
+                'Song thất lục bát': '📜 Thể Thơ Song Thất Lục Bát',
+                'Thất ngôn bát cú': '✒️ Thể Thơ Thất Ngôn Bát Cú',
+                'Thất ngôn tứ tuyệt': '✒️ Thể Thơ Thất Ngôn Tứ Tuyệt',
+                'Thất ngôn': '✒️ Thể Thơ Thất Ngôn',
+                'Ngũ ngôn': '🖋️ Thể Thơ Ngũ Ngôn',
+                'Tự do': '🖋️ Thể Thơ Tự Do'
+            };
+            rhythmType = genreMap[poem.genre] || `📜 Thể Thơ ${poem.genre}`;
+        } else {
+            rhythmType = verseCount % 2 === 0 ? '📜 Thể Thơ Lục Bát / Thất Ngôn' : '🖋️ Thể Thơ Tự Do';
+        }
+
         if (modalDate) modalDate.innerHTML = `<i class="ri-calendar-line"></i> ${poem.date_formatted || ''} &nbsp;•&nbsp; <i class="ri-quill-pen-line"></i> ${verseCount} câu thơ &nbsp;•&nbsp; ${rhythmType}`;
         if (modalCategory) modalCategory.textContent = 'Tác Phẩm Thơ';
 
@@ -656,8 +711,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modalBody) modalBody.scrollTop = 0;
         if (readingProgressBar) readingProgressBar.style.width = '0%';
 
+        const defaultAlign = (poem.genre === 'Lục bát' || poem.genre === 'Song thất lục bát') 
+            ? 'center' 
+            : (poem.genre ? 'left' : (verseCount % 2 === 0 ? 'center' : 'left'));
+
+        if (alignBtns) {
+            alignBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.align === defaultAlign);
+            });
+        }
+
         const rawLines = poem.content_text ? poem.content_text.split('\n') : [];
         if (modalPoemText) {
+            modalPoemText.className = `poem-body-text align-${defaultAlign}`;
             modalPoemText.innerHTML = '';
             let verseIdx = 0;
             rawLines.forEach((lineText) => {
@@ -1357,6 +1423,129 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.restore();
     }
 
+    function renderQrBadgeCanvas() {
+        if (!qrBadgeCanvas) return;
+        const ctx = qrBadgeCanvas.getContext('2d');
+        const width = qrBadgeCanvas.width;
+        const height = qrBadgeCanvas.height;
+
+        const poem = filteredPoemsList[activePoemIndex];
+        if (!poem) return;
+
+        // 1. Clear & Background
+        ctx.clearRect(0, 0, width, height);
+
+        let bgGrad;
+        if (currentQrStyle === 'midnight') {
+            // Midnight gradient
+            bgGrad = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, width);
+            bgGrad.addColorStop(0, '#1e1b4b');
+            bgGrad.addColorStop(1, '#0b0a1a');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // Double border lines
+            ctx.strokeStyle = '#6366f1';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(10, 10, width - 20, height - 20);
+            ctx.strokeStyle = '#4338ca';
+            ctx.strokeRect(14, 14, width - 28, height - 28);
+        } else {
+            // Warm Paper background
+            ctx.fillStyle = '#fdf6e2';
+            ctx.fillRect(0, 0, width, height);
+
+            // Double border lines
+            ctx.strokeStyle = '#78350f';
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(10, 10, width - 20, height - 20);
+            ctx.strokeStyle = '#b45309';
+            ctx.lineWidth = 0.75;
+            ctx.strokeRect(14, 14, width - 28, height - 28);
+        }
+
+        // 2. Draw Top Wordmark / Logo
+        ctx.save();
+        ctx.fillStyle = currentQrStyle === 'midnight' ? '#a5b4fc' : '#b45309';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('🖋️  ZzCFIzZ  —  TUYỂN TẬP THƠ  📜', width / 2, 40);
+        
+        // Horizontal line ornament
+        ctx.strokeStyle = currentQrStyle === 'midnight' ? 'rgba(99, 102, 241, 0.4)' : 'rgba(180, 83, 9, 0.4)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(80, 52);
+        ctx.lineTo(width - 80, 52);
+        ctx.stroke();
+        ctx.restore();
+
+        // 3. Draw Title
+        ctx.save();
+        ctx.fillStyle = currentQrStyle === 'midnight' ? '#ffffff' : '#78350f';
+        ctx.textAlign = 'center';
+        ctx.font = 'bold 20px serif';
+        
+        const titleText = poem.title || 'Vô Đề';
+        const words = titleText.split(' ');
+        let currentLine = '';
+        let titleLines = [];
+        for (let i = 0; i < words.length; i++) {
+            const testLine = currentLine ? currentLine + ' ' + words[i] : words[i];
+            const testWidth = ctx.measureText(testLine).width;
+            if (testWidth > 320 && i > 0) {
+                titleLines.push(currentLine);
+                currentLine = words[i];
+            } else {
+                currentLine = testLine;
+            }
+        }
+        titleLines.push(currentLine);
+        
+        let titleY = 85;
+        titleLines.forEach((lineText, idx) => {
+            ctx.fillText(lineText, width / 2, titleY + idx * 24);
+        });
+        ctx.restore();
+
+        // 4. Draw Excerpt (First 3 lines of the poem)
+        ctx.save();
+        ctx.fillStyle = currentQrStyle === 'midnight' ? '#cbd5e1' : '#451a03';
+        ctx.font = 'italic 14px serif';
+        ctx.textAlign = 'center';
+        
+        const rawLines = poem.content_text ? poem.content_text.split('\n').filter(l => l.trim().length > 0).slice(0, 3) : [];
+        let excerptY = titleY + titleLines.length * 24 + 16;
+        
+        rawLines.forEach((lineText, idx) => {
+            ctx.fillText(lineText, width / 2, excerptY + idx * 20);
+        });
+        ctx.restore();
+
+        // 5. Draw QR Code
+        const qrSize = 140;
+        const qrX = (width - qrSize) / 2;
+        const qrY = 270;
+        const linkUrl = `https://zzcfizz.blog/#poem-${poem.id}`;
+        
+        const qrDarkColor = currentQrStyle === 'midnight' ? '#110d1c' : '#78350f';
+        const qrLightColor = currentQrStyle === 'midnight' ? '#ffffff' : '#fdf6e2';
+        
+        drawQrCodeCanvas(ctx, linkUrl, qrX, qrY, qrSize, qrDarkColor, qrLightColor);
+
+        // 6. Draw Footer Text
+        ctx.save();
+        ctx.fillStyle = currentQrStyle === 'midnight' ? '#94a3b8' : '#78350f';
+        ctx.font = '500 11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('QUÉT MÃ ĐỂ ĐỌC BÀI THƠ NÀY', width / 2, qrY + qrSize + 24);
+        
+        ctx.fillStyle = currentQrStyle === 'midnight' ? 'rgba(99, 102, 241, 0.7)' : 'rgba(180, 83, 9, 0.7)';
+        ctx.font = '400 10px sans-serif';
+        ctx.fillText('zzcfizz.blog', width / 2, qrY + qrSize + 40);
+        ctx.restore();
+    }
+
     // ----------------------------------------------------------------------
     // Poetry AI Chatbot & Recommendation Engine
     // ----------------------------------------------------------------------
@@ -1732,6 +1921,44 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // QR Badge Modal Events
+        if (modalQrBadgeBtn) {
+            modalQrBadgeBtn.addEventListener('click', () => {
+                renderQrBadgeCanvas();
+                if (qrBadgeModal && !qrBadgeModal.open) qrBadgeModal.showModal();
+            });
+        }
+        if (closeQrBadgeModalBtn) {
+            closeQrBadgeModalBtn.addEventListener('click', () => qrBadgeModal.close());
+        }
+        if (qrStyleMidnight) {
+            qrStyleMidnight.addEventListener('click', () => {
+                qrStyleMidnight.classList.add('active');
+                if (qrStylePaper) qrStylePaper.classList.remove('active');
+                currentQrStyle = 'midnight';
+                renderQrBadgeCanvas();
+            });
+        }
+        if (qrStylePaper) {
+            qrStylePaper.addEventListener('click', () => {
+                qrStylePaper.classList.add('active');
+                if (qrStyleMidnight) qrStyleMidnight.classList.remove('active');
+                currentQrStyle = 'paper';
+                renderQrBadgeCanvas();
+            });
+        }
+        if (downloadQrBadgeBtn && qrBadgeCanvas) {
+            downloadQrBadgeBtn.addEventListener('click', () => {
+                const poem = filteredPoemsList[activePoemIndex];
+                const titleSlug = (poem ? poem.title : 'poem').replace(/[^a-zA-Z0-9_]/g, '_');
+                const link = document.createElement('a');
+                link.download = `TheQR_${titleSlug}.png`;
+                link.href = qrBadgeCanvas.toDataURL('image/png');
+                link.click();
+                showToast('🎫 Đã tải thẻ QR chia sẻ về máy!');
+            });
+        }
+
         if (btnAutoScroll) btnAutoScroll.addEventListener('click', toggleAutoScroll);
 
         if (fontFamilySelect) {
@@ -2020,26 +2247,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 backToTopBtn.hidden = currentY < 300;
             }
 
-            if (siteHeader) {
-                if (currentY > 200 && currentY > lastWinScrollY + 12 && !headerInUse()) {
-                    siteHeader.classList.add('is-condensed');
-                } else if (currentY <= 80) {
-                    siteHeader.classList.remove('is-condensed');
-                }
-            }
-
-            if (window.innerWidth <= 768) {
-                if (currentY > 150 && currentY > lastWinScrollY + 12) {
-                    if (controlsBar && !controlsBar.classList.contains('is-collapsed-by-user')) {
-                        controlsBar.classList.add('is-collapsed');
-                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.add('is-visible');
-                    }
-                } else if (currentY < lastWinScrollY - 12 || currentY <= 50) {
-                    if (controlsBar) {
-                        controlsBar.classList.remove('is-collapsed', 'is-collapsed-by-user');
-                        if (floatingExpandFilterBtn) floatingExpandFilterBtn.classList.remove('is-visible');
+            // Only condense header on desktop/tablet views to prevent lag on mobile scroll
+            if (window.innerWidth > 768) {
+                if (siteHeader) {
+                    if (currentY > 200 && currentY > lastWinScrollY + 12 && !headerInUse()) {
+                        siteHeader.classList.add('is-condensed');
+                    } else if (currentY <= 80) {
+                        siteHeader.classList.remove('is-condensed');
                     }
                 }
+            } else {
+                if (siteHeader) siteHeader.classList.remove('is-condensed');
             }
             lastWinScrollY = currentY;
         }, { passive: true });
@@ -2067,29 +2285,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Poem Detail Modal Card Scroll for Auto Collapsing Actions
-        let lastModalScrollY = 0;
-        const poemModalCard = document.querySelector('.modal-card');
-        const modalHeader = document.querySelector('.modal-header');
-        const toggleModalActionsBtn = document.getElementById('toggleModalActionsBtn');
-
-        if (poemModalCard && modalHeader) {
-            poemModalCard.addEventListener('scroll', () => {
-                if (window.innerWidth > 768) return;
-                const currentY = poemModalCard.scrollTop;
-
-                if (currentY > 60 && currentY > lastModalScrollY + 8) {
-                    if (!modalHeader.classList.contains('actions-manual-toggled')) {
-                        modalHeader.classList.add('actions-collapsed');
-                        if (toggleModalActionsBtn) toggleModalActionsBtn.classList.add('active');
-                    }
-                } else if (currentY < lastModalScrollY - 8 || currentY <= 20) {
-                    modalHeader.classList.remove('actions-collapsed', 'actions-manual-toggled');
-                    if (toggleModalActionsBtn) toggleModalActionsBtn.classList.remove('active');
-                }
-                lastModalScrollY = currentY;
-            }, { passive: true });
-        }
+        // Poem Detail Modal Card Scroll for Auto Collapsing Actions (Removed auto-collapse on scroll to prevent lag)
 
         if (toggleModalActionsBtn && modalHeader) {
             toggleModalActionsBtn.addEventListener('click', (e) => {

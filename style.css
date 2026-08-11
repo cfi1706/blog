@@ -1777,40 +1777,59 @@ dialog::backdrop {
         overflow-x: hidden !important;
     }
 
-    /* Title row: title + close button side by side */
+    /* Title row: stacked layout on mobile so long titles never get cut off */
     .modal-header-top {
-        gap: 6px !important;
+        display: flex !important;
+        flex-direction: column !important;
         align-items: center !important;
+        text-align: center !important;
+        gap: 8px !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
     .modal-title-area {
+        width: 100% !important;
+        text-align: center !important;
         min-width: 0 !important;
-        flex: 1 !important;
-        overflow: hidden !important;
+        flex: none !important;
+        overflow: visible !important;
     }
     .modal-poem-title {
-        font-size: 16px !important;
+        font-size: 18px !important;
         line-height: 1.3 !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        margin-bottom: 0 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        margin-bottom: 2px !important;
+        text-align: center !important;
+        font-weight: 700 !important;
     }
     .modal-poem-date {
         font-size: 10.5px !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 4px !important;
     }
     .modal-category-badge {
         font-size: 9px !important;
         letter-spacing: 0.5px !important;
-        margin-bottom: 1px !important;
+        margin: 0 auto 3px auto !important;
+        display: inline-flex !important;
     }
     .modal-top-btns {
-        gap: 3px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 4px !important;
+        width: 100% !important;
+        margin-top: 4px !important;
         flex-shrink: 0 !important;
     }
     .modal-top-btns .nav-icon-btn,
@@ -1827,6 +1846,24 @@ dialog::backdrop {
     }
     .modal-top-btns .header-divider-v {
         display: none !important;
+    }
+
+    /* Disable heavy backdrop-filters on mobile to fix scrolling stutter */
+    .site-header {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: var(--bg-surface) !important;
+    }
+
+    dialog[open], .lightbox-modal::backdrop {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    #poemModal .modal-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
     }
 
     /* ---- Modal Action Toolbar: single horizontal scrolling bar ---- */

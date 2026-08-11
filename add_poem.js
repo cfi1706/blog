@@ -8,6 +8,53 @@ const path = require('path');
 // run `node convert_to_webp.js` then `node gen_thumbnails.js` so both the full .webp and
 // its .thumb.webp exist (cards use the thumb, the reader uses the full). See CLAUDE.md.
 
+function classifyPoem(contentText) {
+    if (!contentText) return 'Tự do';
+    const lines = contentText.split('\n')
+        .map(line => line.trim().replace(/[\u200B-\u200D\uFEFF]/g, ''))
+        .filter(line => line.length > 0);
+    if (lines.length === 0) return 'Tự do';
+    const wordCounts = lines.map(line => {
+        return line.split(/\s+/).filter(word => word.length > 0).length;
+    });
+    const totalLines = wordCounts.length;
+
+    // 1. Check for Lục Bát: 6-8 alternating
+    let scoreA = 0;
+    let scoreB = 0;
+    for (let i = 0; i < totalLines; i++) {
+        const count = wordCounts[i];
+        if (count === (i % 2 === 0 ? 6 : 8)) scoreA++;
+        if (count === (i % 2 === 0 ? 8 : 6)) scoreB++;
+    }
+    const ratioA = scoreA / totalLines;
+    const ratioB = scoreB / totalLines;
+    if (ratioA >= 0.7 || ratioB >= 0.7) return 'Lục bát';
+
+    // 2. Check for Song Thất Lục Bát
+    let scoreSTL = 0;
+    const stlPattern = [7, 7, 6, 8];
+    for (let i = 0; i < totalLines; i++) {
+        if (wordCounts[i] === stlPattern[i % 4]) scoreSTL++;
+    }
+    if (scoreSTL / totalLines >= 0.7) return 'Song thất lục bát';
+
+    // 3. Check for Thất Ngôn
+    const sevenWordLines = wordCounts.filter(c => c === 7).length;
+    const isMostlySeven = (sevenWordLines / totalLines) >= 0.8;
+    if (isMostlySeven) {
+        if (totalLines === 8) return 'Thất ngôn bát cú';
+        if (totalLines === 4) return 'Thất ngôn tứ tuyệt';
+        return 'Thất ngôn';
+    }
+
+    // 4. Check for Ngũ Ngôn
+    const fiveWordLines = wordCounts.filter(c => c === 5).length;
+    if ((fiveWordLines / totalLines) >= 0.8) return 'Ngũ ngôn';
+
+    return 'Tự do';
+}
+
 function addPoem(title, contentText, imageUrl = '') {
     if (!contentText || !contentText.trim()) {
         console.error('Lỗi: Nội dung bài thơ không được để trống.');
@@ -42,6 +89,7 @@ function addPoem(title, contentText, imageUrl = '') {
         title: finalTitle,
         date: now.toISOString(),
         date_formatted: formattedDate,
+        genre: classifyPoem(cleanText),
         content_html: `\n${paragraphs}\n`,
         content_text: cleanText,
         featured_image: imageUrl || '',

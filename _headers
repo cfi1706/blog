@@ -1,0 +1,22 @@
+# HTTP Cache Headers Configuration for Netlify & Cloudflare Pages
+
+# 1. HTML Documents - Always revalidate so site updates are instant
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 2. Immutable Static Assets (Images WebP/PNG/SVG) - Cache for 1 Year
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# 3. CSS & JS Core Bundle - Cache with Stale-While-Revalidate
+/*.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

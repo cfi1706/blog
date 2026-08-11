@@ -17,6 +17,12 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="tokens.css" as="style">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="poems.js" as="script">
+    <link rel="preload" href="app.js" as="script">
+
     <!-- Google Fonts: CRITICAL only (UI sans + headings + default poem serif), non-blocking.
          Picker-only fonts (Cormorant/Dancing/Merriweather) are lazy-loaded on first reader open — see app.js ensurePickerFonts(). -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -366,6 +372,7 @@
                         </button>
                         <div id="ddUtils" class="hdr-menu md-dd-panel" hidden>
                             <button id="quoteCardBtn" class="hdr-menu-item"><i class="ri-image-edit-line"></i> Tạo thiệp thơ</button>
+                            <button id="modalQrBadgeBtn" class="hdr-menu-item"><i class="ri-qr-code-line"></i> Tạo QR chia sẻ</button>
                             <button id="modalCopyBtn" class="hdr-menu-item"><i class="ri-file-copy-line"></i> Sao chép thơ</button>
                             <button id="modalShareBtn" class="hdr-menu-item"><i class="ri-share-line"></i> Chia sẻ liên kết</button>
                             <button id="printPoemBtn" class="hdr-menu-item"><i class="ri-printer-line"></i> In thơ khổ A5</button>
@@ -447,6 +454,32 @@
 
                     <button id="downloadCardBtn" class="btn btn-primary btn-block">
                         <i class="ri-download-2-line"></i> Tải Thiệp Thơ PNG Về Máy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- POEM QR BADGE MODAL -->
+    <dialog id="qrBadgeModal" class="quote-card-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card quote-card-dialog" style="max-width: 440px;">
+            <header class="modal-header">
+                <h3><i class="ri-qr-code-line"></i> Tạo QR Code Chia Sẻ Thơ</h3>
+                <button id="closeQrBadgeModalBtn" class="modal-close-btn" title="Đóng"><i class="ri-close-line"></i></button>
+            </header>
+            <div class="quote-card-body" style="flex-direction: column; gap: 16px; align-items: center; padding: 20px;">
+                <div class="quote-card-preview-area" style="width: 100%; display: flex; justify-content: center; align-items: center; background: none; box-shadow: none; padding: 0;">
+                    <canvas id="qrBadgeCanvas" width="400" height="520" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.35);"></canvas>
+                </div>
+                <div style="width: 100%; display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+                    <label class="control-label" style="margin: 0; font-size: 13px; color: var(--text-secondary);">Chọn phong cách thiết kế:</label>
+                    <div style="display: flex; gap: 10px; width: 100%;">
+                        <button id="qrStyleMidnight" class="card-style-opt active" style="flex: 1; font-size: 13px; padding: 8px;">🌌 Midnight</button>
+                        <button id="qrStylePaper" class="card-style-opt" style="flex: 1; font-size: 13px; padding: 8px;">📜 Warm Paper</button>
+                    </div>
+                    <button id="downloadQrBadgeBtn" class="btn btn-primary btn-block" style="margin-top: 6px;">
+                        <i class="ri-download-2-line"></i> Tải Thẻ QR Chia Sẻ Về Máy
                     </button>
                 </div>
             </div>
