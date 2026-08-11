@@ -1391,7 +1391,7 @@ dialog::backdrop {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: var(--z-toast);
+    z-index: 9999;
     transition: transform var(--dur-short) var(--ease-out), background var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
 }
 

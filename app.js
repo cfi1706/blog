@@ -2318,7 +2318,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (backToTopBtn) {
             backToTopBtn.addEventListener('click', () => {
+                const openModalCard = document.querySelector('dialog[open] .modal-card');
+                if (openModalCard) {
+                    openModalCard.scrollTo({ top: 0, behavior: 'smooth' });
+                }
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (document.documentElement) document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+                if (document.body) document.body.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
 
