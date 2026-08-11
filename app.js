@@ -2385,23 +2385,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Keyboard navigation inside poem modal.
-            // Skip keys aimed at form controls (voice/speed/font selects,
-            // sliders): Home/End/arrows must keep their native behavior there.
             const inFormControl = e.target && e.target.closest
                 && e.target.closest('input, textarea, select');
-            if (poemModal.open && !inFormControl) {
-                if (e.key === 'Home' || (e.shiftKey && e.key === 'ArrowLeft')) {
+
+            const isLeft = e.key === 'ArrowLeft' || e.key === 'Left' || e.code === 'ArrowLeft';
+            const isRight = e.key === 'ArrowRight' || e.key === 'Right' || e.code === 'ArrowRight';
+            const isHome = e.key === 'Home' || e.code === 'Home';
+            const isEnd = e.key === 'End' || e.code === 'End';
+
+            if (poemModal && poemModal.open && !inFormControl) {
+                if (isHome || (e.shiftKey && isLeft)) {
                     e.preventDefault();
                     openReaderModal(0);
                     showToast('⏮️ Bài thơ đầu tiên');
-                } else if (e.key === 'End' || (e.shiftKey && e.key === 'ArrowRight')) {
+                } else if (isEnd || (e.shiftKey && isRight)) {
                     e.preventDefault();
                     openReaderModal(filteredPoemsList.length - 1);
                     showToast('⏭️ Bài thơ cuối cùng');
-                } else if (e.key === 'ArrowLeft' && activePoemIndex > 0) {
+                } else if (isLeft) {
                     e.preventDefault();
                     openReaderModal(activePoemIndex - 1);
-                } else if (e.key === 'ArrowRight' && activePoemIndex < filteredPoemsList.length - 1) {
+                } else if (isRight) {
                     e.preventDefault();
                     openReaderModal(activePoemIndex + 1);
                 }
